@@ -11,12 +11,6 @@
         if (mysqli_connect_error()) {
             die("Error en la conexión a la base de datos.");
         }
-
         return $conn;
-    }
-
-    function desconectar($conn)
-    {
-        mysqli_close($conn);
     }
 ?>
