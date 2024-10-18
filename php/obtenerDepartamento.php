@@ -1,7 +1,6 @@
 <?php
-    include_once 'conexion.php'
+    include_once 'conexion.php';
     $conexion = conectar();
-
     $stmt = "SELECT id, departamento FROM departamentos";
     $resultado = $conexion->query($stmt);
     $departamentos = array();

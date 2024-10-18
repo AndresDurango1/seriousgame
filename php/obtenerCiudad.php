@@ -1,7 +1,7 @@
 <?php
     include 'conexion.php'; 
     $conexion = conectar();
-    $id_departamento = $_GET['id'];
+    $id_departamento = $_GET['id_departamento'];
 
     $sql = "SELECT id, ciudad FROM ciudades WHERE id_departamento = ?";
     $stmt = $conexion->prepare($sql);

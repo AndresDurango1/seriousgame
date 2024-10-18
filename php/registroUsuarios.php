@@ -8,13 +8,10 @@
         $nombre = $_POST['inputNombre'];
         $apellido = $_POST['inputApellido'];
         $usuario = $_POST['inputUsuario'];
-        $contrasena = $_POST['inputContrasena'];
         $correo = $_POST['inputCorreo'];
-        $departamento = $_POST['inputDepartamento'];
-        $ciudad = $_POST['inputCiudad'];
-        $edad = $_POST['inputEdad'];
+        $contrasena = $_POST['inputContrasena'];
 
-        $stmt = $conexion->prepare("SELECT * FROM usuarios WHERE usuario = ?");
+        $stmt = $conexion->prepare("SELECT usuario FROM usuarios WHERE usuario = ?");
         $stmt->bind_param("s", $usuario);
         $stmt->execute();
         $resultado = $stmt->get_result();
@@ -24,12 +21,12 @@
         } else {
             $contrasena_encriptada = password_hash($contrasena, PASSWORD_BCRYPT);
 
-            $stmt = $conexion->prepare("INSERT INTO usuarios (identificacion, nombre, apellido, usuario, contrasena, correo, departamento, ciudad, edad) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("ssssssssi", $identificacion, $nombre, $apellido, $usuario, $contrasena_encriptada, $correo, $departamento, $ciudad, $edad);
+            $stmt = $conexion->prepare("INSERT INTO usuarios (identificacion, nombre, apellido, usuario, correo, contrasena) VALUES (?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("ssssss", $identificacion, $nombre, $apellido, $usuario, $correo, $contrasena_encriptada);
             if ($stmt->execute()) {
-                echo "Registro exitoso";
+                echo "¡Registro Exitoso!";
             } else {
-                echo "Error en el registro";
+                echo "¡Error en el registro!";
             }
         }
         $stmt->close();
