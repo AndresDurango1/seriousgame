@@ -8,7 +8,7 @@
 <body>
     <div class="contenedorPrincipal">
         <div class="contenedorFormulario">
-            <form class="formularioRegistro" action="../php/registroUsuarios.php">
+            <form class="formularioRegistro" action="../php/registroUsuarios.php" method="post">
                 <label for="lblIdentificacion">Identificacion</label>
                 <input type="number" name="inputIdentificacion" id="inputIdentificacion" placeholder="Ingresa tu Numero de Identificacion" require>
                 <label for="lblNombre">Nombre</label>
