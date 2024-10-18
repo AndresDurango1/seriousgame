@@ -3,7 +3,7 @@
     $conexion = conectar();
     $id_departamento = $_GET['id_departamento'];
 
-    $sql = "SELECT id, ciudad FROM ciudades WHERE id_departamento = ?";
+    $sql = "SELECT id_ciudad, ciudad FROM ciudades WHERE id_departamento = ?";
     $stmt = $conexion->prepare($sql);
     $stmt->bind_param("i", $id_departamento);
     $stmt->execute();
@@ -12,7 +12,7 @@
     if ($resultado->num_rows > 0) {
         while($row = $resultado->fetch_assoc()) {
             $ciudades[] = array(
-                "id" => $row['id'],
+                "id" => $row['id_ciudad'],
                 "ciudad" => $row['ciudad']
             );
         }

@@ -13,6 +13,9 @@
             $fila = $resultado->fetch_assoc();
             $contrasena_encriptada = $fila['contrasena'];
 
+            echo "Contraseña ingresada: " . $contrasena . "<br>"; 
+            echo "Contraseña encriptada en la base de datos: " . $contrasena_encriptada . "<br>";
+
             if (password_verify($contrasena, $contrasena_encriptada)) {
                 echo "Inicio de sesión exitoso";
             } else {

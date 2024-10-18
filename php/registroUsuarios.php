@@ -2,6 +2,9 @@
     include_once 'conexion.php';
     $conexion = conectar();
 
+    // Imprimir los datos enviados para verificar
+    print_r($_POST);
+    
     if ($_SERVER["REQUEST_METHOD"] == "POST") 
     {
         $identificacion = $_POST['inputIdentificacion'];
@@ -22,7 +25,7 @@
             $contrasena_encriptada = password_hash($contrasena, PASSWORD_BCRYPT);
 
             $stmt = $conexion->prepare("INSERT INTO usuarios (identificacion, nombre, apellido, usuario, correo, contrasena) VALUES (?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("ssssss", $identificacion, $nombre, $apellido, $usuario, $correo, $contrasena_encriptada);
+            $stmt->bind_param("isssss", $identificacion, $nombre, $apellido, $usuario, $correo, $contrasena_encriptada);
             if ($stmt->execute()) {
                 echo "¡Registro Exitoso!";
             } else {
