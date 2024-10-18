@@ -15,6 +15,8 @@
 
         <button type="submit">Iniciar sesión</button>
     </form>
-
+    <p>
+        <a href="formularioRecuperarContraseña.php">¿Olvidaste tu contraseña?</a>
+    </p>
 </body>
 </html>

@@ -4,13 +4,14 @@
 
     // Imprimir los datos enviados para verificar
     print_r($_POST);
-    
+
     if ($_SERVER["REQUEST_METHOD"] == "POST") 
     {
         $identificacion = $_POST['inputIdentificacion'];
         $nombre = $_POST['inputNombre'];
         $apellido = $_POST['inputApellido'];
         $usuario = $_POST['inputUsuario'];
+        $rol = isset($_POST['inputRol']) ? $_POST['inputRol'] : 0;
         $correo = $_POST['inputCorreo'];
         $contrasena = $_POST['inputContrasena'];
 
@@ -24,8 +25,8 @@
         } else {
             $contrasena_encriptada = password_hash($contrasena, PASSWORD_BCRYPT);
 
-            $stmt = $conexion->prepare("INSERT INTO usuarios (identificacion, nombre, apellido, usuario, correo, contrasena) VALUES (?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("isssss", $identificacion, $nombre, $apellido, $usuario, $correo, $contrasena_encriptada);
+            $stmt = $conexion->prepare("INSERT INTO usuarios (identificacion, nombre, apellido, usuario, rol, correo, contrasena) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("isssiss", $identificacion, $nombre, $apellido, $usuario, $rol, $correo, $contrasena_encriptada);
             if ($stmt->execute()) {
                 echo "¡Registro Exitoso!";
             } else {
