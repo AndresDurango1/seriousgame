@@ -10,7 +10,7 @@
     if (isset($_GET['token'])) {
         $token = $_GET['token'];
         echo '
-        <form action="restablecerContrasena.php" method="POST">
+        <form action="../php/restablecerContrasena.php" method="POST">
             <input type="hidden" name="token" value="' . htmlspecialchars($token) . '">
             <label for="inputNuevaContrasena">Nueva Contraseña</label>
             <input type="password" name="inputNuevaContrasena" required>

@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="../php/recuperarContraseña.php" method="post">
+    <form action="../php/recuperarContrasena.php" method="post">
         <label for="inputCorreo">Ingresa tu correo</label>
         <input type="email" name="inputCorreo" id="inputCorreo">
         <button type="submit">Recuperar</button>
