@@ -35,7 +35,7 @@
             <p class="presentacion">
                 Embárcate en una épica aventura con tu Avatar, un humanoide con el poder de transformarse en quark,
                  mientras explora vastos centros de datos y descubre mundos ocultos. Viaja junto a una tripulación leal a bordo de tu nave,
-                  enfrentando desafíos en cada mundo para avanzar.
+                enfrentando desafíos en cada mundo para avanzar. ...
             </p>
             <div class="contenedorBotonesHome">
                 
@@ -86,7 +86,7 @@
     <script>
         function showFeature(featureName) {
             const descriptionElement = document.getElementById('feature-description');
-            descriptionElement.innerText = Has seleccionado: ${featureName}. Más detalles próximamente.;
+            descriptionElement.innerText = "Has seleccionado:" ${featureName} "Más detalles próximamente.";
         }
     </script>
 </div>
