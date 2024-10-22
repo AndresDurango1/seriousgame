@@ -6,17 +6,5 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="../php/login.php" method="POST">
-        <label for="inputUsuario">Usuario</label>
-        <input type="text" name="inputUsuario" id="inputUsuario" required>
-
-        <label for="inputContrasena">Contraseña</label>
-        <input type="password" name="inputContrasena" id="inputContrasena" required>
-
-        <button type="submit">Iniciar sesión</button>
-    </form>
-    <p>
-        <a href="formularioRecuperarContrasena.php">¿Olvidaste tu contraseña?</a>
-    </p>
 </body>
 </html>

@@ -1,22 +1,24 @@
+@import url(estilosFormularioInicioSesion.css);
+@import url(estilosFormularioRegistro.css);
 *{
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
 }
 @font-face {
-    font-family: 'tigo';
-    src: url('../recursos/LetraTigo/tigo.ttf');
+    font-family: 'IMFellDWPica';
+    src: url('../recursos/Letra_im_fell_dw_pica/IMFellDWPica-Regular.ttf');
   }
 body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    overflow: hidden;
     background-color: #023E73;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    font-family: 'tigo', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif
+    font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+    overflow-x: hidden;
 }
 body .contenedorPrincipal {
     width: 100vw;
@@ -28,17 +30,17 @@ body .contenedorPrincipal {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-/* BARRA DE NAVEGACION */
+/* Estilos de la barra de navegación */
 body .contenedorPrincipal .barraNavegacion {
     width: 100%;
     height: 5vh;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.3); /* Blanco semi-transparente */      
+    background-color: rgba(255, 255, 255, 0.2);      
 }
 body .contenedorPrincipal .barraNavegacion .contenedorLista {
-    width: 60%;
+    width: 50%;
     height: 100%;
     display: flex;
     justify-content: space-around;
@@ -55,82 +57,44 @@ body .contenedorPrincipal .barraNavegacion .contenedorLista .opcionesNavegacion 
     font-weight: bold;
     color: white;
 }
-body .contenedorPrincipal .barraNavegacion .contenedorBotones {
-    width: 40%;
-    height: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+body .contenedorPrincipal .barraNavegacion .contenedorLista .opcionesNavegacion li a {
+    position: relative;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
 }
-body .contenedorPrincipal .barraNavegacion .contenedorBotones .btnLoging,
-body .contenedorPrincipal .barraNavegacion .contenedorBotones .btnRegistrar {
-    width: 25%;
-    height: 50%;
-    padding: 12px 28px;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    color: #fff;
-    background-image: linear-gradient(to bottom right, #00c6ff, #0072ff);
-    border: none;
-    border-radius: 20px;
-    box-shadow: 0px 4px 0px #0072ff;
-    transition: all 0.2s ease-in-out;
-    cursor: pointer;
+body .contenedorPrincipal .barraNavegacion .contenedorLista .opcionesNavegacion li a.active {
+    background-color: #296CA6;
+    color: white;
 }
-body .contenedorPrincipal .barraNavegacion .contenedorBotones .btnLoging:hover,
-body .contenedorPrincipal .barraNavegacion .contenedorBotones .btnRegistrar:hover {
-    transform: translateY(-2px);
-    box-shadow: 0px 6px 0px #0072ff;
-}
-body .contenedorPrincipal .barraNavegacion .contenedorBotones .btnLoging:active,
-body .contenedorPrincipal .barraNavegacion .contenedorBotones .btnRegistrar:active {
-    transform: translateY(0px);
-    box-shadow: none;
-    background-image: linear-gradient(to bottom right, #0072ff, #00c6ff);
-}
-body .contenedorPrincipal .barraNavegacion .contenedorBotones .btnLoging:before,
-body .contenedorPrincipal .barraNavegacion .contenedorBotones .btnRegistrar:before,
-body .contenedorPrincipal .barraNavegacion .contenedorBotones .btnLoging::after,
-body .contenedorPrincipal .barraNavegacion .contenedorBotones .btnRegistrar::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-}
-body .contenedorPrincipal .barraNavegacion .contenedorBotones .btnLoging:before,
-body .contenedorPrincipal .barraNavegacion .contenedorBotones .btnRegistrar:before {
-  top: -3px;
-  left: -3px;
-  border-radius: 40px;
-  border-top: 3px solid #fff;
-  border-left: 3px solid #fff;
-}
-body .contenedorPrincipal .barraNavegacion .contenedorBotones .btnLoging::after,
-body .contenedorPrincipal .barraNavegacion .contenedorBotones .btnRegistrar::after {
-  bottom: -3px;
-  right: -3px;
-  border-radius: 40px;
-  border-bottom: 3px solid #fff;
-  border-right: 3px solid #fff;
+
+body .contenedorPrincipal .barraNavegacion .contenedorLista .opcionesNavegacion li a.active::before {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #296CA6;
 }
 /* SECCION HOME */
 body .contenedorPrincipal .home {
     width: 100%;
-    height: 70%;
+    height: 80%;
+    padding-left: 1%;
+    padding-right: 1%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 body .contenedorPrincipal .home .titulo {
-    width: 50%;
+    width: 100%;
     height: 30%;
+    margin-top: 5%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
     font-size: 72px;
@@ -138,8 +102,9 @@ body .contenedorPrincipal .home .titulo {
     color: white;
 }
 body .contenedorPrincipal .home .presentacion {
-    width: 50%;
+    width: 40%;
     height: 30%;
+    margin-top: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -149,8 +114,9 @@ body .contenedorPrincipal .home .presentacion {
     color: white;
 }
 body .contenedorPrincipal .home .contenedorBotonesHome {
-    width: 50%;
-    height: 30%;
+    width: 40%;
+    height: 40%;
+    margin-top: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -158,19 +124,19 @@ body .contenedorPrincipal .home .contenedorBotonesHome {
 body .contenedorPrincipal .home .contenedorBotonesHome .btnLoging,
 body .contenedorPrincipal .home .contenedorBotonesHome .btnRegistrar {
     width: 20%;
-    height: 40%;
-    padding: 12px 28px;
+    height: 60%;
+    padding: 6px 6px;
     margin: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: none;
+    border-radius: 15px;
     text-align: center;
     font-size: 20px;
     font-weight: bold;
-    color: #fff;
+    color: white;
     background-image: linear-gradient(to bottom right, #00c6ff, #0072ff);
-    border: none;
-    border-radius: 20px;
     box-shadow: 0px 4px 0px #0072ff;
     transition: all 0.2s ease-in-out;
     cursor: pointer;
@@ -211,29 +177,32 @@ body .contenedorPrincipal .home .contenedorBotonesHome .btnRegistrar::after {
   border-bottom: 3px solid #fff;
   border-right: 3px solid #fff;
 }
-body .contenedorPrincipal .home .contenedorMensajeScroll { 
-    width: 100%;
-    height: 5%;
-    display: flex;
-    justify-content: center;
-}
-body .contenedorPrincipal .home .mensajeScroll {
-    width: 100%;
-    height: auto;
-    margin: auto;
-    text-align: center;
-    font-size: 15px;
-    font-weight: bold;
-    color: white;
-}
 body .contenedorPrincipal .home  .contenedorScrollIcon {
     width: 100%;
     height: 10%;
+    margin-top: 10%;
     display: flex;
     justify-content: center;
 }
 body .contenedorPrincipal .home  .contenedorScrollIcon .scrollIcon {
     object-fit: contain;
+    width: 80%;
+    height: 80%;
+}
+body .contenedorPrincipal .home .contenedorMensajeScroll { 
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+}
+body .contenedorPrincipal .home .mensajeScroll {
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
 }
+

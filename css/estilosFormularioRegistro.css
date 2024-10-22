@@ -1,0 +1,31 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'IMFellDWPica';
+    src: url('../recursos/Letra_im_fell_dw_pica/IMFellDWPica-Regular.ttf');
+  }
+body .contenedorFormularioRegistro{
+    width: 40%;
+    height: 30%;
+    margin: auto;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    background-color: aliceblue;
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+body .contenedorFormularioRegistro .formularioRegistro{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
