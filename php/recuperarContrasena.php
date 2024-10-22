@@ -26,12 +26,14 @@
             // Datos para enviar en el cuerpo de la solicitud a Mailtrap
             $data = array(
                 'from' => array(
-                    'email' => 'durangoandres553@gmail.com', // Remitente
-                    'name' => 'Andres Durango'
+                    //Remitente
+                    'email' => 'soportejuego@email.com', 
+                    'name' => 'Soporte'
                 ),
                 'to' => array(
                     array(
-                        'email' => $correo // Destinatario
+                        // Destinatario
+                        'email' => $correo 
                     )
                 ),
                 'subject' => 'Recuperación de contraseña',

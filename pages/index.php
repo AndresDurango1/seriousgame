@@ -10,7 +10,7 @@
 <body>
     <div class="contenedorPrincipal">
         <video autoplay muted loop class="video-background">
-            <source src="../recursos/videos/intro.mp4" type="video/mp4">
+            <source src="../recursos/videos/intro_2.mp4" type="video/mp4">
             Tu navegador no soporta el video.
         </video>
 
