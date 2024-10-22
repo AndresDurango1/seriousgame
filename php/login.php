@@ -14,8 +14,8 @@
             $fila = $resultado->fetch_assoc();
             $contrasena_encriptada = $fila['contrasena'];
             $rol = $fila['rol'];
-            echo "Usuario: " . $usuario . "<br>";
-            echo "Rol: " . $rol . "<br>";
+            // echo "Usuario: " . $usuario . "<br>";
+            // echo "Rol: " . $rol . "<br>";
             if (password_verify($contrasena, $contrasena_encriptada)) {
                 $_SESSION['usuario'] = $usuario;
                 $_SESSION['rol'] = $rol;
@@ -24,7 +24,7 @@
                 echo "Contraseña incorrecta";
             }
         } else {
-            echo "Usuario no encontrado";
+            echo "El usuario no existe o es incorrecto";
         }
         $stmt->close();
         $conexion->close();

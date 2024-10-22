@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/indexStyles.css">
+    <link rel="stylesheet" href="../css/estilosIndex.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>Document</title>
 </head>
 <body>
     <div class="contenedorPrincipal">
+        <video autoplay muted loop class="video-background">
+            <source src="../recursos/videos/intro.mp4" type="video/mp4">
+            Tu navegador no soporta el video.
+        </video>
+
         <nav class="barraNavegacion">
             <div class="contenedorLista">
                 <ol class="opcionesNavegacion">

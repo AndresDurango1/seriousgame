@@ -10,6 +10,8 @@
     src: url('../recursos/Letra_im_fell_dw_pica/IMFellDWPica-Regular.ttf');
   }
 body {
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -25,10 +27,16 @@ body .contenedorPrincipal {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-image: url(../recursos/img/Fondo.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    position: relative;
+}
+body .contenedorPrincipal .video-background {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; 
+    object-fit: cover;
 }
 /* Estilos de la barra de navegación */
 body .contenedorPrincipal .barraNavegacion {
@@ -37,7 +45,8 @@ body .contenedorPrincipal .barraNavegacion {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.2);      
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 1;
 }
 body .contenedorPrincipal .barraNavegacion .contenedorLista {
     width: 50%;
@@ -88,6 +97,7 @@ body .contenedorPrincipal .home {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    z-index: 1;
 }
 body .contenedorPrincipal .home .titulo {
     width: 100%;
