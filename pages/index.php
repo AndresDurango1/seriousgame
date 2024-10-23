@@ -13,7 +13,6 @@
             <source src="../recursos/videos/intro_2.mp4" type="video/mp4">
             Tu navegador no soporta el video.
         </video>
-
         <nav class="barraNavegacion">
             <div class="contenedorLista">
                 <ol class="opcionesNavegacion">
@@ -40,7 +39,6 @@
                 <p class="mensajeScroll">Desliza para saber más</p>
             </div>
         </section>
-
         <!-- MODAL FORMULARIO INICIO DE SESION -->
         <div class="contenedorFormularioInicioSesion" id="contenedorFormularioInicioSesion">
             <div class="contenedorIconoCerrarIS">
@@ -90,15 +88,11 @@
                 <button type="submit">Enviar</button>
             </form>
         </div>
-
         <section class="about-us" id="about-us">
-
         </section>
         <section class="game-features" id="game-features">
-
         </section>
         <section class="player-handbook" id="player-handbook">
-
         </section>
     </div>
     <script src="../js/scriptBarraNavegacion.js"></script>
