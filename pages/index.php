@@ -33,7 +33,7 @@
                 <button class="btnRegistrar" id="btnRegistrar">Registrarse</button>
             </div>
             <div class="contenedorScrollIcon">
-                <img class="scrollIcon" src="../recursos/img/scrollIcon.png" alt="Icono Scroll">
+                <img class="scrollIcon" src="../recursos/img/iconoScroll.png" alt="Icono Scroll">
             </div>
             <div class="contenedorMensajeScroll">
                 <p class="mensajeScroll">Desliza para saber más</p>

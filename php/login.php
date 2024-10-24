@@ -21,7 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['id_usuario'] = $id_usuario;
             $_SESSION['usuario'] = $usuario; 
             $_SESSION['rol'] = $rol;
-
             // Preparar la respuesta como JSON
             $respuesta = [
                 "status" => "success",
