@@ -99,6 +99,7 @@
         </section>
         <section class="player-handbook" id="player-handbook">
         </section>
+        <!-- Creacion rama mariangel -->
     </div>
     <script src="../js/scriptBarraNavegacion.js"></script>
     <script src="../js/scriptModales.js"></script>
