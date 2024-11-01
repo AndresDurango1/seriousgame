@@ -6,6 +6,7 @@ $conexion = conectar();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuario = $_POST['inputUsuario'];
     $contrasena = $_POST['inputContrasena'];
+    $origen = isset($_POST['origen']) ? $_POST['origen'] : '';
     $stmt = $conexion->prepare("SELECT id_usuario, usuario, rol, contrasena FROM usuarios WHERE usuario = ?");
     $stmt->bind_param("s", $usuario);
     $stmt->execute();
@@ -29,6 +30,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 "rol" => $rol
             ];
             echo json_encode($respuesta);
+            if ($origen != "unity") {
+                if($rol == 1) {
+                    header("Location: ../pages/administrador.php");
+                } else {
+                    header("Location: ../pages/usuario.php");
+                }
+            }
         } else {
             echo json_encode(["status" => "error", "message" => "Contraseña incorrecta"]);
         }
