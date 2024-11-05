@@ -2,9 +2,6 @@
     include_once 'conexion.php';
     $conexion = conectar();
 
-    // Imprimir los datos enviados para verificar
-    print_r($_POST);
-
     if ($_SERVER["REQUEST_METHOD"] == "POST") 
     {
         $identificacion = $_POST['inputIdentificacion'];

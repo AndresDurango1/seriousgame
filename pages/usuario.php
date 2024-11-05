@@ -53,6 +53,8 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="../css/usuarioStyles.css">
 </head>
 <body>
@@ -84,17 +86,21 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
             </div>
             <div></div>
             <div class="contenedorFormularioActualizacion">
-                <form class="formularioActualizacion" action="../php/registroUsuarios.php" method="post">
+                <form class="formularioActualizacion" action="../php/actualizarUsuario.php" method="post">
+                    <label for="lbl-item" for="lblId" hidden>Id</label>
+                    <input type="number" name="inputId" id="inputId" value="<?php echo $id_usuario; ?>" hidden>
                     <label class="lbl-item" for="lblIdentificacion">Identificación</label>
                     <input class="input-item" type="number" name="inputIdentificacion" id="inputIdentificacion" value="<?php echo htmlspecialchars($fila['identificacion']); ?>" readonly>
                     <label class="lbl-item" for="lblNombre">Nombre</label>
-                    <input class="input-item" type="text" name="inputNombre" id="inputNombre" value="<?php echo htmlspecialchars($fila['nombre']); ?>" readonly>
+                    <input class="input-item" type="text" name="inputNombre" id="inputNombre" value="<?php echo htmlspecialchars($fila['nombre']); ?>">
                     <label class="lbl-item" for="lblApellido">Apellido</label>
-                    <input class="input-item" type="text" name="inputApellido" id="inputApellido" value="<?php echo htmlspecialchars($fila['apellido']); ?>" readonly>
-                    <label class="lbl-item" for="lblUsuario">Correo</label>
-                    <input class="input-item" type="text" name="inputCorreo" id="inputCorreo" value="<?php echo htmlspecialchars($fila['correo']); ?>" readonly>
+                    <input class="input-item" type="text" name="inputApellido" id="inputApellido" value="<?php echo htmlspecialchars($fila['apellido']); ?>">
+                    <label class="lbl-item" for="lblCorreo">Correo</label>
+                    <input class="input-item" type="text" name="inputCorreo" id="inputCorreo" value="<?php echo htmlspecialchars($fila['correo']); ?>">
                     <label class="lbl-item" for="lblContrasena">Contraseña</label>
-                    <input class="input-item" type="password" name="inputContrasena" id="inputContrasena" placeholder="Ingresa tu Nueva Contraseña" required>
+                    <input class="input-item" type="password" name="inputContrasena" id="inputContrasena" placeholder="Ingresa tu Nueva Contraseña">
+                    <label class="lbl-item" for="lblConfirmarContrasena">Confirmar Contraseña</label>
+                    <input class="input-item" type="password" name="inputConfirmarContrasena" id="inputConfirmarContrasena" placeholder="Confirma tu Nueva Contraseña">
                     <button class="btnActualizar" type="submit">ACTUALIZAR</button>
                 </form>
             </div>
@@ -104,7 +110,7 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
                 <div class="ranking">
                     <div class="ranking-item tercero">
                         <div class="ranking-content">
-                            <img src="character3.jpg" alt="Jugador 3">
+                            <img src="../recursos/img/iconoScroll.png" alt="Jugador 3">
                             <p>@SkyW</p>
                             <p>2nd</p>
                             <p>1234 votes</p>
@@ -112,7 +118,7 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
                     </div>
                     <div class="ranking-item primero">
                         <div class="ranking-content">
-                            <img src="character1.jpg" alt="Jugador 1">
+                            <img src="../recursos/img/iconoScroll.png" alt="Jugador 1">
                             <p>@Aethr</p>
                             <p>1st</p>
                             <p>1234 votes</p>
@@ -120,7 +126,7 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
                     </div>
                     <div class="ranking-item segundo">
                         <div class="ranking-content">
-                            <img src="character.jpg" alt="Jugador 2">
+                            <img src="../recursos/img/iconoScroll.png" alt="Jugador 2">
                             <p>@Elmnt</p>
                             <p>3rd</p>
                             <p>1234 votes</p>
@@ -129,7 +135,7 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
                 </div>
             </div>
             <div class="contenedorTabla">
-                <table>
+                <table class="tablaClasificacion">
                     <thead>
                         <tr>
                             <th>Usuario</th>
@@ -168,5 +174,6 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
             </div>
         </div>
     </div>
+    <script src="../js/scriptAlertas.js"></script>
 </body>
 </html>
