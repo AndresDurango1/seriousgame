@@ -19,7 +19,20 @@ if (params.has('actualizado') || params.has('contrasena')) {
     }
     mostrarAlerta(title, text, icon, confirmButtonText);
 }
-function mostrarAlerta(title, text, icon, confirmButtonText) {
+if (params.has('caracterizacion')) {
+    let title, text, icon, confirmButtonText;
+    switch (true) {
+        case params.has('caracterizacion'):
+            title = '!Atención!';
+            text = 'Por favor completa la información de caracterización demográfica.';
+            icon ='warning';
+            confirmButtonText = 'Completar ahora';
+            cancelButtonText = 'Completar mas tarde';
+            break;
+    }
+    mostrarAlertaCaracterizacion(title, text, icon, confirmButtonText, cancelButtonText);
+}
+function mostrarAlertaActualizacion(title, text, icon, confirmButtonText) {
     Swal.fire({
         title: title,
         text: text,
@@ -31,3 +44,19 @@ function mostrarAlerta(title, text, icon, confirmButtonText) {
         }
     });
 }
+function mostrarAlertaCaracterizacion(title, text, icon, confirmButtonText, cancelButtonText) {
+    Swal.fire({
+        title: title,
+        text: text,
+        icon: icon,
+        confirmButtonText: confirmButtonText,
+        showCancelButton: true,
+        cancelButtonText: cancelButtonText
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = '../pages/formularioCaracterizacion.php';
+        } else if (result.isDismissed) {
+            window.location.href = '../pages/usuario.php';
+        }
+    });
+};
