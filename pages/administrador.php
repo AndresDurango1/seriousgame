@@ -42,7 +42,7 @@
         </div>
     </div>
 
-    <!-- Modal para actualizar datos -->
+    <!-- Modal para actualizar datos
     <div id="modalFormUpdate" class="modal" style="display: none;">
         <div class="modal-content">
             <span class="close" onclick="cerrarModalUpdate()">&times;</span>
@@ -95,13 +95,13 @@
                 <button type="submit">Guardar Cambios</button>
             </form>
         </div>
-    </div>
+    </div> -->
 
     <div class="alerta" id="alerta">
         <p>Por favor actualizar datos personales</p>
         <div>
             <button class="boton-quizas" onclick="cerrarAlerta()">Quizás más tarde</button>
-            <button class="boton-actualizar" onclick="actualizarDatos()">Actualizar</button>
+            <button class="boton-actualizar" a="../pages/formulario" >Actualizar</button>
         </div>
     </div>
 
