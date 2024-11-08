@@ -1,7 +1,7 @@
 const params = new URLSearchParams(window.location.search);
-if (params.has('actualizado') || params.has('contrasena')) {
+//Alertas para la pagina de Usuario
+if (params.has('actualizado') || params.has('contrasenaIsDifferent')) {
     let title, text, icon, confirmButtonText;
-
     switch (true) {
         case params.has('actualizado'):
             title = '¡Éxito!';
@@ -10,29 +10,71 @@ if (params.has('actualizado') || params.has('contrasena')) {
             confirmButtonText = 'Aceptar';
             break;
 
-        case params.has('contrasena'):
+        case params.has('contrasenaIsDifferent'):
             title = '¡Error!';
             text = 'Las contraseñas no coinciden. Por favor, intenta de nuevo.';
             icon = 'error';
             confirmButtonText = 'Aceptar';
             break;
     }
-    mostrarAlerta(title, text, icon, confirmButtonText);
+    mostrarAlertasUsuario(title, text, icon, confirmButtonText);
 }
-if (params.has('caracterizacion')) {
+
+//Alertas para la pagina de Formulario Caracterización
+if (params.has('fc-actualizado') || params.has('fc-insertado')|| params.has('fc-no-actualizado') || params.has('fc-no-insertado')) {
     let title, text, icon, confirmButtonText;
     switch (true) {
-        case params.has('caracterizacion'):
-            title = '!Atención!';
-            text = 'Por favor completa la información de caracterización demográfica.';
-            icon ='warning';
-            confirmButtonText = 'Completar ahora';
-            cancelButtonText = 'Completar mas tarde';
+        case params.has('fc_actualizado'):
+            title = '!Éxito!';
+            text = 'La información del formulario de caracterización demográfica se ha actualizado correctamente.';
+            icon ='success';
+            confirmButtonText = 'Aceptar';
+            break;
+        case params.has('fc_insertado'):
+            title = '!Éxito!';
+            text = 'La información del formulario de caracterización demográfica se ha guardado correctamente.';
+            icon ='success';
+            confirmButtonText = 'Aceptar';
+            break;
+        case params.has('fc-no-actualizado'):
+            title = '!Error!';
+            text = 'La información del formulario de caracterización demográfica no se ha podido actualizar. Por favor, intenta de nuevo mas tarde.';
+            icon ='error';
+            confirmButtonText = 'Aceptar';
+            break;
+        case params.has('fc-no-insertado'):
+            title = '!Error!';
+            text = 'La información del formulario de caracterización demográfica no se ha podido guardar. Por favor, intenta de nuevo mas tarde.';
+            icon ='error';
+            confirmButtonText = 'Aceptar';
             break;
     }
-    mostrarAlertaCaracterizacion(title, text, icon, confirmButtonText, cancelButtonText);
+    mostrarAlertasCaracterizacion(title, text, icon, confirmButtonText);
 }
-function mostrarAlertaActualizacion(title, text, icon, confirmButtonText) {
+if (params.has('fc-error') && params.get('fc-error') === 'true' && params.has('errores')) {
+    // Obtener los errores desde la URL
+    const errores = decodeURIComponent(params.get('errores')).split(',');
+
+    // Crear el mensaje de error combinando todos los errores
+    const mensajeErrores = errores.join("\n");  // Unir los errores en un solo mensaje, separados por saltos de línea
+
+    // Mostrar los errores en una alerta de SweetAlert
+    Swal.fire({
+        title: '¡Error!',
+        text: 'Los siguientes errores ocurrieron:\n' + mensajeErrores,
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Limpiar los errores de la URL (opcional)
+            window.history.replaceState(null, '', 'formularioCaracterizacion.php');
+        }
+    });
+}
+
+
+//DEFINICION DE FUNCIONES PARA ALERTAS
+function mostrarAlertasUsuario(title, text, icon, confirmButtonText) {
     Swal.fire({
         title: title,
         text: text,
@@ -44,18 +86,14 @@ function mostrarAlertaActualizacion(title, text, icon, confirmButtonText) {
         }
     });
 }
-function mostrarAlertaCaracterizacion(title, text, icon, confirmButtonText, cancelButtonText) {
+function mostrarAlertasCaracterizacion(title, text, icon, confirmButtonText) {
     Swal.fire({
         title: title,
         text: text,
         icon: icon,
         confirmButtonText: confirmButtonText,
-        showCancelButton: true,
-        cancelButtonText: cancelButtonText
     }).then((result) => {
         if (result.isConfirmed) {
-            window.location.href = '../pages/formularioCaracterizacion.php';
-        } else if (result.isDismissed) {
             window.location.href = '../pages/usuario.php';
         }
     });

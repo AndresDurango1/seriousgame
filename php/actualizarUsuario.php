@@ -12,7 +12,7 @@
     $confirmarContrasena = $_POST['inputConfirmarContrasena'];
 
     if ($contrasena !== $confirmarContrasena) {
-        header("Location: ../pages/usuario.php?contrasena=true");
+        header("Location: ../pages/usuario.php?contrasenaIsDifferent=true");
         exit();
     }
     $query = "UPDATE usuarios SET nombre = ?, apellido = ?, correo = ?";

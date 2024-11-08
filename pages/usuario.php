@@ -8,7 +8,7 @@ include_once '../php/conexion.php';
 $conexion = conectar();
 $id_usuario = $_SESSION['id_usuario'];
 //consulta a la base de datos para traer la informacion del usuario
-$stmt1 = $conexion->prepare("SELECT identificacion, nombre, apellido, correo, contrasena FROM usuarios WHERE id_usuario = ?");
+$stmt1 = $conexion->prepare("SELECT identificacion, nombre, apellido, correo, contrasena, id_imagen FROM usuarios WHERE id_usuario = ?");
 $stmt1->bind_param("i", $id_usuario);
 $stmt1->execute();
 $resultado1 = $stmt1->get_result();
@@ -16,6 +16,18 @@ if ($resultado1->num_rows > 0) {
     $fila = $resultado1->fetch_assoc();
 } else {
     echo "No se encontró información del usuario.";
+    exit();
+}
+//Consulta a la base de datos para traer la imagen del usuario de la tabla imagenes
+$stmtImagen = $conexion->prepare("SELECT ruta_imagen FROM imagenes WHERE id_imagen = ?");
+$stmtImagen->bind_param("i", $fila['id_imagen']);
+$stmtImagen->execute();
+$resultadoImagen = $stmtImagen->get_result();
+if ($resultadoImagen->num_rows > 0) {
+    $imagen = $resultadoImagen->fetch_assoc();
+    $ruta_imagen = $imagen['ruta_imagen'];
+} else {
+    echo "No se encontró la imagen del usuario.";
     exit();
 }
 // Variables para la seccion de paginación de la tabla
@@ -61,14 +73,14 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
     <nav class="barraNavegacion">
         <div class="contenedorBotonesRedireccion">
             <button class="btnonRedireccion" onclick="window.location.href='../pages/index.php'">HOME</button>
-            <button class="botonRedireccion" onclick="window.location.href='../pages/index.php'">HOME</button>
+            <button class="botonRedireccion" onclick="window.location.href='../pages/formularioCaracterizacion.php'">Formulario Caracterización</button>
         </div>
         <div class="contenedorTitulo">
             <p class="titulo">Las Aventuras de Go</p>
         </div>
         <div class="contenedorInfoUsuario">
             <div class="contenedorIconoUsuario">
-                <img class="iconoUsuario" src="../recursos/img/iconoScroll.png" alt="iconoUsuario">
+                <img class="iconoUsuario" src="../recursos/img/imgPerfil/<?php echo $ruta_imagen; ?>" alt="iconoUsuario">
             </div>
             <div class="contenedorNombreUsuario">
                 <p class="nombreUsuario"><?php echo "@". $_SESSION['usuario']; ?></p>
@@ -84,7 +96,7 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
         <aside class="barraLateral">
             <p class="barraLateralTitulo">Mi perfil</p>
             <div class="contenedorImagenUsuario">
-                <img class="imagenUsuario" src="../recursos/img/iconoScroll.png" alt="Imagen Usuario">
+                <img class="imagenUsuario" src="../recursos/img/imgPerfil/<?php echo $ruta_imagen; ?>" alt="Imagen Usuario">
             </div>
             <div></div>
             <div class="contenedorFormularioActualizacion">
@@ -112,7 +124,7 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
                 <div class="ranking">
                     <div class="ranking-item tercero">
                         <div class="ranking-content">
-                            <img src="../recursos/img/iconoScroll.png" alt="Jugador 3">
+                            <img src="../recursos/img/imgIndexPage/iconoScroll.png" alt="Jugador 3">
                             <p>@SkyW</p>
                             <p>2nd</p>
                             <p>1234 votes</p>
@@ -120,7 +132,7 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
                     </div>
                     <div class="ranking-item primero">
                         <div class="ranking-content">
-                            <img src="../recursos/img/iconoScroll.png" alt="Jugador 1">
+                            <img src="../recursos/img/imgIndexPage/iconoScroll.png" alt="Jugador 1">
                             <p>@Aethr</p>
                             <p>1st</p>
                             <p>1234 votes</p>
@@ -128,7 +140,7 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
                     </div>
                     <div class="ranking-item segundo">
                         <div class="ranking-content">
-                            <img src="../recursos/img/iconoScroll.png" alt="Jugador 2">
+                            <img src="../recursos/img/imgIndexPage/iconoScroll.png" alt="Jugador 2">
                             <p>@Elmnt</p>
                             <p>3rd</p>
                             <p>1234 votes</p>

@@ -8,7 +8,7 @@ include_once '../php/conexion.php';
 $conexion = conectar();
 $id_usuario = $_SESSION['id_usuario'];
 //consulta a la base de datos para traer la informacion del usuario
-$stmt1 = $conexion->prepare("SELECT identificacion, nombre, apellido, correo, contrasena FROM usuarios WHERE id_usuario = ?");
+$stmt1 = $conexion->prepare("SELECT identificacion, nombre, apellido, correo, contrasena, id_imagen FROM usuarios WHERE id_usuario = ?");
 $stmt1->bind_param("i", $id_usuario);
 $stmt1->execute();
 $resultado1 = $stmt1->get_result();
@@ -16,6 +16,18 @@ if ($resultado1->num_rows > 0) {
     $fila = $resultado1->fetch_assoc();
 } else {
     echo "No se encontró información del usuario.";
+    exit();
+}
+//Consulta a la base de datos para traer la imagen del usuario de la tabla imagenes
+$stmtImagen = $conexion->prepare("SELECT ruta_imagen FROM imagenes WHERE id_imagen = ?");
+$stmtImagen->bind_param("i", $fila['id_imagen']);
+$stmtImagen->execute();
+$resultadoImagen = $stmtImagen->get_result();
+if ($resultadoImagen->num_rows > 0) {
+    $imagen = $resultadoImagen->fetch_assoc();
+    $ruta_imagen = $imagen['ruta_imagen'];
+} else {
+    echo "No se encontró la imagen del usuario.";
     exit();
 }
 //consulta a la base de datos para traer la informacion de los campos select del formulario de caracterización
@@ -73,14 +85,14 @@ $resultadoTipoVivienda = $stmtTipoVivienda->get_result();
     <nav class="barraNavegacion">
         <div class="contenedorBotonesRedireccion">
             <button class="btnonRedireccion" onclick="window.location.href='../pages/index.php'">HOME</button>
-            <button class="botonRedireccion" onclick="window.location.href='../pages/index.php'">HOME</button>
+            <button class="botonRedireccion" onclick="window.location.href='../pages/usuario.php'">Mi perfil</button>
         </div>
         <div class="contenedorTitulo">
             <p class="titulo">Las Aventuras de Go</p>
         </div>
         <div class="contenedorInfoUsuario">
             <div class="contenedorIconoUsuario">
-                <img class="iconoUsuario" src="../recursos/img/iconoScroll.png" alt="iconoUsuario">
+                <img class="iconoUsuario" src="../recursos/img/imgPerfil/<?php echo $ruta_imagen; ?>" alt="iconoUsuario">
             </div>
             <div class="contenedorNombreUsuario">
                 <p class="nombreUsuario"><?php echo "@". $_SESSION['usuario']; ?></p>
@@ -96,7 +108,7 @@ $resultadoTipoVivienda = $stmtTipoVivienda->get_result();
         <aside class="barraLateral">
             <p class="barraLateralTitulo">Mi perfil</p>
             <div class="contenedorImagenUsuario">
-                <img class="imagenUsuario" src="../recursos/img/iconoScroll.png" alt="Imagen Usuario">
+                <img class="imagenUsuario" src="../recursos/img/imgPerfil/<?php echo $ruta_imagen; ?>" alt="Imagen Usuario">
             </div>
             <div></div>
             <div class="contenedorFormularioActualizacion">
@@ -121,9 +133,9 @@ $resultadoTipoVivienda = $stmtTipoVivienda->get_result();
                     <div class="contenedorInfoFormularioCaracterizacion">
                         <div class="contenedorPage1">
                             <label class="lbl-item" for="lblfechaNacimiento">Fecha de Nacimiento</label>
-                            <input class="input-item" type="date" name="inputFechaNacimiento" id="inputFechaNacimiento">
+                            <input class="input-item" type="date" name="inputFechaNacimiento" id="inputFechaNacimiento" required>
                             <label class="lbl-item" for="lblGenero">Género</label>
-                            <select class="input-item" name="inputGenero" id="inputGenero">
+                            <select class="input-item" name="inputGenero" id="inputGenero" required>
                                 <option value="" disabled selected>Por favor selecciona una opción</option>
                                 <?php while ($row = $resultadoGenero->fetch_assoc()): ?>
                                     <option value="<?php echo $row['id_genero']; ?>">
@@ -132,7 +144,7 @@ $resultadoTipoVivienda = $stmtTipoVivienda->get_result();
                                 <?php endwhile; ?>
                             </select>
                             <label class="lbl-item" for="lblgrupoEtnico">Grupo Etnico</label>
-                            <select class="input-item" name="inputGrupoEtnico" id="inputGrupoEtnico">
+                            <select class="input-item" name="inputGrupoEtnico" id="inputGrupoEtnico" required>
                                 <option value="" disabled selected>Por favor selecciona</option>
                                 <?php while ($row = $resultadoGrupoEtnico->fetch_assoc()): ?>
                                     <option value="<?php echo $row['id_grupo_etnico']; ?>">
@@ -141,11 +153,11 @@ $resultadoTipoVivienda = $stmtTipoVivienda->get_result();
                                 <?php endwhile; ?>
                             </select>
                             <label class="lbl-item" for="lblnumeroCelular">Número de Celular</label>
-                            <input class="input-item" type="text" name="inputNumeroCelular" id="inputNumeroCelular">
+                            <input class="input-item" type="text" name="inputNumeroCelular" id="inputNumeroCelular" required>
                             <label class="lbl-item" for="lblidUsuario" hidden>Id Usuario</label>
                             <input class="input-item" type="number" name="inputIdUsuario" id="inputIdUsuario" value="<?php echo $id_usuario; ?>" hidden>
                             <label class="lbl-item" for="lblDepartamento">Departamento</label>
-                            <select class="input-item" name="inputDepartamento" id="inputDepartamento">
+                            <select class="input-item" name="inputDepartamento" id="inputDepartamento" required>
                                 <option value="" disabled selected>Por favor selecciona</option>
                                 <?php while ($row = $resultadoDepartamento->fetch_assoc()): ?>
                                     <option value="<?php echo $row['id_departamento']; ?>">
@@ -154,13 +166,13 @@ $resultadoTipoVivienda = $stmtTipoVivienda->get_result();
                                 <?php endwhile; ?>
                             </select>
                             <label class="lbl-item" for="lblCiudad">Ciudad</label></label>
-                            <select class="input-item" name="inputCiudad" id="inputCiudad">
+                            <select class="input-item" name="inputCiudad" id="inputCiudad" required>
                                 <option value="" disabled selected>Por favor selecciona</option>
                             </select>
                         </div>
                         <div class="contenedorPage2">
                             <label class="lbl-item" for="lblestadoCivil">Estado Civil</label>
-                            <select class="input-item" name="inputEstadoCivil" id="inputEstadoCivil">
+                            <select class="input-item" name="inputEstadoCivil" id="inputEstadoCivil" required>
                                 <option value="" disabled selected>Por favor selecciona</option>
                                 <?php while ($row = $resultadoEstadoCivil->fetch_assoc()): ?>
                                     <option value="<?php echo $row['id_estado_civil']; ?>">
@@ -170,7 +182,7 @@ $resultadoTipoVivienda = $stmtTipoVivienda->get_result();
 
                             </select>
                             <label class="lbl-item" for="lblnivelEducativo">Nivel de Estudios</label>
-                            <select class="input-item" name="inputNivelEducativo" id="inputNivelEducativo">
+                            <select class="input-item" name="inputNivelEducativo" id="inputNivelEducativo" required>
                                 <option value="" disabled selected>Por favor selecciona</option>
                                 <?php while ($row = $resultadoNivelEducativo->fetch_assoc()): ?>
                                     <option value="<?php echo $row['id_nivel_educativo']; ?>">
@@ -179,7 +191,7 @@ $resultadoTipoVivienda = $stmtTipoVivienda->get_result();
                                 <?php endwhile; ?>
                             </select>
                             <label class="lbl-item" for="lblOcupacion">Ocupacion</label>
-                            <select class="input-item" name="inputOcupacion" id="inputOcupacion">
+                            <select class="input-item" name="inputOcupacion" id="inputOcupacion" required>
                                 <option value="" disabled selected>Por favor selecciona</option>
                                 <?php while ($row = $resultadoOcupacion->fetch_assoc()): ?>
                                     <option value="<?php echo $row['id_ocupacion']; ?>">
@@ -188,7 +200,7 @@ $resultadoTipoVivienda = $stmtTipoVivienda->get_result();
                                 <?php endwhile; ?>
                             </select>
                             <label class="lbl-item" for="lblCargo">Cargo</label>
-                            <select class="input-item" name="inputCargo" id="inputCargo">
+                            <select class="input-item" name="inputCargo" id="inputCargo" required>
                                 <option value="" disabled selected>Por favor selecciona</option>
                                 <?php while ($row = $resultadoCargo->fetch_assoc()): ?>
                                     <option value="<?php echo $row['id_cargo']; ?>">
@@ -197,7 +209,7 @@ $resultadoTipoVivienda = $stmtTipoVivienda->get_result();
                                 <?php endwhile; ?>
                             </select>
                             <label class="lbl-item" for="lblEstrato">Estrato</label>
-                            <select class="input-item" name="inputEstrato" id="inputEstrato">
+                            <select class="input-item" name="inputEstrato" id="inputEstrato" required>
                                 <option value="" disabled selected>Por favor selecciona</option>
                                 <?php while ($row = $resultadoEstrato->fetch_assoc()): ?>
                                     <option value="<?php echo $row['id_estrato']; ?>">
@@ -206,7 +218,7 @@ $resultadoTipoVivienda = $stmtTipoVivienda->get_result();
                                 <?php endwhile; ?>
                             </select>
                             <label class="lbl-item" for="lbltipoVivienda">Tipo de Vivienda</label>
-                            <select class="input-item" name="inputTipoVivienda" id="inputTipoVivienda">
+                            <select class="input-item" name="inputTipoVivienda" id="inputTipoVivienda" required>
                                 <option value="" disabled selected>Por favor selecciona</option>
                                 <?php while ($row = $resultadoTipoVivienda->fetch_assoc()): ?>
                                     <option value="<?php echo $row['id_tipo_vivienda']; ?>">
@@ -222,5 +234,6 @@ $resultadoTipoVivienda = $stmtTipoVivienda->get_result();
         </div>
     </div>
     <script src="../js/scriptObtenerCiudades.js"></script>
+    <script src="../js/scriptAlertas.js"></script>
 </body>
 </html>

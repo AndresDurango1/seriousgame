@@ -14,7 +14,6 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-
     background-color: #2d2b29;
 }
 /*SECCION DE LA BARRA DE NAVEGACION*/
@@ -95,7 +94,6 @@ body .contenedorPrincipal {
     flex-direction: row;
     background-color: #2C2B29;
 }
-
 /* SECCION BARRA LATERAL - INFORMACIÓN DEL USUARIO */
 body .contenedorPrincipal .barraLateral {
     width: 20%;
@@ -211,7 +209,7 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorRanking .ranki
     align-items: center;
     justify-content: center;
     position: relative;
-    background-image: url('../recursos/img/bandera-blanca-realista.png');
+    background-image: url('../recursos/img/imgUsuarioPage/bandera-blanca-realista.png');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
