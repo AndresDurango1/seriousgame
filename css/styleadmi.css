@@ -1,0 +1,335 @@
+/* General */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #2d2b29;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #1a1a1a;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo h1 {
+    margin: 0;
+    color: #FBCC02;
+}
+
+header .user-info {
+    display: flex;
+    align-items: center;
+    font-size: 150%;
+}
+
+header .avatar {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.nav-icons a img {
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #292b2c;
+    padding: 20px;
+    width: 200px;
+    height: 90vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: 3.6%;
+}
+
+.sidebar h2 {
+    color: #fffffe;
+}
+
+.sidebar nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin: 15px 0;
+}
+
+.sidebar nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Main content */
+.main-content {
+    margin-left: 200px;
+    padding: 50px;
+}
+
+/* Top players */
+.top-players {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.player-card {
+    background-color: #3d3d3d;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.player-card.first {
+    background-color: #fff;
+    transform: scale(1.2);
+}
+
+.player-card .player-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* Search bar */
+.search-section {
+    margin-bottom: 20px;
+}
+
+.search-section input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+}
+
+/* Ranking */
+.ranking table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #3d3d3d;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.ranking table th, .ranking table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #fff;
+}
+
+.ranking table td button {
+    background-color: #fff;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+/* Comments section */
+.comments {
+    position: fixed;
+    right: 0;
+    width: 300px;
+    background-color: #333;
+    height: 100vh;
+    padding: 20px;
+    top: 0;
+}
+
+.comments h3 {
+    color: #ffff;
+}
+
+.comment-box p {
+    background-color: #444;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Formulario */
+form textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+form button {
+    background-color: #1e09db;
+    border: none;
+    padding: 10px 15px;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.alerta {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+.alerta p {
+    margin: 0;
+}
+.alerta button {
+    margin-left: 10px;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+}
+.boton-quizas {
+    background-color: #2a2dec;
+    color: #212529;
+}
+.boton-actualizar {
+    background-color: #28a745;
+    color: #fff;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+        }
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+    .close {
+    color: #aaa;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+        }
+
+    .close:hover,
+    .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+        }
+
+        .modal {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 400px;
+            max-width: 90%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .modal-content h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+        }
+
+        .modal-content label {
+            display: block;
+            font-weight: bold;
+            margin: 10px 0 5px;
+            color: #555;
+        }
+
+        .modal-content input[type="text"],
+        .modal-content input[type="number"],
+        .modal-content input[type="email"],
+        .modal-content input[type="password"],
+        .modal-content input[type="tel"],
+        .modal-content select,
+        .modal-content input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .modal-content input:focus,
+        .modal-content select:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        .modal-content button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            font-size: 18px;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal-content button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilo para el botón de cerrar */
+        .modal-content .close {
+            
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #aaa;
+            cursor: pointer;
+        }
+
+        .modal-content .close:hover {
+            color: #333;
+        }
