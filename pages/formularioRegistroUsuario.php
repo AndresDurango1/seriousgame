@@ -3,7 +3,7 @@ session_start();
 include_once '../php/conexion.php';
 $conexion = conectar();
 //Consulta a la base de datos para las categorias de las imagenes
-$stmtCategorias = $conexion->prepare("SELECT DISTINCT id_categoria, categoria FROM categoria_imagenes ORDER BY id_categoria ASC");
+$stmtCategorias = $conexion->prepare("SELECT DISTINCT id_categoria, categoria FROM categoria_imagenes ORDER BY categoria ASC");
 $stmtCategorias->execute();
 $resultadoCategorias = $stmtCategorias->get_result();
 
@@ -58,14 +58,14 @@ while ($imagen = $resultImagenes->fetch_assoc()) {
                         </select>
                         <div class="contenedorImagenesCategoria" id="contenedorImagenesCategoria"></div>
                         <input class="input-item" type="hidden" name="inputIdImagenPerfil" id="inputIdImagenPerfil">
+                    </div>
+                    <div class="contenedorPage2">
                         <label class="lbl-item" for="lblIdentificacion">Identificación</label>
                         <input class="input-item" type="number" name="inputIdentificacion" id="inputIdentificacion" placeholder="Ingresa tu Número de Identificación" required>
                         <label class="lbl-item" for="lblNombre">Nombre</label>
                         <input class="input-item" type="text" name="inputNombre" id="inputNombre" placeholder="Ingresa tu Nombre" required>
                         <label class="lbl-item" for="lblApellido">Apellido</label>
                         <input class="input-item" type="text" name="inputApellido" id="inputApellido" placeholder="Ingresa tu Apellido" required>
-                    </div>
-                    <div class="contenedorPage2">
                         <label class="lbl-item" for="lblUsuario">Usuario</label>
                         <input class="input-item" type="text" name="inputUsuario" id="inputUsuario" placeholder="Ingresa tu Usuario" required>
                         <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1): ?>
@@ -80,10 +80,9 @@ while ($imagen = $resultImagenes->fetch_assoc()) {
                         <input class="input-item" type="email" name="inputCorreo" id="inputCorreo" placeholder="Ingresa tu Correo" required>
                         <label class="lbl-item" for="lblContrasena">Contraseña</label>
                         <input class="input-item" type="password" name="inputContrasena" id="inputContrasena" placeholder="Ingresa tu Contraseña" required>
-
+                        <button class="btnEnviar" type="submit">Enviar</button>
                     </div>
                 </div>
-                <button class="btnEnviar" type="submit">Enviar</button>
             </form>
         </div>
         <div class="contenedorVistaPrevia" id="contenedorVistaPrevia">

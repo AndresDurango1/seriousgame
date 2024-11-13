@@ -126,17 +126,20 @@ body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .con
     justify-content: space-around;
     align-items: center;
 }
-body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1,
+body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 {
+    width: 50%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
 body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage2 {
     width: 50%;
     height: 95%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
-}
-body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage2 {
-    justify-content: flex-start;
     align-items: center;
 }
 .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .lbl-item,
@@ -153,8 +156,10 @@ body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .con
 }
 body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .contenedorImagenesCategoria{
     width: 100%;
-    height: 50%;
+    height: 70%;
+    margin-top: 5%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     border-radius: 10px;    
@@ -196,7 +201,7 @@ body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .con
     font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
     font-size: 16px;
 }
-body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .btnEnviar {
+body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorPage2 .btnEnviar {
     width: 20%;
     height: 7%;
     margin-top: 2%;

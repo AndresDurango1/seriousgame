@@ -48,7 +48,7 @@ function cargarImagenesPorCategoria() {
             .catch(error => console.error('Error al cargar imágenes:', error));
     } else {
         const mensaje = document.createElement("p");
-        mensaje.classList.add("mensaje-error");  // Aquí agregas la clase
+        mensaje.classList.add("mensaje-error");
         mensaje.innerText = "Por favor, selecciona una categoría para ver las imágenes disponibles.";
         contenedorImagenesCategoria.appendChild(mensaje);
     }

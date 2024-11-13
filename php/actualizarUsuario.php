@@ -1,7 +1,6 @@
 <?php
     include_once 'conexion.php';
     $conexion = conectar();
-
     if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
     $id_usuario = $_POST['inputId'];
