@@ -69,8 +69,8 @@ while ($imagen = $resultImagenes->fetch_assoc()) {
                         <label class="lbl-item" for="lblUsuario">Usuario</label>
                         <input class="input-item" type="text" name="inputUsuario" id="inputUsuario" placeholder="Ingresa tu Usuario" required>
                         <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1): ?>
-                            <label for="lblRol">Rol</label>
-                            <select name="inputRol" id="inputRol">
+                            <label class="lbl-item" for="lblRol">Rol</label>
+                            <select class="input-item" name="inputRol" id="inputRol">
                                 <option>Selecciona un Rol</option>
                                 <option value="0">Usuario</option>
                                 <option value="1">Administrador</option>

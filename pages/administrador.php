@@ -74,7 +74,7 @@ $totalPages = ceil($totalUsers / $limit);
         <div class="contenedorBotonesRedireccion">
             <button class="btnRedireccion" onclick="window.location.href='../pages/index.php'">Inicio</button>
             <button class="btnRedireccion" onclick="window.location.href='../pages/formularioCaracterizacion.php'">Formulario Caracterización</button>
-            <button class="btnRedireccion" onclick="window.location.href='../pages/estadisticas.php'">Ver Estadisticas</button>
+            <button class="btnRedireccion" onclick="window.location.href='../pages/estadisticas.php'">Ver Estadísticas</button>
         </div>
         <div class="contenedorTitulo">
             <p class="titulo">Las Aventuras de Go</p>
@@ -213,7 +213,7 @@ $totalPages = ceil($totalUsers / $limit);
                         <?php
                         while ($fila = $resultado2->fetch_assoc()) {
                             echo "<tr>";
-                            echo "<td>" . "@" . $fila['usuario'] . "</td>";
+                            echo "<td><a href='informacionUsuario.php?id_usuario=" . $fila['id_usuario'] . "'>@" . $fila['usuario'] . "</a></td>";
                             echo "<td>" . $fila['nivel'] . "</td>";
                             echo "<td>" . ($fila['completado'] ? 'Completado' : 'No Completado') . "</td>";
                             echo "<td>" . $fila['inicio'] . "</td>";

@@ -326,6 +326,9 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
     padding: 8px;             
     border-bottom: 1px solid #ddd; 
 }
+.contenedorPrincipal-content .contenedorTabla .tablaClasificacion tbody td a {
+    color: #ffffff;
+}
 .tablaClasificacion tbody tr:nth-child(even) {
     background-color: #8e8c8c; 
 }
