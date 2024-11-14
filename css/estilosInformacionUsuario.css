@@ -1,0 +1,145 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+@font-face{
+   font-family: 'IMFellDWPica';
+   src: url('../recursos/Letra_im_fell_dw_pica/IMFellDWPica-Regular.ttf');
+}
+
+
+body .barraNavegacion {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #1A1A1A;
+}
+body .barraNavegacion .contenedorBotonesRedireccion {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
+    width: 30%;
+    height: 60%;
+    display: flex;
+    margin: 1%;
+    justify-content: center;
+    align-items: center;
+    background-color: #FBCC02;
+    border-radius: 10px;
+    font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+    font-size: 16px;
+    color: #000000;
+    text-align: center;
+}
+body .barraNavegacion .contenedorTitulo {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body .barraNavegacion .contenedorTitulo .titulo {
+    font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+    font-size: 60px;
+    color: #FBCC02;
+    text-align: center;
+}
+body .barraNavegacion .contenedorInfoUsuario{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+body .barraNavegacion .contenedorInfoUsuario .contenedorIconoUsuario{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+body .barraNavegacion .contenedorInfoUsuario .contenedorIconoUsuario .iconoUsuario{
+    object-fit: scale-down;
+    width: auto;
+    height: 100%;
+}
+body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario .nombreUsuario {
+    font-size: 20px;
+    color: #ffffff;
+}
+body .barraNavegacion .contenedorIconos{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+body .barraNavegacion .contenedorIconos .contenedorIconoSalir {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+body .barraNavegacion .contenedorIconos .contenedorIconoNuevoUsuario {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.sidebar {
+    background-color: #292b2c;
+    padding: 20px;
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: 5.4%;
+}
+
+.sidebar h2 {
+    color: #fffffe;
+}
+
+.sidebar nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin: 15px 0;
+}
+
+.sidebar nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.contenedor1, .contenedor2 {
+    width: 900px;   /* Puedes ajustar el tamaño según lo necesites */
+    height: 200px;  /* Puedes ajustar el tamaño según lo necesites */
+    border: 1px solid black; 
+    margin-bottom: 50px;
+}
