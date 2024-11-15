@@ -66,7 +66,8 @@ $totalPages = ceil($totalUsers / $limit);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
-    <link rel="stylesheet" href="../css/usuarioStyles.css">
+    <!-- <link rel="stylesheet" href="../css/usuarioStyles.css"> -->
+     <link rel="stylesheet" href="../css/administradorStyles.css">
 </head>
 
 <body>
@@ -213,7 +214,7 @@ $totalPages = ceil($totalUsers / $limit);
                         <?php
                         while ($fila = $resultado2->fetch_assoc()) {
                             echo "<tr>";
-                            echo "<td><a href='informacionUsuario.php?id_usuario=" . $fila['id_usuario'] . "'>@" . $fila['usuario'] . "</a></td>";
+                            echo "<td><a href='informacionUsuario.php?id_user=" . $fila['id_usuario'] . "'>@" . $fila['usuario'] . "</a></td>";
                             echo "<td>" . $fila['nivel'] . "</td>";
                             echo "<td>" . ($fila['completado'] ? 'Completado' : 'No Completado') . "</td>";
                             echo "<td>" . $fila['inicio'] . "</td>";
