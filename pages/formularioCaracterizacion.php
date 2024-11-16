@@ -1,75 +1,75 @@
 <?php
-session_start();
-if (!isset($_SESSION['id_usuario']) || ($_SESSION['rol'] != 0 && $_SESSION['rol'] != 1)) {
-    header("Location: ../pages/index.php");
-    exit();
-}
-include_once '../php/conexion.php';
-$conexion = conectar();
-$id_usuario = $_SESSION['id_usuario'];
-//consulta a la base de datos para traer la informacion del usuario
-$stmt1 = $conexion->prepare("SELECT identificacion, nombre, apellido, correo, contrasena, id_imagen FROM usuarios WHERE id_usuario = ?");
-$stmt1->bind_param("i", $id_usuario);
-$stmt1->execute();
-$resultado1 = $stmt1->get_result();
-if ($resultado1->num_rows > 0) {
-    $fila = $resultado1->fetch_assoc();
-} else {
-    echo "No se encontró información del usuario.";
-    exit();
-}
-//Consulta a la base de datos para traer la imagen del usuario de la tabla imagenes
-$stmtImagen = $conexion->prepare("SELECT ruta_imagen FROM imagenes WHERE id_imagen = ?");
-$stmtImagen->bind_param("i", $fila['id_imagen']);
-$stmtImagen->execute();
-$resultadoImagen = $stmtImagen->get_result();
-if ($resultadoImagen->num_rows > 0) {
-    $imagen = $resultadoImagen->fetch_assoc();
-    $ruta_imagen = $imagen['ruta_imagen'];
-} else {
-    echo "No se encontró la imagen del usuario.";
-    exit();
-}
-//consulta a la base de datos para traer la informacion de los campos select del formulario de caracterización
-//consulta a la base de datos para traer la informacion del genero
-$stmtGenero = $conexion->prepare("SELECT id_genero, genero FROM generos");
-$stmtGenero->execute();
-$resultadoGenero = $stmtGenero->get_result();
-//consulta a la base de datos para traer la informacion del grupo etnico
-$stmtGrupoEtnico = $conexion->prepare("SELECT id_grupo_etnico, grupo_etnico FROM grupo_etnico");
-$stmtGrupoEtnico->execute();
-$resultadoGrupoEtnico = $stmtGrupoEtnico->get_result();
-//consulta a la base de datos para traer la informacion del departamento
-$stmtDepartamento = $conexion->prepare("SELECT id_departamento, departamento FROM departamentos");
-$stmtDepartamento->execute();
-$resultadoDepartamento = $stmtDepartamento->get_result();
-//consulta a la base de datos para traer la informacion estado civil
-$stmtEstadoCivil = $conexion->prepare("SELECT id_estado_civil, estado_civil FROM estado_civil");
-$stmtEstadoCivil->execute();    
-$resultadoEstadoCivil = $stmtEstadoCivil->get_result();
-//consulta a la base de datos para traer la informacion del nivel educativo
-$stmtNivelEducativo = $conexion->prepare("SELECT id_nivel_educativo, nivel_educativo FROM nivel_educativo");
-$stmtNivelEducativo->execute();    
-$resultadoNivelEducativo = $stmtNivelEducativo->get_result();
-//consulta a la base de datos para traer la informacion de la ocupacion
-$stmtOcupacion = $conexion->prepare("SELECT id_ocupacion, ocupacion FROM ocupacion");
-$stmtOcupacion->execute();    
-$resultadoOcupacion = $stmtOcupacion->get_result();
-//consulta a la base de datos para traer la informacion del cargo
-$stmtCargo = $conexion->prepare("SELECT id_cargo, cargo FROM cargo");
-$stmtCargo->execute();    
-$resultadoCargo = $stmtCargo->get_result();
-//consulta a la base de datos para traer la informacion del estrato
-$stmtEstrato = $conexion->prepare("SELECT id_estrato, estrato FROM estrato");
-$stmtEstrato->execute();
-$resultadoEstrato = $stmtEstrato->get_result();
-//consulta a la base de datos para traer la informacion del tipo de vivienda
-$stmtTipoVivienda = $conexion->prepare("SELECT id_tipo_vivienda, tipo_vivienda FROM tipo_vivienda");
-$stmtTipoVivienda->execute();
-$resultadoTipoVivienda = $stmtTipoVivienda->get_result();
-
+    session_start();
+    if (!isset($_SESSION['id_usuario']) || ($_SESSION['rol'] != 0 && $_SESSION['rol'] != 1)) {
+        header("Location: ../pages/index.php");
+        exit();
+    }
+    include_once '../php/conexion.php';
+    $conexion = conectar();
+    $id_usuario = $_SESSION['id_usuario'];
+    $rol = $_SESSION['rol'];
+    $miPerfilUrl = ($rol == 1) ? '../pages/administrador.php' : '../pages/usuario.php';
+    //consulta a la base de datos para traer la informacion del usuario
+    $stmt1 = $conexion->prepare("SELECT identificacion, nombre, apellido, correo, contrasena, id_imagen FROM usuarios WHERE id_usuario = ?");
+    $stmt1->bind_param("i", $id_usuario);
+    $stmt1->execute();
+    $resultado1 = $stmt1->get_result();
+    if ($resultado1->num_rows > 0) {
+        $fila = $resultado1->fetch_assoc();
+    } else {
+        echo "No se encontró información del usuario.";
+        exit();
+    }
+    //Consulta a la base de datos para traer la imagen del usuario de la tabla imagenes
+    $stmtImagen = $conexion->prepare("SELECT ruta_imagen FROM imagenes WHERE id_imagen = ?");
+    $stmtImagen->bind_param("i", $fila['id_imagen']);
+    $stmtImagen->execute();
+    $resultadoImagen = $stmtImagen->get_result();
+    if ($resultadoImagen->num_rows > 0) {
+        $imagen = $resultadoImagen->fetch_assoc();
+        $ruta_imagen = $imagen['ruta_imagen'];
+    } else {
+        echo "No se encontró la imagen del usuario.";
+        exit();
+    }
+    //consulta a la base de datos para traer la informacion de los campos select del formulario de caracterización
+    //consulta a la base de datos para traer la informacion del genero
+    $stmtGenero = $conexion->prepare("SELECT id_genero, genero FROM generos");
+    $stmtGenero->execute();
+    $resultadoGenero = $stmtGenero->get_result();
+    //consulta a la base de datos para traer la informacion del grupo etnico
+    $stmtGrupoEtnico = $conexion->prepare("SELECT id_grupo_etnico, grupo_etnico FROM grupo_etnico");
+    $stmtGrupoEtnico->execute();
+    $resultadoGrupoEtnico = $stmtGrupoEtnico->get_result();
+    //consulta a la base de datos para traer la informacion del departamento
+    $stmtDepartamento = $conexion->prepare("SELECT id_departamento, departamento FROM departamentos");
+    $stmtDepartamento->execute();
+    $resultadoDepartamento = $stmtDepartamento->get_result();
+    //consulta a la base de datos para traer la informacion estado civil
+    $stmtEstadoCivil = $conexion->prepare("SELECT id_estado_civil, estado_civil FROM estado_civil");
+    $stmtEstadoCivil->execute();    
+    $resultadoEstadoCivil = $stmtEstadoCivil->get_result();
+    //consulta a la base de datos para traer la informacion del nivel educativo
+    $stmtNivelEducativo = $conexion->prepare("SELECT id_nivel_educativo, nivel_educativo FROM nivel_educativo");
+    $stmtNivelEducativo->execute();    
+    $resultadoNivelEducativo = $stmtNivelEducativo->get_result();
+    //consulta a la base de datos para traer la informacion de la ocupacion
+    $stmtOcupacion = $conexion->prepare("SELECT id_ocupacion, ocupacion FROM ocupacion");
+    $stmtOcupacion->execute();    
+    $resultadoOcupacion = $stmtOcupacion->get_result();
+    //consulta a la base de datos para traer la informacion del cargo
+    $stmtCargo = $conexion->prepare("SELECT id_cargo, cargo FROM cargo");
+    $stmtCargo->execute();    
+    $resultadoCargo = $stmtCargo->get_result();
+    //consulta a la base de datos para traer la informacion del estrato
+    $stmtEstrato = $conexion->prepare("SELECT id_estrato, estrato FROM estrato");
+    $stmtEstrato->execute();
+    $resultadoEstrato = $stmtEstrato->get_result();
+    //consulta a la base de datos para traer la informacion del tipo de vivienda
+    $stmtTipoVivienda = $conexion->prepare("SELECT id_tipo_vivienda, tipo_vivienda FROM tipo_vivienda");
+    $stmtTipoVivienda->execute();
+    $resultadoTipoVivienda = $stmtTipoVivienda->get_result();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,8 +84,8 @@ $resultadoTipoVivienda = $stmtTipoVivienda->get_result();
 <body>
     <nav class="barraNavegacion">
         <div class="contenedorBotonesRedireccion">
-            <button class="btnonRedireccion" onclick="window.location.href='../pages/index.php'">HOME</button>
-            <button class="botonRedireccion" onclick="window.location.href='../pages/usuario.php'">Mi perfil</button>
+            <button class="btnRedireccion" onclick="window.location.href='../pages/index.php'">HOME</button>
+            <button class="btnRedireccion" onclick="window.location.href='<?php echo $miPerfilUrl; ?>'">Mi perfil</button>
         </div>
         <div class="contenedorTitulo">
             <p class="titulo">Las Aventuras de Go</p>

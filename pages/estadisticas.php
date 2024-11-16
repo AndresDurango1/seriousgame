@@ -31,7 +31,6 @@ if ($resultadoImagen->num_rows > 0) {
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 

@@ -54,11 +54,11 @@ while ($fila = $result3->fetch_assoc()) {
     $stmt3_puntajes[] = $fila['puntaje_promedio'];
 }
 //Consulta 4 a la base de datos para traer el tiempo promedio para completar un nivel
-$stmt4 = "SELECT u.usuario, n.nombre_nivel AS nivel, nu.id_nivel, AVG(nu.tiempo_transcurrido) AS tiempo_promedio FROM usuarios u
+$stmt4 = "SELECT u.usuario, n.nombre_nivel AS nivel, nu.id_nivel, nu.tiempo_transcurrido FROM usuarios u
     JOIN niveles_usuarios nu ON u.id_usuario = nu.id_usuario
     JOIN niveles n ON nu.id_nivel = n.id_nivel
     GROUP BY u.id_usuario, nu.id_nivel
-    ORDER BY tiempo_promedio DESC
+    ORDER BY tiempo_transcurrido ASC
     LIMIT 10;";
 $result4 = $conexion->query($stmt4);
 //Arreglos para almacenar la informacion en el JSON
@@ -68,7 +68,7 @@ $stmt4_tiempo = [];
 while ($fila = $result4->fetch_assoc()) {
     $stmt4_usuarios[] = $fila['usuario'];
     $stmt4_niveles[] = $fila['nivel'];
-    $stmt4_tiempo[] = $fila['tiempo_promedio'];
+    $stmt4_tiempo[] = $fila['tiempo_transcurrido'];
 }
 //Consulta 5 a la base de datos para traer los generos de los usuarios
 $stmt5 = "SELECT c.id_genero, COUNT(*) AS cantidad, g.genero FROM caracterizacion c
@@ -101,7 +101,7 @@ $response = [
     'bestTimes' => [
         'usuarios' => $stmt4_usuarios,
         'niveles' => $stmt4_niveles,
-        'tiempo' => $stmt4_tiempo
+        'tiempo_transcurrido' => $stmt4_tiempo
     ],
     'generos' => [
         'generos' => $stmt5_generos,

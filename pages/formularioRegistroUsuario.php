@@ -1,8 +1,31 @@
 <?php
 session_start();
+$estaLogueado = isset($_SESSION['id_usuario']);
 include_once '../php/conexion.php';
 $conexion = conectar();
-//Consulta a la base de datos para las categorias de las imagenes
+if ($estaLogueado) { $id_usuario = $_SESSION['id_usuario']; 
+    $rol = $_SESSION['rol']; $miPerfilUrl = ($rol == 1) ? '../pages/administrador.php' : '../pages/usuario.php'; 
+    // Consulta a la base de datos para traer la información del usuario 
+    $stmt1 = $conexion->prepare("SELECT identificacion, nombre, apellido, correo, contrasena, id_imagen FROM usuarios WHERE id_usuario = ?"); 
+    $stmt1->bind_param("i", $id_usuario); $stmt1->execute(); 
+    $resultado1 = $stmt1->get_result(); 
+    if ($resultado1->num_rows > 0) { 
+        $fila = $resultado1->fetch_assoc(); 
+    } else { 
+        echo "No se encontró información del usuario."; 
+        exit(); 
+    } 
+    // Consulta a la base de datos para traer la imagen del usuario de la tabla imagenes 
+    $stmtImagen = $conexion->prepare("SELECT ruta_imagen FROM imagenes WHERE id_imagen = ?"); 
+    $stmtImagen->bind_param("i", $fila['id_imagen']); 
+    $stmtImagen->execute(); $resultadoImagen = $stmtImagen->get_result(); 
+    if ($resultadoImagen->num_rows > 0) { 
+        $imagen = $resultadoImagen->fetch_assoc(); 
+        $ruta_imagen = $imagen['ruta_imagen']; 
+    } else { 
+        echo "No se encontró la imagen del usuario."; exit(); 
+    } 
+}
 $stmtCategorias = $conexion->prepare("SELECT DISTINCT id_categoria, categoria FROM categoria_imagenes ORDER BY categoria ASC");
 $stmtCategorias->execute();
 $resultadoCategorias = $stmtCategorias->get_result();
@@ -25,19 +48,17 @@ while ($imagen = $resultImagenes->fetch_assoc()) {
 </head>
 <body>
     <nav class="barraNavegacion">
-        <div class="contenedorLista">
-            <ol class="opcionesNavegacion">
-                <li><a href="#home" class="nav-link">Inicio</a></li>
-                <li><a href="#about-us" class="nav-link">Acerca de Nosotros</a></li>
-            </ol>
+        <div class="contenedorBotonesRedireccion">
+            <button class="btnRedireccion" onclick="window.location.href='../pages/index.php'">HOME</button>
+            <button class="btnRedireccion" onclick="window.location.href='<?php echo $miPerfilUrl; ?>'">Mi perfil</button>
         </div>
         <div class="contenedorTitulo">
             <p class="titulo">Las Aventuras de Go</p>
         </div>
         <div class="contenedorLista">
             <ol class="opcionesNavegacion">
-                <li><a href="#game-features" class="nav-link">Características del Juego</a></li>
-                <li><a href="#player-handbook" class="nav-link">Manual del Jugador</a></li>
+                <li><a href="../pages/index.php#game-features" class="nav-link">Características del Juego</a></li>
+                <li><a href="../pages/index.php#player-handbook" class="nav-link">Manual del Jugador</a></li>
             </ol>
         </div>
     </nav>

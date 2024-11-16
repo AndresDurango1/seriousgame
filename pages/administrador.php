@@ -103,7 +103,7 @@ $totalPages = ceil($totalUsers / $limit);
     </nav>
     <div class="contenedorPrincipal">
         <aside class="barraLateral">
-            <p class="barraLateralTitulo">Mi perfil</p>
+            <p class="barraLateralTitulo">Actualizar mi perfil</p>
             <div class="contenedorImagenUsuario">
                 <img class="imagenUsuario" src="../recursos/img/imgPerfil/<?php echo $ruta_imagen; ?>" alt="Imagen Usuario">
             </div>
@@ -129,34 +129,6 @@ $totalPages = ceil($totalUsers / $limit);
             </div>
         </aside>
         <div class="contenedorPrincipal-content">
-            <!-- <div class="contenedorRanking">
-                <div class="ranking">
-                    <div class="ranking-item tercero">
-                        <div class="ranking-content">
-                            <img src="../recursos/img/imgIndexPage/iconoScroll.png" alt="Jugador 3">
-                            <p>@SkyW</p>
-                            <p>2nd</p>
-                            <p>1234 votes</p>
-                        </div>
-                    </div>
-                    <div class="ranking-item primero">
-                        <div class="ranking-content">
-                            <img src="../recursos/img/imgIndexPage/iconoScroll.png" alt="Jugador 1">
-                            <p>@Aethr</p>
-                            <p>1st</p>
-                            <p>1234 votes</p>
-                        </div>
-                    </div>
-                    <div class="ranking-item segundo">
-                        <div class="ranking-content">
-                            <img src="../recursos/img/imgIndexPage/iconoScroll.png" alt="Jugador 2">
-                            <p>@Elmnt</p>
-                            <p>3rd</p>
-                            <p>1234 votes</p>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
             <?php
             // Consulta a la base de datos para obtener los tres mejores puntajes
             $query = "SELECT i.ruta_imagen, u.usuario, SUM(nu.puntaje) AS puntaje_total FROM usuarios u

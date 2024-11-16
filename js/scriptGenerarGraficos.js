@@ -19,9 +19,19 @@ fetch('../php/obtenerInformacionGraficos.php')
         const promediosLeyend = data.averageScores.niveles
         const promediosData = data.averageScores.puntajes.map(puntaje => Number(puntaje));
         //Obtencion de los datos para la grafica 4: Grafica de barras para los mejores tiempos por nivel
+        function timeToSeconds(time) { 
+            if (time === null) return null;
+            const parts = time.split(':'); 
+            return (+parts[0] * 3600) + (+parts[1] * 60) + (+parts[2]);
+        }
         const bestTimesLabels = data.bestTimes.usuarios;
         const bestTimesLeyend = data.bestTimes.niveles
-        const bestTimesData = data.bestTimes.tiempo.map(tiempo => Number(tiempo));
+        const bestTimesData = data.bestTimes.tiempo_transcurrido.map(timeToSeconds);
+        function secondsToMinutesSeconds(seconds) { 
+            const mins = Math.floor(seconds / 60); 
+            const secs = seconds % 60; 
+            return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`; 
+        }
         //Obtencion de los datos para la grafica 5: Grafica de pastel para la distribucion de los generos
         const generosLabels = data.generos.generos;
         const generosData = data.generos.cantidad.map(cantidad => Number(cantidad));
@@ -201,7 +211,23 @@ fetch('../php/obtenerInformacionGraficos.php')
                             padding: 15
                         }
                     }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Puntaje Promedio Acumulado'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Usuarios'
+                        }
+                    }
                 }
+
             }
         });
         //Creacion del 4to Gráfico
@@ -210,7 +236,7 @@ fetch('../php/obtenerInformacionGraficos.php')
             data: {
                 labels: bestTimesLabels,
                 datasets: [{
-                    label: 'Top Promedios Puntajes',
+                    label: 'Top Mejores Tiempos',
                     data: bestTimesData,
                     backgroundColor: backgroundColor,
                     borderColor: borderColor,
@@ -224,7 +250,9 @@ fetch('../php/obtenerInformacionGraficos.php')
                         callbacks: {
                             label: function (tooltipItem) {
                                 const index = tooltipItem.dataIndex;
-                                return bestTimesLeyend[index] + ': ' + tooltipItem.raw + ' puntos';
+                                const timeInSeconds = bestTimesData[index]; 
+                                const timeFormatted = secondsToMinutesSeconds(timeInSeconds); 
+                                return `${bestTimesLeyend[index]}: ${timeFormatted}`;
                             }
                         }
                     },
@@ -234,6 +262,21 @@ fetch('../php/obtenerInformacionGraficos.php')
                         labels: {
                             boxWidth: 20,
                             padding: 15
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Tiempo transcurrido (segundos)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Usuarios'
                         }
                     }
                 }

@@ -34,6 +34,20 @@ body .barraNavegacion .contenedorBotonesRedireccion {
     justify-content: space-around;
     align-items: center;
 }
+body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
+    width: 30%;
+    height: 60%;
+    display: flex;
+    margin: 1%;
+    justify-content: center;
+    align-items: center;
+    background-color: #FBCC02;
+    border-radius: 10px;
+    font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+    font-size: 16px;
+    color: #000000;
+    text-align: center;
+}
 body .barraNavegacion .contenedorTitulo {
     width: 40%;
     height: 100%;

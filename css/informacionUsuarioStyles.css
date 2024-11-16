@@ -97,7 +97,7 @@ body .barraNavegacion .contenedorIconos .contenedorIconoSalir {
     align-items: center;
     font-size: 20px;
 }
-body .barraNavegacion .contenedorIconos .contenedorIconoNuevoUsuario {
+body .barraNavegacion .contenedorIconos .contenedorIconoNuevoUsuario{
     width: 45%;
     height: 100%;
     display: flex;
@@ -106,15 +106,16 @@ body .barraNavegacion .contenedorIconos .contenedorIconoNuevoUsuario {
     font-size: 20px;
 }
 /* SECCION CONTENEDOR PRINCIPAL */
-body .contenedorPrincipal {
+body .contenedorPrincipal{
     width: 100vw;
     height: 90vh;
     display: flex;
     flex-direction: row;
     background-color: #2C2B29;
+    overflow: hidden;
 }
 /* SECCION BARRA LATERAL - INFORMACIÓN DEL USUARIO */
-body .contenedorPrincipal .barraLateral {
+body .contenedorPrincipal .barraLateral{
     width: 20%;
     height: 100%;
     display: flex;
@@ -124,7 +125,7 @@ body .contenedorPrincipal .barraLateral {
     font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
     color: white;
 }
-body .contenedorPrincipal .barraLateral .barraLateralTitulo {
+body .contenedorPrincipal .barraLateral .barraLateralTitulo{
     width: 100%;
     height: 10%;
     display: flex;
@@ -132,19 +133,19 @@ body .contenedorPrincipal .barraLateral .barraLateralTitulo {
     align-items: center;
     font-size: 30px;
 }
-body .contenedorPrincipal .barraLateral .contenedorImagenUsuario {
+body .contenedorPrincipal .barraLateral .contenedorImagenUsuario{
     width: 100%;
     height: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-body .contenedorPrincipal .barraLateral .contenedorImagenUsuario .imagenUsuario {
+body .contenedorPrincipal .barraLateral .contenedorImagenUsuario .imagenUsuario{
     object-fit: contain;
     width: 100%;
     height: 100%;
 }
-body .contenedorPrincipal .barraLateral .contenedorFormularioActualizacion {
+body .contenedorPrincipal .barraLateral .contenedorFormularioActualizacion{
     width: 100%;
     height: 60%;
     display: flex;
@@ -152,7 +153,7 @@ body .contenedorPrincipal .barraLateral .contenedorFormularioActualizacion {
     justify-content: space-around;
     align-items: center;
 }
-body .contenedorPrincipal .barraLateral .contenedorFormularioActualizacion .formularioActualizacion {
+body .contenedorPrincipal .barraLateral .contenedorFormularioActualizacion .formularioActualizacion{
     width: 100%;
     height: 100%;
     display: flex;
@@ -160,7 +161,7 @@ body .contenedorPrincipal .barraLateral .contenedorFormularioActualizacion .form
     justify-content: center;
     align-items: center;
 }
-body .contenedorPrincipal .barraLateral .contenedorFormularioActualizacion .formularioActualizacion .lbl-item {
+body .contenedorPrincipal .barraLateral .contenedorFormularioActualizacion .formularioActualizacion .lbl-item{
     width: 100%;
     height: 10%;
     display: flex;
@@ -169,7 +170,7 @@ body .contenedorPrincipal .barraLateral .contenedorFormularioActualizacion .form
     font-size: 18px;
     font-weight: bold;
 }
-body .contenedorPrincipal .barraLateral .contenedorFormularioActualizacion .formularioActualizacion .input-item {
+body .contenedorPrincipal .barraLateral .contenedorFormularioActualizacion .formularioActualizacion .input-item{
     width: 80%;
     height: 7%;
     display: flex;
@@ -181,7 +182,7 @@ body .contenedorPrincipal .barraLateral .contenedorFormularioActualizacion .form
     font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
     font-size: 16px;
 }
-body .contenedorPrincipal .barraLateral .contenedorFormularioActualizacion .formularioActualizacion .btnActualizar {
+body .contenedorPrincipal .barraLateral .contenedorFormularioActualizacion .formularioActualizacion .btnActualizar{
     width: 50%;
     height: 10%;
     margin-top: 2%;
@@ -199,17 +200,16 @@ body .contenedorPrincipal .barraLateral .contenedorFormularioActualizacion .form
 }
 
 /* SECCION CONTENEDOR PRINCIPAL - CONTENIDO */
-body .contenedorPrincipal .contenedorPrincipal-content {
+body .contenedorPrincipal .contenedorPrincipal-content{
     width: 80%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    align-items: center;    
 }
 /*SECCION CONTENEDOR PRINCIPAL - TABLA*/
-body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla,
-body .contenedorPrincipal .contenedorPrincipal-content .contenedorGraficosDesempeño {
+body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla{
     width: 90%;
     height: 50%;
     display: flex;
@@ -217,9 +217,8 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorGraficosDesemp
     justify-content: center;
     align-items: center;
     color: white;
-    border: solid 1px rebeccapurple;
 }
-body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaClasificacion {
+body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaClasificacion{
     width: 95%;
     height: auto;
     margin: 20px 0;             
@@ -229,28 +228,55 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
     font-size: 16px;     
     overflow: hidden;     
 }
-.contenedorPrincipal-content .contenedorTabla .tablaClasificacion thead th {
+.contenedorPrincipal-content .contenedorTabla .tablaClasificacion thead th{
     background-color: #8e8c8c; 
     color: #000000;           
     padding: 10px;             
     text-transform: uppercase;  
 }
-.contenedorPrincipal-content .contenedorTabla .tablaClasificacion tbody td {
+.contenedorPrincipal-content .contenedorTabla .tablaClasificacion tbody td{
     padding: 8px;             
     border-bottom: 1px solid #ddd; 
 }
-.contenedorPrincipal-content .contenedorTabla .tablaClasificacion tbody td a {
+.contenedorPrincipal-content .contenedorTabla .tablaClasificacion tbody td a{
     color: #ffffff;
 }
-.tablaClasificacion tbody tr:nth-child(even) {
+.tablaClasificacion tbody tr:nth-child(even){
     background-color: #8e8c8c; 
 }
 .contenedorPrincipal-content .contenedorTabla .tablaClasificacion td,
-.contenedorPrincipal-content .contenedorTabla .tablaClasificacion th {
+.contenedorPrincipal-content .contenedorTabla .tablaClasificacion th{
     text-align: center;
 }
 
 .contenedorPrincipal-content .contenedorTabla .paginacion a{
     text-decoration: none;
     color: white;
+}
+body .contenedorPrincipal .contenedorPrincipal-content .carousel {
+    width: 90%;
+    height: 50%;
+    display: flex !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    color: white;
+    overflow: hidden;
+    border-radius: 10px;
+    border: solid 1px #FBCC02;
+}
+body .contenedorPrincipal .contenedorPrincipal-content .carousel .carousel-inner {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+body .contenedorPrincipal .contenedorPrincipal-content .carousel .carousel-inner .slide {
+    width: 100%;
+    height: 100%;
+}
+body .contenedorPrincipal .contenedorPrincipal-content .carousel .carousel-inner .slide canvas {
+    max-width: 90%;
+    max-height: 100%;
+    margin: auto;
+    display: block;
+    border: solid 1px red;
 }
