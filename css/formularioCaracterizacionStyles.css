@@ -1,0 +1,282 @@
+@font-face {
+    font-family: 'IMFellDWPica';
+    src: url('../recursos/Letra_im_fell_dw_pica/IMFellDWPica-Regular.ttf');
+    font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+  }
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    background-color: #2d2b29;
+}
+/*SECCION DE LA BARRA DE NAVEGACION*/
+body .barraNavegacion {
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #1A1A1A;
+}
+body .barraNavegacion .contenedorBotonesRedireccion {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
+    width: 30%;
+    height: 60%;
+    display: flex;
+    margin: 1%;
+    justify-content: center;
+    align-items: center;
+    background-color: #FBCC02;
+    border-radius: 10px;
+    font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+    font-size: 16px;
+    color: #000000;
+    text-align: center;
+}
+body .barraNavegacion .contenedorTitulo {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body .barraNavegacion .contenedorTitulo .titulo {
+    font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+    font-size: 60px;
+    color: #FBCC02;
+    text-align: center;
+}
+body .barraNavegacion .contenedorInfoUsuario{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+body .barraNavegacion .contenedorInfoUsuario .contenedorIconoUsuario{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+body .barraNavegacion .contenedorInfoUsuario .contenedorIconoUsuario .iconoUsuario{
+    object-fit: scale-down;
+    width: auto;
+    height: 100%;
+}
+body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario .nombreUsuario {
+    font-size: 20px;
+    color: #ffffff;
+}
+body .barraNavegacion .contenedorIconoSalir {
+    width: 5%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+}
+
+/* SECCION CONTENEDOR PRINCIPAL */
+body .contenedorPrincipal {
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+    background-color: #2C2B29;
+}
+
+/* SECCION BARRA LATERAL - INFORMACIÓN DEL USUARIO */
+body .contenedorPrincipal .barraLateral {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+    color: white;
+}
+body .contenedorPrincipal .barraLateral .barraLateralTitulo {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+body .contenedorPrincipal .barraLateral .contenedorImagenUsuario {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    /* border: solid 1px #FBCC02; */
+}
+body .contenedorPrincipal .barraLateral .contenedorImagenUsuario .imagenUsuario {
+    object-fit: scale-down;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+body .contenedorPrincipal .barraLateral .contenedorFormularioActualizacion {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+body .contenedorPrincipal .barraLateral .contenedorFormularioActualizacion .formularioActualizacion {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+body .contenedorPrincipal .barraLateral .contenedorFormularioActualizacion .formularioActualizacion .lbl-item {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+body .contenedorPrincipal .barraLateral .contenedorFormularioActualizacion .formularioActualizacion .input-item {
+    width: 80%;
+    height: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+    font-size: 16px;
+    color: gray;
+}
+/* SECCION CONTENEDOR PRINCIPAL - CONTENIDO */
+body .contenedorPrincipal .contenedorPrincipal-content {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* SECCION CONTENEDOR FORMULARIO DE CARACTERIZACIÓN */
+body .contenedorPrincipal .contenedorPrincipal-content h1 {
+    width: 100%;
+    height: 5%;
+    margin-top: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+body .contenedorPrincipal .contenedorPrincipal-content .contenedorFormularioCaracterizacion {
+    width: 100%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+body .contenedorPrincipal .contenedorPrincipal-content .contenedorFormularioCaracterizacion .formularioCaracterizacion {
+    width: 70%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.contenedorPrincipal-content .contenedorFormularioCaracterizacion .formularioCaracterizacion .contenedorInfoFormularioCaracterizacion {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.contenedorPrincipal-content .contenedorFormularioCaracterizacion .formularioCaracterizacion .contenedorInfoFormularioCaracterizacion .contenedorPage1,
+.contenedorPrincipal-content .contenedorFormularioCaracterizacion .formularioCaracterizacion .contenedorInfoFormularioCaracterizacion .contenedorPage2 {
+    width: 50%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contenedorFormularioCaracterizacion .formularioCaracterizacion .contenedorInfoFormularioCaracterizacion .contenedorPage1 .lbl-item,
+.contenedorFormularioCaracterizacion .formularioCaracterizacion .contenedorInfoFormularioCaracterizacion .contenedorPage2 .lbl-item {
+    width: 70%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+.contenedorFormularioCaracterizacion .formularioCaracterizacion .contenedorInfoFormularioCaracterizacion .contenedorPage1 .input-item,
+.contenedorFormularioCaracterizacion .formularioCaracterizacion .contenedorInfoFormularioCaracterizacion .contenedorPage2 .input-item  {
+    width: 80%;
+    height: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+    font-size: 16px;
+}
+.contenedorFormularioCaracterizacion .formularioCaracterizacion .contenedorPage1 .lbl-item[hidden],
+.contenedorFormularioCaracterizacion .formularioCaracterizacion .contenedorPage1 .input-item[hidden] {
+    display: none;
+}
+body .contenedorPrincipal .contenedorPrincipal-content .contenedorFormularioCaracterizacion .formularioCaracterizacion .btnEnviar {
+    width: 20%;
+    height: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FBCC02;
+    border-radius: 10px;
+    border: none;
+    font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+}

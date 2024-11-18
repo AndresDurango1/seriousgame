@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['id_usuario']) || $_SESSION['rol'] != 0) {
+if (!isset($_SESSION['id_usuario']) || $_SESSION['rol'] != 1) {
     header("Location: ../pages/index.php");
     exit();
 }
@@ -32,30 +32,29 @@ if ($resultadoImagen->num_rows > 0) {
 }
 // Variables para la seccion de paginación de la tabla
 $limit = 5; // Número de resultados por página
-$page = isset($_GET['page']) ? (int)$_GET['page'] : 1; // Número de página actual
-$offset = ($page - 1) * $limit; // Calcular el desplazamiento
-// Consulta para obtener los niveles del usuario con limit y offset 
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$offset = ($page - 1) * $limit;
+// Consulta para obtener todos los niveles de todos los usuario con limit y offset 
 $stmt2 = $conexion->prepare("SELECT nu.id_usuario, u.usuario AS usuario, nu.id_nivel, n.nombre_nivel AS nivel, nu.completado, nu.inicio, nu.fin, nu.tiempo_transcurrido, 
                             nu.puntaje FROM niveles_usuarios nu
                             JOIN 
                                 usuarios u ON nu.id_usuario = u.id_usuario
                             JOIN 
-                                niveles n ON nu.id_nivel = n.id_nivel 
-                            WHERE nu.id_usuario = ?
+                                niveles n ON nu.id_nivel = n.id_nivel
+                            ORDER BY nu.id_usuario ASC, nu.id_nivel ASC 
                             LIMIT ? OFFSET ?");
 
-$stmt2->bind_param("iii", $id_usuario, $limit, $offset);
+$stmt2->bind_param("ii", $limit, $offset);
 $stmt2->execute();
 $resultado2 = $stmt2->get_result();
 // Consulta para contar el total de registros
-$totalQuery = "SELECT COUNT(*) as total FROM niveles_usuarios WHERE id_usuario = ?";
+$totalQuery = "SELECT COUNT(*) as total FROM niveles_usuarios";
 $totalStmt = $conexion->prepare($totalQuery);
-$totalStmt->bind_param("i", $id_usuario);
 $totalStmt->execute();
 $totalResult = $totalStmt->get_result();
 $totalRow = $totalResult->fetch_assoc();
-$totalUsers = $totalRow['total']; // Total de niveles del usuario
-$totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
+$totalUsers = $totalRow['total'];
+$totalPages = ceil($totalUsers / $limit);
 ?>
 
 <!DOCTYPE html>
@@ -67,7 +66,8 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
-    <link rel="stylesheet" href="../css/usuarioStyles.css">
+    <!-- <link rel="stylesheet" href="../css/usuarioStyles.css"> -->
+     <link rel="stylesheet" href="../css/administradorStyles.css">
 </head>
 
 <body>
@@ -75,6 +75,7 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
         <div class="contenedorBotonesRedireccion">
             <button class="btnRedireccion" onclick="window.location.href='../pages/index.php'">Inicio</button>
             <button class="btnRedireccion" onclick="window.location.href='../pages/formularioCaracterizacion.php'">Formulario Caracterización</button>
+            <button class="btnRedireccion" onclick="window.location.href='../pages/estadisticas.php'">Ver Estadísticas</button>
         </div>
         <div class="contenedorTitulo">
             <p class="titulo">Las Aventuras de Go</p>
@@ -88,6 +89,11 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
             </div>
         </div>
         <div class="contenedorIconos">
+            <div class="contenedorIconoNuevoUsuario">
+                <a href="../pages/formularioRegistroUsuario.php">
+                    <i class="fas fa-user-plus" style="color: #ffffff;"></i>
+                </a>
+            </div>
             <div class="contenedorIconoSalir">
                 <a href="../php/cerrarSesion.php">
                     <i class="fas fa-sign-out-alt" style="color: #ffffff;"></i>
@@ -180,7 +186,7 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
                         <?php
                         while ($fila = $resultado2->fetch_assoc()) {
                             echo "<tr>";
-                            echo "<td><a href='informacionUsuario.php?id_usuario=" . $fila['id_usuario'] . "'>@" . $fila['usuario'] . "</a></td>";
+                            echo "<td><a href='informacionUsuario.php?id_user=" . $fila['id_usuario'] . "'>@" . $fila['usuario'] . "</a></td>";
                             echo "<td>" . $fila['nivel'] . "</td>";
                             echo "<td>" . ($fila['completado'] ? 'Completado' : 'No Completado') . "</td>";
                             echo "<td>" . $fila['inicio'] . "</td>";

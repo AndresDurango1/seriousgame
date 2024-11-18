@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,11 +30,11 @@
                 Embárcate en una épica aventura con tu Avatar, un humanoide con el poder de transformarse en quark, mientras explora vastos centros de datos y descubre mundos ocultos. Viaja junto a una tripulación leal a bordo de tu nave, enfrentando desafíos en cada mundo para avanzar.
             </p>
             <div class="contenedorBotonesHome">
-                <button class="btnLoging" id="btnIniciarSesion" onclick="">Iniciar Sesión</button>
+                <button class="btnLoging" id="btnIniciarSesion">Iniciar Sesión</button>
                 <button class="btnRegistrar" id="btnRegistrar">Registrarse</button>
             </div>
             <div class="contenedorScrollIcon">
-                <img class="scrollIcon" src="../recursos/img/iconoScroll.png" alt="Icono Scroll">
+                <img class="scrollIcon" src="../recursos/img/imgIndexPage/iconoScroll.png" alt="Icono Scroll">
             </div>
             <div class="contenedorMensajeScroll">
                 <p class="mensajeScroll">Desliza para saber más</p>
@@ -58,36 +59,6 @@
                 <a href="formularioRecuperarContrasena.php">¿Olvidaste tu contraseña?</a>
             </p>
         </div>
-        <!-- MODAL FORMULARIO REGISTRO -->
-        <div class="contenedorFormularioRegistro" id="contenedorFormularioRegistro">
-            <div class="contenedorIconoCerrarR">
-                    <i class="fal fa-window-close" style="color: #000000;" id="iconoCerrarR"></i>
-            </div>
-            <h1 class="tituloFormularioRegistrarse">Registrate</h1>
-            <form class="formularioRegistro" action="../php/registroUsuarios.php" method="post">
-                <label for="lblIdentificacion">Identificación</label>
-                <input type="number" name="inputIdentificacion" id="inputIdentificacion" placeholder="Ingresa tu Número de Identificación" required>
-                <label for="lblNombre">Nombre</label>
-                <input type="text" name="inputNombre" id="inputNombre" placeholder="Ingresa tu Nombre" required>
-                <label for="lblApellido">Apellido</label>
-                <input type="text" name="inputApellido" id="inputApellido" placeholder="Ingresa tu Apellido" required>
-                <label for="lblUsuario">Usuario</label>
-                <input type="text" name="inputUsuario" id="inputUsuario" placeholder="Ingresa tu Usuario" required>
-                <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1): ?>
-                <label for="lblRol">Rol</label>
-                <select name="inputRol" id="inputRol">
-                    <option>Selecciona un Rol</option>
-                    <option value="0">Usuario</option>
-                    <option value="1">Administrador</option>                
-                </select>
-                <?php endif; ?>
-                <label for="lblCorreo">Correo</label>
-                <input type="email" name="inputCorreo" id="inputCorreo" placeholder="Ingresa tu Correo" required>
-                <label for="lblContrasena">Contraseña</label>
-                <input type="password" name="inputContrasena" id="inputContrasena" placeholder="Ingresa tu Contraseña" required>
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
     </div>
     <div class="contenedorSecciones">
         <section class="about-us" id="about-us">
@@ -99,6 +70,7 @@
         </section>
         <section class="player-handbook" id="player-handbook">
         </section>
+        <!-- Creacion rama mariangel -->
     </div>
     <script src="../js/scriptBarraNavegacion.js"></script>
     <script src="../js/scriptModales.js"></script>
