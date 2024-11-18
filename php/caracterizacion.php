@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if (!isset($_SESSION['id_usuario']) || $_SESSION['rol'] != 0 || $_SESSION['rol'] != 1) {
+    if (!isset($_SESSION['id_usuario']) || ($_SESSION['rol'] != 0 && $_SESSION['rol'] != 1)) {
         header("Location: ../pages/index.php");
         exit();
     }
@@ -53,15 +53,15 @@
         $fecha_nacimiento = htmlspecialchars(strip_tags($_POST['inputFechaNacimiento']));
         $numero_celular = htmlspecialchars(strip_tags($_POST['inputNumeroCelular']));
         $id_usuario = filter_input(INPUT_POST, 'inputIdUsuario', FILTER_SANITIZE_NUMBER_INT);
-        $id_genero = filter_input(INPUT_POST, 'inputIdGenero', FILTER_SANITIZE_NUMBER_INT);
-        $id_grupo_etnico = filter_input(INPUT_POST, 'inputIdGrupoEtnico', FILTER_SANITIZE_NUMBER_INT);
-        $id_ciudad = filter_input(INPUT_POST, 'inputIdCiudad', FILTER_SANITIZE_NUMBER_INT);
-        $id_estado_civil = filter_input(INPUT_POST, 'inputIdEstadoCivil', FILTER_SANITIZE_NUMBER_INT);
-        $id_nivel_educativo = filter_input(INPUT_POST, 'inputIdNivelEducativo', FILTER_SANITIZE_NUMBER_INT);
-        $id_ocupacion = filter_input(INPUT_POST, 'inputIdOcupacion', FILTER_SANITIZE_NUMBER_INT);
-        $id_cargo = filter_input(INPUT_POST, 'inputIdCargo', FILTER_SANITIZE_NUMBER_INT);
-        $id_estrato = filter_input(INPUT_POST, 'inputIdEstrato', FILTER_SANITIZE_NUMBER_INT);
-        $id_tipo_vivienda = filter_input(INPUT_POST, 'inputIdTipoVivienda', FILTER_SANITIZE_NUMBER_INT);
+        $id_genero = filter_input(INPUT_POST, 'inputGenero', FILTER_SANITIZE_NUMBER_INT);
+        $id_grupo_etnico = filter_input(INPUT_POST, 'inputGrupoEtnico', FILTER_SANITIZE_NUMBER_INT);
+        $id_ciudad = filter_input(INPUT_POST, 'inputCiudad', FILTER_SANITIZE_NUMBER_INT);
+        $id_estado_civil = filter_input(INPUT_POST, 'inputEstadoCivil', FILTER_SANITIZE_NUMBER_INT);
+        $id_nivel_educativo = filter_input(INPUT_POST, 'inputNivelEducativo', FILTER_SANITIZE_NUMBER_INT);
+        $id_ocupacion = filter_input(INPUT_POST, 'inputOcupacion', FILTER_SANITIZE_NUMBER_INT);
+        $id_cargo = filter_input(INPUT_POST, 'inputCargo', FILTER_SANITIZE_NUMBER_INT);
+        $id_estrato = filter_input(INPUT_POST, 'inputEstrato', FILTER_SANITIZE_NUMBER_INT);
+        $id_tipo_vivienda = filter_input(INPUT_POST, 'inputTipoVivienda', FILTER_SANITIZE_NUMBER_INT);
         // Validar campos obligatorios antes de enviarlos a la base de datos
         $errores = validarCampos($_POST);
         if (count($errores) > 0) {

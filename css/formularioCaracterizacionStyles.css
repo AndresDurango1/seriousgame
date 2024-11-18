@@ -14,7 +14,6 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-
     background-color: #2d2b29;
 }
 /*SECCION DE LA BARRA DE NAVEGACION*/
@@ -41,8 +40,9 @@ body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
     margin: 1%;
     justify-content: center;
     align-items: center;
-    background-color: #FBCC02;
+    background-color: #a56b15;
     border-radius: 10px;
+    border: none;
     font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
     font-size: 16px;
     color: #000000;
@@ -58,7 +58,7 @@ body .barraNavegacion .contenedorTitulo {
 body .barraNavegacion .contenedorTitulo .titulo {
     font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
     font-size: 60px;
-    color: #FBCC02;
+    color: #a56b15;
     text-align: center;
 }
 body .barraNavegacion .contenedorInfoUsuario{
@@ -271,12 +271,11 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorFormularioCara
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #FBCC02;
+    background-color: #a56b15;
     border-radius: 10px;
     border: none;
     font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
     text-align: center;
     font-size: 16px;
-    font-weight: bold;
     color: black;
 }

@@ -39,6 +39,7 @@
                 </div>
                 <p class="mensajeScroll">Desliza para saber más</p>
             </div>
+            <div class="gradient-effect"></div>
         </section>
         <!-- MODAL FORMULARIO INICIO DE SESION -->
         <div class="contenedorFormularioInicioSesion" id="contenedorFormularioInicioSesion">

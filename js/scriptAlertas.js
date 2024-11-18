@@ -71,8 +71,6 @@ if (params.has('fc-error') && params.get('fc-error') === 'true' && params.has('e
         }
     });
 }
-
-
 //DEFINICION DE FUNCIONES PARA ALERTAS
 function mostrarAlertasUsuario(title, text, icon, confirmButtonText) {
     Swal.fire({
