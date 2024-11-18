@@ -13,7 +13,7 @@
             <source src="../recursos/videos/intro_2.mp4" type="video/mp4">
             Tu navegador no soporta el video.
         </video>
-        <nav class="barraNavegacion">
+        <nav class="barraNavegacion fixed-top">
             <div class="contenedorLista">
                 <ol class="opcionesNavegacion">
                 <li><a href="#home" class="nav-link">Inicio</a></li>
@@ -95,9 +95,6 @@
                 <p>Un Avatar (humanoide, con poderes para convertirse en quark), que viaje por diferentes centros de datos y que durante ese recorrido vaya descubriendo mundos y superando ciertos retos para avanzar al siguiente. se pretende que el Avatar durante esos viajes vaya acompañado de su tripulación a bordo de su nave y en la interacción con su tripulación les cuente sus experiencias/aprendizajes y resuelva inquietudes.</p>
             </section>
             <section class="game-features">
-                <div class="contenedorInfoMundo" id="contenedorInfoMundo">
-                    <p class="infoMundo" id="infoMundo"></p>
-                </div>
                 <div class="contenedorImagenesGameFeatures">
                     <div class="contenedorImagenMundo" id="contenedorImagenMundo1">
                         <img src="../recursos/img/Mundo1.png" alt="" class="imagenMundo1" id="imagenMundo1" onclick="mostrarTexto(1)">
@@ -127,15 +124,26 @@
                         <img src="../recursos/img/Mundo9.png" alt="" class="imagenMundo9" id="imagenMundo9" onclick="mostrarTexto(9)">
                     </div>
                 </div>
-            </section>
-            <section class="about-us" id="about-us">
-            </section>
-            <section class="game-features" id="game-features">
-            </section>
-            <section class="player-handbook" id="player-handbook">
+                <div class="contenedorInfoMundo" id="contenedorInfoMundo">
+                    <p class="infoMundo" id="infoMundo"></p>
+                </div>
             </section>
         </div>
-        
+        <div class="contenedorManual">
+             <section class="manualDelJugador">
+             <h2 class="titulo2">Manual Del Jugador</h2>
+             </section>
+            <section class="manualPasoaPaso">
+                <div class="contenedorImagenPasoaPaso">
+                    <div class="contenedorImagenManual">        
+                        <img src="../recursos/img/Fondo.png" alt="">
+                    </div>
+                    <div class="contenedorImagenManual">                
+                        <img src="../recursos/img/botones_principales.png" alt="">
+                    </div>
+                </div>
+            </section>
+        </div>
     <script src="../js/scriptBarraNavegacion.js"></script>
     <script src="../js/scriptModales.js"></script>
     <script src="../js/scriptInfoNiveles.js"></script>
