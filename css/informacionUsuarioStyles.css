@@ -1,11 +1,12 @@
+@font-face {
+    font-family: 'IMFellDWPica';
+    src: url('../recursos/Letra_im_fell_dw_pica/IMFellDWPica-Regular.ttf');
+    font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+}
 *{
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
-}
-@font-face{
-   font-family: 'IMFellDWPica';
-   src: url('../recursos/Letra_im_fell_dw_pica/IMFellDWPica-Regular.ttf');
 }
 /*SECCION DE LA BARRA DE NAVEGACION*/
 body .barraNavegacion {
@@ -60,16 +61,20 @@ body .barraNavegacion .contenedorInfoUsuario{
     align-items: center;
 }
 body .barraNavegacion .contenedorInfoUsuario .contenedorIconoUsuario{
-    width: 50%;
+    width: 20%;
     height: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    border-radius: 100%;
+    border: none;
 }
 body .barraNavegacion .contenedorInfoUsuario .contenedorIconoUsuario .iconoUsuario{
-    object-fit: scale-down;
-    width: auto;
+    width: 100%;
     height: 100%;
+    border-radius: 50px;
+    border: none;
+    object-fit: scale-down;
 }
 body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario {
     width: 50%;
@@ -80,6 +85,7 @@ body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario {
 }
 body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario .nombreUsuario {
     font-size: 20px;
+    font-family: 'IMFellDWPica' ,'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
     color: #ffffff;
 }
 body .barraNavegacion .contenedorIconos{
@@ -209,7 +215,7 @@ body .contenedorPrincipal .contenedorPrincipal-content{
     align-items: center;    
 }
 /*SECCION CONTENEDOR PRINCIPAL - TABLA*/
-body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla{
+body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla {
     width: 90%;
     height: 50%;
     display: flex;
@@ -218,7 +224,7 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla{
     align-items: center;
     color: white;
 }
-body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaClasificacion{
+body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaClasificacion {
     width: 95%;
     height: auto;
     margin: 20px 0;             
@@ -228,24 +234,24 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
     font-size: 16px;     
     overflow: hidden;     
 }
-.contenedorPrincipal-content .contenedorTabla .tablaClasificacion thead th{
+.contenedorPrincipal-content .contenedorTabla .tablaClasificacion thead th {
     background-color: #8e8c8c; 
     color: #000000;           
     padding: 10px;             
     text-transform: uppercase;  
 }
-.contenedorPrincipal-content .contenedorTabla .tablaClasificacion tbody td{
+.contenedorPrincipal-content .contenedorTabla .tablaClasificacion tbody td {
     padding: 8px;             
     border-bottom: 1px solid #ddd; 
 }
-.contenedorPrincipal-content .contenedorTabla .tablaClasificacion tbody td a{
+.contenedorPrincipal-content .contenedorTabla .tablaClasificacion tbody td a {
     color: #ffffff;
 }
-.tablaClasificacion tbody tr:nth-child(even){
+.tablaClasificacion tbody tr:nth-child(even) {
     background-color: #8e8c8c; 
 }
 .contenedorPrincipal-content .contenedorTabla .tablaClasificacion td,
-.contenedorPrincipal-content .contenedorTabla .tablaClasificacion th{
+.contenedorPrincipal-content .contenedorTabla .tablaClasificacion th {
     text-align: center;
 }
 
@@ -253,6 +259,7 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
     text-decoration: none;
     color: white;
 }
+/*SECCION CONTENEDOR PRINCIPAL - CARRUSEL*/
 body .contenedorPrincipal .contenedorPrincipal-content .carousel {
     width: 90%;
     height: 50%;

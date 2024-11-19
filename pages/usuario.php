@@ -180,7 +180,7 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
                         <?php
                         while ($fila = $resultado2->fetch_assoc()) {
                             echo "<tr>";
-                            echo "<td><a href='informacionUsuario.php?id_usuario=" . $fila['id_usuario'] . "'>@" . $fila['usuario'] . "</a></td>";
+                            echo "<td><a href='informacionUsuario.php?id_user=" . $fila['id_usuario'] . "'>@" . $fila['usuario'] . "</a></td>";
                             echo "<td>" . $fila['nivel'] . "</td>";
                             echo "<td>" . ($fila['completado'] ? 'Completado' : 'No Completado') . "</td>";
                             echo "<td>" . $fila['inicio'] . "</td>";

@@ -7,7 +7,6 @@
     include_once '../php/conexion.php';
     $conexion = conectar();
     $id_usuario = $_SESSION['id_usuario'];
-    
     //Se debe validar que los campos del formulario no estén vacíos antes de procesarlo y enviarlo a la base de datos
     function validarCampos($data) {
         $errores = [];
@@ -85,7 +84,8 @@
                 exit();
             } else {
                 header("Location: ../pages/formularioCaracterizacion.php?fc-no-actualizado=true");
-                exit();            }
+                exit();
+            }
         } else {
             $stmtInsercion = $conexion->prepare("INSERT INTO caracterizacion (fecha_nacimiento, celular, id_usuario, id_genero, id_grupo_etnico, id_ciudad, id_estado_civil, id_nivel_educativo, id_ocupacion, id_cargo, id_estrato, id_tipo_vivienda) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             $stmtInsercion->bind_param("ssiiiiiiiiii", $fecha_nacimiento, $numero_celular, $id_usuario, $id_genero, $id_grupo_etnico, $id_ciudad, $id_estado_civil, $id_nivel_educativo, $id_ocupacion, $id_cargo, $id_estrato, $id_tipo_vivienda);
