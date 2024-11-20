@@ -8,50 +8,25 @@
     padding: 0%;
     box-sizing: border-box;
 }
-body .contenedorPrincipal .contenedorFormularioInicioSesion{
+body .contenedorFormularioInicioSesion{
     width: 40%;
-    height: 40%;
+    height: 30%;
     margin: auto;
     display: none;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     border-radius: 10px;
-    background-color:#24223b96 ;
+    background-color: aliceblue;
     z-index: 2;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #ffffff;
 }
-body .contenedorPrincipal .contenedorFormularioInicioSesion .fomularioInicioSesion{
-    width: 50%;
-    height: 50%;
+body .contenedorFormularioInicioSesion .fomularioInicioSesion{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-}
-body .contenedorPrincipal .contenedorFormularioInicioSesion .fomularioInicioSesion .btn{
-    width: 150px;
-    height: 40px;
-    margin: 10px;
-    padding: 4px;
-    background-color: #a56b15;
-    border-radius: 15px;
-
-}
-body .contenedorPrincipal .contenedorFormularioInicioSesion .far{
-    color: #ffffff;
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 10px;
-    cursor: pointer;
-    
-}
-body .contenedorPrincipal .contenedorFormularioInicioSesion  .tituloFormularioInicioSesion{
-    color: #a56b15;
-    margin-top: 1%;
 }
