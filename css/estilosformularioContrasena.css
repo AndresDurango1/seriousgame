@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('../recursos/img/imgindexPage/Fondo.png') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.form-container {
+    background-color: #24223b96;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+   
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color:  #a56b15;
+    font-size: 30px;
+    
+}
+
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-container input:focus {
+    border-color: #a56b15;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.form-container button {
+    background-color: #a56b15;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+    background-color: #a56b15;;
+}
+
+.form-container button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+.form-container .contenedorIconoCerrarIS .far{
+    color: #ffffff;
+    position: relative;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+}
