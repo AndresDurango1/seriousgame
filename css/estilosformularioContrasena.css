@@ -8,7 +8,7 @@ body {
     height: 100vh;
     margin: 0;
 }
-
+body{}
 .form-container {
     background-color: #24223b96;
     border-radius: 8px;

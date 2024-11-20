@@ -18,7 +18,6 @@
         <input type="email" name="inputCorreo" id="inputCorreo" placeholder="ejemplo@correo.com" required>
         <button type="submit">Recuperar</button>
     </form>
-    <div id="respuesta" style="margin-top: 10px; color: red;"></div> <!-- Para mostrar mensajes -->
 </div>
 
 
