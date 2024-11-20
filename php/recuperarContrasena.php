@@ -1,6 +1,4 @@
 <?php
-    set_time_limit(300); // Aumenta el tiempo de ejecución máximo a 300 segundos
-
     include_once 'conexion.php';
     $conexion = conectar();
 

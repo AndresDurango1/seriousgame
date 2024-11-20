@@ -53,7 +53,7 @@ while ($fila = $result3->fetch_assoc()) {
     $stmt3_niveles[] = $fila['nivel'];
     $stmt3_puntajes[] = $fila['puntaje_promedio'];
 }
-//Consulta 4 a la base de datos para traer el tiempo promedio para completar un nivel
+//Consulta 4 a la base de datos para traer el tiempo transcurrido para completar un nivel
 $stmt4 = "SELECT u.usuario, n.nombre_nivel AS nivel, nu.id_nivel, nu.tiempo_transcurrido FROM usuarios u
     JOIN niveles_usuarios nu ON u.id_usuario = nu.id_usuario
     JOIN niveles n ON nu.id_nivel = n.id_nivel

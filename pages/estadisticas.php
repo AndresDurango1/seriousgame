@@ -126,6 +126,6 @@ if ($resultadoImagen->num_rows > 0) {
             </div>
         </section>
     </div>
-    <script src="../js/scriptGenerarGraficos.js"></script>
+    <script src="../js/scriptGenerarGraficosEstadisticas.js"></script>
 </body>
 </html>
