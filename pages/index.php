@@ -43,8 +43,7 @@
         <!-- MODAL FORMULARIO INICIO DE SESION -->
         <div class="contenedorFormularioInicioSesion" id="contenedorFormularioInicioSesion">
             <div class="contenedorIconoCerrarIS">
-                <i class="far fa-window-close" style="color: #000000;" id="iconoCerrarIS"></i>
-                <i class="far fa-window-close"  id="iconoCerrarIS"></i>
+                <i class="far fa-window-close" id="iconoCerrarIS" style="color: #000000;" ></i>
             </div>
             <h1 class="tituloFormularioInicioSesion">Inicio de Sesión</h1>
             <form action="../php/login.php" method="POST" class="fomularioInicioSesion">
@@ -52,7 +51,6 @@
                 <input type="text" name="inputUsuario" id="inputUsuario" required>
                 <label for="inputContrasena">Contraseña</label>
                 <input type="password" name="inputContrasena" id="inputContrasena" required>
-                <button type="submit" href="administrador.php">Iniciar sesión</button>
                 <button class="btn" type="submit" href="administrador.php">Iniciar sesión</button>
             </form>
             <p>
