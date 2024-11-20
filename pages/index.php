@@ -44,6 +44,7 @@
         <div class="contenedorFormularioInicioSesion" id="contenedorFormularioInicioSesion">
             <div class="contenedorIconoCerrarIS">
                 <i class="far fa-window-close" style="color: #000000;" id="iconoCerrarIS"></i>
+                <i class="far fa-window-close"  id="iconoCerrarIS"></i>
             </div>
             <h1 class="tituloFormularioInicioSesion">Inicio de Sesión</h1>
             <form action="../php/login.php" method="POST" class="fomularioInicioSesion">
@@ -52,9 +53,10 @@
                 <label for="inputContrasena">Contraseña</label>
                 <input type="password" name="inputContrasena" id="inputContrasena" required>
                 <button type="submit" href="administrador.php">Iniciar sesión</button>
+                <button class="btn" type="submit" href="administrador.php">Iniciar sesión</button>
             </form>
             <p>
-                <a href="formularioRecuperarContrasena.php">¿Olvidaste tu contraseña?</a>
+                <a style="color: #ffffff;" href="formularioRecuperarContrasena.php">¿Olvidaste tu contraseña?</a>
             </p>
         </div>
         <div class="contenedorSecciones">
