@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     const contenedorInfoMundo = document.getElementById("contenedorInfoMundo");
     const parrafo = document.getElementById('infoMundo');
+    const imagen  = document.getElementById('imagenMundo')
 
     function mostrarTexto(index) {
         const textos = [
@@ -24,10 +25,21 @@ document.addEventListener('DOMContentLoaded', function () {
             "En este mundo el Avatar vive una experiencia viajando a través de redes...",
             "Esta es el mundo de la voz y la colaboración...",
             "Este mundo será una nueva experiencia para el Avatar...",
-            "Hola perras"
+            "Hola "
         ];
-
+        const imagenesSrc = [
+            "../recursos/img/imgIndexPage/Mundo1.png",
+            "../recursos/img/imgIndexPage/Mundo2.png",
+            "../recursos/img/imgIndexPage/Mundo3.png",
+            "../recursos/img/imgIndexPage/Mundo4.png",
+            "../recursos/img/imgIndexPage/Mundo5.png",
+            "../recursos/img/imgIndexPage/Mundo6.png",
+            "../recursos/img/imgIndexPage/Mundo7.png",
+            "../recursos/img/imgIndexPage/Mundo8.png",
+            "../recursos/img/imgIndexPage/Mundo9.png",
+        ]
         parrafo.textContent = textos[index - 1] || "Información no disponible";
+        imagen.src = imagenesSrc[index - 1] || "";
         contenedorInfoMundo.style.display = "flex";
     }
 
