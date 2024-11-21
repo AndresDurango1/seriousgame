@@ -84,7 +84,7 @@
 <body>
     <nav class="barraNavegacion">
         <div class="contenedorBotonesRedireccion">
-            <button class="btnRedireccion" onclick="window.location.href='../pages/index.php'">HOME</button>
+            <button class="btnRedireccion" onclick="window.location.href='../pages/index.php'">Inicio</button>
             <button class="btnRedireccion" onclick="window.location.href='<?php echo $miPerfilUrl; ?>'">Mi perfil</button>
         </div>
         <div class="contenedorTitulo">

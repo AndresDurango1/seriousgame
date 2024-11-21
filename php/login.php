@@ -34,7 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 "rol" => $rol
             ];
             echo json_encode($respuesta);
-
             // Gestión para diligenciamiento del formulario de caracterización
             $stmtCaracterizacion = $conexion->prepare("SELECT * FROM caracterizacion WHERE id_usuario = ?");
             $stmtCaracterizacion->bind_param("i", $id_usuario);
@@ -62,10 +61,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 exit(); 
             }
         } else {
-            echo json_encode(["status" => "error", "message" => "Contraseña incorrecta"]);
+            //echo json_encode(["status" => "error", "message" => "Contraseña incorrecta"]);
+            header("Location: ../pages/index.php?contrasena-incorrecta=true");
         }
     } else {
-        echo json_encode(["status" => "error", "message" => "El usuario no existe o es incorrecto"]);
+        //echo json_encode(["status" => "error", "message" => "El usuario no existe o es incorrecto"]);
+        header("Location: ../pages/index.php?usuario-no-encontrado=true");
     }
 
     $stmt->close();

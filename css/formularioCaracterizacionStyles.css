@@ -1,12 +1,12 @@
 @font-face {
     font-family: 'IMFellDWPica';
     src: url('../recursos/Letra_im_fell_dw_pica/IMFellDWPica-Regular.ttf');
-    font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
   }
 *{
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
+    font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
 }
 body {
     width: 100%;
@@ -14,7 +14,6 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-
     background-color: #2d2b29;
 }
 /*SECCION DE LA BARRA DE NAVEGACION*/
@@ -41,8 +40,9 @@ body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
     margin: 1%;
     justify-content: center;
     align-items: center;
-    background-color: #FBCC02;
+    background-color: #a56b15;
     border-radius: 10px;
+    border: none;
     font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
     font-size: 16px;
     color: #000000;
@@ -58,7 +58,7 @@ body .barraNavegacion .contenedorTitulo {
 body .barraNavegacion .contenedorTitulo .titulo {
     font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
     font-size: 60px;
-    color: #FBCC02;
+    color: #a56b15;
     text-align: center;
 }
 body .barraNavegacion .contenedorInfoUsuario{
@@ -70,16 +70,20 @@ body .barraNavegacion .contenedorInfoUsuario{
     align-items: center;
 }
 body .barraNavegacion .contenedorInfoUsuario .contenedorIconoUsuario{
-    width: 50%;
+    width: 20%;
     height: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    border-radius: 100%;
+    border: none;
 }
 body .barraNavegacion .contenedorInfoUsuario .contenedorIconoUsuario .iconoUsuario{
-    object-fit: scale-down;
-    width: auto;
+    width: 100%;
     height: 100%;
+    border-radius: 50px;
+    border: none;
+    object-fit: scale-down;
 }
 body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario {
     width: 50%;
@@ -90,6 +94,7 @@ body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario {
 }
 body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario .nombreUsuario {
     font-size: 20px;
+    font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
     color: #ffffff;
 }
 body .barraNavegacion .contenedorIconoSalir {
@@ -271,12 +276,11 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorFormularioCara
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #FBCC02;
+    background-color: #a56b15;
     border-radius: 10px;
     border: none;
     font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
     text-align: center;
     font-size: 16px;
-    font-weight: bold;
     color: black;
 }
