@@ -9,40 +9,39 @@ body {
     margin: 0;
 }
 .form-container {
-    background-color: #24223b96;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 25%;
+    height: 25%;
     padding: 20px;
-    max-width: 400px;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     text-align: center;
-   
+    border-radius: 8px;
+    border: none;
+    background-color: #24223b96;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 .form-container label {
     display: block;
-    margin-bottom: 15px;
     font-weight: bold;
     color:  #a56b15;
     font-size: 30px;
-    
 }
-
 .form-container input {
-    width: 100%;
+    width: 60%;
+    height: 10%;
     padding: 10px;
-    margin-bottom: 20px;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 16px;
+    text-align: center;
 }
-
 .form-container input:focus {
     border-color: #a56b15;
     outline: none;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
-
 .form-container button {
     background-color: #a56b15;
     color: #fff;
@@ -52,21 +51,4 @@ body {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-.form-container button:hover {
-    background-color: #a56b15;;
-}
-
-.form-container button:focus {
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-.form-container .contenedorIconoCerrarIS .far{
-    color: #ffffff;
-    position: relative;
-    top: 0;
-    right: 0;
-    padding: 10px;
-    cursor: pointer;
 }

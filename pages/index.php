@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/indexStyles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -34,7 +36,7 @@
             </div>
             <div class="contenedorScroll">
                 <div class="contenedorScrollIcon">
-                    <img class="scrollIcon" src="../recursos/img/imgIndexPage/iconoScroll.png" alt="Icono Scroll">
+                    <a class="scrollIcon" href="#acerca-de-nosotros"><img class="scrollIcon" src="../recursos/img/imgIndexPage/iconoScroll.png" alt="Icono Scroll"></a>
                 </div>
                 <p class="mensajeScroll">Desliza para saber más</p>
             </div>
@@ -43,7 +45,7 @@
         <!-- MODAL FORMULARIO INICIO DE SESION -->
         <div class="contenedorFormularioInicioSesion" id="contenedorFormularioInicioSesion">
             <div class="contenedorIconoCerrarIS">
-                <i class="far fa-window-close" id="iconoCerrarIS" style="color: #000000;" ></i>
+                <i class="far fa-window-close" id="iconoCerrarIP" style="color: #ffffff;" ></i>
             </div>
             <h1 class="tituloFormularioInicioSesion">Inicio de Sesión</h1>
             <form action="../php/login.php" method="POST" class="fomularioInicioSesion">
@@ -96,7 +98,7 @@
                 </div>
                 <div class="contenedorInfoMundo" id="contenedorInfoMundo">
                     <div class="contenedorImagenMundo">
-                        <img class="imagenMundo" id="imagenMundo" src="" alt="">
+                        <img class="imagenMundo" id="imagenMundo" src="">
                     </div>
                     <p class="infoMundo" id="infoMundo"></p>
                 </div>
@@ -118,5 +120,6 @@
     <script src="../js/scriptBarraNavegacion.js"></script>
     <script src="../js/scriptModales.js"></script>
     <script src="../js/scriptInfoNiveles.js"></script>
+    <script src="../js/scriptAlertas.js"></script>
 </body>
 </html>
