@@ -19,18 +19,17 @@ if (params.has('actualizado') || params.has('contrasenaIsDifferent')) {
     }
     mostrarAlertasUsuario(title, text, icon, confirmButtonText);
 }
-
 //Alertas para la pagina de Formulario Caracterización
 if (params.has('fc-actualizado') || params.has('fc-insertado')|| params.has('fc-no-actualizado') || params.has('fc-no-insertado')) {
     let title, text, icon, confirmButtonText;
     switch (true) {
-        case params.has('fc_actualizado'):
+        case params.has('fc-actualizado'):
             title = '!Éxito!';
             text = 'La información del formulario de caracterización demográfica se ha actualizado correctamente.';
             icon ='success';
             confirmButtonText = 'Aceptar';
             break;
-        case params.has('fc_insertado'):
+        case params.has('fc-insertado'):
             title = '!Éxito!';
             text = 'La información del formulario de caracterización demográfica se ha guardado correctamente.';
             icon ='success';
@@ -52,13 +51,8 @@ if (params.has('fc-actualizado') || params.has('fc-insertado')|| params.has('fc-
     mostrarAlertasCaracterizacion(title, text, icon, confirmButtonText);
 }
 if (params.has('fc-error') && params.get('fc-error') === 'true' && params.has('errores')) {
-    // Obtener los errores desde la URL
     const errores = decodeURIComponent(params.get('errores')).split(',');
-
-    // Crear el mensaje de error combinando todos los errores
-    const mensajeErrores = errores.join("\n");  // Unir los errores en un solo mensaje, separados por saltos de línea
-
-    // Mostrar los errores en una alerta de SweetAlert
+    const mensajeErrores = errores.join("\n");
     Swal.fire({
         title: '¡Error!',
         text: 'Los siguientes errores ocurrieron:\n' + mensajeErrores,
@@ -66,15 +60,16 @@ if (params.has('fc-error') && params.get('fc-error') === 'true' && params.has('e
         confirmButtonText: 'Aceptar'
     }).then((result) => {
         if (result.isConfirmed) {
-            // Limpiar los errores de la URL (opcional)
             window.history.replaceState(null, '', 'formularioCaracterizacion.php');
         }
     });
 }
-
-
 //DEFINICION DE FUNCIONES PARA ALERTAS
 function mostrarAlertasUsuario(title, text, icon, confirmButtonText) {
+    /*console.log('Title:', title);
+    console.log('Text:', text);
+    console.log('Icon:', icon);
+    console.log('ConfirmButtonText:', confirmButtonText);*/
     Swal.fire({
         title: title,
         text: text,
@@ -87,6 +82,10 @@ function mostrarAlertasUsuario(title, text, icon, confirmButtonText) {
     });
 }
 function mostrarAlertasCaracterizacion(title, text, icon, confirmButtonText) {
+    /*console.log('Title:', title);
+    console.log('Text:', text);
+    console.log('Icon:', icon);
+    console.log('ConfirmButtonText:', confirmButtonText);*/
     Swal.fire({
         title: title,
         text: text,
@@ -94,7 +93,7 @@ function mostrarAlertasCaracterizacion(title, text, icon, confirmButtonText) {
         confirmButtonText: confirmButtonText,
     }).then((result) => {
         if (result.isConfirmed) {
-            window.location.href = '../pages/usuario.php';
+            window.location.href = '../pages/formularioCaracterizacion.php';
         }
     });
 };
