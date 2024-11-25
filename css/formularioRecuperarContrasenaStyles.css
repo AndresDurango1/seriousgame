@@ -1,3 +1,17 @@
+@font-face {
+    font-family: 'IMFellDWPica';
+    src: url('../recursos/tipografias/Letra_im_fell_dw_pica/IMFellDWPica-Regular.ttf');
+}
+  @font-face {
+    font-family: 'CronosPro';
+    src: url('../recursos/tipografias/LetraTigo/tigo.ttf');
+}
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+}
 body {
     font-family: Arial, sans-serif;
     background: url('../recursos/img/imgindexPage/Fondo.png') no-repeat center center fixed;
