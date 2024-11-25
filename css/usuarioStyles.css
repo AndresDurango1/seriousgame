@@ -1,7 +1,11 @@
 @font-face {
     font-family: 'IMFellDWPica';
-    src: url('../recursos/Letra_im_fell_dw_pica/IMFellDWPica-Regular.ttf');
-  }
+    src: url('../recursos/tipografias/Letra_im_fell_dw_pica/IMFellDWPica-Regular.ttf');
+}
+  @font-face {
+    font-family: 'CronosPro';
+    src: url('../recursos/tipografias/LetraTigo/tigo.ttf');
+}
 *{
     margin: 0%;
     padding: 0%;
