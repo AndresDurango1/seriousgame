@@ -1,22 +1,23 @@
-@import url(estilosFormularioInicioSesion.css);
-@import url(estilosFormularioRegistro.css);
-*{
-    margin: 0%;
-    padding: 0%;
-    box-sizing: border-box;
-}
+@import url('../css/estilosFormularioInicioSesion.css');
 @font-face {
     font-family: 'IMFellDWPica';
     src: url('../recursos/Letra_im_fell_dw_pica/IMFellDWPica-Regular.ttf');
   }
-body {
-    width: 100%;
-    height: 100%;
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+}
+  body {
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
     justify-content: space-around;
     align-items: center;
-    background-color: #023E73;
+    background-color: #050021;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -36,20 +37,20 @@ body .contenedorPrincipal .video-background {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; 
+    z-index: -2; 
     object-fit: cover;
 }
-/* Estilos de la barra de navegación */
 body .contenedorPrincipal .barraNavegacion {
     width: 100%;
     height: 5vh;
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: #1A1A1A;
     z-index: 1;
 }
-
 body .contenedorPrincipal .barraNavegacion .contenedorLista {
     width: 50%;
     height: 100%;
@@ -60,26 +61,30 @@ body .contenedorPrincipal .barraNavegacion .contenedorLista {
 body .contenedorPrincipal .barraNavegacion .contenedorLista .opcionesNavegacion {
     width: 100%;
     height: 100%;
+    list-style: none;
+    font-size: 30px;
+    font-weight: bold;
+    color: #00c6ff;
+    list-style: none;
+    display: flex;
+    gap: 35px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    list-style: none;
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
 }
 body .contenedorPrincipal .barraNavegacion .contenedorLista .opcionesNavegacion li a {
     position: relative;
     padding: 10px 20px;
     text-decoration: none;
-    color: white;
     font-size: 24px;
+    color: #ffffff;
+    font-size: 1.2rem;
+    text-decoration: none;
 }
 body .contenedorPrincipal .barraNavegacion .contenedorLista .opcionesNavegacion li a.active {
     background-color: #296CA6;
     color: white;
 }
-
 body .contenedorPrincipal .barraNavegacion .contenedorLista .opcionesNavegacion li a.active::before {
     content: "";
     position: absolute;
@@ -92,77 +97,71 @@ body .contenedorPrincipal .barraNavegacion .contenedorLista .opcionesNavegacion 
 }
 /* SECCION HOME */
 body .contenedorPrincipal .home {
-    width: 100%;
-    height: 80%;
+    width: 100ww;
+    height: 95vh;
+    color: white;
+    text-align: center;
     padding-left: 1%;
     padding-right: 1%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    z-index: 1;
+    z-index: 1; 
 }
 body .contenedorPrincipal .home .titulo {
-    width: 100%;
-    height: 30%;
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    z-index: 1;
     margin-top: 5%;
+    align-items: center;
     display: flex;
     justify-content: flex-start;
-    align-items: center;
-    text-align: center;
-    font-size: 72px;
-    font-weight: bold;
-    color: white;
+    color: #a56b15;
 }
 body .contenedorPrincipal .home .presentacion {
-    width: 40%;
-    height: 30%;
-    margin-top: 5%;
+    font-size: 1.4rem;
+    width: 45%;
+    margin-bottom: 40px;
+    margin-top: 4.5%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
+    color: #ffffff;
 }
 body .contenedorPrincipal .home .contenedorBotonesHome {
-    width: 40%;
-    height: 40%;
-    margin-top: 5%;
+    width: 45%;
+    height: 5%;
+    margin-top: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 body .contenedorPrincipal .home .contenedorBotonesHome .btnLoging,
 body .contenedorPrincipal .home .contenedorBotonesHome .btnRegistrar {
-    width: 20%;
-    height: 60%;
-    padding: 6px 6px;
+    width: 150px;
+    height: 40px;
     margin: 10px;
+    padding: 4px;
     display: flex;
     justify-content: center;
     align-items: center;
     border: none;
     border-radius: 15px;
-    text-align: center;
+    font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
     font-size: 20px;
-    font-weight: bold;
-    color: white;
-    background-image: linear-gradient(to bottom right, #00c6ff, #0072ff);
-    box-shadow: 0px 4px 0px #0072ff;
-    transition: all 0.2s ease-in-out;
+    color: #ffffff;
+    background-image: linear-gradient(to bottom right, #a56b15, #a56b15);
+    box-shadow: 0px 4px 0px #a56b15;
     cursor: pointer;
-}
+    transition: all 0.2s ease-in-out;
+} 
 body .contenedorPrincipal .home .contenedorBotonesHome .btnLoging:hover,
 body .contenedorPrincipal .home .contenedorBotonesHome .btnRegistrar:hover {
-    transform: translateY(-2px);
-    box-shadow: 0px 6px 0px #0072ff;
+    transform: scale(1.1);
+    box-shadow: 0px 6px 0px #2C2B29;
 }
 body .contenedorPrincipal .home .contenedorBotonesHome .btnLoging:active,
 body .contenedorPrincipal .home .contenedorBotonesHome .btnRegistrar:active {
     transform: translateY(0px);
     box-shadow: none;
-    background-image: linear-gradient(to bottom right, #0072ff, #00c6ff);
+    background-image: linear-gradient(to bottom right, #a56b15, #a56b15);
 }
 body .contenedorPrincipal .home .contenedorBotonesHome .btnLoging:before,
 body .contenedorPrincipal .home .contenedorBotonesHome .btnRegistrar:before,
@@ -189,32 +188,220 @@ body .contenedorPrincipal .home .contenedorBotonesHome .btnRegistrar::after {
   border-bottom: 3px solid #fff;
   border-right: 3px solid #fff;
 }
-body .contenedorPrincipal .home  .contenedorScrollIcon {
+body .contenedorPrincipal .home .contenedorScroll { 
     width: 100%;
-    height: 10%;
-    margin-top: 10%;
+    height: 15%;
+    margin-top: 5%;
+    flex-direction: column;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
 }
-body .contenedorPrincipal .home  .contenedorScrollIcon .scrollIcon {
-    object-fit: contain;
-    width: 80%;
-    height: 80%;
-}
-body .contenedorPrincipal .home .contenedorMensajeScroll { 
+body .contenedorPrincipal .home .contenedorScroll .mensajeScroll {
     width: 100%;
-    height: 10%;
-    display: flex;
-    justify-content: center;
-}
-body .contenedorPrincipal .home .mensajeScroll {
-    width: 100%;
-    height: 100%;
+    height: 20%;
+    margin: 0%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 20px;
-    font-weight: bold;
     color: white;
 }
-
+body .contenedorPrincipal .home .contenedorScroll .contenedorScrollIcon {
+    width: 30%;
+    height: 30%;
+    z-index: 1000;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+body .contenedorPrincipal .home .contenedorScroll .contenedorScrollIcon .scrollIcon {
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+}
+/* Estilo para el efecto degradado */ 
+body .contenedorPrincipal .home .gradient-effect { 
+    position: absolute; 
+    bottom: 0; 
+    width: 100%; 
+    height: 100px; 
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #050021 100%)
+}
+ body .contenedorPrincipal .contenedorSecciones {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 40px;
+    background-color: #050021;
+}
+/*SECCION ACERCA DE NOSOTROS*/
+body .contenedorPrincipal .contenedorSecciones .info-section {
+    min-width: 100vw;
+    min-height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+body .contenedorPrincipal .contenedorSecciones .info-section .titulo {
+    width: 100%;
+    height: 25%;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    color: #a56b15;
+}
+body .contenedorPrincipal .contenedorSecciones .info-section .descripcion {
+    width: 90%;
+    height: 70%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+}
+/*SECCION CARACTERÍSTICAS DEL JUEGO*/
+body .contenedorPrincipal .contenedorSecciones .game-features {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+body .contenedorPrincipal .contenedorSecciones .game-features .titulo {
+    width: 100%;
+    height: 10%;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    color: #a56b15;
+}
+body .contenedorPrincipal .contenedorSecciones .game-features .descripcion {
+    width: 90%;
+    height: 20%;
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+}
+body .contenedorPrincipal .contenedorSecciones .game-features .contenedorImagenesGameFeatures {
+    width: 90%;
+    height: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1%;
+}
+.contenedorSecciones .game-features .contenedorImagenesGameFeatures .contenedorImagenMundo {
+    width: 30%;
+    height: 30%;
+}  
+.contenedorSecciones .game-features .contenedorImagenesGameFeatures .contenedorImagenMundo img {
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.contenedorSecciones .game-features .contenedorImagenesGameFeatures .contenedorImagenMundo img:hover {
+    transform: scale(1.1); 
+}
+.contenedorSecciones .game-features .contenedorInfoMundo {
+    width: 70%;
+    height: 20%;
+    margin-top: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+}
+.contenedorSecciones .game-features .contenedorInfoMundo .contenedorImagenMundo {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: none;
+}
+.contenedorSecciones .game-features .contenedorInfoMundo .contenedorImagenMundo .imagenMundo {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+    border-radius: 10px;
+}
+.contenedorSecciones .game-features .contenedorInfoMundo .infoMundo {
+    width: 70%;
+    height: 100%;
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+}
+/*SECCION MANUAL JUGADOR*/
+body .contenedorPrincipal .contenedorSecciones .manualDelJugador {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+body .contenedorPrincipal .contenedorSecciones .manualDelJugador .titulo {
+    width: 100%;
+    height: 25%;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    color: #a56b15;
+}
+body .contenedorPrincipal .contenedorSecciones .manualDelJugador .descripcion {
+    width: 90%;
+    height: 20%;
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+}
+body .contenedorPrincipal .contenedorSecciones .manualDelJugador .contenedorImagenesTutorial {
+    width: 100%;
+    height: 70%;
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.contenedorPrincipal .contenedorSecciones .manualDelJugador .contenedorImagenesTutorial .contenedorImagenControlesTeclado {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.contenedorSecciones .manualDelJugador .contenedorImagenesTutorial .contenedorImagenControlesTeclado .imagenControlesTeclado {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.contenedorPrincipal .contenedorSecciones .manualDelJugador .contenedorImagenesTutorial .contenedorImagenBotonesPrincipales {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.contenedorSecciones .manualDelJugador .contenedorImagenesTutorial .contenedorImagenBotonesPrincipales .imagenBotonesPrincipales {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
