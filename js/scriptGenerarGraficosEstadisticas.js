@@ -19,46 +19,74 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
         const promediosLeyend = data.averageScores.niveles
         const promediosData = data.averageScores.puntajes.map(puntaje => Number(puntaje));
         //Obtencion de los datos para la grafica 4: Grafica de barras para los mejores tiempos por nivel
-        function timeToSeconds(time) { 
+        function timeToSeconds(time) {
             if (time === null) return null;
-            const parts = time.split(':'); 
+            const parts = time.split(':');
             return (+parts[0] * 3600) + (+parts[1] * 60) + (+parts[2]);
         }
         const bestTimesLabels = data.bestTimes.usuarios;
         const bestTimesLeyend = data.bestTimes.niveles
         const bestTimesData = data.bestTimes.tiempo_transcurrido.map(timeToSeconds);
-        function secondsToMinutesSeconds(seconds) { 
-            const mins = Math.floor(seconds / 60); 
-            const secs = seconds % 60; 
-            return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`; 
+        function secondsToMinutesSeconds(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
         }
         //Obtencion de los datos para la grafica 5: Grafica de pastel para la distribucion de los generos
         const generosLabels = data.generos.generos;
         const generosData = data.generos.cantidad.map(cantidad => Number(cantidad));
+        //obtencion de los datos para la grafica 6: Grafica de barras para la distribucion de las edades
+        const edadesLabels = data.edades.rangos;
+        
+        //Configuracion global de los estilos de los graficos
+        Chart.defaults.font.family = 'IMFellDWPica';
+        Chart.defaults.font.size = 14;
+        Chart.defaults.color = 'white';
+        Chart.defaults.plugins.legend.labels.color = 'white';
+        Chart.defaults.plugins.legend.labels.font = {
+            size: 18,
+            weight: 'bold'
+        };
 
+        //Creacion de los contextos para los graficos
         const ctx1 = document.getElementById('myChart1').getContext('2d');
         const ctx2 = document.getElementById('myChart2').getContext('2d');
         const ctx3 = document.getElementById('myChart3').getContext('2d');
         const ctx4 = document.getElementById('myChart4').getContext('2d');
         const ctx5 = document.getElementById('myChart5').getContext('2d');
+        const ctx6 = document.getElementById('myChart6').getContext('2d');
+        const ctx7 = document.getElementById('myChart7').getContext('2d');
+        const ctx8 = document.getElementById('myChart8').getContext('2d');
         if (!ctx1) {
-            console.error('No se pudo obtener el contexto del gráfico');
+            console.error('No se pudo obtener el contexto del gráfico 1');
             return;
         }
         else if (!ctx2) {
-            console.error('No se pudo obtener el contexto del gráfico');
+            console.error('No se pudo obtener el contexto del gráfico 2');
             return;
         }
         else if (!ctx3) {
-            console.error('No se pudo obtener el contexto del gráfico');
+            console.error('No se pudo obtener el contexto del gráfico 3');
             return;
         }
         else if (!ctx4) {
-            console.error('No se pudo obtener el contexto del gráfico');
+            console.error('No se pudo obtener el contexto del gráfico 4');
             return;
         }
         else if (!ctx5) {
-            console.error('No se pudo obtener el contexto del gráfico');
+            console.error('No se pudo obtener el contexto del gráfico 5');
+            return;
+        }
+        else if (!ctx6) {
+            console.error('No se pudo obtener el contexto del gráfico 6');
+            return;
+        }
+        else if (!ctx7) {
+            console.error('No se pudo obtener el contexto del gráfico 7');
+            return;
+        }
+        else if (!ctx8) {
+            console.error('No se pudo obtener el contexto del gráfico 8');
             return;
         }
         const backgroundColor = [
@@ -89,7 +117,12 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
                     data: topData,
                     backgroundColor: backgroundColor,
                     borderColor: borderColor,
-                    borderWidth: 1
+                    borderWidth: 1,
+                    color: 'white',
+                    font: {
+                        size: 16,
+                    }
+
                 }]
             },
             options: {
@@ -250,8 +283,8 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
                         callbacks: {
                             label: function (tooltipItem) {
                                 const index = tooltipItem.dataIndex;
-                                const timeInSeconds = bestTimesData[index]; 
-                                const timeFormatted = secondsToMinutesSeconds(timeInSeconds); 
+                                const timeInSeconds = bestTimesData[index];
+                                const timeFormatted = secondsToMinutesSeconds(timeInSeconds);
                                 return `${bestTimesLeyend[index]}: ${timeFormatted}`;
                             }
                         }
@@ -284,6 +317,111 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
         });
         //Creacion del 5to Gráfico
         new Chart(ctx5, {
+            type: 'pie',
+            data: {
+                labels: generosLabels,
+                datasets: [{
+                    label: 'Distribucion de Generos Usuarios',
+                    data: generosData,
+                    backgroundColor: backgroundColor,
+                    borderColor: borderColor,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function (tooltipItem) {
+                                const index = tooltipItem.dataIndex;
+                                return generosLabels[index] + ': ' + tooltipItem.raw + ' usuarios';
+                            }
+                        }
+                    },
+                    legend: {
+                        display: true,
+                        position: 'bottom',
+                        labels: {
+                            boxWidth: 20,
+                            padding: 15
+                        }
+                    }
+                }
+            }
+        });
+        //Creacion del 6to Gráfico
+        new Chart(ctx6, {
+            type: 'pie',
+            data: {
+                labels: generosLabels,
+                datasets: [{
+                    label: 'Distribucion de Generos Usuarios',
+                    data: generosData,
+                    backgroundColor: backgroundColor,
+                    borderColor: borderColor,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function (tooltipItem) {
+                                const index = tooltipItem.dataIndex;
+                                return generosLabels[index] + ': ' + tooltipItem.raw + ' usuarios';
+                            }
+                        }
+                    },
+                    legend: {
+                        display: true,
+                        position: 'bottom',
+                        labels: {
+                            boxWidth: 20,
+                            padding: 15
+                        }
+                    }
+                }
+            }
+        });
+        //Creacion del 7mo Gráfico
+        new Chart(ctx7, {
+            type: 'pie',
+            data: {
+                labels: generosLabels,
+                datasets: [{
+                    label: 'Distribucion de Generos Usuarios',
+                    data: generosData,
+                    backgroundColor: backgroundColor,
+                    borderColor: borderColor,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function (tooltipItem) {
+                                const index = tooltipItem.dataIndex;
+                                return generosLabels[index] + ': ' + tooltipItem.raw + ' usuarios';
+                            }
+                        }
+                    },
+                    legend: {
+                        display: true,
+                        position: 'bottom',
+                        labels: {
+                            boxWidth: 20,
+                            padding: 15
+                        }
+                    }
+                }
+            }
+        });
+        //Creacion del 8vo Gráfico
+        new Chart(ctx8, {
             type: 'pie',
             data: {
                 labels: generosLabels,
