@@ -137,6 +137,10 @@ function mostrarAlertasLogin(title, text, icon, confirmButtonText){
 }
 //Función para alertas de actualizacion de perfil
 function mostrarAlertasUsuario(title, text, icon, confirmButtonText) {
+    /*console.log('Title:', title);
+    console.log('Text:', text);
+    console.log('Icon:', icon);
+    console.log('ConfirmButtonText:', confirmButtonText);*/
     Swal.fire({
         title: title,
         text: text,
