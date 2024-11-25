@@ -55,6 +55,7 @@
                 <input type="password" name="inputContrasena" id="inputContrasena" required>
                 <button class="btn" type="submit" href="administrador.php">Iniciar sesión</button>
             </form>
+            
             <p>
                 <a style="color: #ffffff;" href="formularioRecuperarContrasena.php">¿Olvidaste tu contraseña?</a>
             </p>
