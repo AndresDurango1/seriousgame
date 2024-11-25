@@ -111,17 +111,26 @@ if ($resultadoImagen->num_rows > 0) {
             </div>
         </section>
         <section class="seccionInformacionDemografica">
-            <p>En esta sección, presentamos:</p>
+            <p class="infoSeccion">En esta sección, presentamos:</p>
             <div class="contenedorLista">
                 <ul class="listaInformacionDemografica">
+                    <li>Distribucion de género: Gráficos que muestran los géneros de nuestros jugadores.</li>
                     <li>Distribución de edades: Gráficos que muestran las edades de nuestros jugadores.</li>
                     <li>Diversidad geográfica: Información sobre las regiones y países de donde provienen nuestros jugadores.</li>
-                    <li>Preferencias de juego: Datos sobre los modos de juego más populares y las preferencias de los jugadores.</li>
                 </ul>
             </div>
             <div class="contenedorGraficosInformacionDemografica">
                 <div class="contenedorGrafico">
                     <canvas class="grafico" id="myChart5"></canvas>
+                </div>
+                <div class="contenedorGrafico">
+                    <canvas class="grafico" id="myChart6"></canvas>
+                </div>
+                <div class="contenedorGrafico">
+                    <canvas class="grafico" id="myChart7"></canvas>
+                </div>
+                <div class="contenedorGrafico">
+                    <canvas class="grafico" id="myChart8"></canvas>
                 </div>
             </div>
         </section>
