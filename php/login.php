@@ -61,10 +61,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 exit(); 
             }
         } else {
-            echo json_encode(["status" => "error", "message" => "Contraseña incorrecta"]);
+            //echo json_encode(["status" => "error", "message" => "Contraseña incorrecta"]);
+            header("Location: ../pages/index.php?contrasena-incorrecta=true");
         }
     } else {
-        echo json_encode(["status" => "error", "message" => "El usuario no existe o es incorrecto"]);
+        //echo json_encode(["status" => "error", "message" => "El usuario no existe o es incorrecto"]);
+        header("Location: ../pages/index.php?usuario-no-encontrado=true");
     }
 
     $stmt->close();

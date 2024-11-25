@@ -1,4 +1,4 @@
-fetch('../php/obtenerInformacionGraficos.php')
+fetch('../php/obtenerInformacionGraficosEstadisticas.php')
     .then(response => {
         if (!response.ok) {
             throw new Error('Error al obtener los datos');

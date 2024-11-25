@@ -32,6 +32,13 @@ if ($resultadoImagenAdmin->num_rows > 0) {
 }
 //consulta a la base de datos para traer la informacion del usuario para la barra lateral
 $id_user = $_GET['id_user'];
+if (isset($_GET['id_user']) && is_numeric($_GET['id_user'])) {
+    $id_user = intval($_GET['id_user']);
+    $_SESSION['id_user'] = $id_user;
+} else {
+    echo "Parámetro 'id_user' inválido.";
+    exit();
+}
 $stmt2 = $conexion->prepare("SELECT u.identificacion, u.usuario, u.nombre, u.apellido, u.correo, u.id_imagen, c.celular FROM usuarios u 
 LEFT JOIN caracterizacion c ON u.id_usuario = c.id_usuario
 WHERE u.id_usuario = ?");
@@ -44,6 +51,7 @@ if ($resultado2->num_rows > 0) {
     echo "No se encontró información del usuario.";
     exit();
 }
+
 //Consulta a la base de datos para traer la imagen del usuario de la tabla imagenes
 $stmtImagenUser = $conexion->prepare("SELECT ruta_imagen FROM imagenes WHERE id_imagen = ?");
 $stmtImagenUser->bind_param("i", $fila2['id_imagen']);
@@ -80,14 +88,15 @@ $totalStmt->bind_param("i", $id_user);
 $totalStmt->execute();
 $totalResult = $totalStmt->get_result();
 $totalRow = $totalResult->fetch_assoc();
-$totalUsers = $totalRow['total']; // Total de niveles del usuario
-$totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
+$totalUsers = $totalRow['total'];
+$totalPages = ceil($totalUsers / $limit);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -134,7 +143,7 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
             <div class="contenedorFormularioActualizacion">
                 <form class="formularioActualizacion" action="../php/actualizarUsuario.php" method="post">
                     <label for="lbl-item" for="lblId" hidden>Id</label>
-                    <input type="number" name="inputId" id="inputId" value="<?php echo $id_usuario; ?>" hidden>
+                    <input type="number" name="inputId" id="inputId" value="<?php echo $id_user; ?>" hidden>
                     <label class="lbl-item" for="lblIdentificacion">Identificación</label>
                     <input class="input-item" type="number" name="inputIdentificacion" id="inputIdentificacion" value="<?php echo htmlspecialchars($fila2['identificacion']); ?>" readonly>
                     <label class="lbl-item" for="lblNombre">Nombre</label>
@@ -166,7 +175,7 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
                         <?php
                         while ($fila = $resultadoTabla->fetch_assoc()) {
                             echo "<tr>";
-                            echo "<td><a href='informacionUsuario.php?id_usuario=" . $fila['id_usuario'] . "'>@" . $fila['usuario'] . "</a></td>";
+                            echo "<td>" .'@'.$fila['usuario']."</td>";
                             echo "<td>" . $fila['nivel'] . "</td>";
                             echo "<td>" . ($fila['completado'] ? 'Completado' : 'No Completado') . "</td>";
                             echo "<td>" . $fila['inicio'] . "</td>";
@@ -189,23 +198,19 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
             <div id="carouselExample" class="carousel slide">
                 <div class="carousel-inner">
                     <div class="carousel-item active slide">
-                        <!-- <img src="../recursos/img/imgPerfil/animados/animado1.jpg" alt=""> -->
                         <canvas class="grafico" id="myChart1"></canvas>
                     </div>
                     <div class="carousel-item slide">
-                        <!-- <img src="../recursos/img/imgPerfil/animados/animado2.jpg" alt=""> -->
                         <canvas class="grafico" id="myChart2"></canvas>
+                        <!-- <img src="../recursos/img/imgPerfil/animados/animado1.jpg" alt=""> -->
                     </div>
                     <div class="carousel-item slide">
-                        <!-- <img src="../recursos/img/imgPerfil/animados/animado3.jpg" alt=""> -->
                         <canvas class="grafico" id="myChart3"></canvas>
                     </div>
                     <div class="carousel-item slide">
-                        <!-- <img src="../recursos/img/imgPerfil/animados/animado4.jpg" alt=""> -->
                         <canvas class="grafico" id="myChart4"></canvas>
                     </div>
                     <div class="carousel-item slide">
-                        <!-- <img src="../recursos/img/imgPerfil/animados/animado5.jpg" alt=""> -->
                         <canvas class="grafico" id="myChart5"></canvas>
                     </div>
                 </div>
@@ -220,6 +225,6 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
             </div>
         </div>
     </main>
+    <script src="../js/scriptGenerarGraficosInfoUsuario.js"></script>
 </body>
-
 </html>
