@@ -20,7 +20,7 @@
                 <ol class="opcionesNavegacion">
                     <li>
                         <a href="#home" class="nav-link">Inicio</a>
-                        <i class="fas fa-home" style="color: #ffffff;"></i>                    
+                        <i class="fas fa-home" id="" style="color: #ffffff;"></i>                    
                     </li>
                     <li>
                         <a href="#acerca-de-nosotros" class="nav-link">Acerca de Nosotros</a>
