@@ -18,14 +18,22 @@
         <nav class="barraNavegacion fixed-top">
             <div class="contenedorLista">
                 <ol class="opcionesNavegacion">
-                <li><a href="#home" class="nav-link">Inicio</a></li>
-                <span><i class="fas fa-home" style="color: #ffffff;"></i></span>
-                <li><a href="#acerca-de-nosotros" class="nav-link">Acerca de Nosotros</a></li>
-                <span><i class="fas fa-gamepad" style="color: #ffffff;"></i></span>
-                <li><a href="#game-features" class="nav-link">Características del Juego</a></li>
-                <span></span>
-                <li><a href="#player-handbook" class="nav-link">Manual del Jugador</a></li>
-                <span></span>
+                    <li>
+                        <a href="#home" class="nav-link">Inicio</a>
+                        <i class="fas fa-home" style="color: #ffffff;"></i>                    
+                    </li>
+                    <li>
+                        <a href="#acerca-de-nosotros" class="nav-link">Acerca de Nosotros</a>
+                        <i class="fas fa-users" style="color: #ffffff;"></i>
+                    </li>
+                    <li>
+                        <a href="#game-features" class="nav-link">Características del Juego</a>
+                        <i class="fas fa-puzzle-piece" style="color: #ffffff;;"></i>                    
+                    </li>
+                    <li>
+                        <a href="#player-handbook" class="nav-link">Manual del Jugador</a>
+                        <i class="fas fa-gamepad" style="color: #ffffff;"></i>
+                    </li>
                 </ol>
             </div>
         </nav>
@@ -35,8 +43,14 @@
                 Embárcate en una épica aventura con tu Avatar, un humanoide con el poder de transformarse en quark, mientras explora vastos centros de datos y descubre mundos ocultos. Viaja junto a una tripulación leal a bordo de tu nave, enfrentando desafíos en cada mundo para avanzar.
             </p>
             <div class="contenedorBotonesHome">
-                <button class="btnLoging" id="btnIniciarSesion">Iniciar Sesión</button>
-                <button class="btnRegistrar" id="btnRegistrar">Registrarse</button>
+                <button class="btnLoging" id="btnIniciarSesion">
+                    Iniciar Sesión
+                    <i class="fas fa-sign-in-alt" style="color: #ffffff;"></i>
+                </button>
+                <button class="btnRegistrar" id="btnRegistrar">
+                    Registrarse
+                    <i class="fas fa-user-plus" style="color: #ffffff;"></i>
+                </button>
             </div>
             <div class="contenedorScroll">
                 <div class="contenedorScrollIcon">

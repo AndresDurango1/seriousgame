@@ -81,6 +81,40 @@ while ($fila = $result5->fetch_assoc()) {
     $stmt5_generos[] = $fila['genero'];
     $stmt5_cantidad[] = $fila['cantidad'];
 }
+//Consulta 5 a la base de datos para traer las edades
+$stmt6 = "SELECT c.fecha_nacimiento, TIMESTAMPDIFF(YEAR, c.fecha_nacimiento, CURDATE()) AS edad, c.id_usuario, u.usuario FROM caracterizacion c
+    JOIN usuarios u ON c.id_usuario = u.id_usuario";
+$result6 = $conexion->query($stmt6);
+$stmt6_edades = [];
+$stmt6_usuarios = [];
+$stmt6_rangos = [
+    '18-' => 0,
+    '20-30' => 0,
+    '31-40' => 0,
+    '41-50' => 0,
+    '51-60' => 0,
+    '61+'   => 0
+];
+while ($fila = $result6->fetch_assoc()) {
+    $edad = $fila['edad'];
+    $usuario = $fila['usuario'];
+    $stmt6_edades[] = $edad;
+    $stmt6_usuarios[] = $usuario;
+    if ($edad >= 0 && $edad <=19) {
+        $stmt6_rangos['18-']++;
+    }
+    if ($edad >= 20 && $edad <= 30) {
+        $stmt6_rangos['20-30']++;
+    } elseif ($edad >= 31 && $edad <= 40) {
+        $stmt6_rangos['31-40']++;
+    } elseif ($edad >= 41 && $edad <= 50) {
+        $stmt6_rangos['41-50']++;
+    } elseif ($edad >= 51 && $edad <= 60) {
+        $stmt6_rangos['51-60']++;
+    } elseif ($edad >= 61) {
+        $stmt6_rangos['61+']++;
+    }
+}
 //Estrutura la informacion en formato JSON
 $response = [
     'topScores' => [
@@ -106,6 +140,11 @@ $response = [
     'generos' => [
         'generos' => $stmt5_generos,
         'cantidad' => $stmt5_cantidad
+    ],
+    'edades' => [
+        'usuarios' => $stmt6_usuarios,
+        'edades' => $stmt6_edades,
+        'rangos' => $stmt6_rangos
     ]
 ];
 //Generacion del JSON

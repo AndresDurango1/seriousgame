@@ -131,6 +131,7 @@ body .contenedorPrincipal {
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 body .contenedorPrincipal .descripcionPagina{
     width: 100vw;
@@ -160,16 +161,20 @@ body .contenedorPrincipal .descripcionPagina .contenedorInfoSeccion .infoSeccion
     text-align: justify;
     color: #ffffff;
 }
-body .contenedorPrincipal .seccionRendimientoJuego{
+body .contenedorPrincipal .seccionRendimientoJuego,
+body .contenedorPrincipal .seccionInformacionDemografica {
     width: 100vw;
     height: 100vh;
-    margin-bottom: 1%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    border: solid 1px red;
 }
-body .contenedorPrincipal .seccionRendimientoJuego .infoSeccion{
+/* ESTILOS SECCION RENDIMIENTO */
+/* ESTILOS SECCION INFORMACION DEMOGRAFICA */
+body .contenedorPrincipal .seccionRendimientoJuego .infoSeccion,
+body .contenedorPrincipal .seccionInformacionDemografica .infoSeccion{
     width: 100vw;
     height: 5vh;
     display: flex;
@@ -180,7 +185,8 @@ body .contenedorPrincipal .seccionRendimientoJuego .infoSeccion{
     text-align: justify;
     color: #ffffff; 
 }
-body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista {
+body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista,
+body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista {
     width: 100vw;
     height: 15vh;
     display: flex;
@@ -188,7 +194,8 @@ body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista {
     justify-content: center;
     align-items: center;
 }
-body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista .listaRendimientoJuego{
+body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista .listaRendimientoJuego,
+body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .listaInformacionDemografica {
     width: 100%;
     height: 100%;
     padding: 5px;
@@ -200,49 +207,20 @@ body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista .listaRendim
     color: white;
     font-size: 16px;
 }
-body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista .listaRendimientoJuego li{
+body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista .listaRendimientoJuego li,
+body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .listaInformacionDemografica {
     margin-bottom: 5px;
     line-height: 1.5;
 }
-body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento{
+body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento,
+body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica {
     width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
-body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento .contenedorGrafico{
-    width: 45vw;
-    height: 40vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento .contenedorGrafico canvas{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: solid 1px #000;
-}
-body .contenedorPrincipal .seccionInformacionDemografica{
-    width: 100vw;
-    height: 100vh;
-    margin-bottom: 1%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    border: solid 1px red;
-}
-body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
+body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento .contenedorGrafico,
 body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica .contenedorGrafico{
     width: 45vw;
     height: 40vh;
@@ -250,6 +228,7 @@ body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInfo
     justify-content: center;
     align-items: center;
 }
+body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento .contenedorGrafico canvas,
 body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica .contenedorGrafico canvas{
     width: 100%;
     height: 100%;
