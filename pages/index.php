@@ -19,9 +19,13 @@
             <div class="contenedorLista">
                 <ol class="opcionesNavegacion">
                 <li><a href="#home" class="nav-link">Inicio</a></li>
+                <span><i class="fas fa-home" style="color: #ffffff;"></i></span>
                 <li><a href="#acerca-de-nosotros" class="nav-link">Acerca de Nosotros</a></li>
+                <span><i class="fas fa-gamepad" style="color: #ffffff;"></i></span>
                 <li><a href="#game-features" class="nav-link">Características del Juego</a></li>
+                <span></span>
                 <li><a href="#player-handbook" class="nav-link">Manual del Jugador</a></li>
+                <span></span>
                 </ol>
             </div>
         </nav>
@@ -55,6 +59,7 @@
                 <input type="password" name="inputContrasena" id="inputContrasena" required>
                 <button class="btn" type="submit" href="administrador.php">Iniciar sesión</button>
             </form>
+            
             <p>
                 <a style="color: #ffffff;" href="formularioRecuperarContrasena.php">¿Olvidaste tu contraseña?</a>
             </p>
