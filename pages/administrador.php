@@ -71,15 +71,25 @@ $totalPages = ceil($totalUsers / $limit);
 </head>
 
 <body>
-    <nav class="barraNavegacion">
-        <div class="contenedorBotonesRedireccion">
+<nav class="barraNavegacion">
+        <!-- Botón de menú hamburguesa, visible solo en pantallas pequeñas -->
+        <div class="menu-toggle" id="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <!-- Contenedor de botones de navegación, visible en pantallas grandes y se oculta en pantallas pequeñas -->
+        <div class="contenedorBotonesRedireccion" id="nav-links">
             <button class="btnRedireccion" onclick="window.location.href='../pages/index.php'">Inicio</button>
             <button class="btnRedireccion" onclick="window.location.href='../pages/formularioCaracterizacion.php'">Formulario Caracterización</button>
             <button class="btnRedireccion" onclick="window.location.href='../pages/estadisticas.php'">Ver Estadísticas</button>
         </div>
+
         <div class="contenedorTitulo">
             <p class="titulo">Las Aventuras de Go</p>
         </div>
+
         <div class="contenedorInfoUsuario">
             <div class="contenedorIconoUsuario">
                 <img class="iconoUsuario" src="../recursos/img/imgPerfil/<?php echo $ruta_imagen; ?>" alt="iconoUsuario">
@@ -88,6 +98,7 @@ $totalPages = ceil($totalUsers / $limit);
                 <p class="nombreUsuario"><?php echo "@" . $_SESSION['usuario']; ?></p>
             </div>
         </div>
+
         <div class="contenedorIconos">
             <div class="contenedorIconoNuevoUsuario">
                 <a href="../pages/formularioRegistroUsuario.php">
@@ -208,6 +219,7 @@ $totalPages = ceil($totalUsers / $limit);
             </div>
         </div>
     </div>
+    <script src="../js/scriptAd.js"></script>
     <script src="../js/scriptAlertas.js"></script>
 </body>
 
