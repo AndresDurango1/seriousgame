@@ -20,19 +20,19 @@
                 <ol class="opcionesNavegacion">
                     <li>
                         <a href="#home" class="nav-link">Inicio</a>
-                        <i class="fas fa-home" id="" style="color: #ffffff;"></i>                    
+                        <i class="fas fa-home" id="iconoHome" style="color: #ffffff;"></i>                    
                     </li>
                     <li>
                         <a href="#acerca-de-nosotros" class="nav-link">Acerca de Nosotros</a>
-                        <i class="fas fa-users" style="color: #ffffff;"></i>
+                        <i class="fas fa-users" id="iconoUsers" style="color: #ffffff;"></i>
                     </li>
                     <li>
                         <a href="#game-features" class="nav-link">Características del Juego</a>
-                        <i class="fas fa-puzzle-piece" style="color: #ffffff;;"></i>                    
+                        <i class="fas fa-puzzle-piece" id="iconoPuzzle" style="color: #ffffff;;"></i>                    
                     </li>
                     <li>
                         <a href="#player-handbook" class="nav-link">Manual del Jugador</a>
-                        <i class="fas fa-gamepad" style="color: #ffffff;"></i>
+                        <i class="fas fa-gamepad" id="iconoGamepad" style="color: #ffffff;"></i>
                     </li>
                 </ol>
             </div>
@@ -45,11 +45,11 @@
             <div class="contenedorBotonesHome">
                 <button class="btnLoging" id="btnIniciarSesion">
                     Iniciar Sesión
-                    <i class="fas fa-sign-in-alt" style="color: #ffffff;"></i>
+                    <i class="fas fa-sign-in-alt" id="inicioSesion" style="color: #ffffff;"></i>
                 </button>
                 <button class="btnRegistrar" id="btnRegistrar">
                     Registrarse
-                    <i class="fas fa-user-plus" style="color: #ffffff;"></i>
+                    <i class="fas fa-user-plus" id="registrar" style="color: #ffffff;"></i>
                 </button>
             </div>
             <div class="contenedorScroll">
@@ -78,7 +78,7 @@
                 <a style="color: #ffffff;" href="formularioRecuperarContrasena.php">¿Olvidaste tu contraseña?</a>
             </p>
         </div>
-        <div class="contenedorSecciones">
+        <div class="contenedorSecciones" id="contenedorSecciones">
             <section id="acerca-de-nosotros" class="info-section">
                 <h1 class="titulo">Acerca de Nosotros</h1>
                 <p class="descripcion">Un Avatar (humanoide, con poderes para convertirse en quark), que viaje por diferentes centros de datos y que durante ese recorrido vaya descubriendo mundos y superando ciertos retos para avanzar al siguiente. se pretende que el Avatar durante esos viajes vaya acompañado de su tripulación a bordo de su nave y en la interacción con su tripulación les cuente sus experiencias/aprendizajes y resuelva inquietudes.</p>
