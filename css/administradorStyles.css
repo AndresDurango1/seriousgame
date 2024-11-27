@@ -422,30 +422,51 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
 /* Estilos para el menú responsive */
 @media screen and (max-width: 768px) {
     /* Ocultamos el menú por defecto en pantallas pequeñas */
-    .contenedorBotonesRedireccion {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background-color: #333;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        padding: 20px;
-        text-align: center;
-    }
-
-    /* Mostramos el botón hamburguesa */
     .menu-toggle {
         display: flex;
     }
 
-    /* Cuando el menú tiene la clase 'active', mostramos las opciones */
-    .contenedorBotonesRedireccion.active {
-        display: flex;
+    .contenedorBotonesRedireccion {
+        display: none; /* Ocultamos en pantallas pequeñas */
     }
+
+    #nav-links {
+        display: none; /* Se oculta inicialmente */
+    }
+}
+/* Ocultar el contenedor de opciones por defecto */
+#nav-links {
+    display: none; /* Ocultamos inicialmente el menú */
+    flex-direction: column; /* Asegura que las opciones se apilen verticalmente */
+    background-color: #444;
+    padding: 10px;
+}
+
+/* Mostrar el menú cuando tiene la clase "active" */
+#nav-links.active {
+    display: flex; /* Cambiamos de none a flex para que se muestren las opciones */
+}
+
+/* Estilo de los botones del menú */
+.btnRedireccion {
+    padding: 10px 15px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin: 5px 0; /* Añadimos espacio entre botones */
+}
+
+/* Efecto hover */
+.btnRedireccion:hover {
+    background-color: #555;
 }
 
 
+   
 
 @media (min-width: 320px) and (max-width: 544px) {
     *{
@@ -462,7 +483,7 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
     }
     /*SECCION DE LA BARRA DE NAVEGACION*/
     body .barraNavegacion {
-        width: 250%;
+        width: 201%;
         height: 8vh;
         display: flex;
         flex-direction: row;
@@ -474,22 +495,21 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
         width: 1%;
         height: 5%;
         display: flex;
-        justify-content: space-around;
+        
     }
     body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
         width: 1%;
         height: 6%;
         display: flex;
         margin: 1%;
-        justify-content: center;
-        align-items: center;
         border-radius: 15px;
         border: none;
         font-size: 10px;
         text-align: center;
+
     }
     body .barraNavegacion .contenedorTitulo {
-        width: 35%;
+        width: 50%;
         height: 20%;
         display: flex;
         justify-content: center;
@@ -540,11 +560,11 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
         display: flex;
         justify-content: space-around;
         align-items: center;
-        gap: 35px;
+        gap: 25px;
     }
     body .barraNavegacion .contenedorIconos .contenedorIconoSalir {
         width: 20%;
-        height: 60%;
+        height: 10%;
         font-size: 50px;
 
         
@@ -589,7 +609,7 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
     }
     body .contenedorPrincipal .barraLateral .contenedorImagenUsuario .imagenUsuario {
         object-fit: contain;
-        width: 50%;
+        width: 10%;
         height: 50%;
     }
     body .contenedorPrincipal .barraLateral .contenedorFormularioActualizacion {
@@ -643,44 +663,43 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
     }
     /* SECCION CONTENEDOR PRINCIPAL - CONTENIDO */
     body .contenedorPrincipal .contenedorPrincipal-content {
-        width: 200%;
-        height: 200%;
+        width: 50%;
+        height: 150%;
         display: flex;
-
-        flex-direction: column;
         justify-content: space-around;
         align-items: center;
     }
     body .contenedorPrincipal .contenedorPrincipal-content .contenedorRanking {
-        width: 50%;
-        height: 90%;
-        margin-top: -1%;
+        width: 150%;
+        height: 100%;
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
     }
     body .contenedorPrincipal .contenedorPrincipal-content .contenedorRanking .ranking{
-        width: 150%;
-        height: 50%;
+        width: 200%;
+        height: 60%;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
     }
     body .contenedorPrincipal .contenedorPrincipal-content .contenedorRanking .ranking .ranking-item {
-        width: 33%;
-        height: 50%; 
+        width: 100%;
+        height: 40%; 
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         position: relative;
+        margin-top: -100%;
     }
     body .contenedorPrincipal .contenedorPrincipal-content .contenedorRanking .ranking .primero {
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
+        gap: 5%;
     }
     body .contenedorPrincipal .contenedorPrincipal-content .contenedorRanking .ranking .segundo {
         background-size: contain;
@@ -694,7 +713,7 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
     }
     body .contenedorPrincipal-content .contenedorRanking .ranking .ranking-item .ranking-content {
         width: 35%;
-        height: 40%;
+        height: 60%;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;

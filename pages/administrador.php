@@ -67,6 +67,9 @@ $totalPages = ceil($totalUsers / $limit);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
     <!-- <link rel="stylesheet" href="../css/usuarioStyles.css"> -->
+
+    <link rel="stylesheet" href="../css/styleresponsive.css">
+
      <link rel="stylesheet" href="../css/administradorStyles.css">
 </head>
 
@@ -81,9 +84,12 @@ $totalPages = ceil($totalUsers / $limit);
 
         <!-- Contenedor de botones de navegación, visible en pantallas grandes y se oculta en pantallas pequeñas -->
         <div class="contenedorBotonesRedireccion" id="nav-links">
-            <button class="btnRedireccion" onclick="window.location.href='../pages/index.php'">Inicio</button>
-            <button class="btnRedireccion" onclick="window.location.href='../pages/formularioCaracterizacion.php'">Formulario Caracterización</button>
-            <button class="btnRedireccion" onclick="window.location.href='../pages/estadisticas.php'">Ver Estadísticas</button>
+            <button class="btnRedireccion" style="display:none;" onclick="window.location.href='../pages/index.php'">Inicio</button>
+            <span><i class="fas fa-home" id="iconoHome" style="color: #ffffff;"></i></span>
+            <button class="btnRedireccion" style="display: none;" onclick="window.location.href='../pages/formularioCaracterizacion.php'">Formulario Caracterización</button>
+            <span><i class="fab fa-wpforms" style="color: #ffffff;"></i></span>
+            <button class="btnRedireccion" style="display: none;" onclick="window.location.href='../pages/estadisticas.php'">Ver Estadísticas</button>
+            <span><i class="fas fa-signal" style="color: #ffffff;"></i></span>
         </div>
 
         <div class="contenedorTitulo">
@@ -219,7 +225,7 @@ $totalPages = ceil($totalUsers / $limit);
             </div>
         </div>
     </div>
-    <script src="../js/scriptAd.js"></script>
+    <script src="../js/scriptAdmin.js"></script>
     <script src="../js/scriptAlertas.js"></script>
 </body>
 
