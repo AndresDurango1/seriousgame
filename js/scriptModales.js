@@ -4,6 +4,10 @@ const btnInicioSesion = document.getElementById('btnIniciarSesion');
 const btnResgistro = document.getElementById('btnRegistrar');
 const cerrarModalIP = document.getElementById ('iconoCerrarIP');
 const cerrarModalRC = document.getElementById ('iconoCerrarRC');
+const iconoHome = document.getElementById("iconoHome");
+const iconoUsers = document.getElementById("iconoUsers");
+const iconoPuzzle = document.getElementById("iconoPuzzle");
+const iconoGamepad = document.getElementById("iconoGamepad")
 
 //Funcione call back para mostrar y cerrar el modal del index
 if(btnInicioSesion){
@@ -34,3 +38,28 @@ if(cerrarModalRC){
         window.location.href = "../pages/index.php";
     });
 }
+//Funcion para volver al home con el icono
+if(iconoHome){
+    iconoHome.addEventListener('click',function(){
+        window.location.href = "../pages/index.php#home";
+    });
+}
+//Funcion para volver al users con el icono
+if(iconoUsers){
+    iconoUsers.addEventListener('click',function(){
+        window.location.href = "../pages/index.php#acerca-de-nosotros";
+    });
+}
+//Funcion para volver al Puzzle con el icono
+if(iconoPuzzle){
+    iconoPuzzle.addEventListener('click',function(){
+        window.location.href = "../pages/index.php#game-features";
+    });
+}
+//Funcion para volver al Gamepad con el icono
+if(iconoGamepad){
+    iconoGamepad.addEventListener('click',function(){
+        window.location.href = "../pages/index.php#player-handbook";
+    });
+}
+
