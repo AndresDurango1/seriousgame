@@ -108,7 +108,7 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
             'rgb(201, 203, 207)'
         ];
         //Creacion del 1er Gráfico
-        new Chart(ctx1, {
+        const mychart1 = new Chart(ctx1, {
             type: 'bar',
             data: {
                 labels: topLabels,

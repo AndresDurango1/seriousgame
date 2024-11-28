@@ -39,6 +39,7 @@ if ($resultadoImagen->num_rows > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estadísticas</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <script src="https://unpkg.com/pdf-lib"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
@@ -85,6 +86,7 @@ if ($resultadoImagen->num_rows > 0) {
                 </p>
             </div>
         </section>
+        <button id="generatePDFButton">Generar PDF Global</button>
         <section class="seccionRendimientoJuego">
             <p class="infoSeccion" >En esta sección, presentamos:</p>
             <div class="contenedorLista">
@@ -136,5 +138,6 @@ if ($resultadoImagen->num_rows > 0) {
         </section>
     </div>
     <script src="../js/scriptGenerarGraficosEstadisticas.js"></script>
+    <script type="module" src="../js/scriptGenerarReporteGlobal.js"></script>
 </body>
 </html>
