@@ -516,7 +516,7 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
         align-items: center;
     }
     body .barraNavegacion .contenedorTitulo .titulo {
-        font-size: 16px;
+        font-size: 20px;
         text-align: center;
     }
     body .barraNavegacion .contenedorInfoUsuario{
@@ -536,6 +536,7 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
         align-items: center;
         border-radius: 50%;
         border: none;
+        
     }
     body .barraNavegacion .contenedorInfoUsuario .contenedorIconoUsuario .iconoUsuario{
         width: 50%;
@@ -543,6 +544,8 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
         border-radius: 10px;
         border: none;
         object-fit: scale-down;
+        font-size: 15px;
+        
     }
     body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario {
         width: 15%;
@@ -550,9 +553,11 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        font-size: 5px;
+
     }
     body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario .nombreUsuario {
-        font-size: 10px;
+        font-size: 5px;
     }
     body .barraNavegacion .contenedorIconos{
         width: 5%;
@@ -561,18 +566,19 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
         justify-content: space-around;
         align-items: center;
         gap: 25px;
+        font-size: 5px;
+
     }
     body .barraNavegacion .contenedorIconos .contenedorIconoSalir {
-        width: 20%;
-        height: 10%;
-        font-size: 50px;
-
+        width: 5%;
+        height:5%;
         
     }
     body .barraNavegacion .contenedorIconos .contenedorIconoNuevoUsuario {
         width: 15%;
         height: 40%;
         display: flex;
+        font-size: 5px;
         
     }
     
@@ -664,18 +670,17 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
     /* SECCION CONTENEDOR PRINCIPAL - CONTENIDO */
     body .contenedorPrincipal .contenedorPrincipal-content {
         width: 50%;
-        height: 150%;
+        height: 100%;
         display: flex;
         justify-content: space-around;
-        align-items: center;
     }
     body .contenedorPrincipal .contenedorPrincipal-content .contenedorRanking {
-        width: 150%;
+        width: 200px;
         height: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: center;
-        align-items: center;
+        justify-content: right;
+        right:20px;
     }
     body .contenedorPrincipal .contenedorPrincipal-content .contenedorRanking .ranking{
         width: 200%;
@@ -748,24 +753,25 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
     }
     /*SECCION CONTENEDOR PRINCIPAL - TABLA*/
     body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla {
-        width: 40%;
-        height: 10%;
+        width: 3px;
+        height: 3%;
         display: flex;
-        flex-direction: column;
+    /*     flex-direction: row;
         justify-content: center;
-        align-items: center;
+        align-items: center; */
+        padding-left: 250%;
     }
     body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaClasificacion {
-        width: 10%;
-        height: auto;
-        margin: 10px 0;             
+        width:3%;
+        height: 2%;
+        margin: 5px 0;             
         border-collapse: collapse;
-        border-radius: 10px;
-        font-size: 12px;     
+        border-radius: 5px;
+        font-size: 9.5px;     
         overflow: hidden;     
     }
     body .contenedorPrincipal-content .contenedorTabla .tablaClasificacion thead th {
-        padding: 4px;             
+        padding: 1px;             
         text-transform: uppercase;  
     }
     body .contenedorPrincipal-content .contenedorTabla .tablaClasificacion tbody td {
@@ -778,10 +784,30 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
         text-align: center;
     }
     
-    body .contenedorPrincipal-content .contenedorTabla .paginacion a{
-        text-decoration: none;
+    body .contenedorPrincipal-content .contenedorTabla .paginacion {
+        display: flex;
+        flex-wrap: nowrap; /* Evita que los elementos se envuelvan */
+        justify-content: center; /* Centra los elementos horizontalmente */
+        gap: 10px; /* Añade espacio entre los enlaces */
     }
-}    
+
+    body .contenedorPrincipal-content .contenedorTabla .paginacion a {
+        text-decoration: none;
+        color: #ffffff;
+        display: inline-block; /* Hace que los elementos se comporten como en línea */
+        padding: 5px 10px; /* Añade espacio alrededor de los enlaces */
+    }
+    
+    .contenedorIconoNuevoUsuario{
+        width: 30%;
+        height: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+    
 
 @media (min-width: 545px) and (max-width: 640px) {
     *{
