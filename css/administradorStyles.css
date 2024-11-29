@@ -483,7 +483,7 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
     }
     /*SECCION DE LA BARRA DE NAVEGACION*/
     body .barraNavegacion {
-        width: 201%;
+        width: 208%;
         height: 8vh;
         display: flex;
         flex-direction: row;
@@ -493,7 +493,7 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
     }
     body .barraNavegacion .contenedorBotonesRedireccion {
         width: 1%;
-        height: 5%;
+        height: 10%;
         display: flex;
         
     }
@@ -516,7 +516,7 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
         align-items: center;
     }
     body .barraNavegacion .contenedorTitulo .titulo {
-        font-size: 20px;
+        font-size: 1rem;
         text-align: center;
     }
     body .barraNavegacion .contenedorInfoUsuario{
@@ -670,24 +670,23 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
     /* SECCION CONTENEDOR PRINCIPAL - CONTENIDO */
     body .contenedorPrincipal .contenedorPrincipal-content {
         width: 50%;
-        height: 100%;
+        height: 150%;
         display: flex;
         justify-content: space-around;
     }
     body .contenedorPrincipal .contenedorPrincipal-content .contenedorRanking {
         width: 200px;
-        height: 100%;
+        height: 150%;
         display: flex;
         flex-direction: row;
-        justify-content: right;
-        right:20px;
     }
     body .contenedorPrincipal .contenedorPrincipal-content .contenedorRanking .ranking{
         width: 200%;
         height: 60%;
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: flex-end;
+
         align-items: center;
     }
     body .contenedorPrincipal .contenedorPrincipal-content .contenedorRanking .ranking .ranking-item {
@@ -695,7 +694,7 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
         height: 40%; 
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-end;
         align-items: center;
         position: relative;
         margin-top: -100%;
@@ -806,8 +805,6 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
         align-items: center;
     }
 }
-
-    
 
 @media (min-width: 545px) and (max-width: 640px) {
     *{
@@ -2077,3 +2074,68 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
     }
 }    
 
+/* Ocultar barra lateral en pantallas pequeñas */
+@media (max-width: 768px) {
+    .barraLateral {
+        display: none;
+    }
+}
+
+
+/* Estilos para el modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+}
+
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+
+/* Ajustes responsivos adicionales */
+@media (max-width: 768px) {
+    .imagenUsuario {
+        width: 100px; /* Ajusta el tamaño en pantallas pequeñas */
+        height: 100px;
+    }
+
+   
+
+    .barraLateral {
+        display: none !important; /* Asegúrate de que no se muestre */
+    }
+
+    .contenedorPrincipal {
+        grid-template-columns: 1fr; /* Ajusta el diseño al eliminar la barra lateral */
+    }
+}
