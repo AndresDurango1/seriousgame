@@ -460,6 +460,7 @@ body .contenedorPrincipal .contenedorSecciones .manualDelJugador .contenedorImag
         display: flex;
         justify-content: center;
         color: #ffffff;
+        border: #ffffff;
     }
     body .contenedorPrincipal .home .contenedorBotonesHome {
         width: 100%;
@@ -480,8 +481,8 @@ body .contenedorPrincipal .contenedorSecciones .manualDelJugador .contenedorImag
     } 
     body .contenedorPrincipal .home .contenedorBotonesHome .btnLoging .fas,
     body .contenedorPrincipal .home .contenedorBotonesHome .btnRegistrar .fas {
-        display: block;
-        font-size: 20px;
+        display: flex;
+        color: #ffffff;
     }
     body .contenedorPrincipal .home .contenedorScroll { 
         width: 100%;
@@ -651,8 +652,6 @@ body .contenedorPrincipal .contenedorSecciones .manualDelJugador .contenedorImag
         height: 100%;
         object-fit: contain;
     }
-    
-
 }
 /* Media query para 545x640 */
 @media (min-width: 545px) and (max-width: 640px) {
