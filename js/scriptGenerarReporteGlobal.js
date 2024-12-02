@@ -1,9 +1,10 @@
 import { PDFDocument } from 'https://cdn.skypack.dev/pdf-lib';
 
 const canvas = document.getElementById('myChart1');
-const image = canvas.toDataURL('image/png');
+const image = canvas.toDataURL('image/png'); // Cambiado a 'image/jpeg'
 
 document.getElementById('generatePDFButton').addEventListener('click', loadTemplateAndCreatePDF);
+
 async function loadTemplateAndCreatePDF() {
     // Cargar el archivo de plantilla PDF
     const url = '../recursos/plantillas_pdf/plantilla_reporte_global.pdf';
@@ -20,26 +21,18 @@ async function loadTemplateAndCreatePDF() {
     link.download = 'pdf_con_grafica.pdf';
     link.click();
 }
+
 async function addChartToPDF(pdfDoc, page, pageWidth, pageHeight) {
     // Usa la imagen en formato base64 generada por canvas.toDataURL
-    const imageBytes = await pdfDoc.embedPng(image); // Cambié de JPG a PNG para coincidir con el formato
-    const { width, height } = imageBytes.size();
-    const xPos = (pageWidth - 500) / 2; // Ajusta según tus necesidades
-    const yPos = pageHeight - (height / width) * 500 - 100;
+    const imageBytes = await pdfDoc.embedPng(image); // Asegúrate de usar embedJpg
+    const imageDims = imageBytes.scale(0.5); // Escalar la imagen a la mitad
+    const xPos = (pageWidth - imageDims.width) / 2; // Centrar horizontalmente
+    const yPos = pageHeight - imageDims.height - 200; // Ajustar verticalmente
 
     page.drawImage(imageBytes, {
         x: xPos,
         y: yPos,
-        width: 500,  // Ajusta el ancho
-        height: (height / width) * 500  // Mantén la proporción
-    });
-
-    // Agregar más elementos si es necesario
-    page.drawText('Título del PDF', {
-        x: 50,
-        y: pageHeight - 50,  // Ajusta la posición
-        size: 16,
-        bold: true,
+        width: imageDims.width,
+        height: imageDims.height
     });
 }
-

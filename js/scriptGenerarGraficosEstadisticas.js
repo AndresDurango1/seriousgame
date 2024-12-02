@@ -41,12 +41,24 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
         //Configuracion global de los estilos de los graficos
         Chart.defaults.font.family = 'IMFellDWPica';
         Chart.defaults.font.size = 14;
-        Chart.defaults.color = 'white';
-        Chart.defaults.plugins.legend.labels.color = 'white';
+        Chart.defaults.color = 'black';
+        Chart.defaults.plugins.legend.labels.color = 'black';
         Chart.defaults.plugins.legend.labels.font = {
             size: 18,
             weight: 'bold'
         };
+
+        // Plugin para establecer un fondo blanco global
+        Chart.register({
+            id: 'whiteBackground',
+            beforeDraw: (chart) => {
+                const ctx = chart.ctx;
+                ctx.save();
+                ctx.fillStyle = '#FFFFFF'; // Color del fondo
+                ctx.fillRect(0, 0, chart.width, chart.height); // Rellenar todo el canvas
+                ctx.restore();
+            }
+        });
 
         //Creacion de los contextos para los graficos
         const ctx1 = document.getElementById('myChart1').getContext('2d');
