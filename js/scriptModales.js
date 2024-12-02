@@ -7,7 +7,8 @@ const cerrarModalRC = document.getElementById ('iconoCerrarRC');
 const iconoHome = document.getElementById("iconoHome");
 const iconoUsers = document.getElementById("iconoUsers");
 const iconoPuzzle = document.getElementById("iconoPuzzle");
-const iconoGamepad = document.getElementById("iconoGamepad")
+const iconoGamepad = document.getElementById("iconoGamepad");
+const inicioSesion = document.getElementById("inicioSesion");
 
 //Funcione call back para mostrar y cerrar el modal del index
 if(btnInicioSesion){
@@ -61,5 +62,12 @@ if(iconoGamepad){
     iconoGamepad.addEventListener('click',function(){
         window.location.href = "../pages/index.php#player-handbook";
     });
+}
+//Funcion para redirigir al inicio de sesion
+//Funcione call back para mostrar el modal del index
+if(InicioSesion){
+    InicioSesion.addEventListener('click', function (){
+        contenedorInicioSesion.style.display = "flex";
+    })
 }
 
