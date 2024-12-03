@@ -52,6 +52,9 @@ body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
     color: #000000;
     text-align: center;
 }
+body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion i {
+    font-size: 0px;
+}
 body .barraNavegacion .contenedorTitulo {
     width: 40%;
     height: 100%;
@@ -124,7 +127,6 @@ body .barraNavegacion .contenedorIconos .contenedorIconoNuevoUsuario {
     align-items: center;
     font-size: 20px;
 }
-
 /* SECCION CONTENEDOR PRINCIPAL */
 body .contenedorPrincipal {
     width: 100vw;
@@ -132,6 +134,9 @@ body .contenedorPrincipal {
     display: flex;
     flex-direction: row;
     background-color: #2C2B29;
+}
+body .contenedorPrincipal .contenedorIconoMenuHamburguesa {
+    display: none;
 }
 /* SECCION BARRA LATERAL - INFORMACIÓN DEL USUARIO */
 body .contenedorPrincipal .barraLateral {
@@ -329,11 +334,11 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
 .contenedorPrincipal-content .contenedorTabla .tablaClasificacion thead th {
     background-color: #8e8c8c; 
     color: #000000;           
-    padding: 10px;             
+    padding: 5px;             
     text-transform: uppercase;  
 }
 .contenedorPrincipal-content .contenedorTabla .tablaClasificacion tbody td {
-    padding: 8px;             
+    padding: 9px;             
     border-bottom: 1px solid #ddd; 
 }
 .contenedorPrincipal-content .contenedorTabla .tablaClasificacion tbody td a {
@@ -350,4 +355,93 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
 .contenedorPrincipal-content .contenedorTabla .paginacion a{
     text-decoration: none;
     color: white;
+}
+/*DISEÑO WEB RESPONSIVE*/
+@media(min-width:320px) and (max-width:544px) {
+    body .barraNavegacion .contenedorBotonesRedireccion {
+        width: 25%;
+    }
+    body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
+        font-size: 0px;
+    }
+    body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion i{
+        font-size: 15px;
+    }
+    body .barraNavegacion .contenedorTitulo {
+        width: 30%;
+    }
+    body .barraNavegacion .contenedorTitulo .titulo {
+        font-size: 15px;
+    }
+
+    body .barraNavegacion .contenedorInfoUsuario {
+        width: 30%;
+    }
+    body .barraNavegacion .contenedorInfoUsuario .contenedorIconoUsuario {
+        width: 20%;
+    }
+    body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario {
+        display: none;
+    }
+    body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario .nombreUsuario {
+        font-size: 0px;
+    }
+    body .barraNavegacion .contenedorIconos {
+        width: 15%;
+    }
+    body .barraNavegacion .contenedorIconos .contenedorIconoSalir {
+        font-size: 10px;
+    }
+    body .barraNavegacion .contenedorIconos .contenedorIconoNuevoUsuario {
+        font-size: 10px;
+    }
+    /* SECCION CONTENEDOR PRINCIPAL */
+    body .contenedorPrincipal {
+        flex-direction: column;
+    }
+    body .contenedorPrincipal .contenedorIconoMenuHamburguesa {
+        display: block;
+        width: 100%;
+        height: 5%;
+    }
+    /* SECCION BARRA LATERAL - INFORMACIÓN DEL USUARIO */
+    body .contenedorPrincipal .barraLateral {
+        width: 100%;
+        height: 95%;
+        display: none;
+    }
+    /* SECCION CONTENEDOR PRINCIPAL - CONTENIDO */
+    body .contenedorPrincipal .contenedorPrincipal-content {
+        width: 100%;
+        height: 95%;
+        flex-direction: column;
+    }
+    body .contenedorPrincipal .contenedorPrincipal-content .contenedorRanking {
+        width: 100%;
+    }
+    .contenedorPrincipal-content .contenedorRanking .ranking .ranking-item .ranking-content {
+        width: 100%;
+        height: 45%;
+    }
+    .contenedorPrincipal-content .contenedorRanking .ranking .ranking-item .ranking-content  .ranking-text{
+        height: 50%;
+        font-size: 10px;
+    }    
+    /*SECCION CONTENEDOR PRINCIPAL - TABLA*/
+    body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla {
+        width: 100%;
+        height: 50%;
+    }
+    body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaClasificacion {
+        width: 100%;
+        height: 100%;
+        font-size: 9px;       
+    }
+    /* Ocultar columnas "Inicio" y "Fin" (4ª y 5ª columnas) */
+    .tablaClasificacion th:nth-child(4),
+    .tablaClasificacion td:nth-child(4),
+    .tablaClasificacion th:nth-child(5),
+    .tablaClasificacion td:nth-child(5) {
+        display: none;
+    }    
 }
