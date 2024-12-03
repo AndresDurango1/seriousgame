@@ -52,6 +52,9 @@ body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
     color: #000000;
     text-align: center;
 }
+body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion i {
+    font-size: 0px;
+}
 body .barraNavegacion .contenedorTitulo {
     width: 40%;
     height: 100%;
@@ -124,7 +127,6 @@ body .barraNavegacion .contenedorIconos .contenedorIconoNuevoUsuario {
     align-items: center;
     font-size: 20px;
 }
-
 /* SECCION CONTENEDOR PRINCIPAL */
 body .contenedorPrincipal {
     width: 100vw;
@@ -132,6 +134,9 @@ body .contenedorPrincipal {
     display: flex;
     flex-direction: row;
     background-color: #2C2B29;
+}
+body .contenedorPrincipal .contenedorIconoMenuHamburguesa {
+    display: none;
 }
 /* SECCION BARRA LATERAL - INFORMACIÓN DEL USUARIO */
 body .contenedorPrincipal .barraLateral {
@@ -329,11 +334,11 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
 .contenedorPrincipal-content .contenedorTabla .tablaClasificacion thead th {
     background-color: #8e8c8c; 
     color: #000000;           
-    padding: 10px;             
+    padding: 5px;             
     text-transform: uppercase;  
 }
 .contenedorPrincipal-content .contenedorTabla .tablaClasificacion tbody td {
-    padding: 8px;             
+    padding: 9px;             
     border-bottom: 1px solid #ddd; 
 }
 .contenedorPrincipal-content .contenedorTabla .tablaClasificacion tbody td a {

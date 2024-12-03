@@ -147,7 +147,12 @@ $totalPages = ceil($totalUsers / $limit);
         </div>
     </nav>
     <div class="contenedorPrincipal">
-        <aside class="barraLateral">
+        <div class="contenedorIconoMenuHamburguesa">
+            <button class="btnMenuHamburguesa" id="btnMenuHamburguesa">
+                <i class="fas fa-bars" id="iconoMenuHamburguesa"></i>
+            </button>
+        </div>
+        <aside class="barraLateral" id="barraLateral">
             <p class="barraLateralTitulo">Actualizar mi perfil</p>
             <div class="contenedorImagenUsuario">
                 <img class="imagenUsuario" src="../recursos/img/imgPerfil/<?php echo $ruta_imagen; ?>" alt="Imagen Usuario">
@@ -173,7 +178,7 @@ $totalPages = ceil($totalUsers / $limit);
                 </form>
             </div>
         </aside>
-        <div class="contenedorPrincipal-content">
+        <div class="contenedorPrincipal-content" id="contenedorPrincipal-content">
             <?php
             // Consulta a la base de datos para obtener los tres mejores puntajes
             $query = "SELECT i.ruta_imagen, u.usuario, SUM(nu.puntaje) AS puntaje_total FROM usuarios u
@@ -255,6 +260,7 @@ $totalPages = ceil($totalUsers / $limit);
     </div>
     <script src="../js/scriptAdmin.js"></script>
     <script src="../js/scriptAlertas.js"></script>
+    <script src="../js/scriptMenuHamburguesa.js"></script>
 </body>
 
 </html>
