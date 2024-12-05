@@ -14,8 +14,18 @@ const inicioSesion = document.getElementById("inicioSesion");
 //Funcione call back para mostrar el modal del index
 if(btnInicioSesion){
     btnInicioSesion.addEventListener('click', function (){
-        contenedorInicioSesion.style.display = "flex";
+        if (window.getComputedStyle(contenedorInicioSesion).display == 'none') {
+            contenedorInicioSesion.style.display = 'flex';
+        }
     })
+}
+if(inicioSesion){
+    inicioSesion.addEventListener('click',function(){
+        console.log("clic en el boton")
+        if (contenedorInicioSesion.display === "none") {
+            contenedorInicioSesion.style.display = "flex";
+        }        
+    });
 }
 //Funcion para redirigir al formulario de registro
 if(btnResgistro){
@@ -64,11 +74,8 @@ if(iconoGamepad){
         window.location.href = "../pages/index.php#player-handbook";
     });
 }
-//Funcion para redirigir al inicio de sesion
-//Funcione call back para mostrar el modal del index
-if(InicioSesion){
-    InicioSesion.addEventListener('click', function (){
+if(inicioSesion){
+    inicioSesion.addEventListener('click',function(){
         contenedorInicioSesion.style.display = "flex";
-    })
+    });
 }
-

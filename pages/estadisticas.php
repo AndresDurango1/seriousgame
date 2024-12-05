@@ -41,6 +41,7 @@ if ($resultadoImagen->num_rows > 0) {
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- <script src="https://unpkg.com/pdf-lib"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="../css/estadisticasStyles.css">
@@ -49,9 +50,18 @@ if ($resultadoImagen->num_rows > 0) {
 <body>
     <nav class="barraNavegacion">
         <div class="contenedorBotonesRedireccion">
-            <button class="btnRedireccion" onclick="window.location.href='../pages/index.php'">Inicio</button>
-            <button class="btnRedireccion" onclick="window.location.href='../pages/formularioCaracterizacion.php'">Formulario Caracterización</button>
-            <button class="btnRedireccion" onclick="window.location.href='../pages/administrador.php'">Volver</button>
+            <button class="btnRedireccion" onclick="window.location.href='../pages/index.php'">
+                Inicio
+                <i class="fas fa-home" id="iconoHome" style="color: #000000;"></i>
+            </button>
+            <button class="btnRedireccion" onclick="window.location.href='../pages/formularioCaracterizacion.php'">
+                Formulario Caracterización
+                <i class="fab fa-wpforms" id="iconoFormularioCaracterizacion" style="color:#000000"></i>
+            </button>
+            <button class="btnRedireccion" onclick="window.location.href='../pages/administrador.php'">
+                Volver
+                <i class="fa-solid fa-left-long" style="color: #000000;"></i>
+            </button>
         </div>
         <div class="contenedorTitulo">
             <p class="titulo">Las Aventuras de Go</p>

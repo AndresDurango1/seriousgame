@@ -45,7 +45,7 @@
             <div class="contenedorBotonesHome">
                 <button class="btnLoging" id="btnIniciarSesion">
                     Iniciar Sesión
-                    <i class="fas fa-sign-in-alt"id="inicioSesion" style="color: #ffffff; font-size: 0px;"></i>
+                    <i class="fas fa-sign-in-alt" id="inicioSesion" style="color: #ffffff; font-size: 0px;"></i>
                 </button>
                 <button class="btnRegistrar" id="btnRegistrar">
                     Registrarse

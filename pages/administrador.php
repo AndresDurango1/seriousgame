@@ -80,6 +80,7 @@ $totalPages = ceil($totalUsers / $limit);
             <button class="btnRedireccion" onclick="window.location.href='../pages/formularioCaracterizacion.php'">
                 Formulario Caracterización
                 <i class="fab fa-wpforms" id="iconoFormularioCaracterizacion" style="color:#000000"></i>
+                <i class="fa-solid fa-turn-down fa-rotate-90"></i>
             </button>
             <button class="btnRedireccion" onclick="window.location.href='../pages/estadisticas.php'">
                 Ver Estadísticas
