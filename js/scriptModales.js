@@ -65,9 +65,8 @@ if(iconoGamepad){
 }
 //Funcion para redirigir al inicio de sesion
 //Funcione call back para mostrar el modal del index
-if(InicioSesion){
-    InicioSesion.addEventListener('click', function (){
+if(inicioSesion){
+    inicioSesion.addEventListener('click',function(){
         contenedorInicioSesion.style.display = "flex";
-    })
+    });
 }
-

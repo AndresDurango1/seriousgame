@@ -41,12 +41,25 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
         //Configuracion global de los estilos de los graficos
         Chart.defaults.font.family = 'IMFellDWPica';
         Chart.defaults.font.size = 14;
-        Chart.defaults.color = 'white';
-        Chart.defaults.plugins.legend.labels.color = 'white';
+        Chart.defaults.color = 'black';
+        Chart.defaults.plugins.legend.labels.color = 'black';
         Chart.defaults.plugins.legend.labels.font = {
             size: 18,
             weight: 'bold'
         };
+        Chart.defaults.maintainAspectRatio = false;
+
+        // Plugin para establecer un fondo blanco global
+        Chart.register({
+            id: 'whiteBackground',
+            beforeDraw: (chart) => {
+                const ctx = chart.ctx;
+                ctx.save();
+                ctx.fillStyle = '#FFFFFF'; // Color del fondo
+                ctx.fillRect(0, 0, chart.width, chart.height); // Rellenar todo el canvas
+                ctx.restore();
+            }
+        });
 
         //Creacion de los contextos para los graficos
         const ctx1 = document.getElementById('myChart1').getContext('2d');
@@ -108,7 +121,7 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
             'rgb(201, 203, 207)'
         ];
         //Creacion del 1er Gráfico
-        new Chart(ctx1, {
+        const mychart1 = new Chart(ctx1, {
             type: 'bar',
             data: {
                 labels: topLabels,
@@ -141,7 +154,10 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
                         position: 'bottom',
                         labels: {
                             boxWidth: 20,
-                            padding: 15
+                            padding: 15,
+                            font: {
+                                size: window.innerWidth < 768 ? 12 : 18,
+                            }
                         }
                     }
                 },
@@ -191,7 +207,10 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
                         position: 'bottom',
                         labels: {
                             boxWidth: 20,
-                            padding: 15
+                            padding: 15,
+                            font: {
+                                size: window.innerWidth < 768 ? 12 : 18,
+                            }
                         }
                     }
                 },
@@ -241,7 +260,10 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
                         position: 'bottom',
                         labels: {
                             boxWidth: 20,
-                            padding: 15
+                            padding: 15,
+                            font: {
+                                size: window.innerWidth < 768 ? 12 : 18,
+                            }
                         }
                     }
                 },
@@ -294,7 +316,10 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
                         position: 'bottom',
                         labels: {
                             boxWidth: 20,
-                            padding: 15
+                            padding: 15,
+                            font: {
+                                size: window.innerWidth < 768 ? 12 : 18,
+                            }
                         }
                     }
                 },
@@ -344,7 +369,10 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
                         position: 'bottom',
                         labels: {
                             boxWidth: 20,
-                            padding: 15
+                            padding: 15,
+                            font: {
+                                size: window.innerWidth < 768 ? 12 : 18,
+                            }
                         }
                     }
                 }
@@ -379,7 +407,10 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
                         position: 'bottom',
                         labels: {
                             boxWidth: 20,
-                            padding: 15
+                            padding: 15,
+                            font: {
+                                size: window.innerWidth < 768 ? 12 : 18,
+                            }
                         }
                     }
                 }
@@ -414,7 +445,10 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
                         position: 'bottom',
                         labels: {
                             boxWidth: 20,
-                            padding: 15
+                            padding: 15,
+                            font: {
+                                size: window.innerWidth < 768 ? 12 : 18,
+                            }
                         }
                     }
                 }
@@ -449,7 +483,10 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
                         position: 'bottom',
                         labels: {
                             boxWidth: 20,
-                            padding: 15
+                            padding: 15,
+                            font: {
+                                size: window.innerWidth < 768 ? 12 : 18,
+                            }
                         }
                     }
                 }
