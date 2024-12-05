@@ -74,6 +74,8 @@ if(iconoGamepad){
         window.location.href = "../pages/index.php#player-handbook";
     });
 }
+//Funcion para redirigir al inicio de sesion
+//Funcione call back para mostrar el modal del index
 if(inicioSesion){
     inicioSesion.addEventListener('click',function(){
         contenedorInicioSesion.style.display = "flex";

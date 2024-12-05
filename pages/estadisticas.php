@@ -52,11 +52,11 @@ if ($resultadoImagen->num_rows > 0) {
         <div class="contenedorBotonesRedireccion">
             <button class="btnRedireccion" onclick="window.location.href='../pages/index.php'">
                 Inicio
-                <i class="fas fa-home" id="iconoHome" style="color: #000000;"></i>
+                <i class="fas fa-home"id="iconoHome" style="color: #000000; "></i>
             </button>
             <button class="btnRedireccion" onclick="window.location.href='../pages/formularioCaracterizacion.php'">
                 Formulario Caracterización
-                <i class="fab fa-wpforms" id="iconoFormularioCaracterizacion" style="color:#000000"></i>
+                <i class="fab fa-wpforms" id="iconoFormularioCaracterizacion" style="color: #000000; "></i>
             </button>
             <button class="btnRedireccion" onclick="window.location.href='../pages/administrador.php'">
                 Volver
