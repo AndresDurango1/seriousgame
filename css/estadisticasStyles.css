@@ -248,8 +248,9 @@ body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInfo
 
 body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento .contenedorGrafico,
 body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica .contenedorGrafico {
-    width: 45vw;
-    height: 40vh;
+    width: 45%;
+    height: 40%;
+    margin: 2%;
     display: flex;
     justify-content: center;
     align-items: center;
