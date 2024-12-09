@@ -1735,55 +1735,20 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
         align-items: center;
     }
     body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaClasificacion {
-        width: 95%;
-        height: auto;
-        margin: 20px 0;             
-        border-collapse: collapse;
-        border-radius: 10px;
-        font-size: 16px;     
-        overflow: hidden;     
-    }
-    body .contenedorPrincipal-content .contenedorTabla .tablaClasificacion thead th {
-        padding: 10px;             
-        text-transform: uppercase;  
-    }
-    body .contenedorPrincipal-content .contenedorTabla .tablaClasificacion tbody td {
-        padding: 8px;             
-    }
-    
-    
-    body .contenedorPrincipal-content .contenedorTabla .tablaClasificacion td,
-    .contenedorPrincipal-content .contenedorTabla .tablaClasificacion th {
-        text-align: center;
-    }
-    
-    body .contenedorPrincipal-content .contenedorTabla .paginacion a{
-        text-decoration: none;
-    }
-}    
-
-@media (min-width: 1024px) and (max-width: 1280px) {
-    *{
-        margin: 0%;
-        padding: 0%;
-        box-sizing: border-box;
-    }
-    body {
         width: 100%;
         height: 100%;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
+        font-size: 25px;       
     }
-    /*SECCION DE LA BARRA DE NAVEGACION*/
-    body .barraNavegacion {
-        width: 100vw;
-        height: 10vh;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-    }
+    /* Ocultar columnas "Inicio" y "Fin" (4ª y 5ª columnas) */
+    .tablaClasificacion th:nth-child(4),
+    .tablaClasificacion td:nth-child(4),
+    .tablaClasificacion th:nth-child(5),
+    .tablaClasificacion td:nth-child(5) {
+        display: none;
+    }    
+}
+
+@media(min-width:1281px){
     body .barraNavegacion .contenedorBotonesRedireccion {
         width: 30%;
         height: 100%;
@@ -1792,16 +1757,10 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
         align-items: center;
     }
     body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
-        width: 30%;
-        height: 60%;
-        display: flex;
-        margin: 1%;
-        justify-content: center;
-        align-items: center;
-        border-radius: 10px;
-        border: none;
-        font-size: 16px;
-        text-align: center;
+        font-size: 0px;
+    }
+    body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion i{
+        font-size: 20px;
     }
     body .barraNavegacion .contenedorTitulo {
         width: 40%;
@@ -1811,8 +1770,7 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
         align-items: center;
     }
     body .barraNavegacion .contenedorTitulo .titulo {
-        font-size: 60px;
-        text-align: center;
+        font-size: 35px;
     }
     body .barraNavegacion .contenedorInfoUsuario{
         width: 20%;
@@ -1856,20 +1814,10 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
         align-items: center;
     }
     body .barraNavegacion .contenedorIconos .contenedorIconoSalir {
-        width: 45%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 20px;
+        font-size: 30px;
     }
     body .barraNavegacion .contenedorIconos .contenedorIconoNuevoUsuario {
-        width: 45%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 20px;
+        font-size: 30px;
     }
     
     /* SECCION CONTENEDOR PRINCIPAL */
@@ -2020,28 +1968,8 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
     body .contenedorPrincipal-content .contenedorRanking .ranking .ranking-item .ranking-content  .ranking-img{
         width: 50%;
         height: 50%;
-        bottom: 10%;
-        display: flex;
-        justify-content: center;
-        object-fit: scale-down;
-        border-radius: 10px;
-        margin-bottom: 10px;
-    }
-    body .contenedorPrincipal-content .contenedorRanking .ranking .ranking-item .ranking-content  .ranking-img img {
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-        object-fit: scale-down;
-    }
-    body .contenedorPrincipal-content .contenedorRanking .ranking .ranking-item .ranking-content  .ranking-text{
-        width: 100%;
-        height: 40%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        font-size: 14px;
-    }
+        font-size: 18px;
+    }    
     /*SECCION CONTENEDOR PRINCIPAL - TABLA*/
     body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla {
         width: 90%;
@@ -2052,95 +1980,15 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
         align-items: center;
     }
     body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaClasificacion {
-        width: 95%;
-        height: auto;
-        margin: 20px 0;             
-        border-collapse: collapse;
-        border-radius: 10px;
-        font-size: 16px;     
-        overflow: hidden;     
+        width: 100%;
+        height: 100%;
+        font-size: 20px;       
     }
-    body .contenedorPrincipal-content .contenedorTabla .tablaClasificacion thead th {
-        padding: 10px;             
-        text-transform: uppercase;  
-    }
-    body .contenedorPrincipal-content .contenedorTabla .tablaClasificacion tbody td {
-        padding: 8px;             
-    }
-    
-    
-    body .contenedorPrincipal-content .contenedorTabla .tablaClasificacion td,
-    .contenedorPrincipal-content .contenedorTabla .tablaClasificacion th {
-        text-align: center;
-    }
-    
-    body .contenedorPrincipal-content .contenedorTabla .paginacion a{
-        text-decoration: none;
-    }
-}    
-
-/* Ocultar barra lateral en pantallas pequeñas */
-@media (max-width: 768px) {
-    .barraLateral {
+    /* Ocultar columnas "Inicio" y "Fin" (4ª y 5ª columnas) */
+    .tablaClasificacion th:nth-child(4),
+    .tablaClasificacion td:nth-child(4),
+    .tablaClasificacion th:nth-child(5),
+    .tablaClasificacion td:nth-child(5) {
         display: none;
-    }
-}
-
-
-/* Estilos para el modal */
-.modal {
-    display: none; /* Oculto por defecto */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content {
-    background-color: #fff;
-    margin: 10% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
-    border-radius: 8px;
-}
-
-.close-modal {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close-modal:hover,
-.close-modal:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-
-
-
-/* Ajustes responsivos adicionales */
-@media (max-width: 768px) {
-    .imagenUsuario {
-        width: 100px; /* Ajusta el tamaño en pantallas pequeñas */
-        height: 100px;
-    }
-
-   
-
-    .barraLateral {
-        display: none !important; /* Asegúrate de que no se muestre */
-    }
-
-    .contenedorPrincipal {
-        grid-template-columns: 1fr; /* Ajusta el diseño al eliminar la barra lateral */
-    }
+    }    
 }
