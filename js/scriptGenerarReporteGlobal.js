@@ -44,26 +44,23 @@ async function loadTemplateAndCreatePDF() {
     yPosition = await addParagraphToPDF(page, paragraph1, fontBold, 14, width, height, margin, yPosition); 
     const paragraph2 = "El presente reporte sintetiza los principales resultados del desempeño de los colaboradores en el juego “Las Aventuras de Go” y las características demográficas de los participantes. Estos resultados permiten de manera objetiva revisar la eficacia del juego como herramienta de aprendizaje al evaluar el avance de los colaboradores a través del mismo, además permitirá inferir aquellas áreas clave para optimizar la experiencia, como [ejemplo: ajustar la dificultad de los últimos niveles o diversificar las dinámicas de interacción]. Por otra parte, también permite realizar de manera práctica una clasificación demográfica de los colaboradores de acuerdo a atributos clave que se gestionan a través de formularios en la plataforma de seguimiento."; 
     yPosition = await addParagraphToPDF(page, paragraph2, font, 12, width, height, margin, yPosition); 
-    const paragraph3 = " " 
-    yPosition = await addParagraphToPDF(page, paragraph3, font, 14, width, height, margin, yPosition); 
-    const paragraph4 = "2. Análisis de Desempeño" 
-    yPosition = await addParagraphToPDF(page, paragraph4, fontBold, 14, width, height, margin, yPosition); 
-    const paragraph5 = "En esta sección se presenta un análisis detallado del desempeño de los colaboradores en el juego Las Aventuras de Go. El objetivo es identificar patrones en el progreso, niveles de dificultad y tiempo invertido, destacando los logros más significativos y áreas de oportunidad. Los datos aquí expuestos permiten comprender mejor cómo los colaboradores interactuaron con las dinámicas del juego y su impacto en el aprendizaje o desarrollo deseado." 
-    yPosition = await addParagraphToPDF(page, paragraph5, font, 12, width, height, margin, yPosition);
-   
-    // Agregar gráficos con su sus titulos
-    //yPosition = await addParagraphToPDF(page, "- Grafica 1: Top mejores puntajes", fontBold, 13, width, height, margin, yPosition);
+    const paragraph3 = "2. Análisis de Desempeño" 
+    yPosition = await addParagraphToPDF(page, paragraph3, fontBold, 14, width, height, margin, yPosition); 
+    const paragraph4 = "En esta sección se presenta un análisis detallado del desempeño de los colaboradores en el juego Las Aventuras de Go. El objetivo es identificar patrones en el progreso, niveles de dificultad y tiempo invertido, destacando los logros más significativos y áreas de oportunidad. Los datos aquí expuestos permiten comprender mejor cómo los colaboradores interactuaron con las dinámicas del juego y su impacto en el aprendizaje o desarrollo deseado." 
+    yPosition = await addParagraphToPDF(page, paragraph4, font, 12, width, height, margin, yPosition);
+    const paragraph5 = " - 2.1. Gráficas de desempeño de los colaboradores en el juego" 
+    yPosition = await addParagraphToPDF(page, paragraph5, fontBold, 14, width, height, margin, yPosition);
+    const paragraph6 = "En este bloque se presentan las siguientes gráficas \n\
+    - Gráfica 1: Top mejores puntajes\n\
+    - Gráfica 2: Top peores puntajes\n\
+    - Gráfica 3: Top puntajes promedio\n\
+    - Gráfica 4: Top mejores tiempos"
+    yPosition = await addParagraphToPDF(page, paragraph6, font, 12, width, height, margin, yPosition);
     yPosition = await addChartToPDF(pdfDoc, pdfDocPlantilla, page, width, height, yPosition, image1);
-
-    //yPosition = await addParagraphToPDF(page, "- Grafica 2: Top puntajes promédio", fontBold, 13, width, height, margin, yPosition);
-    yPosition = await addChartToPDF(pdfDoc, pdfDocPlantilla, page, width, height, yPosition, image3);
-
-    //yPosition = await addParagraphToPDF(page, "- Grafica 3: Top peores puntajes", fontBold, 13, width, height, margin, yPosition);
     yPosition = await addChartToPDF(pdfDoc, pdfDocPlantilla, page, width, height, yPosition, image2);
-
-    //yPosition = await addParagraphToPDF(page, "- Grafica 4: Top mejores tiempos", fontBold, 13, width, height, margin, yPosition);
+    yPosition = await addChartToPDF(pdfDoc, pdfDocPlantilla, page, width, height, yPosition, image3);
     yPosition = await addChartToPDF(pdfDoc, pdfDocPlantilla, page, width, height, yPosition, image4);
-
+    
     // Guardar y descargar el PDF
     const pdfBytes = await pdfDoc.save();
     const link = document.createElement('a');
@@ -79,7 +76,11 @@ async function addParagraphToPDF(page, text, font, fontSize, pageWidth, pageHeig
     const lines = splitTextIntoLines(text, font, fontSize, maxWidth); 
     for (const line of lines) { 
         if (yPosition - fontSize < margin) { 
-            throw new Error('No hay espacio en la página actual para más texto.'); 
+            const [newPage] = await pdfDoc.copyPages(pdfDocPlantilla, [0]);
+            pdfDoc.addPage(newPage);
+            page = newPage;
+            yPosition = pageHeight - margin * 2;
+            console.log(yPosition);
         } 
         page.drawText(line, { 
             x: margin, 
@@ -87,7 +88,7 @@ async function addParagraphToPDF(page, text, font, fontSize, pageWidth, pageHeig
             size: fontSize, 
             font: font, 
         }); 
-        yPosition -= fontSize + 5; 
+        yPosition -= fontSize + 8; 
     } 
     return yPosition; 
 }
