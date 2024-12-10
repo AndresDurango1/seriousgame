@@ -60,6 +60,10 @@ async function loadTemplateAndCreatePDF() {
     yPosition = await addChartToPDF(pdfDoc, pdfDocPlantilla, page, width, height, yPosition, image2);
     yPosition = await addChartToPDF(pdfDoc, pdfDocPlantilla, page, width, height, yPosition, image3);
     yPosition = await addChartToPDF(pdfDoc, pdfDocPlantilla, page, width, height, yPosition, image4);
+
+    const paragraph7 = " - 2.2. Gráficas de desempeño demográfico" 
+    yPosition = await addParagraphToPDF(page, paragraph7, fontBold, 14, width, height, margin, yPosition);
+    const paragraph8 = "En este bloque se presentan las siguientes gráficas"
     
     // Guardar y descargar el PDF
     const pdfBytes = await pdfDoc.save();
@@ -68,7 +72,6 @@ async function loadTemplateAndCreatePDF() {
     link.download = 'pdf_con_parrafos_y_grafica.pdf';
     link.click();
 }
-
 // Métodos auxiliares para la creación  de elementos en el pdf
 //Metodo asincrónico para cargar párrafos en el pdf 
 async function addParagraphToPDF(page, text, font, fontSize, pageWidth, pageHeight, margin, yPosition) { 
