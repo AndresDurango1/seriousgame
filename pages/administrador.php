@@ -74,48 +74,21 @@ $totalPages = ceil($totalUsers / $limit);
 </head>
 
 <body>
-<nav class="barraNavegacion">
-    <!-- Contenido existente -->
-    <div class="menu-toggle" id="menu-toggle">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </div>
-
-    <div class="contenedorBotonesRedireccion" id="nav-links">
-        <!-- Botones existentes -->
-        <button class="btnRedireccion" onclick="window.location.href='../pages/index.php'">Inicio</button>
-        <span><i class="fas fa-home" id="iconoHome" style="color: #ffffff;"></i></span>
-        <button class="btnRedireccion" onclick="abrirModal()">Actualizar Perfil</button>
-        <span><i class="fas fa-user-edit" style="color: #ffffff;"></i></span>
-    </div>
-
-    <!-- Modal para actualizar perfil -->
-<div id="modalActualizarPerfil" class="modal">
-    <div class="modal-content">
-        <span class="close-modal" onclick="cerrarModal()">&times;</span>
-        <p class="barraLateralTitulo">Actualizar mi perfil</p>
-        <div class="contenedorImagenUsuario">
-            <img class="imagenUsuario" src="../recursos/img/imgPerfil/<?php echo $ruta_imagen; ?>" alt="Imagen Usuario">
-        </div>
-        <div class="contenedorFormularioActualizacion">
-            <!-- Reutilizar el formulario actual -->
-            <form class="formularioActualizacion" action="../php/actualizarUsuario.php" method="post">
-                <input type="number" name="inputId" id="inputId" value="<?php echo $id_usuario; ?>" hidden>
-                <label class="lbl-item" for="lblIdentificacion">Identificación</label>
-                <input class="input-item" type="number" name="inputIdentificacion" id="inputIdentificacion" value="<?php echo htmlspecialchars($fila['identificacion']); ?>" readonly>
-                <label class="lbl-item" for="lblNombre">Nombre</label>
-                <input class="input-item" type="text" name="inputNombre" id="inputNombre" value="<?php echo htmlspecialchars($fila['nombre']); ?>">
-                <label class="lbl-item" for="lblApellido">Apellido</label>
-                <input class="input-item" type="text" name="inputApellido" id="inputApellido" value="<?php echo htmlspecialchars($fila['apellido']); ?>">
-                <label class="lbl-item" for="lblCorreo">Correo</label>
-                <input class="input-item" type="text" name="inputCorreo" id="inputCorreo" value="<?php echo htmlspecialchars($fila['correo']); ?>">
-                <label class="lbl-item" for="lblContrasena">Contraseña</label>
-                <input class="input-item" type="password" name="inputContrasena" id="inputContrasena" placeholder="Ingresa tu Nueva Contraseña">
-                <label class="lbl-item" for="lblConfirmarContrasena">Confirmar Contraseña</label>
-                <input class="input-item" type="password" name="inputConfirmarContrasena" id="inputConfirmarContrasena" placeholder="Confirma tu Nueva Contraseña">
-                <button class="btnActualizar" type="submit">ACTUALIZAR</button>
-            </form>
+    <nav class="barraNavegacion">
+        <div class="contenedorBotonesRedireccion">
+            <button class="btnRedireccion" onclick="window.location.href='../pages/index.php'">
+                Inicio
+                <i class="fas fa-home" id="iconoHome" style="color: #000000;"></i>
+            </button>
+            <button class="btnRedireccion" onclick="window.location.href='../pages/formularioCaracterizacion.php'">
+                Formulario Caracterización
+                <i class="fab fa-wpforms" id="iconoFormularioCaracterizacion" style="color:#000000"></i>
+                <i class="fa-solid fa-turn-down fa-rotate-90"></i>
+            </button>
+            <button class="btnRedireccion" onclick="window.location.href='../pages/estadisticas.php'">
+                Ver Estadísticas
+                <i class="fas fa-signal" id="iconoEstadisticas" style="color: #000000;"></i>
+            </button>
         </div>
     </div>
 </div>

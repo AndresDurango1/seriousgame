@@ -47,6 +47,7 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
             size: 18,
             weight: 'bold'
         };
+        Chart.defaults.maintainAspectRatio = false;
 
         // Plugin para establecer un fondo blanco global
         Chart.register({
@@ -153,7 +154,10 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
                         position: 'bottom',
                         labels: {
                             boxWidth: 20,
-                            padding: 15
+                            padding: 15,
+                            font: {
+                                size: window.innerWidth < 768 ? 12 : 18,
+                            }
                         }
                     }
                 },
@@ -203,7 +207,10 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
                         position: 'bottom',
                         labels: {
                             boxWidth: 20,
-                            padding: 15
+                            padding: 15,
+                            font: {
+                                size: window.innerWidth < 768 ? 12 : 18,
+                            }
                         }
                     }
                 },
@@ -253,7 +260,10 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
                         position: 'bottom',
                         labels: {
                             boxWidth: 20,
-                            padding: 15
+                            padding: 15,
+                            font: {
+                                size: window.innerWidth < 768 ? 12 : 18,
+                            }
                         }
                     }
                 },
@@ -306,7 +316,10 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
                         position: 'bottom',
                         labels: {
                             boxWidth: 20,
-                            padding: 15
+                            padding: 15,
+                            font: {
+                                size: window.innerWidth < 768 ? 12 : 18,
+                            }
                         }
                     }
                 },
@@ -356,7 +369,10 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
                         position: 'bottom',
                         labels: {
                             boxWidth: 20,
-                            padding: 15
+                            padding: 15,
+                            font: {
+                                size: window.innerWidth < 768 ? 12 : 18,
+                            }
                         }
                     }
                 }
@@ -391,7 +407,10 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
                         position: 'bottom',
                         labels: {
                             boxWidth: 20,
-                            padding: 15
+                            padding: 15,
+                            font: {
+                                size: window.innerWidth < 768 ? 12 : 18,
+                            }
                         }
                     }
                 }
@@ -426,7 +445,10 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
                         position: 'bottom',
                         labels: {
                             boxWidth: 20,
-                            padding: 15
+                            padding: 15,
+                            font: {
+                                size: window.innerWidth < 768 ? 12 : 18,
+                            }
                         }
                     }
                 }
@@ -461,7 +483,10 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
                         position: 'bottom',
                         labels: {
                             boxWidth: 20,
-                            padding: 15
+                            padding: 15,
+                            font: {
+                                size: window.innerWidth < 768 ? 12 : 18,
+                            }
                         }
                     }
                 }

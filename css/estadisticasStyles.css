@@ -1,17 +1,20 @@
 @font-face {
     font-family: 'IMFellDWPica';
     src: url('../recursos/tipografias/Letra_im_fell_dw_pica/IMFellDWPica-Regular.ttf');
-  }
-  @font-face {
+}
+
+@font-face {
     font-family: 'CronosPro';
     src: url('../recursos/tipografias/LetraTigo/tigo.ttf');
-  }
-*{
+}
+
+* {
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
     font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
 }
+
 body {
     width: 100vw;
     height: 100vh;
@@ -20,6 +23,7 @@ body {
     background-color: #2d2b29ea;
     overflow: hidden;
 }
+
 /*SECCION DE LA BARRA DE NAVEGACION*/
 body .barraNavegacion {
     width: 100%;
@@ -30,6 +34,7 @@ body .barraNavegacion {
     align-items: center;
     background-color: #1A1A1A;
 }
+
 body .barraNavegacion .contenedorBotonesRedireccion {
     width: 30%;
     height: 100%;
@@ -37,6 +42,7 @@ body .barraNavegacion .contenedorBotonesRedireccion {
     justify-content: space-around;
     align-items: center;
 }
+
 body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
     width: 30%;
     height: 60%;
@@ -52,6 +58,7 @@ body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
     color: #000000;
     text-align: center;
 }
+
 body .barraNavegacion .contenedorTitulo {
     width: 40%;
     height: 100%;
@@ -59,13 +66,15 @@ body .barraNavegacion .contenedorTitulo {
     justify-content: center;
     align-items: center;
 }
+
 body .barraNavegacion .contenedorTitulo .titulo {
     font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
     font-size: 60px;
     color: #a56b15;
     text-align: center;
 }
-body .barraNavegacion .contenedorInfoUsuario{
+
+body .barraNavegacion .contenedorInfoUsuario {
     width: 20%;
     height: 100%;
     display: flex;
@@ -73,7 +82,8 @@ body .barraNavegacion .contenedorInfoUsuario{
     justify-content: center;
     align-items: center;
 }
-body .barraNavegacion .contenedorInfoUsuario .contenedorIconoUsuario{
+
+body .barraNavegacion .contenedorInfoUsuario .contenedorIconoUsuario {
     width: 20%;
     height: 100%;
     display: flex;
@@ -82,13 +92,15 @@ body .barraNavegacion .contenedorInfoUsuario .contenedorIconoUsuario{
     border-radius: 100%;
     border: none;
 }
-body .barraNavegacion .contenedorInfoUsuario .contenedorIconoUsuario .iconoUsuario{
+
+body .barraNavegacion .contenedorInfoUsuario .contenedorIconoUsuario .iconoUsuario {
     width: 100%;
     height: 100%;
     border-radius: 50px;
     border: none;
     object-fit: scale-down;
 }
+
 body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario {
     width: 50%;
     height: 100%;
@@ -96,18 +108,21 @@ body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario {
     justify-content: flex-start;
     align-items: center;
 }
+
 body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario .nombreUsuario {
     font-size: 20px;
     font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
     color: #ffffff;
 }
-body .barraNavegacion .contenedorIconos{
+
+body .barraNavegacion .contenedorIconos {
     width: 10%;
     height: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
+
 body .barraNavegacion .contenedorIconos .contenedorIconoSalir {
     width: 45%;
     height: 100%;
@@ -116,6 +131,7 @@ body .barraNavegacion .contenedorIconos .contenedorIconoSalir {
     align-items: center;
     font-size: 20px;
 }
+
 body .barraNavegacion .contenedorIconos .contenedorIconoNuevoUsuario {
     width: 45%;
     height: 100%;
@@ -124,6 +140,7 @@ body .barraNavegacion .contenedorIconos .contenedorIconoNuevoUsuario {
     align-items: center;
     font-size: 20px;
 }
+
 /*SECCION DEL CONTENIDO PRINCIPAL*/
 body .contenedorPrincipal {
     width: 100%;
@@ -133,7 +150,8 @@ body .contenedorPrincipal {
     overflow-y: scroll;
     overflow-x: hidden;
 }
-body .contenedorPrincipal .descripcionPagina{
+
+body .contenedorPrincipal .descripcionPagina {
     width: 100vw;
     height: 10vh;
     margin-bottom: 1%;
@@ -141,7 +159,8 @@ body .contenedorPrincipal .descripcionPagina{
     justify-content: center;
     align-items: center;
 }
-body .contenedorPrincipal .descripcionPagina .contenedorInfoSeccion{
+
+body .contenedorPrincipal .descripcionPagina .contenedorInfoSeccion {
     width: 100%;
     height: 100%;
     padding: 0 20px;
@@ -150,7 +169,8 @@ body .contenedorPrincipal .descripcionPagina .contenedorInfoSeccion{
     justify-content: center;
     align-items: center;
 }
-body .contenedorPrincipal .descripcionPagina .contenedorInfoSeccion .infoSeccion{
+
+body .contenedorPrincipal .descripcionPagina .contenedorInfoSeccion .infoSeccion {
     width: 100%;
     height: 100%;
     display: flex;
@@ -161,6 +181,7 @@ body .contenedorPrincipal .descripcionPagina .contenedorInfoSeccion .infoSeccion
     text-align: justify;
     color: #ffffff;
 }
+
 body .contenedorPrincipal .seccionRendimientoJuego,
 body .contenedorPrincipal .seccionInformacionDemografica {
     width: 100vw;
@@ -171,10 +192,11 @@ body .contenedorPrincipal .seccionInformacionDemografica {
     align-items: center;
     border: solid 1px red;
 }
+
 /* ESTILOS SECCION RENDIMIENTO */
 /* ESTILOS SECCION INFORMACION DEMOGRAFICA */
 body .contenedorPrincipal .seccionRendimientoJuego .infoSeccion,
-body .contenedorPrincipal .seccionInformacionDemografica .infoSeccion{
+body .contenedorPrincipal .seccionInformacionDemografica .infoSeccion {
     width: 100vw;
     height: 5vh;
     display: flex;
@@ -183,8 +205,9 @@ body .contenedorPrincipal .seccionInformacionDemografica .infoSeccion{
     font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
     font-size: 20px;
     text-align: justify;
-    color: #ffffff; 
+    color: #ffffff;
 }
+
 body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista,
 body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista {
     width: 100vw;
@@ -194,6 +217,7 @@ body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista {
     justify-content: center;
     align-items: center;
 }
+
 body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista .listaRendimientoJuego,
 body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .listaInformacionDemografica {
     width: 100%;
@@ -207,11 +231,13 @@ body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .lista
     color: white;
     font-size: 16px;
 }
+
 body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista .listaRendimientoJuego li,
 body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .listaInformacionDemografica {
     margin-bottom: 5px;
     line-height: 1.5;
 }
+
 body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento,
 body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica {
     width: 100vw;
@@ -220,20 +246,503 @@ body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInfo
     flex-direction: row;
     flex-wrap: wrap;
 }
+
 body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento .contenedorGrafico,
-body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica .contenedorGrafico{
-    width: 45vw;
-    height: 40vh;
+body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica .contenedorGrafico {
+    width: 45%;
+    height: 40%;
+    margin: 2%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento .contenedorGrafico canvas,
-body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica .contenedorGrafico canvas{
+body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica .contenedorGrafico canvas {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     border: solid 1px #000;
+}
+
+
+     
+@media (min-width: 320px) and (max-width: 544px) {
+    body .barraNavegacion .contenedorBotonesRedireccion {
+        width: 25%;
+    }
+    body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
+        font-size: 0px;
+    }
+    body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion i {
+        font-size: 15px;
+    }
+    body .barraNavegacion .contenedorTitulo {
+        width: 30%;
+    }
+    body .barraNavegacion .contenedorTitulo .titulo {
+        font-size: 15px;
+    }
+    body .barraNavegacion .contenedorInfoUsuario {
+        width: 30%;
+    }
+    body .barraNavegacion .contenedorInfoUsuario .contenedorIconoUsuario {
+        width: 20%;
+    }
+    body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario {
+        display: none;
+    }
+    body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario .nombreUsuario {
+        font-size: 0px;
+    }
+    body .barraNavegacion .contenedorIconos {
+        width: 15%;
+    }
+    body .barraNavegacion .contenedorIconos .contenedorIconoSalir {
+        font-size: 10px;
+    }
+    body .barraNavegacion .contenedorIconos .contenedorIconoNuevoUsuario {
+        font-size: 10px;
+    }
+    /*SECCION DEL CONTENIDO PRINCIPAL*/
+    body .contenedorPrincipal .descripcionPagina {
+        width: 100vw;
+        height: 25vh;
+        margin-top: 10%;
+    }
+    *body .contenedorPrincipal .descripcionPagina .contenedorInfoSeccion {
+        padding: 0 5px;
+    }
+    body .contenedorPrincipal .descripcionPagina .contenedorInfoSeccion .infoSeccion {
+        font-size: 12px;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego,
+    body .contenedorPrincipal .seccionInformacionDemografica {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    /* ESTILOS SECCION RENDIMIENTO */
+    /* ESTILOS SECCION INFORMACION DEMOGRAFICA */
+    body .contenedorPrincipal .seccionRendimientoJuego .infoSeccion,
+    body .contenedorPrincipal .seccionInformacionDemografica .infoSeccion {
+        font-size: 15px;
+        margin-top: 5%;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista,
+    body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista {
+        width: 100%;
+        height: 35%;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista .listaRendimientoJuego,
+    body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .listaInformacionDemografica {
+        font-size: 12px;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento,
+    body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica {
+        width: 100%;
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        overflow-x: scroll;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento .contenedorGrafico,
+    body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica .contenedorGrafico {
+        width: 95%;
+        height: 95%;
+        margin: 2%;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento .contenedorGrafico canvas,
+    body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica .contenedorGrafico canvas {
+        width: 100%;
+        height: auto;
+    }
+}
+@media (min-width: 545px) and (max-width: 640px){
+    body .barraNavegacion .contenedorBotonesRedireccion {
+        width: 30%;
+    }
+    body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
+        font-size: 0px;
+    }
+    body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion i {
+        font-size: 15px;
+    }
+    body .barraNavegacion .contenedorTitulo {
+        width: 30%;
+    }
+    body .barraNavegacion .contenedorTitulo .titulo {
+        font-size: 20px;
+    }
+    body .barraNavegacion .contenedorInfoUsuario {
+        width: 30%;
+    }
+    body .barraNavegacion .contenedorInfoUsuario .contenedorIconoUsuario {
+        width: 20%;
+    }
+    body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario {
+        display: none;
+    }
+    body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario .nombreUsuario {
+        font-size: 0px;
+    }
+    body .barraNavegacion .contenedorIconos {
+        width: 20%;
+    }
+    body .barraNavegacion .contenedorIconos .contenedorIconoSalir {
+        font-size: 20px;
+    }
+    body .barraNavegacion .contenedorIconos .contenedorIconoNuevoUsuario {
+        font-size: 20px;
+    }
+    /*SECCION DEL CONTENIDO PRINCIPAL*/
+    body .contenedorPrincipal .descripcionPagina {
+        width: 100vw;
+        height: 25vh;
+        margin-top: 10%;
+    }
+    *body .contenedorPrincipal .descripcionPagina .contenedorInfoSeccion {
+        padding: 0 5px;
+    }
+    body .contenedorPrincipal .descripcionPagina .contenedorInfoSeccion .infoSeccion {
+        font-size: 18px;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego,
+    body .contenedorPrincipal .seccionInformacionDemografica {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    /* ESTILOS SECCION RENDIMIENTO */
+    /* ESTILOS SECCION INFORMACION DEMOGRAFICA */
+    body .contenedorPrincipal .seccionRendimientoJuego .infoSeccion,
+    body .contenedorPrincipal .seccionInformacionDemografica .infoSeccion {
+        font-size: 20px;
+        margin-top: 5%;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista,
+    body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista {
+        width: 100%;
+        height: 35%;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista .listaRendimientoJuego,
+    body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .listaInformacionDemografica {
+        font-size: 18px;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento,
+    body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica {
+        width: 100%;
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        overflow-x: scroll;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento .contenedorGrafico,
+    body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica .contenedorGrafico {
+        width: 95%;
+        height: 95%;
+        margin: 2%;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento .contenedorGrafico canvas,
+    body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica .contenedorGrafico canvas {
+        width: 100%;
+        height: auto;
+    }
+}
+@media (min-width: 641px) and (max-width: 780px){
+    body .barraNavegacion .contenedorBotonesRedireccion {
+        width: 30%;
+    }
+    body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
+        font-size: 0px;
+    }
+    body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion i {
+        font-size: 15px;
+    }
+    body .barraNavegacion .contenedorTitulo {
+        width: 30%;
+    }
+    body .barraNavegacion .contenedorTitulo .titulo {
+        font-size: 25px;
+    }
+    body .barraNavegacion .contenedorInfoUsuario {
+        width: 30%;
+    }
+    body .barraNavegacion .contenedorInfoUsuario .contenedorIconoUsuario {
+        width: 20%;
+    }
+    body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario {
+        display: none;
+    }
+    body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario .nombreUsuario {
+        font-size: 0px;
+    }
+    body .barraNavegacion .contenedorIconos {
+        width: 20%;
+    }
+    body .barraNavegacion .contenedorIconos .contenedorIconoSalir {
+        font-size: 20px;
+    }
+    body .barraNavegacion .contenedorIconos .contenedorIconoNuevoUsuario {
+        font-size: 20px;
+    }
+    /*SECCION DEL CONTENIDO PRINCIPAL*/
+    body .contenedorPrincipal .descripcionPagina {
+        width: 100vw;
+        height: 25vh;
+        margin-top: 10%;
+    }
+    *body .contenedorPrincipal .descripcionPagina .contenedorInfoSeccion {
+        padding: 0 5px;
+    }
+    body .contenedorPrincipal .descripcionPagina .contenedorInfoSeccion .infoSeccion {
+        font-size: 20px;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego,
+    body .contenedorPrincipal .seccionInformacionDemografica {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    /* ESTILOS SECCION RENDIMIENTO */
+    /* ESTILOS SECCION INFORMACION DEMOGRAFICA */
+    body .contenedorPrincipal .seccionRendimientoJuego .infoSeccion,
+    body .contenedorPrincipal .seccionInformacionDemografica .infoSeccion {
+        font-size: 25px;
+        margin-top: 5%;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista,
+    body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista {
+        width: 100%;
+        height: 35%;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista .listaRendimientoJuego,
+    body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .listaInformacionDemografica {
+        font-size: 20px;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento,
+    body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica {
+        width: 100%;
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        overflow-x: scroll;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento .contenedorGrafico,
+    body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica .contenedorGrafico {
+        width: 95%;
+        height: 95%;
+        margin: 2%;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento .contenedorGrafico canvas,
+    body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica .contenedorGrafico canvas {
+        width: 100%;
+        height: auto;
+    }
+
+}
+@media (min-width: 781px) and (max-width: 1023px){
+    body .barraNavegacion .contenedorBotonesRedireccion {
+        width: 30%;
+    }
+    body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
+        font-size: 0px;
+    }
+    body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion i {
+        font-size: 15px;
+    }
+    body .barraNavegacion .contenedorTitulo {
+        width: 30%;
+    }
+    body .barraNavegacion .contenedorTitulo .titulo {
+        font-size: 30px;
+    }
+    body .barraNavegacion .contenedorInfoUsuario {
+        width: 30%;
+    }
+    body .barraNavegacion .contenedorInfoUsuario .contenedorIconoUsuario {
+        width: 20%;
+    }
+    body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario {
+        display: none;
+    }
+    body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario .nombreUsuario {
+        font-size: 0px;
+    }
+    body .barraNavegacion .contenedorIconos {
+        width: 20%;
+    }
+    body .barraNavegacion .contenedorIconos .contenedorIconoSalir {
+        font-size: 20px;
+    }
+    body .barraNavegacion .contenedorIconos .contenedorIconoNuevoUsuario {
+        font-size: 20px;
+    }
+    /*SECCION DEL CONTENIDO PRINCIPAL*/
+    body .contenedorPrincipal .descripcionPagina {
+        width: 100vw;
+        height: 25vh;
+        margin-top: 10%;
+    }
+    *body .contenedorPrincipal .descripcionPagina .contenedorInfoSeccion {
+        padding: 0 5px;
+    }
+    body .contenedorPrincipal .descripcionPagina .contenedorInfoSeccion .infoSeccion {
+        font-size: 25px;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego,
+    body .contenedorPrincipal .seccionInformacionDemografica {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    /* ESTILOS SECCION RENDIMIENTO */
+    /* ESTILOS SECCION INFORMACION DEMOGRAFICA */
+    body .contenedorPrincipal .seccionRendimientoJuego .infoSeccion,
+    body .contenedorPrincipal .seccionInformacionDemografica .infoSeccion {
+        font-size: 30px;
+        margin-top: 5%;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista,
+    body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista {
+        width: 100%;
+        height: 35%;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista .listaRendimientoJuego,
+    body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .listaInformacionDemografica {
+        font-size: 25px;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento,
+    body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica {
+        width: 100%;
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        overflow-x: scroll;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento .contenedorGrafico,
+    body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica .contenedorGrafico {
+        width: 95%;
+        height: 95%;
+        margin: 2%;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento .contenedorGrafico canvas,
+    body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica .contenedorGrafico canvas {
+        width: 100%;
+        height: auto;
+    }
+
+}
+@media (min-width: 1024px) and (max-width: 1280px){
+    body .barraNavegacion .contenedorBotonesRedireccion {
+        width: 30%;
+    }
+    body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
+        font-size: 0px;
+    }
+    body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion i {
+        font-size: 15px;
+    }
+    body .barraNavegacion .contenedorTitulo {
+        width: 30%;
+    }
+    body .barraNavegacion .contenedorTitulo .titulo {
+        font-size: 35px;
+    }
+    body .barraNavegacion .contenedorInfoUsuario {
+        width: 30%;
+    }
+    body .barraNavegacion .contenedorInfoUsuario .contenedorIconoUsuario {
+        width: 20%;
+    }
+    body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario {
+        display: none;
+    }
+    body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario .nombreUsuario {
+        font-size: 0px;
+    }
+    body .barraNavegacion .contenedorIconos {
+        width: 20%;
+    }
+    body .barraNavegacion .contenedorIconos .contenedorIconoSalir {
+        font-size: 30px;
+    }
+    body .barraNavegacion .contenedorIconos .contenedorIconoNuevoUsuario {
+        font-size: 30px;
+    }
+    /*SECCION DEL CONTENIDO PRINCIPAL*/
+    body .contenedorPrincipal .descripcionPagina {
+        width: 100vw;
+        height: 25vh;
+        margin-top: 10%;
+    }
+    *body .contenedorPrincipal .descripcionPagina .contenedorInfoSeccion {
+        padding: 0 5px;
+    }
+    body .contenedorPrincipal .descripcionPagina .contenedorInfoSeccion .infoSeccion {
+        font-size: 30px;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego,
+    body .contenedorPrincipal .seccionInformacionDemografica {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    /* ESTILOS SECCION RENDIMIENTO */
+    /* ESTILOS SECCION INFORMACION DEMOGRAFICA */
+    body .contenedorPrincipal .seccionRendimientoJuego .infoSeccion,
+    body .contenedorPrincipal .seccionInformacionDemografica .infoSeccion {
+        font-size: 35px;
+        margin-top: 5%;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista,
+    body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista {
+        width: 100%;
+        height: 35%;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista .listaRendimientoJuego,
+    body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .listaInformacionDemografica {
+        font-size: 30px;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento,
+    body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica {
+        width: 100%;
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        overflow-x: scroll;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento .contenedorGrafico,
+    body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica .contenedorGrafico {
+        width: 95%;
+        height: 95%;
+        margin: 2%;
+    }
+    body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento .contenedorGrafico canvas,
+    body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica .contenedorGrafico canvas {
+        width: 100%;
+        height: auto;
+    }
 }

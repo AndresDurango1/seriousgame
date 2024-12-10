@@ -45,11 +45,11 @@
             <div class="contenedorBotonesHome">
                 <button class="btnLoging" id="btnIniciarSesion">
                     Iniciar Sesión
-                    <i class="fas fa-sign-in-alt"id="inicioSesion" ></i>
+                    <i class="fas fa-sign-in-alt" id="inicioSesion" style="color: #ffffff; font-size: 0px;"></i>
                 </button>
                 <button class="btnRegistrar" id="btnRegistrar">
                     Registrarse
-                    <i class="fas fa-user-plus" id="registrar" ></i>
+                    <i class="fas fa-user-plus" id="registrar" style="color: #ffffff; font-size: 0px;"></i>
                 </button>
             </div>
             <div class="contenedorScroll">
