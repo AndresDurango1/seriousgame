@@ -115,13 +115,11 @@ function splitTextIntoLines(text, font, fontSize, maxWidth) {
     });
     return lines;
 }
-
 async function addChartToPDF(pdfDoc, pdfDocPlantilla, page, pageWidth, pageHeight, yPosition, image) {
     const imageBytes = await pdfDoc.embedPng(image);
     const imageDims = imageBytes.scale(0.25);
     const xPos = (pageWidth - imageDims.width) / 2;
     if (yPosition - imageDims.height - 20 < 80) {
-        // Clonar la página de la plantilla y agregarla como una nueva página
         const [newPage] = await pdfDoc.copyPages(pdfDocPlantilla, [0]);
         pdfDoc.addPage(newPage);
         page = newPage;
