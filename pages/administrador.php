@@ -67,6 +67,9 @@ $totalPages = ceil($totalUsers / $limit);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
     <!-- <link rel="stylesheet" href="../css/usuarioStyles.css"> -->
+
+    <link rel="stylesheet" href="../css/styleresponsive.css">
+
      <link rel="stylesheet" href="../css/administradorStyles.css">
 </head>
 
@@ -87,9 +90,13 @@ $totalPages = ceil($totalUsers / $limit);
                 <i class="fas fa-signal" id="iconoEstadisticas" style="color: #000000;"></i>
             </button>
         </div>
+    </div>
+</div>
+
         <div class="contenedorTitulo">
             <p class="titulo">Las Aventuras de Go</p>
         </div>
+
         <div class="contenedorInfoUsuario">
             <div class="contenedorIconoUsuario">
                 <img class="iconoUsuario" src="../recursos/img/imgPerfil/<?php echo $ruta_imagen; ?>" alt="iconoUsuario">
@@ -98,6 +105,7 @@ $totalPages = ceil($totalUsers / $limit);
                 <p class="nombreUsuario"><?php echo "@" . $_SESSION['usuario']; ?></p>
             </div>
         </div>
+
         <div class="contenedorIconos">
             <div class="contenedorIconoNuevoUsuario">
                 <a href="../pages/formularioRegistroUsuario.php">
@@ -223,6 +231,7 @@ $totalPages = ceil($totalUsers / $limit);
             </div>
         </div>
     </div>
+    <script src="../js/scriptAdmin.js"></script>
     <script src="../js/scriptAlertas.js"></script>
     <script src="../js/scriptMenuHamburguesa.js"></script>
 </body>
