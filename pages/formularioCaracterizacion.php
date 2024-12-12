@@ -80,12 +80,20 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="../css/formularioCaracterizacionStyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
 </head>
 <body>
     <nav class="barraNavegacion">
         <div class="contenedorBotonesRedireccion">
-            <button class="btnRedireccion" onclick="window.location.href='../pages/index.php'">Inicio</button>
-            <button class="btnRedireccion" onclick="window.location.href='<?php echo $miPerfilUrl; ?>'">Mi perfil</button>
+        <button class="btnRedireccion" onclick="window.location.href='../pages/index.php'">
+                Inicio
+                <i class="fas fa-home" id="iconoHome" style="color: #000000;"></i>
+            </button>
+            
+            <button class="btnRedireccion" onclick="window.location.href='<?php echo $miPerfilUrl; ?>'">
+                Mi perfil
+            <i class="fa-solid fa-left-long" style="color: #000000;"></i>
+            </button>
         </div>
         <div class="contenedorTitulo">
             <p class="titulo">Las Aventuras de Go</p>
@@ -105,7 +113,12 @@
         </div>
     </nav>
     <div class="contenedorPrincipal">
-        <aside class="barraLateral">
+        <div class="contenedorIconoMenuHamburguesa">
+            <button class="btnMenuHamburguesa" id="btnMenuHamburguesa">
+                <i class="fas fa-bars" id="iconoMenuHamburguesa"></i>
+            </button>
+        </div>
+        <aside class="barraLateral" id="barraLateral">
             <p class="barraLateralTitulo">Mi perfil</p>
             <div class="contenedorImagenUsuario">
                 <img class="imagenUsuario" src="../recursos/img/imgPerfil/<?php echo $ruta_imagen; ?>" alt="Imagen Usuario">
@@ -126,7 +139,7 @@
                 </form>
             </div>
         </aside>
-        <div class="contenedorPrincipal-content">
+        <div class="contenedorPrincipal-content" id="contenedorPrincipal-content">
             <h1>Formulario de Caracterización Sociodemográfica</h1>
             <div class="contenedorFormularioCaracterizacion">
                 <form class="formularioCaracterizacion" action="../php/caracterizacion.php" method="post">
@@ -235,5 +248,6 @@
     </div>
     <script src="../js/scriptObtenerCiudades.js"></script>
     <script src="../js/scriptAlertas.js"></script>
+    <script src="../js/scriptMenuHamburguesa.js"></script>
 </body>
 </html>
