@@ -84,8 +84,10 @@
 <body>
     <nav class="barraNavegacion">
         <div class="contenedorBotonesRedireccion">
-            <button class="btnRedireccion" onclick="window.location.href='../pages/index.php'">Inicio</button>
-            <button class="btnRedireccion" onclick="window.location.href='<?php echo $miPerfilUrl; ?>'">Mi perfil</button>
+            <button class="btnRedireccion" onclick="window.location.href='../pages/index.php'">Inicio
+            </button>
+            <button class="btnRedireccion" onclick="window.location.href='<?php echo $miPerfilUrl; ?>'">Mi perfil
+            </button>
         </div>
         <div class="contenedorTitulo">
             <p class="titulo">Las Aventuras de Go</p>
@@ -235,5 +237,6 @@
     </div>
     <script src="../js/scriptObtenerCiudades.js"></script>
     <script src="../js/scriptAlertas.js"></script>
+    <script src="../js/menuHamburguesaCaracterizacion.js"></script>
 </body>
 </html>
