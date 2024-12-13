@@ -404,7 +404,7 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorFormularioCara
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 15px;
+        font-size: 13px;
         font-weight: bold;
     }
     .contenedorFormularioCaracterizacion .formularioCaracterizacion .contenedorInfoFormularioCaracterizacion .contenedorPage1 .input-item,
@@ -418,7 +418,7 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorFormularioCara
         border: none;
         text-align: center;
         font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
-        font-size: 16px;
+        font-size: 13px;
     }
     .contenedorFormularioCaracterizacion .formularioCaracterizacion .contenedorInfoFormularioCaracterizacion .contenedorPage1 .lbl-item[hidden],
     .contenedorFormularioCaracterizacion .formularioCaracterizacion .contenedorInfoFormularioCaracterizacion .contenedorPage1 .input-item[hidden] {

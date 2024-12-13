@@ -193,6 +193,14 @@ $totalPages = ceil($totalUsers / $limit);
             echo '</div></div>';
             ?>
             <div class="contenedorTabla">
+                <div class="contenedorBotonReporte">
+                    <form action="../php/generarReporteGlobalExcel.php" method="get">
+                        <button type="submit" class="btnReporteExcel">
+                            Descargar Reporte Excel 
+                            <i class="fas fa-file-excel" style="color: #28a745;"></i>
+                        </button>
+                    </form>
+                </div>
                 <table class="tablaClasificacion">
                     <thead>
                         <tr>

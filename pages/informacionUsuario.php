@@ -51,7 +51,7 @@ if ($resultado2->num_rows > 0) {
     echo "No se encontró información del usuario.";
     exit();
 }
-$fullName = htmlspecialchars($fila2['nombre']) . ' ' . htmlspecialchars($fila2['apellido']);
+
 //Consulta a la base de datos para traer la imagen del usuario de la tabla imagenes
 $stmtImagenUser = $conexion->prepare("SELECT ruta_imagen FROM imagenes WHERE id_imagen = ?");
 $stmtImagenUser->bind_param("i", $fila2['id_imagen']);

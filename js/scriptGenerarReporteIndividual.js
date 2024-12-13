@@ -81,6 +81,8 @@ async function loadTemplateAndCreatePDF(images) {
             yPosition = await addChartToPDF(pdfDoc, pdfDocPlantilla, page, width, height, yPosition, images[i]);
         }
     }
+    const paragraph7 = "- 2.2. Perfil demográfico";
+    yPosition = await addParagraphToPDF(page, paragraph7, fontBold, 14, width, height, margin, yPosition);
     // Descargar el PDF
     const pdfBytes = await pdfDoc.save();
     const link = document.createElement('a');
@@ -131,7 +133,7 @@ function splitTextIntoLines(text, font, fontSize, maxWidth) {
 async function addChartToPDF(pdfDoc, pdfDocPlantilla, page, pageWidth, pageHeight, yPosition, image) {
     try {
         const imageBytes = await pdfDoc.embedPng(image);
-        const imageDims = imageBytes.scale(0.4);
+        const imageDims = imageBytes.scale(0.3);
         const xPos = (pageWidth - imageDims.width) / 2;
         if (yPosition - imageDims.height - 20 < 80) {
             const [newPage] = await pdfDoc.copyPages(pdfDocPlantilla, [0]);
