@@ -44,21 +44,34 @@ while ($imagen = $resultImagenes->fetch_assoc()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/estilosFormularioRegistro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
     <title>Document</title>
 </head>
 <body>
     <nav class="barraNavegacion">
         <div class="contenedorBotonesRedireccion">
-            <button class="btnRedireccion" onclick="window.location.href='../pages/index.php'">Inicio</button>
-            <button class="btnRedireccion" onclick="window.location.href='<?php echo $miPerfilUrl; ?>'">Mi perfil</button>
+            <button class="btnRedireccion" onclick="window.location.href='../pages/index.php'">Inicio 
+            <i class="fas fa-home"id="iconoHome" style="color: #000000;"></i>
+            </button>
+
+            <button class="btnRedireccion" onclick="window.location.href='<?php echo $miPerfilUrl; ?>'">Mi perfil
+            <i class="fa-solid fa-left-long" style="color: #000000;"></i>
+            </button>
+
         </div>
         <div class="contenedorTitulo">
             <p class="titulo">Las Aventuras de Go</p>
         </div>
         <div class="contenedorLista">
             <ol class="opcionesNavegacion">
-                <li><a href="../pages/index.php#game-features" class="nav-link">Características del Juego</a></li>
-                <li><a href="../pages/index.php#player-handbook" class="nav-link">Manual del Jugador</a></li>
+                <li><a href="../pages/index.php#game-features" class="nav-link">Características del Juego</a>
+                <i class="fas fa-puzzle-piece" id="iconoPuzzle" style="color: #ffffff;;"></i>                    
+                </li>
+                <li><a href="../pages/index.php#player-handbook" class="nav-link">Manual del Jugador</a>
+                <i class="fas fa-gamepad" id="iconoGamepad" style="color: #ffffff;"></i>
+                </li>
             </ol>
         </div>
     </nav>
