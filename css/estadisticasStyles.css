@@ -232,10 +232,6 @@ body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .lista
     color: white;
     font-size: 16px;
 }
-/* body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista .listaRendimientoJuego li,
-body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .listaInformacionDemografica li {
-    
-} */
 
 body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista .listaRendimientoJuego li,
 body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .listaInformacionDemografica li {

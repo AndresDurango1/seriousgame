@@ -77,6 +77,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario Caracterización</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="../css/formularioCaracterizacionStyles.css">
@@ -84,9 +85,13 @@
 <body>
     <nav class="barraNavegacion">
         <div class="contenedorBotonesRedireccion">
-            <button class="btnRedireccion" onclick="window.location.href='../pages/index.php'">Inicio
+            <button class="btnRedireccion" onclick="window.location.href='../pages/index.php'">
+                Inicio
+                <i class="fas fa-home"id="iconoHome" style="color: #000000; "></i>
             </button>
-            <button class="btnRedireccion" onclick="window.location.href='<?php echo $miPerfilUrl; ?>'">Mi perfil
+            <button class="btnRedireccion" onclick="window.location.href='<?php echo $miPerfilUrl; ?>'">
+                Mi perfil
+                <i class="fa-solid fa-left-long" style="color: #000000;"></i>
             </button>
         </div>
         <div class="contenedorTitulo">

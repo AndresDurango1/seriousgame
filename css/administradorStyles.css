@@ -363,7 +363,7 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
     }
     body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
         font-size: 0px;
-        width: 25px;
+        width: 25%;
     }
     body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion i{
         font-size: 20px;
@@ -374,7 +374,6 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
     body .barraNavegacion .contenedorTitulo .titulo {
         font-size: 15px;
     }
-
     body .barraNavegacion .contenedorInfoUsuario {
         width: 30%;
     }
