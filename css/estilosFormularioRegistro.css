@@ -54,6 +54,9 @@ body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
     color: #000000;
     text-align: center;
 }
+body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion i {
+    font-size: 0px;
+}
 body .barraNavegacion .contenedorTitulo {
     width: 30%;
     height: 100%;
@@ -108,6 +111,9 @@ body .barraNavegacion .contenedorLista .opcionesNavegacion li a.active::before {
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-top: 10px solid #296CA6;
+}
+body .barraNavegacion .contenedorLista .opcionesNavegacion li i {
+    font-size: 0px;
 }
 /* Estilos del contenedor principal */
 body .contenedorPrincipal {
@@ -278,4 +284,1368 @@ body .contenedorPrincipal .contenedorVistaPrevia .contenedorImagenVistaPrevia .i
     height: 90%;
     object-fit: contain;
     border-radius: 10px;
+}
+@media (min-width: 320px) and (max-width: 544px) {
+    body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        overflow: scroll;
+        background-color: #2d2b29;
+    }
+    /* Estilos de la barra de navegación */
+    body .barraNavegacion {
+        width: 100%;
+        height: 10vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #1A1A1A;
+    }
+    body .barraNavegacion .contenedorBotonesRedireccion {
+        width: 30%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
+        width: 30%;
+        height: 50%;
+        display: flex;
+        margin: 1%;
+        justify-content: center;
+        align-items: center;
+        background-color: #a56b15;
+        border-radius: 10px;
+        border: none;
+        font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+        font-size: 0px;
+        color: #000000;
+        text-align: center;
+    }
+    body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion i {
+        font-size: 20px;
+    }
+    body .barraNavegacion .contenedorTitulo {
+        width: 30%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    body .barraNavegacion .contenedorTitulo .titulo {
+        font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+        font-size: 1rem;
+        color: #a56b15;
+        text-align: center;
+    }
+    body .barraNavegacion .contenedorLista {
+        width: 35%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    body .barraNavegacion .contenedorLista .opcionesNavegacion {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        list-style: none;
+        font-size: 0.0rem;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+    }
+    body .barraNavegacion .contenedorLista .opcionesNavegacion li a {
+        position: relative;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: white;
+        font-size: 0px;
+        text-align: center;
+    }
+    body .barraNavegacion .contenedorLista .opcionesNavegacion li a.active {
+        background-color: #296CA6;
+        color: white;
+    }
+
+    body .barraNavegacion .contenedorLista .opcionesNavegacion li a.active::before {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid #296CA6;
+    }
+    body .barraNavegacion .contenedorLista .opcionesNavegacion li i {
+        font-size: 24px;
+    }
+    /* Estilos del contenedor principal */
+    body .contenedorPrincipal {
+        width: 100%;
+        height: 90vh;
+        display: flex;
+        flex-direction: column; /* Cambio: flex-direction a column para apilar los contenedores hacia abajo */
+        justify-content: flex-start; /* Cambio: Alineación de los elementos hacia arriba */
+        align-items: center;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro{
+        width: 100%;
+        height: 80%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        border-radius: 10px;
+        background-color: #2d2b29;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro h1{
+        width: 100%;
+        height: 5%;
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+        font-size: 1rem;
+        color: white;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro {
+        width: 100%;
+        height: 95%;
+        display: flex;
+        flex-direction: column; /* Cambio: Flexbox vertical para los elementos internos */
+        justify-content: flex-start; /* Cambio: Alineación hacia arriba */
+        align-items: center;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 {
+        width: 100%;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; 
+        align-items: center;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage2 {
+        width: 100%;
+        height: 50%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        overflow: scroll;
+        margin-bottom: 2%;
+    }
+    .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .lbl-item,
+    .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage2 .lbl-item {
+        width: 45%;
+        height: 8%;
+        margin: 1%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.8rem;
+        font-weight: bold;
+        color: white;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .contenedorImagenesCategoria{
+        width: 95%;
+        height: 95%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;    
+        border: solid 1px #FBCC02;
+        overflow: scroll;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .contenedorImagenesCategoria .mensaje-error{
+        width: 50%;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        text-align: center;
+        color: white;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .contenedorImagenesCategoria .imagen-previa{
+        width: 35%;
+        height: 35%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        border: solid 1px #FBCC02;
+        cursor: pointer;
+        object-fit: scale-down;
+    }
+    .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .input-item,
+    .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage2 .input-item{
+        width: 100%;
+        height: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        border: none;
+        text-align: center;
+        font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+        font-size: 0.8rem;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorPage2 .btnEnviar {
+        width: 50%;
+        height: 10%;
+        margin-top: 2%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #a56b15;
+        border-radius: 10px;
+        border: none;
+        font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+        text-align: center;
+        font-size: 1rem;
+        font-weight: bold;
+        color: black;
+    }
+    body .contenedorPrincipal .contenedorVistaPrevia{
+        width: 100%;
+        height: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* Cambio: Alineación hacia arriba */
+        align-items: center;
+        border-radius: 10px;
+        background-color: #2d2b29;
+    }
+    body .contenedorPrincipal .contenedorVistaPrevia h1{
+        width: 100%;
+        height: 12.5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.8rem;
+        color: white;
+    }
+    body .contenedorPrincipal .contenedorVistaPrevia .contenedorImagenVistaPrevia{
+        width: 100%;
+        height: 87.5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        border: solid 1px #FBCC02;
+    }
+    body .contenedorPrincipal .contenedorVistaPrevia .contenedorImagenVistaPrevia .imgVistaPrevia{
+        width: 90%;
+        height: 90%;
+        object-fit: contain;
+        border-radius: 10px;
+    }    
+}
+@media (min-width: 545px) and (max-width: 640px) {
+    body {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: center;
+        align-items: center;
+        overflow: auto;
+        background-color: #2d2b29;
+    }
+    /* Estilos de la barra de navegación */
+    body .barraNavegacion {
+        width: 100%;
+        height: 10vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #1A1A1A;
+    }
+    body .barraNavegacion .contenedorBotonesRedireccion {
+        width: 30%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
+        width: 30%;
+        height: 50%;
+        display: flex;
+        margin: 1%;
+        justify-content: center;
+        align-items: center;
+        background-color: #a56b15;
+        border-radius: 10px;
+        border: none;
+        font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+        font-size: 1rem;
+        color: #000000;
+        text-align: center;
+    }
+    body .barraNavegacion .contenedorTitulo {
+        width: 30%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    body .barraNavegacion .contenedorTitulo .titulo {
+        font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+        font-size: 1.5rem;
+        color: #a56b15;
+        text-align: center;
+    }
+    body .barraNavegacion .contenedorLista {
+        width: 35%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    body .barraNavegacion .contenedorLista .opcionesNavegacion {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        list-style: none;
+        font-size: 1rem;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+    }
+    body .barraNavegacion .contenedorLista .opcionesNavegacion li a {
+        position: relative;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: white;
+        font-size: 0.5rem;
+        text-align: center;
+    }
+    body .barraNavegacion .contenedorLista .opcionesNavegacion li a.active {
+        background-color: #296CA6;
+        color: white;
+    }
+    
+    body .barraNavegacion .contenedorLista .opcionesNavegacion li a.active::before {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid #296CA6;
+    }
+    /* Estilos del contenedor principal */
+    body .contenedorPrincipal {
+        width: 100%;
+        height: 100;
+        display: flex;
+        flex-direction: column; /* Cambio: flex-direction a column para apilar los contenedores hacia abajo */
+        justify-content: flex-start; /* Cambio: Alineación de los elementos hacia arriba */
+        align-items: center;
+    }
+    
+    body .contenedorPrincipal .contenedorFormularioRegistro{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 10px;
+        background-color: #2d2b29;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* Cambio: Alineación hacia arriba */
+        align-items: center;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro h1{
+        width: 100%;
+        height: 5%;
+        margin-top: 10%;
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+        font-size: 2rem;
+        font-weight: bold;
+        color: white;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro {
+        width: 100%;
+        height: 100%;
+        margin-top: 5%;
+        display: flex;
+        flex-direction: column; /* Cambio: Flexbox vertical para los elementos internos */
+        justify-content: flex-start; /* Cambio: Alineación hacia arriba */
+        align-items: center;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 {
+        width: 40%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* Cambio: Alineación hacia arriba */
+        align-items: center;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage2 {
+        width: 50%;
+        height: 95%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* Cambio: Alineación hacia arriba */
+        align-items: center;
+    }
+    .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .lbl-item,
+    .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage2 .lbl-item {
+        width: 90%;
+        height: 5%;
+        margin-top: 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        font-weight: bold;
+        color: white;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .contenedorImagenesCategoria{
+        width: 100%;
+        height: 70%;
+        margin-top: 5%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 10px;    
+        border: solid 1px #FBCC02;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .contenedorImagenesCategoria .mensaje-error{
+        width: 50%;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        font-weight: bold;
+        text-align: center;
+        color: white;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .contenedorImagenesCategoria .imagen-previa{
+        width: 30%;
+        height: 30%;
+        margin-top: 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        border: solid 1px #FBCC02;
+        cursor: pointer;
+        object-fit: contain;
+    }
+    .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .input-item,
+    .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage2 .input-item{
+        width: 80%;
+        height: 15%;
+        margin-top: 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        border: none;
+        text-align: center;
+        font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+        font-size: 1rem;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorPage2 .btnEnviar {
+        width: 50%;
+        height: 10%;
+        margin-top: 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #a56b15;
+        border-radius: 10px;
+        border: none;
+        font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: black;
+    }
+    body .contenedorPrincipal .contenedorVistaPrevia{
+        width: 30%;
+        height: 90%;
+        margin-top: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* Cambio: Alineación hacia arriba */
+        align-items: center;
+        border-radius: 10px;
+        background-color: #2d2b29;
+    }
+    body .contenedorPrincipal .contenedorVistaPrevia h1{
+        width: 100%;
+        height: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+    }
+    body .contenedorPrincipal .contenedorVistaPrevia .contenedorImagenVistaPrevia{
+        width: 100%;
+        height: 95%;
+        margin-top: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        border: solid 1px #FBCC02;
+    }
+    body .contenedorPrincipal .contenedorVistaPrevia .contenedorImagenVistaPrevia .imgVistaPrevia{
+        width: 90%;
+        height: 90%;
+        object-fit: contain;
+        border-radius: 10px;
+    }    
+
+}
+@media (min-width: 641px) and (max-width: 780px) {
+    body {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        overflow: hidden;
+        background-color: #2d2b29;
+    }
+    /* Estilos de la barra de navegación */
+    body .barraNavegacion {
+        width: 100%;
+        height: 10vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #1A1A1A;
+    }
+    body .barraNavegacion .contenedorBotonesRedireccion {
+        width: 30%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
+        width: 60%;
+        height: 60%;
+        display: flex;
+        margin: 1%;
+        justify-content: center;
+        align-items: center;
+        background-color: #a56b15;
+        border-radius: 10px;
+        border: none;
+        font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+        font-size: 1rem;
+        color: #000000;
+        text-align: center;
+    }
+    body .barraNavegacion .contenedorTitulo {
+        width: 30%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    body .barraNavegacion .contenedorTitulo .titulo {
+        font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+        font-size: 1.5rem;
+        color: #a56b15;
+        text-align: center;
+    }
+    body .barraNavegacion .contenedorLista {
+        width: 35%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    body .barraNavegacion .contenedorLista .opcionesNavegacion {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        list-style: none;
+        font-size: 1rem;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+    }
+    body .barraNavegacion .contenedorLista .opcionesNavegacion li a {
+        position: relative;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: white;
+        font-size:1rem;
+        text-align: center;
+    }
+    body .barraNavegacion .contenedorLista .opcionesNavegacion li a.active {
+        background-color: #296CA6;
+        color: white;
+    }
+    
+    body .barraNavegacion .contenedorLista .opcionesNavegacion li a.active::before {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid #296CA6;
+    }
+    /* Estilos del contenedor principal */
+    body .contenedorPrincipal {
+        width: 100vw;
+        height: 90vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    body .contenedorPrincipal .contenedorFormularioRegistro{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: s;
+        align-items: center;
+        border-radius: 10px;
+        background-color: #2d2b29;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro{
+        width: 90%;
+        height: 95%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro h1{
+        width: 100%;
+        height: 5%;
+        margin-top: 1%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        font-weight: bold;
+        color: white;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 {
+        width: 50%;
+        height: 95%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage2 {
+        width: 50%;
+        height: 95%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .lbl-item,
+    .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage2 .lbl-item {
+        width: 90%;
+        height: 5%;
+        margin: 1%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        font-weight: bold;
+        color: white;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .contenedorImagenesCategoria{
+        width: 80%;
+        height: 50%;
+        margin-top: 5%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 10px;    
+        border: solid 1px #FBCC02;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .contenedorImagenesCategoria .mensaje-error{
+        width: 50%;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        font-weight: bold;
+        text-align: center;
+        color: white;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .contenedorImagenesCategoria .imagen-previa{
+        width: 30%;
+        height: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        border: solid 1px #FBCC02;
+        cursor: pointer;
+        object-fit: contain;
+    }
+    .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .input-item,
+    .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage2 .input-item{
+        width: 90%;
+        height: 7%;
+        margin: 1%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        border: none;
+        text-align: center;
+        font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+        font-size: 1rem;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorPage2 .btnEnviar {
+        width: 40%;
+        height: 7%;
+        margin-top: 2%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #a56b15;
+        border-radius: 10px;
+        border: none;
+        font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+        text-align: center;
+        font-size: 1rem;
+        font-weight: bold;
+        color: black;
+    }
+    body .contenedorPrincipal .contenedorVistaPrevia{
+        width: 35%;
+        height: 85%;
+        margin-top: 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content:flex-start;
+        align-items: center;
+        border-radius: 10px;
+        background-color: #2d2b29;
+    }
+    body .contenedorPrincipal .contenedorVistaPrevia h1{
+        width: 100%;
+        height: 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        font-weight: bold;
+        color: white;
+    }
+    body .contenedorPrincipal .contenedorVistaPrevia .contenedorImagenVistaPrevia{
+        width: 100%;
+        height: 50%;
+        margin-top: 25%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        border: solid 1px #FBCC02;
+    }
+    body .contenedorPrincipal .contenedorVistaPrevia .contenedorImagenVistaPrevia .imgVistaPrevia{
+        width: 90%;
+        height: 90%;
+        object-fit: contain;
+        border-radius: 10px;
+    }
+    
+}
+@media (min-width: 781px) and (max-width: 1023px) {
+    body {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        overflow: hidden;
+        background-color: #2d2b29;
+    }
+    /* Estilos de la barra de navegación */
+    body .barraNavegacion {
+        width: 100%;
+        height: 10vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #1A1A1A;
+    }
+    body .barraNavegacion .contenedorBotonesRedireccion {
+        width: 30%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
+        width: 60%;
+        height: 60%;
+        display: flex;
+        margin: 1%;
+        justify-content: center;
+        align-items: center;
+        background-color: #a56b15;
+        border-radius: 10px;
+        border: none;
+        font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+        font-size: 1.5rem;
+        color: #000000;
+        text-align: center;
+    }
+    body .barraNavegacion .contenedorTitulo {
+        width: 30%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    body .barraNavegacion .contenedorTitulo .titulo {
+        font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+        font-size: 2rem;
+        color: #a56b15;
+        text-align: center;
+    }
+    body .barraNavegacion .contenedorLista {
+        width: 35%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    body .barraNavegacion .contenedorLista .opcionesNavegacion {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        list-style: none;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+    }
+    body .barraNavegacion .contenedorLista .opcionesNavegacion li a {
+        position: relative;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: white;
+        font-size:1rem;
+        text-align: center;
+    }
+    body .barraNavegacion .contenedorLista .opcionesNavegacion li a.active {
+        background-color: #296CA6;
+        color: white;
+    }
+    
+    body .barraNavegacion .contenedorLista .opcionesNavegacion li a.active::before {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid #296CA6;
+    }
+    /* Estilos del contenedor principal */
+    body .contenedorPrincipal {
+        width: 100vw;
+        height: 90vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    body .contenedorPrincipal .contenedorFormularioRegistro{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: s;
+        align-items: center;
+        border-radius: 10px;
+        background-color: #2d2b29;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro{
+        width: 90%;
+        height: 95%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro h1{
+        width: 100%;
+        height: 5%;
+        margin-top: 1%;
+        display: flex;
+        justify-content: flex-end;
+        align-items:center;
+        font-size: 3rem;
+        font-weight: bold;
+        color: white;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 {
+        width: 50%;
+        height: 95%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage2 {
+        width: 50%;
+        height: 95%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .lbl-item,
+    .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage2 .lbl-item {
+        width: 90%;
+        height: 5%;
+        margin: 1%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: white;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .contenedorImagenesCategoria{
+        width: 80%;
+        height: 50%;
+        margin-top: 5%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 10px;    
+        border: solid 1px #FBCC02;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .contenedorImagenesCategoria .mensaje-error{
+        width: 50%;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        font-weight: bold;
+        text-align: center;
+        color: white;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .contenedorImagenesCategoria .imagen-previa{
+        width: 30%;
+        height: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        border: solid 1px #FBCC02;
+        cursor: pointer;
+        object-fit: contain;
+    }
+    .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .input-item,
+    .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage2 .input-item{
+        width: 90%;
+        height: 7%;
+        margin: 1%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        border: none;
+        text-align: center;
+        font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+        font-size: 1.2rem;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorPage2 .btnEnviar {
+        width: 60%;
+        height: 7%;
+        margin-top: 2%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #a56b15;
+        border-radius: 10px;
+        border: none;
+        font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+        text-align: center;
+        font-size: 1.7rem;
+        font-weight: bold;
+        color: black;
+    }
+    body .contenedorPrincipal .contenedorVistaPrevia{
+        width: 35%;
+        height: 85%;
+        margin-top: 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content:flex-start;
+        align-items: center;
+        border-radius: 10px;
+        background-color: #2d2b29;
+    }
+    body .contenedorPrincipal .contenedorVistaPrevia h1{
+        width: 100%;
+        height: 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.7rem;
+        font-weight: bold;
+        color: white;
+    }
+    body .contenedorPrincipal .contenedorVistaPrevia .contenedorImagenVistaPrevia{
+        width: 100%;
+        height: 50%;
+        margin-top: 25%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        border: solid 1px #FBCC02;
+    }
+    body .contenedorPrincipal .contenedorVistaPrevia .contenedorImagenVistaPrevia .imgVistaPrevia{
+        width: 90%;
+        height: 90%;
+        object-fit: contain;
+        border-radius: 10px;
+    }
+
+}
+@media (min-width: 1024px) and (max-width: 1280px) {
+    body {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        overflow: hidden;
+        background-color: #2d2b29;
+    }
+    /* Estilos de la barra de navegación */
+    body .barraNavegacion {
+        width: 100%;
+        height: 10vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #1A1A1A;
+    }
+    body .barraNavegacion .contenedorBotonesRedireccion {
+        width: 30%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
+        width: 60%;
+        height: 60%;
+        display: flex;
+        margin: 1%;
+        justify-content: center;
+        align-items: center;
+        background-color: #a56b15;
+        border-radius: 10px;
+        border: none;
+        font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+        font-size: 1.8rem;
+        color: #000000;
+        text-align: center;
+    }
+    body .barraNavegacion .contenedorTitulo {
+        width: 30%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    body .barraNavegacion .contenedorTitulo .titulo {
+        font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+        font-size: 3rem;
+        color: #a56b15;
+        text-align: center;
+    }
+    body .barraNavegacion .contenedorLista {
+        width: 35%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    body .barraNavegacion .contenedorLista .opcionesNavegacion {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        list-style: none;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+    }
+    body .barraNavegacion .contenedorLista .opcionesNavegacion li a {
+        position: relative;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: white;
+        font-size:1rem;
+        text-align: center;
+    }
+    body .barraNavegacion .contenedorLista .opcionesNavegacion li a.active {
+        background-color: #296CA6;
+        color: white;
+    }
+    
+    body .barraNavegacion .contenedorLista .opcionesNavegacion li a.active::before {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid #296CA6;
+    }
+    /* Estilos del contenedor principal */
+    body .contenedorPrincipal {
+        width: 100vw;
+        height: 90vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    body .contenedorPrincipal .contenedorFormularioRegistro{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: s;
+        align-items: center;
+        border-radius: 10px;
+        background-color: #2d2b29;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro{
+        width: 90%;
+        height: 95%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro h1{
+        width: 100%;
+        height: 5%;
+        margin-top: 1%;
+        display: flex;
+        justify-content: flex-end;
+        align-items:center;
+        font-size: 3rem;
+        font-weight: bold;
+        color: white;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 {
+        width: 50%;
+        height: 95%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage2 {
+        width: 50%;
+        height: 95%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .lbl-item,
+    .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage2 .lbl-item {
+        width: 90%;
+        height: 5%;
+        margin: 1%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: white;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .contenedorImagenesCategoria{
+        width: 80%;
+        height: 50%;
+        margin-top: 5%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 10px;    
+        border: solid 1px #FBCC02;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .contenedorImagenesCategoria .mensaje-error{
+        width: 50%;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        font-weight: bold;
+        text-align: center;
+        color: white;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .contenedorImagenesCategoria .imagen-previa{
+        width: 30%;
+        height: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        border: solid 1px #FBCC02;
+        cursor: pointer;
+        object-fit: contain;
+    }
+    .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .input-item,
+    .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage2 .input-item{
+        width: 90%;
+        height: 7%;
+        margin: 1%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        border: none;
+        text-align: center;
+        font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+        font-size: 1.2rem;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorPage2 .btnEnviar {
+        width: 60%;
+        height: 7%;
+        margin-top: 2%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #a56b15;
+        border-radius: 10px;
+        border: none;
+        font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+        text-align: center;
+        font-size: 1.7rem;
+        font-weight: bold;
+        color: black;
+    }
+    body .contenedorPrincipal .contenedorVistaPrevia{
+        width: 35%;
+        height: 85%;
+        margin-top: 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content:flex-start;
+        align-items: center;
+        border-radius: 10px;
+        background-color: #2d2b29;
+    }
+    body .contenedorPrincipal .contenedorVistaPrevia h1{
+        width: 100%;
+        height: 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.7rem;
+        font-weight: bold;
+        color: white;
+    }
+    body .contenedorPrincipal .contenedorVistaPrevia .contenedorImagenVistaPrevia{
+        width: 100%;
+        height: 50%;
+        margin-top: 25%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        border: solid 1px #FBCC02;
+    }
+    body .contenedorPrincipal .contenedorVistaPrevia .contenedorImagenVistaPrevia .imgVistaPrevia{
+        width: 90%;
+        height: 90%;
+        object-fit: contain;
+        border-radius: 10px;
+    }
+
 }

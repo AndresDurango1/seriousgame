@@ -59,6 +59,7 @@ $totalPages = ceil($totalUsers / $limit);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,19 +68,33 @@ $totalPages = ceil($totalUsers / $limit);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
     <!-- <link rel="stylesheet" href="../css/usuarioStyles.css"> -->
-     <link rel="stylesheet" href="../css/administradorStyles.css">
+
+    <link rel="stylesheet" href="../css/styleresponsive.css">
+
+    <link rel="stylesheet" href="../css/administradorStyles.css">
 </head>
 
 <body>
     <nav class="barraNavegacion">
         <div class="contenedorBotonesRedireccion">
-            <button class="btnRedireccion" onclick="window.location.href='../pages/index.php'">Inicio</button>
-            <button class="btnRedireccion" onclick="window.location.href='../pages/formularioCaracterizacion.php'">Formulario Caracterización</button>
-            <button class="btnRedireccion" onclick="window.location.href='../pages/estadisticas.php'">Ver Estadísticas</button>
+            <button class="btnRedireccion" onclick="window.location.href='../pages/index.php'">
+                Inicio
+                <i class="fas fa-home" id="iconoHome" style="color: #000000;"></i>
+            </button>
+            <button class="btnRedireccion" onclick="window.location.href='../pages/formularioCaracterizacion.php'">
+                Formulario Caracterización
+                <i class="fab fa-wpforms" id="iconoFormularioCaracterizacion" style="color:#000000"></i>
+                <i class="fa-solid fa-turn-down fa-rotate-90"></i>
+            </button>
+            <button class="btnRedireccion" onclick="window.location.href='../pages/estadisticas.php'">
+                Ver Estadísticas
+                <i class="fas fa-signal" id="iconoEstadisticas" style="color: #000000;"></i>
+            </button>
         </div>
         <div class="contenedorTitulo">
             <p class="titulo">Las Aventuras de Go</p>
         </div>
+
         <div class="contenedorInfoUsuario">
             <div class="contenedorIconoUsuario">
                 <img class="iconoUsuario" src="../recursos/img/imgPerfil/<?php echo $ruta_imagen; ?>" alt="iconoUsuario">
@@ -88,6 +103,7 @@ $totalPages = ceil($totalUsers / $limit);
                 <p class="nombreUsuario"><?php echo "@" . $_SESSION['usuario']; ?></p>
             </div>
         </div>
+
         <div class="contenedorIconos">
             <div class="contenedorIconoNuevoUsuario">
                 <a href="../pages/formularioRegistroUsuario.php">
@@ -102,7 +118,12 @@ $totalPages = ceil($totalUsers / $limit);
         </div>
     </nav>
     <div class="contenedorPrincipal">
-        <aside class="barraLateral">
+        <div class="contenedorIconoMenuHamburguesa">
+            <button class="btnMenuHamburguesa" id="btnMenuHamburguesa">
+                <i class="fas fa-bars" id="iconoMenuHamburguesa"></i>
+            </button>
+        </div>
+        <aside class="barraLateral" id="barraLateral">
             <p class="barraLateralTitulo">Actualizar mi perfil</p>
             <div class="contenedorImagenUsuario">
                 <img class="imagenUsuario" src="../recursos/img/imgPerfil/<?php echo $ruta_imagen; ?>" alt="Imagen Usuario">
@@ -124,11 +145,11 @@ $totalPages = ceil($totalUsers / $limit);
                     <input class="input-item" type="password" name="inputContrasena" id="inputContrasena" placeholder="Ingresa tu Nueva Contraseña">
                     <label class="lbl-item" for="lblConfirmarContrasena">Confirmar Contraseña</label>
                     <input class="input-item" type="password" name="inputConfirmarContrasena" id="inputConfirmarContrasena" placeholder="Confirma tu Nueva Contraseña">
-                    <button class="btnActualizar" type="submit">ACTUALIZAR</button>
+                    <button class="btnActualizar" type="submit">Actualizar</button>
                 </form>
             </div>
         </aside>
-        <div class="contenedorPrincipal-content">
+        <div class="contenedorPrincipal-content" id="contenedorPrincipal-content">
             <?php
             // Consulta a la base de datos para obtener los tres mejores puntajes
             $query = "SELECT i.ruta_imagen, u.usuario, SUM(nu.puntaje) AS puntaje_total FROM usuarios u
@@ -145,14 +166,14 @@ $totalPages = ceil($totalUsers / $limit);
             // Iniciar el contenedor de ranking
             echo '<div class="contenedorRanking">
                     <div class="ranking">';
-                        $i = 0;
-                        while ($fila = $result->fetch_assoc()) {
-                            $ruta_imagen = $fila['ruta_imagen'];
-                            $usuario = $fila['usuario'];
-                            $puntaje = $fila['puntaje_total'];
-                            $lugar = $lugares[$i];
-                            $posicion = $posiciones[$i];
-                            echo "<div class='ranking-item $lugar'>
+            $i = 0;
+            while ($fila = $result->fetch_assoc()) {
+                $ruta_imagen = $fila['ruta_imagen'];
+                $usuario = $fila['usuario'];
+                $puntaje = $fila['puntaje_total'];
+                $lugar = $lugares[$i];
+                $posicion = $posiciones[$i];
+                echo "<div class='ranking-item $lugar'>
                                     <div class='ranking-content'>
                                         <div class='ranking-img'>
                                             <img src='../recursos/img/imgPerfil/$ruta_imagen' alt='Jugador $posicion'>
@@ -165,11 +186,19 @@ $totalPages = ceil($totalUsers / $limit);
 
                                     </div>
                                 </div>";
-                            $i++;
-                        }
+                $i++;
+            }
             echo '</div></div>';
             ?>
             <div class="contenedorTabla">
+                <div class="contenedorBotonReporte">
+                    <form action="../php/generarReporteGlobalExcel.php" method="get">
+                        <button type="submit" class="btnReporteExcel">
+                            Descargar Reporte Excel
+                            <i class="fas fa-file-excel" style="color: #28a745;"></i>
+                        </button>
+                    </form>
+                </div>
                 <table class="tablaClasificacion">
                     <thead>
                         <tr>
@@ -208,7 +237,9 @@ $totalPages = ceil($totalUsers / $limit);
             </div>
         </div>
     </div>
+    <script src="../js/scriptAdmin.js"></script>
     <script src="../js/scriptAlertas.js"></script>
+    <script src="../js/scriptMenuHamburguesa.js"></script>
 </body>
 
 </html>

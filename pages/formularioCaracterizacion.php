@@ -107,7 +107,12 @@
         </div>
     </nav>
     <div class="contenedorPrincipal">
-        <aside class="barraLateral">
+        <div class="contenedorIconoMenuHamburguesa">
+            <button class ="btnMenuHamburguesa" id="btnMenuHamburguesa">
+                <i class="fas fa-bars" id="iconoMenuHamburguesa"></i>
+            </button>
+        </div>
+        <aside class="barraLateral" id="barraLateral">
             <p class="barraLateralTitulo">Mi perfil</p>
             <div class="contenedorImagenUsuario">
                 <img class="imagenUsuario" src="../recursos/img/imgPerfil/<?php echo $ruta_imagen; ?>" alt="Imagen Usuario">
@@ -128,7 +133,7 @@
                 </form>
             </div>
         </aside>
-        <div class="contenedorPrincipal-content">
+        <div class="contenedorPrincipal-content" id="contenedorPrincipal-content">
             <h1>Formulario de Caracterización Sociodemográfica</h1>
             <div class="contenedorFormularioCaracterizacion">
                 <form class="formularioCaracterizacion" action="../php/caracterizacion.php" method="post">
@@ -237,6 +242,6 @@
     </div>
     <script src="../js/scriptObtenerCiudades.js"></script>
     <script src="../js/scriptAlertas.js"></script>
-    <script src="../js/menuHamburguesaCaracterizacion.js"></script>
+    <script src="../js/scriptMenuHamburguesa.js"></script>
 </body>
 </html>

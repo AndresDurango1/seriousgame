@@ -4,17 +4,28 @@ const btnInicioSesion = document.getElementById('btnIniciarSesion');
 const btnResgistro = document.getElementById('btnRegistrar');
 const cerrarModalIP = document.getElementById ('iconoCerrarIP');
 const cerrarModalRC = document.getElementById ('iconoCerrarRC');
+
 const iconoHome = document.getElementById("iconoHome");
 const iconoUsers = document.getElementById("iconoUsers");
 const iconoPuzzle = document.getElementById("iconoPuzzle");
 const iconoGamepad = document.getElementById("iconoGamepad");
 const inicioSesion = document.getElementById("inicioSesion");
 
-//Funcione call back para mostrar y cerrar el modal del index
+//Funcione call back para mostrar el modal del index
 if(btnInicioSesion){
     btnInicioSesion.addEventListener('click', function (){
-        contenedorInicioSesion.style.display = "flex";
+        if (window.getComputedStyle(contenedorInicioSesion).display == 'none') {
+            contenedorInicioSesion.style.display = 'flex';
+        }
     })
+}
+if(inicioSesion){
+    inicioSesion.addEventListener('click',function(){
+        console.log("clic en el boton")
+        if (contenedorInicioSesion.display === "none") {
+            contenedorInicioSesion.style.display = "flex";
+        }        
+    });
 }
 //Funcion para redirigir al formulario de registro
 if(btnResgistro){
