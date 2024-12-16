@@ -54,6 +54,9 @@ body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
     color: #000000;
     text-align: center;
 }
+body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion i {
+    font-size: 0px;
+}
 body .barraNavegacion .contenedorTitulo {
     width: 30%;
     height: 100%;
@@ -108,6 +111,9 @@ body .barraNavegacion .contenedorLista .opcionesNavegacion li a.active::before {
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-top: 10px solid #296CA6;
+}
+body .barraNavegacion .contenedorLista .opcionesNavegacion li i {
+    font-size: 0px;
 }
 /* Estilos del contenedor principal */
 body .contenedorPrincipal {
@@ -281,12 +287,13 @@ body .contenedorPrincipal .contenedorVistaPrevia .contenedorImagenVistaPrevia .i
 }
 @media (min-width: 320px) and (max-width: 544px) {
     body {
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         display: flex;
-        flex-direction: center;
+        flex-direction: column;
+        justify-content: space-around;
         align-items: center;
-        overflow: auto;
+        overflow: scroll;
         background-color: #2d2b29;
     }
     /* Estilos de la barra de navegación */
@@ -317,9 +324,12 @@ body .contenedorPrincipal .contenedorVistaPrevia .contenedorImagenVistaPrevia .i
         border-radius: 10px;
         border: none;
         font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
-        font-size: 0.5rem;
+        font-size: 0px;
         color: #000000;
         text-align: center;
+    }
+    body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion i {
+        font-size: 20px;
     }
     body .barraNavegacion .contenedorTitulo {
         width: 30%;
@@ -358,14 +368,14 @@ body .contenedorPrincipal .contenedorVistaPrevia .contenedorImagenVistaPrevia .i
         padding: 10px 20px;
         text-decoration: none;
         color: white;
-        font-size: 0.5rem;
+        font-size: 0px;
         text-align: center;
     }
     body .barraNavegacion .contenedorLista .opcionesNavegacion li a.active {
         background-color: #296CA6;
         color: white;
     }
-    
+
     body .barraNavegacion .contenedorLista .opcionesNavegacion li a.active::before {
         content: "";
         position: absolute;
@@ -376,21 +386,23 @@ body .contenedorPrincipal .contenedorVistaPrevia .contenedorImagenVistaPrevia .i
         border-right: 10px solid transparent;
         border-top: 10px solid #296CA6;
     }
+    body .barraNavegacion .contenedorLista .opcionesNavegacion li i {
+        font-size: 24px;
+    }
     /* Estilos del contenedor principal */
     body .contenedorPrincipal {
         width: 100%;
-        height: 100;
+        height: 90vh;
         display: flex;
         flex-direction: column; /* Cambio: flex-direction a column para apilar los contenedores hacia abajo */
         justify-content: flex-start; /* Cambio: Alineación de los elementos hacia arriba */
         align-items: center;
     }
-    
     body .contenedorPrincipal .contenedorFormularioRegistro{
         width: 100%;
-        height: 100%;
+        height: 80%;
         display: flex;
-        justify-content: space-around;
+        justify-content: flex-start;
         align-items: center;
         border-radius: 10px;
         background-color: #2d2b29;
@@ -400,50 +412,50 @@ body .contenedorPrincipal .contenedorVistaPrevia .contenedorImagenVistaPrevia .i
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start; /* Cambio: Alineación hacia arriba */
+        justify-content: flex-start;
         align-items: center;
     }
     body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro h1{
         width: 100%;
         height: 5%;
-        margin-top: 10%;
         display: flex;
         justify-content: center; 
         align-items: center;
         font-size: 1rem;
-        font-weight: bold;
         color: white;
     }
     body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro {
         width: 100%;
-        height: 100%;
-        margin-top: 5%;
+        height: 95%;
         display: flex;
         flex-direction: column; /* Cambio: Flexbox vertical para los elementos internos */
         justify-content: flex-start; /* Cambio: Alineación hacia arriba */
         align-items: center;
     }
     body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 {
-        width: 40%;
-        height: 100%;
+        width: 100%;
+        height: 50%;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start; /* Cambio: Alineación hacia arriba */
+        justify-content: flex-start; 
         align-items: center;
     }
     body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage2 {
-        width: 50%;
-        height: 95%;
+        width: 100%;
+        height: 50%;
         display: flex;
+        flex-wrap: wrap;
         flex-direction: column;
-        justify-content: flex-start; /* Cambio: Alineación hacia arriba */
+        justify-content: space-around;
         align-items: center;
+        overflow: scroll;
+        margin-bottom: 2%;
     }
     .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .lbl-item,
     .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage2 .lbl-item {
-        width: 90%;
-        height: 5%;
-        margin-top: 5%;
+        width: 45%;
+        height: 8%;
+        margin: 1%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -452,15 +464,14 @@ body .contenedorPrincipal .contenedorVistaPrevia .contenedorImagenVistaPrevia .i
         color: white;
     }
     body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .contenedorImagenesCategoria{
-        width: 100%;
-        height: 70%;
-        margin-top: 5%;
+        width: 95%;
+        height: 95%;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
         border-radius: 10px;    
         border: solid 1px #FBCC02;
+        overflow: scroll;
     }
     body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .contenedorImagenesCategoria .mensaje-error{
         width: 50%;
@@ -468,28 +479,25 @@ body .contenedorPrincipal .contenedorVistaPrevia .contenedorImagenVistaPrevia .i
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 0.5rem;
-        font-weight: bold;
+        font-size: 1rem;
         text-align: center;
         color: white;
     }
     body .contenedorPrincipal .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .contenedorImagenesCategoria .imagen-previa{
-        width: 30%;
-        height: 30%;
-        margin-top: 5%;
+        width: 35%;
+        height: 35%;
         display: flex;
         justify-content: center;
         align-items: center;
         border-radius: 10px;
         border: solid 1px #FBCC02;
         cursor: pointer;
-        object-fit: contain;
+        object-fit: scale-down;
     }
     .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage1 .input-item,
     .contenedorFormularioRegistro .formularioRegistro .contenedorInfoFormularioRegistro .contenedorPage2 .input-item{
-        width: 80%;
-        height: 15%;
-        margin-top: 5%;
+        width: 100%;
+        height: 10%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -516,9 +524,8 @@ body .contenedorPrincipal .contenedorVistaPrevia .contenedorImagenVistaPrevia .i
         color: black;
     }
     body .contenedorPrincipal .contenedorVistaPrevia{
-        width: 30%;
-        height: 90%;
-        margin-top: 40%;
+        width: 100%;
+        height: 20%;
         display: flex;
         flex-direction: column;
         justify-content: flex-start; /* Cambio: Alineación hacia arriba */
@@ -528,18 +535,16 @@ body .contenedorPrincipal .contenedorVistaPrevia .contenedorImagenVistaPrevia .i
     }
     body .contenedorPrincipal .contenedorVistaPrevia h1{
         width: 100%;
-        height: 5%;
+        height: 12.5%;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 1rem;
-        font-weight: bold;
+        font-size: 0.8rem;
         color: white;
     }
     body .contenedorPrincipal .contenedorVistaPrevia .contenedorImagenVistaPrevia{
         width: 100%;
-        height: 95%;
-        margin-top: 50%;
+        height: 87.5%;
         display: flex;
         justify-content: center;
         align-items: center;

@@ -196,7 +196,10 @@ $totalPages = ceil($totalUsers / $limit);
                     ?>
                 </div>
             </div>
-            <button id="generatePDFButton">Generar PDF Individual</button>
+            <button id="generatePDFButton">
+                Generar PDF Individual
+                <i class="far fa-file-pdf"></i>
+            </button>
             <div id="carouselExample" class="carousel slide">
                 <div class="carousel-inner">
                     <div class="carousel-item active slide">

@@ -108,7 +108,7 @@
     </nav>
     <div class="contenedorPrincipal">
         <div class="contenedorIconoMenuHamburguesa">
-            <button class="btnMenuHamburguesa" id="btnMenuHamburguesa">
+            <button class ="btnMenuHamburguesa" id="btnMenuHamburguesa">
                 <i class="fas fa-bars" id="iconoMenuHamburguesa"></i>
             </button>
         </div>

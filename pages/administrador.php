@@ -59,6 +59,7 @@ $totalPages = ceil($totalUsers / $limit);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,7 +71,7 @@ $totalPages = ceil($totalUsers / $limit);
 
     <link rel="stylesheet" href="../css/styleresponsive.css">
 
-     <link rel="stylesheet" href="../css/administradorStyles.css">
+    <link rel="stylesheet" href="../css/administradorStyles.css">
 </head>
 
 <body>
@@ -90,9 +91,6 @@ $totalPages = ceil($totalUsers / $limit);
                 <i class="fas fa-signal" id="iconoEstadisticas" style="color: #000000;"></i>
             </button>
         </div>
-    </div>
-</div>
-
         <div class="contenedorTitulo">
             <p class="titulo">Las Aventuras de Go</p>
         </div>
@@ -147,7 +145,7 @@ $totalPages = ceil($totalUsers / $limit);
                     <input class="input-item" type="password" name="inputContrasena" id="inputContrasena" placeholder="Ingresa tu Nueva Contraseña">
                     <label class="lbl-item" for="lblConfirmarContrasena">Confirmar Contraseña</label>
                     <input class="input-item" type="password" name="inputConfirmarContrasena" id="inputConfirmarContrasena" placeholder="Confirma tu Nueva Contraseña">
-                    <button class="btnActualizar" type="submit">ACTUALIZAR</button>
+                    <button class="btnActualizar" type="submit">Actualizar</button>
                 </form>
             </div>
         </aside>
@@ -168,14 +166,14 @@ $totalPages = ceil($totalUsers / $limit);
             // Iniciar el contenedor de ranking
             echo '<div class="contenedorRanking">
                     <div class="ranking">';
-                        $i = 0;
-                        while ($fila = $result->fetch_assoc()) {
-                            $ruta_imagen = $fila['ruta_imagen'];
-                            $usuario = $fila['usuario'];
-                            $puntaje = $fila['puntaje_total'];
-                            $lugar = $lugares[$i];
-                            $posicion = $posiciones[$i];
-                            echo "<div class='ranking-item $lugar'>
+            $i = 0;
+            while ($fila = $result->fetch_assoc()) {
+                $ruta_imagen = $fila['ruta_imagen'];
+                $usuario = $fila['usuario'];
+                $puntaje = $fila['puntaje_total'];
+                $lugar = $lugares[$i];
+                $posicion = $posiciones[$i];
+                echo "<div class='ranking-item $lugar'>
                                     <div class='ranking-content'>
                                         <div class='ranking-img'>
                                             <img src='../recursos/img/imgPerfil/$ruta_imagen' alt='Jugador $posicion'>
@@ -188,15 +186,15 @@ $totalPages = ceil($totalUsers / $limit);
 
                                     </div>
                                 </div>";
-                            $i++;
-                        }
+                $i++;
+            }
             echo '</div></div>';
             ?>
             <div class="contenedorTabla">
                 <div class="contenedorBotonReporte">
                     <form action="../php/generarReporteGlobalExcel.php" method="get">
                         <button type="submit" class="btnReporteExcel">
-                            Descargar Reporte Excel 
+                            Descargar Reporte Excel
                             <i class="fas fa-file-excel" style="color: #28a745;"></i>
                         </button>
                     </form>

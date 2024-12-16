@@ -58,7 +58,9 @@ body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
     color: #000000;
     text-align: center;
 }
-
+body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion i {
+    font-size: 0px;
+}
 body .barraNavegacion .contenedorTitulo {
     width: 40%;
     height: 100%;
@@ -190,7 +192,6 @@ body .contenedorPrincipal .seccionInformacionDemografica {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    border: solid 1px red;
 }
 
 /* ESTILOS SECCION RENDIMIENTO */
@@ -213,6 +214,7 @@ body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista {
     width: 100vw;
     height: 15vh;
     display: flex;
+    padding: 20px;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -222,7 +224,6 @@ body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista .listaRendim
 body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .listaInformacionDemografica {
     width: 100%;
     height: 100%;
-    padding: 5px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -231,9 +232,13 @@ body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .lista
     color: white;
     font-size: 16px;
 }
+/* body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista .listaRendimientoJuego li,
+body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .listaInformacionDemografica li {
+    
+} */
 
 body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista .listaRendimientoJuego li,
-body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .listaInformacionDemografica {
+body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .listaInformacionDemografica li {
     margin-bottom: 5px;
     line-height: 1.5;
 }
