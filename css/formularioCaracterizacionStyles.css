@@ -451,7 +451,7 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorFormularioCara
     body .contenedorPrincipal .contenedorIconoMenuHamburguesa {
         display: block;
         width: 100%;
-        height: 5%;
+        height: 10%;
     }
     /* SECCION BARRA LATERAL - INFORMACIÓN DEL USUARIO */
     body .contenedorPrincipal .barraLateral {
@@ -1122,6 +1122,10 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorFormularioCara
         width: 100%;
         height: 95%;
         display: none;
+
+    }
+    .IconoMenuHamburguesa{
+        font-size: 40%;
     }
 }
 
