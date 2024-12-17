@@ -36,8 +36,17 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
         const generosLabels = data.generos.generos;
         const generosData = data.generos.cantidad.map(cantidad => Number(cantidad));
         //obtencion de los datos para la grafica 6: Grafica de barras para la distribucion de las edades
-        const edadesLabels = data.edades.rangos;
-        
+        const edadesLabels = Object.keys(data.edades.rangos);
+        const edadesData = Object.values(data.edades.rangos);
+        //Obtencion de los datos para la grafica 7: Grafica de barras para la distribucion de los grupos etnicos
+        const gruposEtnicosLabels = Object.keys(data.gruposEtnicos.cantidad);
+        const gruposEtnicosData = Object.values(data.gruposEtnicos.cantidad);
+        //Obtencion de los datos para la grafica 8: Grafica de barras para la distribucion de las ciudades
+        const ciudadesLabels = data.ciudades.ciudades;
+        console.log(ciudadesLabels);
+        const ciudadesData = data.ciudades.usuarios.map(usuarios => Number(usuarios));
+        console.log(ciudadesData);
+
         //Configuracion global de los estilos de los graficos
         Chart.defaults.font.family = 'IMFellDWPica';
         Chart.defaults.font.size = 14;
@@ -48,19 +57,17 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
             weight: 'bold'
         };
         Chart.defaults.maintainAspectRatio = false;
-
         // Plugin para establecer un fondo blanco global
         Chart.register({
             id: 'whiteBackground',
             beforeDraw: (chart) => {
                 const ctx = chart.ctx;
                 ctx.save();
-                ctx.fillStyle = '#FFFFFF'; // Color del fondo
-                ctx.fillRect(0, 0, chart.width, chart.height); // Rellenar todo el canvas
+                ctx.fillStyle = '#FFFFFF'; 
+                ctx.fillRect(0, 0, chart.width, chart.height);
                 ctx.restore();
             }
         });
-
         //Creacion de los contextos para los graficos
         const ctx1 = document.getElementById('myChart1').getContext('2d');
         const ctx2 = document.getElementById('myChart2').getContext('2d');
@@ -70,37 +77,14 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
         const ctx6 = document.getElementById('myChart6').getContext('2d');
         const ctx7 = document.getElementById('myChart7').getContext('2d');
         const ctx8 = document.getElementById('myChart8').getContext('2d');
-        if (!ctx1) {
-            console.error('No se pudo obtener el contexto del gráfico 1');
-            return;
-        }
-        else if (!ctx2) {
-            console.error('No se pudo obtener el contexto del gráfico 2');
-            return;
-        }
-        else if (!ctx3) {
-            console.error('No se pudo obtener el contexto del gráfico 3');
-            return;
-        }
-        else if (!ctx4) {
-            console.error('No se pudo obtener el contexto del gráfico 4');
-            return;
-        }
-        else if (!ctx5) {
-            console.error('No se pudo obtener el contexto del gráfico 5');
-            return;
-        }
-        else if (!ctx6) {
-            console.error('No se pudo obtener el contexto del gráfico 6');
-            return;
-        }
-        else if (!ctx7) {
-            console.error('No se pudo obtener el contexto del gráfico 7');
-            return;
-        }
-        else if (!ctx8) {
-            console.error('No se pudo obtener el contexto del gráfico 8');
-            return;
+        
+        const contextos = [ctx1, ctx2, ctx3, ctx4, ctx5, ctx6, ctx7, ctx8];
+
+        for (let i = 0; i < contextos.length; i++) {
+            if (!contextos[i]) {
+                console.error(`No se pudo obtener el contexto del gráfico ${i + 1}`);
+                return;
+            }
         }
         const backgroundColor = [
             'rgba(255, 99, 132, 0.2)',
@@ -237,7 +221,7 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
             data: {
                 labels: promediosLabels,
                 datasets: [{
-                    label: 'Top Promedios Puntajes',
+                    label: 'Top Puntajes Promedio',
                     data: promediosData,
                     backgroundColor: backgroundColor,
                     borderColor: borderColor,
@@ -380,12 +364,12 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
         });
         //Creacion del 6to Gráfico
         new Chart(ctx6, {
-            type: 'pie',
+            type: 'bar',
             data: {
-                labels: generosLabels,
+                labels: edadesLabels,
                 datasets: [{
-                    label: 'Distribucion de Generos Usuarios',
-                    data: generosData,
+                    label: 'Distribucion de Edades de los Usuarios',
+                    data: edadesData,
                     backgroundColor: backgroundColor,
                     borderColor: borderColor,
                     borderWidth: 1
@@ -398,7 +382,7 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
                         callbacks: {
                             label: function (tooltipItem) {
                                 const index = tooltipItem.dataIndex;
-                                return generosLabels[index] + ': ' + tooltipItem.raw + ' usuarios';
+                                return edadesLabels[index] + ': ' + tooltipItem.raw + ' usuarios';
                             }
                         }
                     },
@@ -411,6 +395,21 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
                             font: {
                                 size: window.innerWidth < 768 ? 12 : 18,
                             }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Cantidad de Usuarios'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Edades (años)'
                         }
                     }
                 }
@@ -418,12 +417,12 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
         });
         //Creacion del 7mo Gráfico
         new Chart(ctx7, {
-            type: 'pie',
+            type: 'bar',
             data: {
-                labels: generosLabels,
+                labels: gruposEtnicosLabels,
                 datasets: [{
-                    label: 'Distribucion de Generos Usuarios',
-                    data: generosData,
+                    label: 'Distribucion de Los grupos étnicos de los Usuarios',
+                    data: gruposEtnicosData,
                     backgroundColor: backgroundColor,
                     borderColor: borderColor,
                     borderWidth: 1
@@ -436,7 +435,7 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
                         callbacks: {
                             label: function (tooltipItem) {
                                 const index = tooltipItem.dataIndex;
-                                return generosLabels[index] + ': ' + tooltipItem.raw + ' usuarios';
+                                return gruposEtnicosLabels[index] + ': ' + tooltipItem.raw + ' usuarios';
                             }
                         }
                     },
@@ -451,17 +450,32 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
                             }
                         }
                     }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Cantidad de Usuarios'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Grupo Étnico'
+                        }
+                    }
                 }
             }
         });
         //Creacion del 8vo Gráfico
         new Chart(ctx8, {
-            type: 'pie',
+            type: 'bar',
             data: {
-                labels: generosLabels,
+                labels: ciudadesLabels,
                 datasets: [{
-                    label: 'Distribucion de Generos Usuarios',
-                    data: generosData,
+                    label: 'Distribucion de Las ciudades de los Usuarios',
+                    data: ciudadesData,
                     backgroundColor: backgroundColor,
                     borderColor: borderColor,
                     borderWidth: 1
@@ -474,7 +488,7 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
                         callbacks: {
                             label: function (tooltipItem) {
                                 const index = tooltipItem.dataIndex;
-                                return generosLabels[index] + ': ' + tooltipItem.raw + ' usuarios';
+                                return ciudadesLabels[index] + ': ' + tooltipItem.raw + ' usuarios';
                             }
                         }
                     },
@@ -487,6 +501,21 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
                             font: {
                                 size: window.innerWidth < 768 ? 12 : 18,
                             }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Cantidad de Usuarios'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Ciudad'
                         }
                     }
                 }
