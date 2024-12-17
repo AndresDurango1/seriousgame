@@ -907,9 +907,7 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
     .tablaClasificacion td:nth-child(5) {
         display: none;
     }
-    .paginacion{
-        /* overflow: hidden; */
-    }
+   
     body .contenedorPrincipal .barraLateral .contenedorImagenUsuario {
         width: 80%;
         height: 20%;
