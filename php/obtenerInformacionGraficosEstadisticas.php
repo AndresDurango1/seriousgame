@@ -81,7 +81,7 @@ while ($fila = $result5->fetch_assoc()) {
     $stmt5_generos[] = $fila['genero'];
     $stmt5_cantidad[] = $fila['cantidad'];
 }
-//Consulta 5 a la base de datos para traer las edades
+//Consulta 6 a la base de datos para traer las edades
 $stmt6 = "SELECT c.fecha_nacimiento, TIMESTAMPDIFF(YEAR, c.fecha_nacimiento, CURDATE()) AS edad, c.id_usuario, u.usuario FROM caracterizacion c
     JOIN usuarios u ON c.id_usuario = u.id_usuario";
 $result6 = $conexion->query($stmt6);
@@ -115,6 +115,59 @@ while ($fila = $result6->fetch_assoc()) {
         $stmt6_rangos['61+']++;
     }
 }
+//Consulta 7 a la base de datos para traer las etnias
+$stmt7 = "SELECT c.id_grupo_etnico, g.grupo_etnico, c.id_usuario, u.usuario FROM caracterizacion c
+    JOIN grupo_etnico g ON c.id_grupo_etnico = g.id_grupo_etnico
+    JOIN usuarios u ON c.id_usuario = u.id_usuario";
+$result7 = $conexion->query($stmt7);
+$stmt7_grupos_etnicos = [];
+$stmt7_usuarios = [];
+$stmt7_cantidad = [
+    'Indígena' => 0,
+    'Gitano' => 0,
+    'Palenquero' => 0,
+    'Afrocolombiano' => 0,
+    'Raizal' => 0,
+    'Ninguno'   => 0
+];
+while ($fila = $result7->fetch_assoc()) {
+    $grupo_etnico = $fila['grupo_etnico'];
+    $usuario = $fila['usuario'];
+
+    $stmt7_grupos_etnicos[] = $grupo_etnico;
+    $stmt7_usuarios[] = $usuario;
+
+    if ($grupo_etnico == "Indígena") {
+        $stmt7_cantidad['Indigena']++;
+    }
+    elseif($grupo_etnico == "Gitano"){
+        $stmt7_cantidad['Gitano']++;
+    }
+    elseif($grupo_etnico == "Palenquero"){
+        $stmt7_cantidad['Palenquero']++;
+    }
+    elseif($grupo_etnico == "Afrocolombiano"){
+        $stmt7_cantidad['Afrocolombiano']++;
+    }
+    elseif($grupo_etnico == "Raizal"){
+        $stmt7_cantidad['Raizal']++;
+    }
+    elseif($grupo_etnico == "Ninguno"){
+        $stmt7_cantidad['Ninguno']++;
+    }
+}
+//Consulta 8 a la base de datos para traer las ciudades
+$stmt8 = "SELECT c.id_ciudad, count(*) AS cantidad, ci.ciudad FROM caracterizacion c
+    JOIN ciudades ci ON c.id_ciudad = ci.id_ciudad
+    GROUP BY c.id_ciudad";
+$result8 = $conexion->query($stmt8);
+$stmt8_total_usuarios = [];
+$stmt8_ciudades = [];
+
+while ($fila = $result8->fetch_assoc()) {
+    $stmt8_total_usuarios[] = $fila['cantidad'];
+    $stmt8_ciudades[] = $fila['ciudad'];
+}
 //Estrutura la informacion en formato JSON
 $response = [
     'topScores' => [
@@ -145,6 +198,15 @@ $response = [
         'usuarios' => $stmt6_usuarios,
         'edades' => $stmt6_edades,
         'rangos' => $stmt6_rangos
+    ],
+    'gruposEtnicos' => [
+        'usuarios' => $stmt7_usuarios,
+        'grupos_etnicos' => $stmt7_grupos_etnicos,
+        'cantidad' => $stmt7_cantidad
+    ],
+    'ciudades' => [
+        'usuarios' => $stmt8_total_usuarios,
+        'ciudades' => $stmt8_ciudades
     ]
 ];
 //Generacion del JSON
