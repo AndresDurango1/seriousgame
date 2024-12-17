@@ -51,7 +51,6 @@ if ($resultado2->num_rows > 0) {
     echo "No se encontró información del usuario.";
     exit();
 }
-
 //Consulta a la base de datos para traer la imagen del usuario de la tabla imagenes
 $stmtImagenUser = $conexion->prepare("SELECT ruta_imagen FROM imagenes WHERE id_imagen = ?");
 $stmtImagenUser->bind_param("i", $fila2['id_imagen']);
@@ -191,8 +190,9 @@ $totalPages = ceil($totalUsers / $limit);
                 <div class="paginacion">
                     <?php
                     for ($i = 1; $i <= $totalPages; $i++) {
-                        echo "<a href='?page=$i'>$i</a> ";
+                        echo "<a href='?id_user=$id_user&page=$i'>$i</a> ";
                     }
+
                     ?>
                 </div>
             </div>
