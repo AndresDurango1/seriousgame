@@ -941,7 +941,8 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
         text-align: center;
         font-size: 13px;
         font-weight: bold;
-    }}
+    }
+
 
     body .contenedorPrincipal .barraLateral .contenedorFormularioActualizacion {
         width: 100%;
@@ -984,7 +985,7 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
         text-decoration: none;
         overflow: scroll;
     }
-
+}
 @media(orientation: landscape) and (min-height: 410px) and (max-height: 550px){
     body .barraNavegacion .contenedorBotonesRedireccion {
         width: 30%;
