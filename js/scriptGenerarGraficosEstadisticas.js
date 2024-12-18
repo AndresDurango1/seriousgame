@@ -57,6 +57,7 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
             weight: 'bold'
         };
         Chart.defaults.maintainAspectRatio = false;
+        
         // Plugin para establecer un fondo blanco global
         Chart.register({
             id: 'whiteBackground',

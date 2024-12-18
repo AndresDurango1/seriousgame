@@ -117,7 +117,7 @@ function splitTextIntoLines(text, font, fontSize, maxWidth) {
 }
 async function addChartToPDF(pdfDoc, pdfDocPlantilla, page, pageWidth, pageHeight, yPosition, image) {
     const imageBytes = await pdfDoc.embedPng(image);
-    const imageDims = imageBytes.scale(0.4);
+    const imageDims = imageBytes.scale(0.8);
     const xPos = (pageWidth - imageDims.width) / 2;
     if (yPosition - imageDims.height - 20 < 80) {
         const [newPage] = await pdfDoc.copyPages(pdfDocPlantilla, [0]);

@@ -90,6 +90,9 @@ $totalPages = ceil($totalUsers / $limit);
                 Ver Estadísticas
                 <i class="fas fa-signal" id="iconoEstadisticas" style="color: #000000;"></i>
             </button>
+            <button class="btnRedireccion btnMenuHamburguesa" id="btnMenuHamburguesa">
+                <i class="fas fa-bars" id="iconoMenuHamburguesa"></i>
+            </button>
         </div>
         <div class="contenedorTitulo">
             <p class="titulo">Las Aventuras de Go</p>
@@ -118,11 +121,6 @@ $totalPages = ceil($totalUsers / $limit);
         </div>
     </nav>
     <div class="contenedorPrincipal">
-        <div class="contenedorIconoMenuHamburguesa">
-            <button class="btnMenuHamburguesa" id="btnMenuHamburguesa">
-                <i class="fas fa-bars" id="iconoMenuHamburguesa"></i>
-            </button>
-        </div>
         <aside class="barraLateral" id="barraLateral">
             <p class="barraLateralTitulo">Actualizar mi perfil</p>
             <div class="contenedorImagenUsuario">

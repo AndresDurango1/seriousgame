@@ -96,7 +96,6 @@ if ($resultadoImagen->num_rows > 0) {
                 </p>
             </div>
         </section>
-        <button id="generatePDFButton">Generar PDF Global</button>
         <section class="seccionRendimientoJuego">
             <p class="infoSeccion" >En esta sección, presentamos:</p>
             <div class="contenedorLista">
@@ -106,6 +105,12 @@ if ($resultadoImagen->num_rows > 0) {
                     <li>Top-10 Puntaje Promedio: Un ranking con los 10 promedios de puntaje por nivel mas alto.</li>
                     <li>Top-10 Tiempo: Un ranking de los 10 tiempos más rápidos logrados en distintos niveles del juego.</li>
                 </ul>
+            </div>
+            <div class="contenedorBotonPDF">
+                <button class="generatePDFButton" id="generatePDFButton">
+                    Generar PDF Global
+                    <i class="far fa-file-pdf"></i>
+                </button>
             </div>
             <div class="contenedorGraficosRendimiento">
                 <div class="contenedorGrafico">

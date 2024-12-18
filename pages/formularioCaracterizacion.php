@@ -88,11 +88,14 @@
         <div class="contenedorBotonesRedireccion">
             <button class="btnRedireccion" onclick="window.location.href='../pages/index.php'">
                 Inicio
-                <i class="fas fa-home"id="iconoHome" style="color: #000000; "></i>
+                <i class="fas fa-home" id="iconoHome" style="color: #000000;"></i>
             </button>
             <button class="btnRedireccion" onclick="window.location.href='<?php echo $miPerfilUrl; ?>'">
                 Mi perfil
                 <i class="fa-solid fa-left-long" style="color: #000000;"></i>
+            </button>
+            <button class ="btnRedireccion btnMenuHamburguesa" id="btnMenuHamburguesa">
+                <i class="fas fa-bars" id="iconoMenuHamburguesa"></i>
             </button>
         </div>
         <div class="contenedorTitulo">
@@ -113,11 +116,6 @@
         </div>
     </nav>
     <div class="contenedorPrincipal">
-        <div class="contenedorIconoMenuHamburguesa">
-            <button class ="btnMenuHamburguesa" id="btnMenuHamburguesa">
-                <i class="fas fa-bars" id="iconoMenuHamburguesa"></i>
-            </button>
-        </div>
         <aside class="barraLateral" id="barraLateral">
             <p class="barraLateralTitulo">Mi perfil</p>
             <div class="contenedorImagenUsuario">

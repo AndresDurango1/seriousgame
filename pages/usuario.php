@@ -73,7 +73,7 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
 <body>
     <nav class="barraNavegacion">
         <div class="contenedorBotonesRedireccion">
-        <button class="btnRedireccion" onclick="window.location.href='../pages/index.php'">
+            <button class="btnRedireccion" onclick="window.location.href='../pages/index.php'">
                 Inicio
                 <i class="fas fa-home" id="iconoHome" style="color: #000000;"></i>
             </button>
@@ -81,6 +81,9 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
                 Formulario Caracterización
                 <i class="fab fa-wpforms" id="iconoFormularioCaracterizacion" style="color:#000000"></i>
                 <i class="fa-solid fa-turn-down fa-rotate-90"></i>
+            </button>
+            <button class="btnRedireccion btnMenuHamburguesa" id="btnMenuHamburguesa">
+                <i class="fas fa-bars" id="iconoMenuHamburguesa"></i>
             </button>
         </div>
         <div class="contenedorTitulo">
@@ -105,11 +108,6 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
     </nav>
     <div class="contenedorPrincipal">
     <div class="contenedorPrincipal">
-        <div class="contenedorIconoMenuHamburguesa">
-            <button class="btnMenuHamburguesa" id="btnMenuHamburguesa">
-                <i class="fas fa-bars" id="iconoMenuHamburguesa"></i>
-            </button>
-        </div>
         <aside class="barraLateral" id="barraLateral">
             <p class="barraLateralTitulo">Actualizar mi perfil</p>
             <div class="contenedorImagenUsuario">
@@ -179,7 +177,7 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
             ?>
             <div class="contenedorTabla">
             <div class="contenedorBotonReporte">
-                    <form action="../php/generarReporteGlobalExcel.php" method="get">
+                    <form action="../php/generarReporteIndividualExcel.php" method="get">
                         <button type="submit" class="btnReporteExcel">
                             Descargar Reporte Excel
                             <i class="fas fa-file-excel" style="color: #28a745;"></i>
