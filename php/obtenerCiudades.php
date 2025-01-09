@@ -1,7 +1,6 @@
 <?php
     include_once '../php/conexion.php';
     $conexion = conectar();
-    
     if (isset($_POST['id_departamento'])) {
         $id_departamento = $_POST['id_departamento'];
         $stmtCiudad = $conexion->prepare("SELECT id_ciudad, ciudad FROM ciudades WHERE id_departamento = ?");
@@ -13,7 +12,6 @@
         while ($row = $resultadoCiudad->fetch_assoc()) {
             $ciudades[] = $row;
         }
-    
         // Devolver las ciudades en formato JSON
         echo json_encode($ciudades);
     }

@@ -210,12 +210,11 @@ body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista {
     width: 100vw;
     height: 15vh;
     display: flex;
-    padding: 20px;
+    padding-left: 25px;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
-
 body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista .listaRendimientoJuego,
 body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .listaInformacionDemografica {
     width: 100%;
@@ -226,7 +225,7 @@ body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .lista
     align-items: flex-start;
     list-style-type: circle;
     color: white;
-    font-size: 19px;
+    font-size: 14px;
 }
 
 body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista .listaRendimientoJuego li,
@@ -237,6 +236,7 @@ body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .lista
 body .contenedorPrincipal .contenedorBotonPDF {
     width: 10%;
     height: 2.5vh;
+    margin-top: 2%;
     display: flex;
     justify-content: center;
     align-items: center;

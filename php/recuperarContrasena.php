@@ -4,7 +4,7 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $correo = $_POST['inputCorreo'];
-        $stmt = $conexion->prepare("SELECT usuario FROM usuarios WHERE correo = ?");
+        $stmt = $conexion->prepare("SELECT identificacion FROM usuarios WHERE correo = ?");
         $stmt->bind_param("s", $correo);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -15,7 +15,7 @@
             $stmt = $conexion->prepare("UPDATE usuarios SET token = ?, token_expira = ? WHERE correo = ?");
             $stmt->bind_param("sss", $token, $expira, $correo);
             $stmt->execute();
-            $enlace = "http://localhost/seriousgame/pages/formularioRestablecerContrasena.php?token=" . $token;
+            $enlace = "https://proyectoslab.cloud/seriousgame/pages/formularioRestablecerContrasena.php?token=" . $token;
             // Datos para enviar en el cuerpo de la solicitud a Mailtrap
             $data = array(
                 'from' => array(

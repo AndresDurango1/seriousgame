@@ -1,4 +1,4 @@
-function mostrarimgVistaPrevia(imagenSeleccionada = "default.png", idImagen) {
+function mostrarimgVistaPrevia(imagenSeleccionada = "default.png", idImagen = 87) {
     const imgVistaPrevia = document.getElementById("imgVistaPrevia");
     const inputIdImagenPerfil = document.getElementById("inputIdImagenPerfil");
 
@@ -20,6 +20,11 @@ function mostrarimgVistaPrevia(imagenSeleccionada = "default.png", idImagen) {
 }
 // Llama a la función con la imagen por defecto si no hay ninguna seleccionada
 document.addEventListener("DOMContentLoaded", () => {
+    const inputIdImagenPerfil = document.getElementById("inputIdImagenPerfil");
+    if (inputIdImagenPerfil && !inputIdImagenPerfil.value) {
+        inputIdImagenPerfil.value = "87"; // Valor por defecto
+    }
+    console.log("ID de la imagen (valor predeterminado):", inputIdImagenPerfil?.value);
     mostrarimgVistaPrevia();
     cargarImagenesPorCategoria();
 });

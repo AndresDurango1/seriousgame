@@ -1,8 +1,10 @@
 //Obtener referencia a los elementos del DOM
 const contenedorInicioSesion = document.getElementById('contenedorFormularioInicioSesion');
+const contenedorRegistro = document.getElementById('contenedorFormularioRegistro');
 const btnInicioSesion = document.getElementById('btnIniciarSesion');
 const btnResgistro = document.getElementById('btnRegistrar');
-const cerrarModalIP = document.getElementById ('iconoCerrarIP');
+const cerrarModalIS = document.getElementById ('iconoCerrarIS');
+const cerrarModalR = document.getElementById ('iconoCerrarR');
 const cerrarModalRC = document.getElementById ('iconoCerrarRC');
 
 const iconoHome = document.getElementById("iconoHome");
@@ -19,6 +21,13 @@ if(btnInicioSesion){
         }
     })
 }
+if(btnResgistro){
+    btnResgistro.addEventListener('click', function (){
+        if (window.getComputedStyle(contenedorRegistro).display == 'none') {
+            contenedorRegistro.style.display = 'flex';
+        }
+    })
+}
 if(inicioSesion){
     inicioSesion.addEventListener('click',function(){
         console.log("clic en el boton")
@@ -30,12 +39,22 @@ if(inicioSesion){
 //Funcion para redirigir al formulario de registro
 if(btnResgistro){
     btnResgistro.addEventListener('click', function (){
-        window.location.href = "../pages/formularioRegistroUsuario.php";
+        //window.location.href = "../pages/formularioRegistroUsuario.php";
+        console.log("clic en el boton registro");
+        if (contenedorRegistro.display === "none") {
+            contenedorRegistro.style.display = "flex";
+        }        
     })
 }
-if(cerrarModalIP){
-    cerrarModalIP.addEventListener('click', function(){
+//Funcion para cerrar los modales
+if(cerrarModalIS){
+    cerrarModalIS.addEventListener('click', function(){
         contenedorInicioSesion.style.display = "none";
+    })
+}
+if(cerrarModalR){
+    cerrarModalR.addEventListener('click', function(){
+        contenedorRegistro.style.display = "none";
     })
 }
 // Cerrar el modal si se hace clic fuera de él

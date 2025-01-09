@@ -10,7 +10,7 @@
     $rol = $_SESSION['rol'];
     $miPerfilUrl = ($rol == 1) ? '../pages/administrador.php' : '../pages/usuario.php';
     //consulta a la base de datos para traer la informacion del usuario
-    $stmt1 = $conexion->prepare("SELECT identificacion, nombre, apellido, correo, contrasena, id_imagen FROM usuarios WHERE id_usuario = ?");
+    $stmt1 = $conexion->prepare("SELECT identificacion, CONCAT(primer_nombre,' ',segundo_nombre) AS nombre_completo, CONCAT(primer_apellido,' ',segundo_apellido) AS apellido_completo, correo, contrasena, id_imagen FROM usuarios WHERE id_usuario = ?");
     $stmt1->bind_param("i", $id_usuario);
     $stmt1->execute();
     $resultado1 = $stmt1->get_result();
@@ -32,6 +32,7 @@
         echo "No se encontró la imagen del usuario.";
         exit();
     }
+    /*
     //consulta a la base de datos para traer la informacion de los campos select del formulario de caracterización
     //consulta a la base de datos para traer la informacion del genero
     $stmtGenero = $conexion->prepare("SELECT id_genero, genero FROM generos");
@@ -69,6 +70,7 @@
     $stmtTipoVivienda = $conexion->prepare("SELECT id_tipo_vivienda, tipo_vivienda FROM tipo_vivienda");
     $stmtTipoVivienda->execute();
     $resultadoTipoVivienda = $stmtTipoVivienda->get_result();
+    */
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -106,7 +108,7 @@
                 <img class="iconoUsuario" src="../recursos/img/imgPerfil/<?php echo $ruta_imagen; ?>" alt="iconoUsuario">
             </div>
             <div class="contenedorNombreUsuario">
-                <p class="nombreUsuario"><?php echo "@". $_SESSION['usuario']; ?></p>
+                <p class="nombreUsuario"><?php echo "@". $_SESSION['identificacion']; ?></p>
             </div>
         </div>
         <div class="contenedorIconoSalir">
@@ -129,9 +131,9 @@
                     <label class="lbl-item" for="lblIdentificacion">Identificación</label>
                     <input class="input-item" type="number" name="inputIdentificacion" id="inputIdentificacion" value="<?php echo htmlspecialchars($fila['identificacion']); ?>" readonly>
                     <label class="lbl-item" for="lblNombre">Nombre</label>
-                    <input class="input-item" type="text" name="inputNombre" id="inputNombre" value="<?php echo htmlspecialchars($fila['nombre']); ?>" readonly>
+                    <input class="input-item" type="text" name="inputNombre" id="inputNombre" value="<?php echo htmlspecialchars($fila['nombre_completo']); ?>" readonly>
                     <label class="lbl-item" for="lblApellido">Apellido</label>
-                    <input class="input-item" type="text" name="inputApellido" id="inputApellido" value="<?php echo htmlspecialchars($fila['apellido']); ?>" readonly>
+                    <input class="input-item" type="text" name="inputApellido" id="inputApellido" value="<?php echo htmlspecialchars($fila['apellido_completo']); ?>" readonly>
                     <label class="lbl-item" for="lblCorreo">Correo</label>
                     <input class="input-item" type="text" name="inputCorreo" id="inputCorreo" value="<?php echo htmlspecialchars($fila['correo']); ?>" readonly>
                 </form>
@@ -142,7 +144,7 @@
             <div class="contenedorFormularioCaracterizacion">
                 <form class="formularioCaracterizacion" action="../php/caracterizacion.php" method="post">
                     <div class="contenedorInfoFormularioCaracterizacion">
-                        <div class="contenedorPage1">
+                        <!-- <div class="contenedorPage1">
                             <label class="lbl-item" for="lblfechaNacimiento">Fecha de Nacimiento</label>
                             <input class="input-item" type="date" name="inputFechaNacimiento" id="inputFechaNacimiento" required>
                             <label class="lbl-item" for="lblGenero">Género</label>
@@ -180,8 +182,8 @@
                             <select class="input-item" name="inputCiudad" id="inputCiudad" required>
                                 <option value="" disabled selected>Por favor selecciona</option>
                             </select>
-                        </div>
-                        <div class="contenedorPage2">
+                        </div> -->
+                        <!-- <div class="contenedorPage2">
                             <label class="lbl-item" for="lblestadoCivil">Estado Civil</label>
                             <select class="input-item" name="inputEstadoCivil" id="inputEstadoCivil" required>
                                 <option value="" disabled selected>Por favor selecciona</option>
@@ -237,7 +239,7 @@
                                     </option>
                                 <?php endwhile; ?>
                             </select>
-                        </div>
+                        </div> -->
                     </div>
                     <button class="btnEnviar" type="submit">Enviar</button>
                 </form>

@@ -8,7 +8,7 @@ include_once '../php/conexion.php';
 $conexion = conectar();
 $id_usuario = $_SESSION['id_usuario'];
 //consulta a la base de datos para traer la informacion del usuario
-$stmt1 = $conexion->prepare("SELECT identificacion, nombre, apellido, correo, contrasena, id_imagen FROM usuarios WHERE id_usuario = ?");
+$stmt1 = $conexion->prepare("SELECT identificacion, CONCAT(primer_nombre,' ',segundo_nombre) AS nombre_completo, CONCAT(primer_apellido,' ',segundo_apellido) AS apellido_completo, correo, contrasena, id_imagen FROM usuarios WHERE id_usuario = ?");
 $stmt1->bind_param("i", $id_usuario);
 $stmt1->execute();
 $resultado1 = $stmt1->get_result();
@@ -35,7 +35,7 @@ $limit = 5; // Número de resultados por página
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1; // Número de página actual
 $offset = ($page - 1) * $limit; // Calcular el desplazamiento
 // Consulta para obtener los niveles del usuario con limit y offset 
-$stmt2 = $conexion->prepare("SELECT nu.id_usuario, u.usuario AS usuario, nu.id_nivel, n.nombre_nivel AS nivel, nu.completado, nu.inicio, nu.fin, nu.tiempo_transcurrido, 
+$stmt2 = $conexion->prepare("SELECT nu.id_usuario, u.identificacion AS usuario, nu.id_nivel, n.nombre_nivel AS nivel, nu.completado, nu.inicio, nu.fin, nu.tiempo_transcurrido, 
                             nu.puntaje FROM niveles_usuarios nu
                             JOIN 
                                 usuarios u ON nu.id_usuario = u.id_usuario
@@ -77,11 +77,11 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
                 Inicio
                 <i class="fas fa-home" id="iconoHome" style="color: #000000;"></i>
             </button>
-            <button class="btnRedireccion" onclick="window.location.href='../pages/formularioCaracterizacion.php'">
+            <!-- <button class="btnRedireccion" onclick="window.location.href='../pages/formularioCaracterizacion.php'">
                 Formulario Caracterización
                 <i class="fab fa-wpforms" id="iconoFormularioCaracterizacion" style="color:#000000"></i>
                 <i class="fa-solid fa-turn-down fa-rotate-90"></i>
-            </button>
+            </button> -->
             <button class="btnRedireccion btnMenuHamburguesa" id="btnMenuHamburguesa">
                 <i class="fas fa-bars" id="iconoMenuHamburguesa"></i>
             </button>
@@ -95,7 +95,7 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
                  <img class="iconoUsuario" src="../recursos/img/imgPerfil/<?php echo $ruta_imagen; ?>" alt="iconoUsuario">
             </div>
             <div class="contenedorNombreUsuario">
-                <p class="nombreUsuario"><?php echo "@" . $_SESSION['usuario']; ?></p>
+                <p class="nombreUsuario"><?php echo "@" . $_SESSION['identificacion']; ?></p>
             </div>
         </div>
         <div class="contenedorIconos">
@@ -121,9 +121,9 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
                     <label class="lbl-item" for="lblIdentificacion">Identificación</label>
                     <input class="input-item" type="number" name="inputIdentificacion" id="inputIdentificacion" value="<?php echo htmlspecialchars($fila['identificacion']); ?>" readonly>
                     <label class="lbl-item" for="lblNombre">Nombre</label>
-                    <input class="input-item" type="text" name="inputNombre" id="inputNombre" value="<?php echo htmlspecialchars($fila['nombre']); ?>">
+                    <input class="input-item" type="text" name="inputNombre" id="inputNombre" value="<?php echo htmlspecialchars($fila['nombre_completo']); ?>">
                     <label class="lbl-item" for="lblApellido">Apellido</label>
-                    <input class="input-item" type="text" name="inputApellido" id="inputApellido" value="<?php echo htmlspecialchars($fila['apellido']); ?>">
+                    <input class="input-item" type="text" name="inputApellido" id="inputApellido" value="<?php echo htmlspecialchars($fila['apellido_completo']); ?>">
                     <label class="lbl-item" for="lblCorreo">Correo</label>
                     <input class="input-item" type="text" name="inputCorreo" id="inputCorreo" value="<?php echo htmlspecialchars($fila['correo']); ?>">
                     <label class="lbl-item" for="lblContrasena">Contraseña</label>
@@ -137,7 +137,7 @@ $totalPages = ceil($totalUsers / $limit); // Calcular el total de páginas
         <div class="contenedorPrincipal-content" id="contenedorPrincipal-content">
             <?php
             // Consulta a la base de datos para obtener los tres mejores puntajes
-            $query = "SELECT i.ruta_imagen, u.usuario, SUM(nu.puntaje) AS puntaje_total FROM usuarios u
+            $query = "SELECT i.ruta_imagen, u.identificacion, SUM(nu.puntaje) AS puntaje_total FROM usuarios u
                       JOIN 
                         niveles_usuarios nu ON u.id_usuario = nu.id_usuario
                       JOIN 

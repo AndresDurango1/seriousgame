@@ -8,7 +8,7 @@ include_once '../php/conexion.php';
 $conexion = conectar();
 $id_usuario = $_SESSION['id_usuario'];
 //consulta a la base de datos para traer la informacion del usuario
-$stmt1 = $conexion->prepare("SELECT identificacion, nombre, apellido, correo, contrasena, id_imagen FROM usuarios WHERE id_usuario = ?");
+$stmt1 = $conexion->prepare("SELECT identificacion, CONCAT(primer_nombre,' ',segundo_nombre) AS nombre_completo, CONCAT(primer_apellido,' ',segundo_apellido) AS apellido_completo, correo, contrasena, id_imagen FROM usuarios WHERE id_usuario = ?");
 $stmt1->bind_param("i", $id_usuario);
 $stmt1->execute();
 $resultado1 = $stmt1->get_result();
@@ -54,10 +54,10 @@ if ($resultadoImagen->num_rows > 0) {
                 Inicio
                 <i class="fas fa-home"id="iconoHome" style="color: #000000; "></i>
             </button>
-            <button class="btnRedireccion" onclick="window.location.href='../pages/formularioCaracterizacion.php'">
+            <!-- <button class="btnRedireccion" onclick="window.location.href='../pages/formularioCaracterizacion.php'">
                 Formulario Caracterización
                 <i class="fab fa-wpforms" id="iconoFormularioCaracterizacion" style="color: #000000; "></i>
-            </button>
+            </button> -->
             <button class="btnRedireccion" onclick="window.location.href='../pages/administrador.php'">
                 Volver
                 <i class="fa-solid fa-left-long" style="color: #000000;"></i>
@@ -71,7 +71,7 @@ if ($resultadoImagen->num_rows > 0) {
                 <img class="iconoUsuario" src="../recursos/img/imgPerfil/<?php echo $ruta_imagen; ?>" alt="iconoUsuario">
             </div>
             <div class="contenedorNombreUsuario">
-                <p class="nombreUsuario"><?php echo "@" . $_SESSION['usuario']; ?></p>
+                <p class="nombreUsuario"><?php echo "@" . $_SESSION['identificacion']; ?></p>
             </div>
         </div>
         <div class="contenedorIconos">

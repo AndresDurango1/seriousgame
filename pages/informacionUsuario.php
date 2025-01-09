@@ -8,7 +8,7 @@ include_once '../php/conexion.php';
 $conexion = conectar();
 $id_administrador = $_SESSION['id_usuario'];
 //consulta a la base de datos para traer la informacion del administrador para la Barra de navegacion
-$stmt1 = $conexion->prepare("SELECT identificacion, nombre, apellido, correo, contrasena, id_imagen FROM usuarios WHERE id_usuario = ?");
+$stmt1 = $conexion->prepare("SELECT identificacion, CONCAT(primer_nombre,' ',segundo_nombre) AS nombre_completo,  CONCAT(primer_apellido,' ',segundo_apellido) AS apellido_completo, correo, contrasena, id_imagen FROM usuarios WHERE id_usuario = ?");
 $stmt1->bind_param("i", $id_administrador);
 $stmt1->execute();
 $resultado1 = $stmt1->get_result();
@@ -39,8 +39,7 @@ if (isset($_GET['id_user']) && is_numeric($_GET['id_user'])) {
     echo "Parámetro 'id_user' inválido.";
     exit();
 }
-$stmt2 = $conexion->prepare("SELECT u.identificacion, u.usuario, u.nombre, u.apellido, u.correo, u.id_imagen, c.celular FROM usuarios u 
-LEFT JOIN caracterizacion c ON u.id_usuario = c.id_usuario
+$stmt2 = $conexion->prepare("SELECT identificacion, CONCAT(primer_nombre,' ',segundo_nombre) AS nombre_completo,  CONCAT(primer_apellido,' ',segundo_apellido) AS apellido_completo, correo, id_imagen, celular FROM usuarios u 
 WHERE u.id_usuario = ?");
 $stmt2->bind_param("i", $id_user);
 $stmt2->execute();
@@ -68,7 +67,7 @@ $limit = 5; // Número de resultados por página
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1; // Número de página actual
 $offset = ($page - 1) * $limit; // Calcular el desplazamiento
 // Consulta para obtener los niveles del usuario con limit y offset 
-$stmtTabla = $conexion->prepare("SELECT nu.id_usuario, u.usuario AS usuario, nu.id_nivel, n.nombre_nivel AS nivel, nu.completado, nu.inicio, nu.fin, nu.tiempo_transcurrido, 
+$stmtTabla = $conexion->prepare("SELECT nu.id_usuario, u.identificacion AS identificacion, nu.id_nivel, n.nombre_nivel AS nivel, nu.completado, nu.inicio, nu.fin, nu.tiempo_transcurrido, 
                             nu.puntaje FROM niveles_usuarios nu
                             JOIN 
                                 usuarios u ON nu.id_usuario = u.id_usuario
@@ -118,7 +117,7 @@ $totalPages = ceil($totalUsers / $limit);
                 <img class="iconoUsuario" src="../recursos/img/imgPerfil/<?php echo $ruta_imagen_admin; ?>" alt="iconoUsuario">
             </div>
             <div class="contenedorNombreUsuario">
-                <p class="nombreUsuario"><?php echo "@" . $_SESSION['usuario']; ?></p>
+                <p class="nombreUsuario"><?php echo "@" . $_SESSION['identificacion']; ?></p>
             </div>
         </div>
         <div class="contenedorIconos">
@@ -136,7 +135,7 @@ $totalPages = ceil($totalUsers / $limit);
     </nav>
     <main class="contenedorPrincipal">
         <aside class="barraLateral">
-            <p class="barraLateralTitulo">@<?php echo htmlspecialchars($fila2['usuario']); ?></p>
+            <p class="barraLateralTitulo">@<?php echo htmlspecialchars($fila2['identificacion']); ?></p>
             <div class="contenedorImagenUsuario">
                 <img class="imagenUsuario" src="../recursos/img/imgPerfil/<?php echo $ruta_imagen_user; ?>" alt="Imagen Usuario">
             </div>
@@ -147,9 +146,9 @@ $totalPages = ceil($totalUsers / $limit);
                     <label class="lbl-item" for="lblIdentificacion">Identificación</label>
                     <input class="input-item" type="number" name="inputIdentificacion" id="inputIdentificacion" value="<?php echo htmlspecialchars($fila2['identificacion']); ?>" readonly>
                     <label class="lbl-item" for="lblNombre">Nombre</label>
-                    <input class="input-item" type="text" name="inputNombre" id="inputNombre" value="<?php echo htmlspecialchars($fila2['nombre']); ?>" readonly>
+                    <input class="input-item" type="text" name="inputNombre" id="inputNombre" value="<?php echo htmlspecialchars($fila2['nombre_completo']); ?>" readonly>
                     <label class="lbl-item" for="lblApellido">Apellido</label>
-                    <input class="input-item" type="text" name="inputApellido" id="inputApellido" value="<?php echo htmlspecialchars($fila2['apellido']); ?>" readonly>
+                    <input class="input-item" type="text" name="inputApellido" id="inputApellido" value="<?php echo htmlspecialchars($fila2['apellido_completo']); ?>" readonly>
                     <label class="lbl-item" for="lblCorreo">Correo</label>
                     <input class="input-item" type="text" name="inputCorreo" id="inputCorreo" value="<?php echo htmlspecialchars($fila2['correo']); ?>" readonly>
                     <label class="lbl-item" for="lblCelular">Celular</label>
@@ -175,7 +174,7 @@ $totalPages = ceil($totalUsers / $limit);
                         <?php
                         while ($fila = $resultadoTabla->fetch_assoc()) {
                             echo "<tr>";
-                            echo "<td>" .'@'.$fila['usuario']."</td>";
+                            echo "<td>" .'@'.$fila['identificacion']."</td>";
                             echo "<td>" . $fila['nivel'] . "</td>";
                             echo "<td>" . ($fila['completado'] ? 'Completado' : 'No Completado') . "</td>";
                             echo "<td>" . $fila['inicio'] . "</td>";
