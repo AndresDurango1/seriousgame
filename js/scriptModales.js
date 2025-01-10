@@ -57,10 +57,16 @@ if(cerrarModalR){
         contenedorRegistro.style.display = "none";
     })
 }
-// Cerrar el modal si se hace clic fuera de él
+// Cerrar el modal de inicio de sesion si se hace clic fuera de él
 document.addEventListener('click', function (event) {
     if (!contenedorInicioSesion.contains(event.target) && event.target !== btnInicioSesion) {
         contenedorInicioSesion.style.display = "none";
+    }
+});
+// Cerrar el modal de contenedor de registro si se hace clic fuera de él
+document.addEventListener('click', function (event) {
+    if (!contenedorRegistro.contains(event.target) && event.target !== btnResgistro) {
+        contenedorRegistro.style.display = "none";
     }
 });
 //Funcion para volver al index desde el formulario de recuperar contraseña

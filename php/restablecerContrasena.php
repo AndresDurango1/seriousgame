@@ -6,7 +6,7 @@
         $token = $_POST['token'];
         $nuevaContrasena = $_POST['inputNuevaContrasena'];
     
-        $stmt = $conexion->prepare("SELECT usuario FROM usuarios WHERE token = ? AND token_expira > NOW()");
+        $stmt = $conexion->prepare("SELECT identificacion FROM usuarios WHERE token = ? AND token_expira > NOW()");
         $stmt->bind_param("s", $token);
         $stmt->execute();
         $resultado = $stmt->get_result();

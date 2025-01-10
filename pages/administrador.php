@@ -83,6 +83,9 @@ $totalPages = ceil($totalUsers / $limit);
                 <i class="fab fa-wpforms" id="iconoFormularioCaracterizacion" style="color:#000000"></i>
                 <i class="fa-solid fa-turn-down fa-rotate-90"></i>
             </button> -->
+            <button class="btnRedireccion" onclick="window.location.href='../pages/administrarUsuarios.php'">
+                Administrar Usuarios
+            </button> 
             <button class="btnRedireccion" onclick="window.location.href='../pages/estadisticas.php'">
                 Ver Estadísticas
                 <i class="fas fa-signal" id="iconoEstadisticas" style="color: #000000;"></i>
