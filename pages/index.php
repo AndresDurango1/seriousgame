@@ -48,7 +48,7 @@
                     <i class="fas fa-sign-in-alt" id="inicioSesion" style="color: #ffffff; font-size: 0px;"></i>
                 </button>
                 <button class="btnRegistrar" id="btnRegistrar">
-                    Registrarse
+                    Confirmar Registro
                     <i class="fas fa-user-plus" id="registrar" style="color: #ffffff; font-size: 0px;"></i>
                 </button>
             </div>
@@ -63,21 +63,32 @@
         <!-- MODAL FORMULARIO INICIO DE SESION -->
         <div class="contenedorFormularioInicioSesion" id="contenedorFormularioInicioSesion">
             <div class="contenedorIconoCerrarIS">
-                <i class="far fa-window-close" id="iconoCerrarIP" style="color: #ffffff;" ></i>
+                <i class="far fa-window-close" id="iconoCerrarIS" style="color: #ffffff;" ></i>
             </div>
             <h1 class="tituloFormularioInicioSesion">Inicio de Sesión</h1>
             <form action="../php/login.php" method="POST" class="fomularioInicioSesion">
-                <label for="inputUsuario">Usuario</label>
-                <input type="text" name="inputUsuario" id="inputUsuario" required>
+                <label for="inputIdentificacionIS">Identificación</label>
+                <input type="text" name="inputIdentificacionIS" id="inputIdentificacionIS" required>
                 <label for="inputContrasena">Contraseña</label>
                 <input type="password" name="inputContrasena" id="inputContrasena" required>
                 <button class="btn" type="submit" href="administrador.php">Iniciar sesión</button>
             </form>
-            
             <p>
                 <a style="color: #ffffff;" href="formularioRecuperarContrasena.php">¿Olvidaste tu contraseña?</a>
             </p>
         </div>
+        <!-- MODAL FORMULARIO REGISTRO -->
+         <div class="contenedorFormularioRegistro" id="contenedorFormularioRegistro">
+            <div class="contenedorIconoCerrarIR">
+                <i class="far fa-window-close" id="iconoCerrarR" style="color: #ffffff;" ></i>
+            </div>
+            <h1 class="tituloFormularioRegistro">Validación de Cuenta</h1>
+            <form action="../php/validarUsuario.php" method="POST" class="fomularioRegistro">
+                <label for="inputIdentificacionR">Por favor ingresa tu número de identificación</label>
+                <input type="text" name="inputIdentificacionR" id="inputIdentificacionR" required>
+                <button class="btn" type="submit" href="administrador.php">Validar usuario</button>
+            </form>
+         </div>
         <div class="contenedorSecciones" id="contenedorSecciones">
             <section id="acerca-de-nosotros" class="info-section">
                 <h1 class="titulo">Acerca de Nosotros</h1>

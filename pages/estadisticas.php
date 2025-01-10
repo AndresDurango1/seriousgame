@@ -8,7 +8,7 @@ include_once '../php/conexion.php';
 $conexion = conectar();
 $id_usuario = $_SESSION['id_usuario'];
 //consulta a la base de datos para traer la informacion del usuario
-$stmt1 = $conexion->prepare("SELECT identificacion, nombre, apellido, correo, contrasena, id_imagen FROM usuarios WHERE id_usuario = ?");
+$stmt1 = $conexion->prepare("SELECT identificacion, CONCAT(primer_nombre,' ',segundo_nombre) AS nombre_completo, CONCAT(primer_apellido,' ',segundo_apellido) AS apellido_completo, correo, contrasena, id_imagen FROM usuarios WHERE id_usuario = ?");
 $stmt1->bind_param("i", $id_usuario);
 $stmt1->execute();
 $resultado1 = $stmt1->get_result();
@@ -54,10 +54,10 @@ if ($resultadoImagen->num_rows > 0) {
                 Inicio
                 <i class="fas fa-home"id="iconoHome" style="color: #000000; "></i>
             </button>
-            <button class="btnRedireccion" onclick="window.location.href='../pages/formularioCaracterizacion.php'">
+            <!-- <button class="btnRedireccion" onclick="window.location.href='../pages/formularioCaracterizacion.php'">
                 Formulario Caracterización
                 <i class="fab fa-wpforms" id="iconoFormularioCaracterizacion" style="color: #000000; "></i>
-            </button>
+            </button> -->
             <button class="btnRedireccion" onclick="window.location.href='../pages/administrador.php'">
                 Volver
                 <i class="fa-solid fa-left-long" style="color: #000000;"></i>
@@ -71,7 +71,7 @@ if ($resultadoImagen->num_rows > 0) {
                 <img class="iconoUsuario" src="../recursos/img/imgPerfil/<?php echo $ruta_imagen; ?>" alt="iconoUsuario">
             </div>
             <div class="contenedorNombreUsuario">
-                <p class="nombreUsuario"><?php echo "@" . $_SESSION['usuario']; ?></p>
+                <p class="nombreUsuario"><?php echo "@" . $_SESSION['identificacion']; ?></p>
             </div>
         </div>
         <div class="contenedorIconos">
@@ -96,7 +96,6 @@ if ($resultadoImagen->num_rows > 0) {
                 </p>
             </div>
         </section>
-        <button id="generatePDFButton">Generar PDF Global</button>
         <section class="seccionRendimientoJuego">
             <p class="infoSeccion" >En esta sección, presentamos:</p>
             <div class="contenedorLista">
@@ -106,6 +105,12 @@ if ($resultadoImagen->num_rows > 0) {
                     <li>Top-10 Puntaje Promedio: Un ranking con los 10 promedios de puntaje por nivel mas alto.</li>
                     <li>Top-10 Tiempo: Un ranking de los 10 tiempos más rápidos logrados en distintos niveles del juego.</li>
                 </ul>
+            </div>
+            <div class="contenedorBotonPDF">
+                <button class="generatePDFButton" id="generatePDFButton">
+                    Generar PDF Global
+                    <i class="far fa-file-pdf"></i>
+                </button>
             </div>
             <div class="contenedorGraficosRendimiento">
                 <div class="contenedorGrafico">

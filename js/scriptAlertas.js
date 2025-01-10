@@ -1,4 +1,42 @@
 const params = new URLSearchParams(window.location.search);
+//Alertas index.php//formularioRegistroNuevaContrasena usuario no encontrado en la base de datos
+if(params.has('usuario-registrado') || params.has('usuario-no-registrado')){
+    let title, text, icon, confirmButtonText;
+    switch (true) {
+        case params.has('usuario-registrado'):
+            title = '!Atención!';
+            text = 'Por favor selecciona una foto de perfil y asigna una contraseña';
+            icon ='warning';
+            confirmButtonText = 'Aceptar';
+            break;
+        case params.has('usuario-no-registrado'):
+            title = '!Error!';
+            text = 'El número de identificación ingresado no se encuentra registrado en el sistema';
+            icon ='error';
+            confirmButtonText = 'Aceptar';
+            break;
+    }
+    mostrarAlertasRegistro(title, text, icon, confirmButtonText);
+}
+//Alertas formularioRegistroUsuario
+if (params.has('usuario-guardado') || params.has('usuario-no-guardado')) {
+    let title, text, icon, confirmButtonText;
+    switch (true) {
+        case params.has('usuario-guardado'):
+            title = '!Éxito!';
+            text = 'El usuario ha sido guardado exitosamente';
+            icon = 'success';
+            confirmButtonText = 'Aceptar';
+            break;
+        case params.has('usuario-no-guardado'):
+            title = '!Error!';
+            text = 'El usuario no pudo ser guardado';
+            icon = 'error';
+            confirmButtonText = 'Aceptar';
+            break;
+    }
+    mostrarAlertasRegistro(title, text, icon, confirmButtonText);
+}
 //Alertas index.php contraseña o usuario incorrecto en el login
 if(params.has('contrasena-incorrecta') || params.has('usuario-no-encontrado')){
     let title, text, icon, confirmButtonText;
@@ -37,6 +75,19 @@ if(params.has('status-success') || params.has('status-error')){
     }
     mostrarAlertaRecuperarContrasena(title, text, icon, confirmButtonText);
 }
+//Alerta de perfil completado 
+if(params.has('perfil-completado')){
+    let title, text, icon, confirmButtonText;
+    switch (true) {
+        case params.has('perfil-completado'):
+            title = 'Éxito!';
+            text = 'Perfil completado correctamente, ya puedes iniciar sesión con tus credenciales.';
+            icon ='success';
+            confirmButtonText = 'Aceptar';
+            break;
+    }
+    mostrarAlertaPerfilCompletado(title, text, icon, confirmButtonText);
+};
 //Alertas para la pagina de Usuario: Alerta diligenciamiento formulario de caracterizacion por primera vez
 if(params.has('caracterizacion')){
     let title, text, icon, confirmButtonText, cancelButtonText;
@@ -118,12 +169,17 @@ if (params.has('fc-error') && params.get('fc-error') === 'true' && params.has('e
     });
 };
 //DEFINICION DE FUNCIONES PARA ALERTAS
+//Función para alertas de Registro
+function mostrarAlertasRegistro(title, text, icon, confirmButtonText){
+    Swal.fire({
+        title: title,
+        text: text,
+        icon: icon,
+        confirmButtonText: confirmButtonText
+    })
+}
 //Función para alertas de Login
 function mostrarAlertasLogin(title, text, icon, confirmButtonText){
-    console.log(title);
-    console.log(text);
-    console.log(confirmButtonText);
-    console.log(icon);
     Swal.fire({
         title: title,
         text: text,
@@ -137,10 +193,6 @@ function mostrarAlertasLogin(title, text, icon, confirmButtonText){
 }
 //Función para alertas de actualizacion de perfil
 function mostrarAlertasUsuario(title, text, icon, confirmButtonText) {
-    /*console.log('Title:', title);
-    console.log('Text:', text);
-    console.log('Icon:', icon);
-    console.log('ConfirmButtonText:', confirmButtonText);*/
     Swal.fire({
         title: title,
         text: text,
@@ -149,6 +201,19 @@ function mostrarAlertasUsuario(title, text, icon, confirmButtonText) {
     }).then((result) => {
         if (result.isConfirmed) {
             window.history.replaceState(null, '', 'usuario.php');
+        }
+    });
+};
+//Funcion para alerta perfil completado
+function mostrarAlertaPerfilCompletado(title, text, icon, confirmButtonText) {
+    Swal.fire({
+        title: title,
+        text: text,
+        icon: icon,
+        confirmButtonText: confirmButtonText,
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = '../pages/index.php';
         }
     });
 };

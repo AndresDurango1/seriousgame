@@ -149,10 +149,10 @@ body .contenedorPrincipal {
     height: 90%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     overflow-y: scroll;
     overflow-x: hidden;
 }
-
 body .contenedorPrincipal .descripcionPagina {
     width: 100vw;
     height: 10vh;
@@ -161,7 +161,6 @@ body .contenedorPrincipal .descripcionPagina {
     justify-content: center;
     align-items: center;
 }
-
 body .contenedorPrincipal .descripcionPagina .contenedorInfoSeccion {
     width: 100%;
     height: 100%;
@@ -171,7 +170,6 @@ body .contenedorPrincipal .descripcionPagina .contenedorInfoSeccion {
     justify-content: center;
     align-items: center;
 }
-
 body .contenedorPrincipal .descripcionPagina .contenedorInfoSeccion .infoSeccion {
     width: 100%;
     height: 100%;
@@ -179,11 +177,10 @@ body .contenedorPrincipal .descripcionPagina .contenedorInfoSeccion .infoSeccion
     justify-content: center;
     align-items: center;
     font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
-    font-size: 18px;
+    font-size: 20px;
     text-align: justify;
     color: #ffffff;
 }
-
 body .contenedorPrincipal .seccionRendimientoJuego,
 body .contenedorPrincipal .seccionInformacionDemografica {
     width: 100vw;
@@ -193,7 +190,6 @@ body .contenedorPrincipal .seccionInformacionDemografica {
     justify-content: space-around;
     align-items: center;
 }
-
 /* ESTILOS SECCION RENDIMIENTO */
 /* ESTILOS SECCION INFORMACION DEMOGRAFICA */
 body .contenedorPrincipal .seccionRendimientoJuego .infoSeccion,
@@ -214,12 +210,11 @@ body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista {
     width: 100vw;
     height: 15vh;
     display: flex;
-    padding: 20px;
+    padding-left: 25px;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
-
 body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista .listaRendimientoJuego,
 body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .listaInformacionDemografica {
     width: 100%;
@@ -230,7 +225,7 @@ body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .lista
     align-items: flex-start;
     list-style-type: circle;
     color: white;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista .listaRendimientoJuego li,
@@ -238,11 +233,25 @@ body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .lista
     margin-bottom: 5px;
     line-height: 1.5;
 }
-
+body .contenedorPrincipal .contenedorBotonPDF {
+    width: 10%;
+    height: 2.5vh;
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body .contenedorPrincipal .contenedorBotonPDF .generatePDFButton {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
 body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento,
 body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica {
     width: 100vw;
-    height: 100vh;
+    height: 77.5vh;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -267,9 +276,7 @@ body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInfo
     align-items: center;
     border: solid 1px #000;
 }
-
-
-     
+   
 @media (min-width: 320px) and (max-width: 544px) {
     body .barraNavegacion .contenedorBotonesRedireccion {
         width: 25%;
@@ -343,6 +350,9 @@ body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInfo
     body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista .listaRendimientoJuego,
     body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .listaInformacionDemografica {
         font-size: 12px;
+    }
+    body .contenedorPrincipal .contenedorBotonPDF {
+        display: none;
     }
     body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento,
     body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica {
@@ -439,6 +449,9 @@ body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInfo
     body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .listaInformacionDemografica {
         font-size: 18px;
     }
+    body .contenedorPrincipal .contenedorBotonPDF {
+        display: none;
+    }
     body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento,
     body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica {
         width: 100%;
@@ -533,6 +546,9 @@ body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInfo
     body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista .listaRendimientoJuego,
     body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .listaInformacionDemografica {
         font-size: 20px;
+    }
+    body .contenedorPrincipal .contenedorBotonPDF {
+        display: none;
     }
     body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento,
     body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica {
@@ -630,6 +646,9 @@ body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInfo
     body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .listaInformacionDemografica {
         font-size: 25px;
     }
+    body .contenedorPrincipal .contenedorBotonPDF {
+        display: none;
+    }
     body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento,
     body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica {
         width: 100%;
@@ -725,6 +744,9 @@ body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInfo
     body .contenedorPrincipal .seccionRendimientoJuego .contenedorLista .listaRendimientoJuego,
     body .contenedorPrincipal .seccionInformacionDemografica .contenedorLista .listaInformacionDemografica {
         font-size: 30px;
+    }
+    body .contenedorPrincipal .contenedorBotonPDF {
+        display: none;
     }
     body .contenedorPrincipal .seccionRendimientoJuego .contenedorGraficosRendimiento,
     body .contenedorPrincipal .seccionInformacionDemografica .contenedorGraficosInformacionDemografica {

@@ -1,4 +1,5 @@
 @import url('../css/estilosFormularioInicioSesion.css');
+@import url('../css/estilosValidarUsuario.css');
 @font-face {
     font-family: 'IMFellDWPica';
     src: url('../recursos/tipografias/Letra_im_fell_dw_pica/IMFellDWPica-Regular.ttf');

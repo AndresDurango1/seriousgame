@@ -37,6 +37,9 @@ body .barraNavegacion .contenedorBotonesRedireccion {
     justify-content: space-around;
     align-items: center;
 }
+body .barraNavegacion .contenedorBotonesRedireccion #btnMenuHamburguesa{
+    display: none;
+}
 body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
     width: 30%;
     height: 60%;
@@ -55,6 +58,7 @@ body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
 body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion  i {
     font-size: 0px;
 }
+
 body .barraNavegacion .contenedorTitulo {
     width: 40%;
     height: 100%;
@@ -131,9 +135,6 @@ body .contenedorPrincipal .barraLateral {
     align-items: center;
     font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
     color: white;
-}
-.contenedorIconoMenuHamburguesa {
-    display: none;
 }
 body .contenedorPrincipal .barraLateral .barraLateralTitulo {
     width: 100%;
@@ -302,10 +303,13 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorFormularioCara
         font-size: 0px;
         width: 30%;
     }
+    body .barraNavegacion .contenedorBotonesRedireccion #btnMenuHamburguesa {
+        display: flex;
+    }
     body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion i{
         font-size: 20px;
     }
-    
+
     body .barraNavegacion .contenedorTitulo {
         width: 30%;
     }
@@ -337,11 +341,6 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorFormularioCara
     body .contenedorPrincipal {
         flex-direction: column;
     }
-    body .contenedorPrincipal .contenedorIconoMenuHamburguesa {
-        display: block;
-        width: 100%;
-        height: 5%;
-    }
     body .contenedorPrincipal .contenedorPrincipal-content {
         width: 100%;
         height: 95%;
@@ -353,19 +352,19 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorFormularioCara
     /* SECCION CONTENEDOR FORMULARIO DE CARACTERIZACIÓN */
     body .contenedorPrincipal .contenedorPrincipal-content h1 {
         width: 100%;
-        height: 5%;
+        height: 10%;
         margin-top: 0%;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 18px;
+        font-size: 20px;
         text-align: center;
         font-weight: bold;
         text-align: center;
     }
     body .contenedorPrincipal .contenedorPrincipal-content .contenedorFormularioCaracterizacion {
         width: 100%;
-        height: 95%;
+        height: 90%;
         display: flex;
         flex-direction: column;
         justify-content: space-around;

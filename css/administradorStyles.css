@@ -52,6 +52,9 @@ body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
     color: #000000;
     text-align: center;
 }
+body .barraNavegacion .contenedorBotonesRedireccion #btnMenuHamburguesa{
+    display: none;
+}
 body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion i {
     font-size: 0px;
 }
@@ -359,26 +362,29 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
 /* DISEÑO WEB RESPONSIVE */
 @media(min-width:320px) and (max-width:544px) {
     body .barraNavegacion .contenedorBotonesRedireccion {
-        width: 30%;
+        width: 35%;
     }
     body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
         font-size: 0px;
         width: 25%;
     }
+    body .barraNavegacion .contenedorBotonesRedireccion #btnMenuHamburguesa {
+        display: flex;
+    }
     body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion i{
         font-size: 20px;
     }
     body .barraNavegacion .contenedorTitulo {
-        width: 30%;
+        width: 35%;
     }
     body .barraNavegacion .contenedorTitulo .titulo {
-        font-size: 15px;
+        font-size: 18px;
     }
     body .barraNavegacion .contenedorInfoUsuario {
-        width: 30%;
+        width: 20%;
     }
     body .barraNavegacion .contenedorInfoUsuario .contenedorIconoUsuario {
-        width: 40%;
+        width: 100%;
     }
     body .barraNavegacion .contenedorInfoUsuario .contenedorNombreUsuario {
         display: none;

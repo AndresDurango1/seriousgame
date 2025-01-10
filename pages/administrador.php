@@ -8,7 +8,7 @@ include_once '../php/conexion.php';
 $conexion = conectar();
 $id_usuario = $_SESSION['id_usuario'];
 //consulta a la base de datos para traer la informacion del usuario
-$stmt1 = $conexion->prepare("SELECT identificacion, nombre, apellido, correo, contrasena, id_imagen FROM usuarios WHERE id_usuario = ?");
+$stmt1 = $conexion->prepare("SELECT identificacion, CONCAT(primer_nombre,' ',segundo_nombre) AS nombre_completo, CONCAT(primer_apellido,' ',segundo_apellido) AS apellido_completo, correo, contrasena, id_imagen FROM usuarios WHERE id_usuario = ?");
 $stmt1->bind_param("i", $id_usuario);
 $stmt1->execute();
 $resultado1 = $stmt1->get_result();
@@ -35,7 +35,7 @@ $limit = 5; // Número de resultados por página
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $offset = ($page - 1) * $limit;
 // Consulta para obtener todos los niveles de todos los usuario con limit y offset 
-$stmt2 = $conexion->prepare("SELECT nu.id_usuario, u.usuario AS usuario, nu.id_nivel, n.nombre_nivel AS nivel, nu.completado, nu.inicio, nu.fin, nu.tiempo_transcurrido, 
+$stmt2 = $conexion->prepare("SELECT nu.id_usuario, u.identificacion AS usuario, nu.id_nivel, n.nombre_nivel AS nivel, nu.completado, nu.inicio, nu.fin, nu.tiempo_transcurrido, 
                             nu.puntaje FROM niveles_usuarios nu
                             JOIN 
                                 usuarios u ON nu.id_usuario = u.id_usuario
@@ -59,18 +59,15 @@ $totalPages = ceil($totalUsers / $limit);
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuario</title>
+    <title>Administrador</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
     <!-- <link rel="stylesheet" href="../css/usuarioStyles.css"> -->
-
     <link rel="stylesheet" href="../css/styleresponsive.css">
-
     <link rel="stylesheet" href="../css/administradorStyles.css">
 </head>
 
@@ -81,14 +78,17 @@ $totalPages = ceil($totalUsers / $limit);
                 Inicio
                 <i class="fas fa-home" id="iconoHome" style="color: #000000;"></i>
             </button>
-            <button class="btnRedireccion" onclick="window.location.href='../pages/formularioCaracterizacion.php'">
+            <!-- <button class="btnRedireccion" onclick="window.location.href='../pages/formularioCaracterizacion.php'">
                 Formulario Caracterización
                 <i class="fab fa-wpforms" id="iconoFormularioCaracterizacion" style="color:#000000"></i>
                 <i class="fa-solid fa-turn-down fa-rotate-90"></i>
-            </button>
+            </button> -->
             <button class="btnRedireccion" onclick="window.location.href='../pages/estadisticas.php'">
                 Ver Estadísticas
                 <i class="fas fa-signal" id="iconoEstadisticas" style="color: #000000;"></i>
+            </button>
+            <button class="btnRedireccion btnMenuHamburguesa" id="btnMenuHamburguesa">
+                <i class="fas fa-bars" id="iconoMenuHamburguesa"></i>
             </button>
         </div>
         <div class="contenedorTitulo">
@@ -100,7 +100,7 @@ $totalPages = ceil($totalUsers / $limit);
                 <img class="iconoUsuario" src="../recursos/img/imgPerfil/<?php echo $ruta_imagen; ?>" alt="iconoUsuario">
             </div>
             <div class="contenedorNombreUsuario">
-                <p class="nombreUsuario"><?php echo "@" . $_SESSION['usuario']; ?></p>
+                <p class="nombreUsuario"><?php echo "@" . $_SESSION['identificacion']; ?></p>
             </div>
         </div>
 
@@ -118,11 +118,6 @@ $totalPages = ceil($totalUsers / $limit);
         </div>
     </nav>
     <div class="contenedorPrincipal">
-        <div class="contenedorIconoMenuHamburguesa">
-            <button class="btnMenuHamburguesa" id="btnMenuHamburguesa">
-                <i class="fas fa-bars" id="iconoMenuHamburguesa"></i>
-            </button>
-        </div>
         <aside class="barraLateral" id="barraLateral">
             <p class="barraLateralTitulo">Actualizar mi perfil</p>
             <div class="contenedorImagenUsuario">
@@ -136,9 +131,9 @@ $totalPages = ceil($totalUsers / $limit);
                     <label class="lbl-item" for="lblIdentificacion">Identificación</label>
                     <input class="input-item" type="number" name="inputIdentificacion" id="inputIdentificacion" value="<?php echo htmlspecialchars($fila['identificacion']); ?>" readonly>
                     <label class="lbl-item" for="lblNombre">Nombre</label>
-                    <input class="input-item" type="text" name="inputNombre" id="inputNombre" value="<?php echo htmlspecialchars($fila['nombre']); ?>">
+                    <input class="input-item" type="text" name="inputNombre" id="inputNombre" value="<?php echo htmlspecialchars($fila['nombre_completo']); ?>">
                     <label class="lbl-item" for="lblApellido">Apellido</label>
-                    <input class="input-item" type="text" name="inputApellido" id="inputApellido" value="<?php echo htmlspecialchars($fila['apellido']); ?>">
+                    <input class="input-item" type="text" name="inputApellido" id="inputApellido" value="<?php echo htmlspecialchars($fila['apellido_completo']); ?>">
                     <label class="lbl-item" for="lblCorreo">Correo</label>
                     <input class="input-item" type="text" name="inputCorreo" id="inputCorreo" value="<?php echo htmlspecialchars($fila['correo']); ?>">
                     <label class="lbl-item" for="lblContrasena">Contraseña</label>
@@ -152,7 +147,7 @@ $totalPages = ceil($totalUsers / $limit);
         <div class="contenedorPrincipal-content" id="contenedorPrincipal-content">
             <?php
             // Consulta a la base de datos para obtener los tres mejores puntajes
-            $query = "SELECT i.ruta_imagen, u.usuario, SUM(nu.puntaje) AS puntaje_total FROM usuarios u
+            $query = "SELECT i.ruta_imagen, u.identificacion, SUM(nu.puntaje) AS puntaje_total FROM usuarios u
                       JOIN 
                         niveles_usuarios nu ON u.id_usuario = nu.id_usuario
                       JOIN 
@@ -169,7 +164,7 @@ $totalPages = ceil($totalUsers / $limit);
             $i = 0;
             while ($fila = $result->fetch_assoc()) {
                 $ruta_imagen = $fila['ruta_imagen'];
-                $usuario = $fila['usuario'];
+                $identificacion = $fila['identificacion'];
                 $puntaje = $fila['puntaje_total'];
                 $lugar = $lugares[$i];
                 $posicion = $posiciones[$i];
@@ -179,7 +174,7 @@ $totalPages = ceil($totalUsers / $limit);
                                             <img src='../recursos/img/imgPerfil/$ruta_imagen' alt='Jugador $posicion'>
                                         </div>
                                         <div class='ranking-text'>
-                                            <p>@$usuario</p>
+                                            <p>$identificacion</p>
                                             <p>$posicion</p>
                                             <p>$puntaje Puntos</p>
                                         </div>

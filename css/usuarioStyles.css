@@ -18,7 +18,7 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    background-color: #2d2b29;
+    background-color: #023E73;
 }
 /*SECCION DE LA BARRA DE NAVEGACION*/
 body .barraNavegacion {
@@ -37,6 +37,9 @@ body .barraNavegacion .contenedorBotonesRedireccion {
     justify-content: space-around;
     align-items: center;
 }
+body .barraNavegacion .contenedorBotonesRedireccion #btnMenuHamburguesa{
+    display: none;
+}
 body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
     width: 30%;
     height: 60%;
@@ -51,6 +54,10 @@ body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
     font-size: 16px;
     color: #000000;
     text-align: center;
+}
+
+body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion i {
+    font-size: 0px;
 }
 body .barraNavegacion .contenedorTitulo {
     width: 40%;
@@ -361,6 +368,9 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
     body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion {
         font-size: 0px;
         width: 25%;
+    }
+    body .barraNavegacion .contenedorBotonesRedireccion #btnMenuHamburguesa {
+        display: flex;
     }
     body .barraNavegacion .contenedorBotonesRedireccion .btnRedireccion i{
         font-size: 20px;

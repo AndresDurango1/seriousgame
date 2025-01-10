@@ -7,15 +7,15 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
     })
     .then(data => {
         //Obtencion de los datos para la grafica 1: Grafica de barras para los Jugadores con los 10 mejores puntajes acumulados
-        const topLabels = data.topScores.usuarios;
+        const topLabels = data.topScores.identificacion;
         const topData = data.topScores.puntajes.map(puntaje => Number(puntaje));
         const topLeyend = data.topScores.nombres_completos;
         //Obtencion de los datos para la grafica 2: Grafica de barras para los Jugadores con los 10 peores puntajes acumulados
-        const bottomLabels = data.bottomScores.usuarios;
+        const bottomLabels = data.bottomScores.identificacion;
         const bottomData = data.bottomScores.puntajes.map(puntaje => Number(puntaje));
         const bottomLeyend = data.bottomScores.nombres_completos;
         //Obtencion de los datos para la grafica 3: Grafica de pastel para los promedios de los puntajes
-        const promediosLabels = data.averageScores.usuarios;
+        const promediosLabels = data.averageScores.identificacion;
         const promediosLeyend = data.averageScores.niveles
         const promediosData = data.averageScores.puntajes.map(puntaje => Number(puntaje));
         //Obtencion de los datos para la grafica 4: Grafica de barras para los mejores tiempos por nivel
@@ -24,7 +24,7 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
             const parts = time.split(':');
             return (+parts[0] * 3600) + (+parts[1] * 60) + (+parts[2]);
         }
-        const bestTimesLabels = data.bestTimes.usuarios;
+        const bestTimesLabels = data.bestTimes.identificacion;
         const bestTimesLeyend = data.bestTimes.niveles
         const bestTimesData = data.bestTimes.tiempo_transcurrido.map(timeToSeconds);
         function secondsToMinutesSeconds(seconds) {
@@ -32,6 +32,7 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
             const secs = seconds % 60;
             return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
         }
+        /*
         //Obtencion de los datos para la grafica 5: Grafica de pastel para la distribucion de los generos
         const generosLabels = data.generos.generos;
         const generosData = data.generos.cantidad.map(cantidad => Number(cantidad));
@@ -46,7 +47,7 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
         console.log(ciudadesLabels);
         const ciudadesData = data.ciudades.usuarios.map(usuarios => Number(usuarios));
         console.log(ciudadesData);
-
+        */
         //Configuracion global de los estilos de los graficos
         Chart.defaults.font.family = 'IMFellDWPica';
         Chart.defaults.font.size = 14;
@@ -57,6 +58,7 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
             weight: 'bold'
         };
         Chart.defaults.maintainAspectRatio = false;
+        
         // Plugin para establecer un fondo blanco global
         Chart.register({
             id: 'whiteBackground',
@@ -324,6 +326,7 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
                 }
             }
         });
+        /*
         //Creacion del 5to Gráfico
         new Chart(ctx5, {
             type: 'pie',
@@ -520,5 +523,5 @@ fetch('../php/obtenerInformacionGraficosEstadisticas.php')
                     }
                 }
             }
-        });
+        });*/
     }).catch(error => console.error('Error:', error));

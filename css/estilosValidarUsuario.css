@@ -1,0 +1,132 @@
+@font-face {
+    font-family: 'IMFellDWPica';
+    src: url('../recursos/tipografias/Letra_im_fell_dw_pica/IMFellDWPica-Regular.ttf');
+  }
+  @font-face {
+    font-family: 'CronosPro';
+    src: url('../recursos/tipografias/LetraTigo/tigo.ttf');
+  }
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'IMFellDWPica', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+}
+body .contenedorPrincipal .contenedorFormularioRegistro{
+    width: 40%;
+    height: 40%;
+    margin: auto;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    background-color:#24223b96 ;
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+}
+body .contenedorPrincipal .contenedorFormularioRegistro .fomularioRegistro{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+body .contenedorPrincipal .contenedorFormularioRegistro .fomularioRegistro .btn{
+    width: 150px;
+    height: 40px;
+    margin: 10px;
+    padding: 4px;
+    background-color: #a56b15;
+    border-radius: 15px;
+
+}
+body .contenedorPrincipal .contenedorFormularioRegistro .far{
+    color: #ffffff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+    
+}
+body .contenedorPrincipal .contenedorFormularioRegistro  .tituloFormularioRegistro{
+    color: #a56b15;
+    margin-top: 1%;
+}
+@media (min-width: 320px) and (max-width: 544px) {
+    body .contenedorPrincipal .contenedorFormularioRegistro{
+        width: 60%;
+        height: 43%;
+        margin: auto;
+        top: 50%;
+        left: 50%;
+
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .fomularioRegistro .btn{
+        width: 150px;
+        height: 40px;
+        margin: 10px;
+        padding: 4px;
+        background-color: #a56b15;
+        border-radius: 15px;
+    
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .far{
+        color: #ffffff;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 10px;
+        cursor: pointer; 
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro  .tituloFormularioRegistro{
+        color: #a56b15;
+        margin-top: 1%;
+        font-size: 1.1rem;
+    }
+     
+}
+@media (min-width: 1024px) and (max-width: 1280px) {
+    body .contenedorPrincipal .contenedorFormularioRegistro{
+        width: 60%;
+        height: 50%;
+        margin: auto;
+        top: 50%;
+        left: 50%;
+
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .fomularioInicioSesion .btn{
+        width: 200px;
+        height: 50px;
+        margin: 10px;
+        padding: 4px;
+        background-color: #a56b15;
+        border-radius: 15px;
+        font-size: 2rem;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro .far{
+        color: #ffffff;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 10px;
+        cursor: pointer; 
+        font-size: 2rem;
+    }
+    body .contenedorPrincipal .contenedorFormularioRegistro  .tituloFormularioRegistro{
+        color: #a56b15;
+        margin-top: 1%;
+        font-size: 2rem;
+    }
+    element.style {
+        color: #ffffff;
+        font-size: 2rem;
+    }
+     
+}
