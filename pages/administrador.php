@@ -227,8 +227,26 @@ $totalPages = ceil($totalUsers / $limit);
                 </table>
                 <div class="paginacion">
                     <?php
-                    for ($i = 1; $i <= $totalPages; $i++) {
-                        echo "<a href='?page=$i'>$i</a> ";
+                    $visiblePages = 5;
+                    $startPage = max(1, $page - floor($visiblePages / 2));
+                    $endPage = min($totalPages, $startPage + $visiblePages - 1);
+                    if ($endPage - $startPage < $visiblePages - 1) {
+                        $startPage = max(1, $endPage - $visiblePages + 1);
+                    }
+                    if ($page > 1) {
+                        echo "<a href='?page=1'>&laquo; Primera Página</a>";
+                        echo "<a href='?page=" . ($page - 1) . "'><<</a>";
+                    }
+                    for ($i = $startPage; $i <= $endPage; $i++) {
+                        if ($i == $page) {
+                            echo "<span class='pagina-actual'>$i</span>";
+                        } else {
+                            echo "<a href='?page=$i'>$i</a>";
+                        }
+                    }
+                    if ($page < $totalPages) {
+                        echo "<a href='?page=" . ($page + 1) . "'>>></a>";
+                        echo "<a href='?page=$totalPages'>Última Página &raquo;</a>";
                     }
                     ?>
                 </div>
