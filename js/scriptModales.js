@@ -1,4 +1,4 @@
-//Obtener referencia a los elementos del DOM
+//Obtener referencia a los elementos del DOM del index.php
 const contenedorInicioSesion = document.getElementById('contenedorFormularioInicioSesion');
 const contenedorRegistro = document.getElementById('contenedorFormularioRegistro');
 const btnInicioSesion = document.getElementById('btnIniciarSesion');

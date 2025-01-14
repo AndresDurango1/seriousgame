@@ -31,7 +31,7 @@
         exit();
     }
     // Variables para la seccion de paginación de la tabla
-    $limit = 12; // Número de resultados por página
+    $limit = 10; // Número de resultados por página
     $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
     $offset = ($page - 1) * $limit;
     //Consulta a la base de datos para traer todos los usuarios excepto el administrador
@@ -51,7 +51,6 @@
     $totalRow = $totalResult->fetch_assoc();
     $totalUsers = $totalRow['total'];
     $totalPages = ceil($totalUsers / $limit);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,6 +58,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/administrarUsuariosStyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>Administrar Usuarios</title>
 </head>
 <body>
@@ -164,7 +164,11 @@
                             echo "<td>" . $fila['correo'] . "</td>";
                             echo "<td>";
                                 echo "<a href='actualizarUsuario.php?id_user=" . $fila['id_usuario'] . "' class='btnAccion btnActualizar'>Actualizar</a>";
-                                echo "<a href='eliminarUsuario.php?id_user=" . $fila['id_usuario'] . "' class='btnAccion btnEliminar' onclick='return confirm(\"¿Estás seguro de que deseas eliminar este usuario?\");'>Eliminar</a>";
+                                if (!empty($fila['identificacion'])) {
+                                    echo "<button class='btnAccion btnOpenModalEliminar' data-id='" . htmlspecialchars($fila['id_usuario'], ENT_QUOTES, 'UTF-8') . "'>Eliminar</button>";
+                                } else {
+                                    echo "<button class='btnAccion btnOpenModalEliminar' disabled>No disponible</button>";
+                                }                                
                                 echo "</td>";
                             echo "</tr>";
                         }
@@ -197,8 +201,19 @@
                     ?>
                 </div>
             </div>
+            <!-- MODAL ELIMINAR USUARIOS -->
+            <div class="contenedorModalEliminar" id="contenedorModalEliminar">
+                <div class="contenedorIconoCerrar">
+                    <i class="far fa-window-close" id="iconoCerrar" style="color: #ffffff;" ></i>
+                </div>
+                <h1 class="tituloModal">Eliminar Usuario</h1>
+                <p class="mensajeModal">¿Estás seguro de que deseas eliminar este usuario?</p>
+                <button class="btnCancelar" id="btnCancelar">Cancelar</button>
+                <button class="btnEliminar" id="btnEliminar">Eliminar</button>
+            </div>
         </div>
     </div>
     <script src="../js/scriptFiltrarUsuarios.js"></script>
+    <script src="../js/scriptModalesAdmonUsuarios.js"></script>
 </body>
 </html>
