@@ -59,6 +59,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/administrarUsuariosStyles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
     <title>Administrar Usuarios</title>
 </head>
 <body>
@@ -112,7 +114,7 @@
     </nav>
     <div class="contenedorPrincipal">
         <aside class="barraLateral" id="barraLateral">
-            <p class="barraLateralTitulo">Actualizar mi perfil</p>
+            <p class="barraLateralTitulo">Mi perfil</p>
             <div class="contenedorImagenUsuario">
                 <img class="imagenUsuario" src="../recursos/img/imgPerfil/<?php echo $ruta_imagen; ?>" alt="Imagen Usuario">
             </div>
@@ -163,7 +165,7 @@
                             echo "<td>" . $fila['celular'] . "</td>";
                             echo "<td>" . $fila['correo'] . "</td>";
                             echo "<td>";
-                                echo "<a href='actualizarUsuario.php?id_user=" . $fila['id_usuario'] . "' class='btnAccion btnActualizar'>Actualizar</a>";
+                                echo "<a href='../pages/actualizarUsuario.php?id_user=" . $fila['id_usuario'] . "' class='btnAccion btnActualizar'>Actualizar</a>";
                                 if (!empty($fila['identificacion'])) {
                                     echo "<button class='btnAccion btnOpenModalEliminar' data-id='" . htmlspecialchars($fila['id_usuario'], ENT_QUOTES, 'UTF-8') . "'>Eliminar</button>";
                                 } else {
@@ -215,5 +217,6 @@
     </div>
     <script src="../js/scriptFiltrarUsuarios.js"></script>
     <script src="../js/scriptModalesAdmonUsuarios.js"></script>
+    <script src="../js/scriptAlertas.js"></script>
 </body>
 </html>

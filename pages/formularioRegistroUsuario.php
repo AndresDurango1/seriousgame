@@ -131,7 +131,7 @@
                                 </option>
                             <?php } ?>
                         </select>
-                        <label class="lbl-item" for="lblCorreo">Canal</label>
+                        <label class="lbl-item" for="lblCanal">Canal</label>
                         <select class="input-item" name="inputCanal" id="inputCanal">
                             <option value="" selected>Por favor selecciona un Canal</option>
                             <?php while ($row = $resultadoCanales->fetch_assoc()) { ?>
@@ -142,7 +142,7 @@
                         </select>
                     </div>
                     <div class="contenedorPage3">
-                        <label class="lbl-item" for="lblCorreo">Cargo</label>
+                        <label class="lbl-item" for="lblCargo">Cargo</label>
                         <select class="input-item" name="inputCargo" id="inputCargo">
                             <option value="" selected>Por favor selecciona un Cargo</option>
                             <?php while ($row = $resultadoCargos->fetch_assoc()) { ?>
@@ -151,7 +151,7 @@
                                 </option>
                             <?php } ?>
                         </select>
-                        <label class="lbl-item" for="lblCorreo">Regional</label>
+                        <label class="lbl-item" for="lblRegional">Regional</label>
                         <select class="input-item" name="inputRegional" id="inputRegional">
                             <option value="" selected>Por favor selecciona una Regional</option>
                             <?php while ($row = $resultadoRegionales->fetch_assoc()) { ?>
@@ -160,7 +160,7 @@
                                 </option>
                             <?php } ?>
                         </select>
-                        <label class="lbl-item" for="lblCorreo">Ciudad</label>
+                        <label class="lbl-item" for="lblCiudad">Ciudad</label>
                         <select class="input-item" name="inputCiudad" id="inputCiudad">
                             <option value="" selected>Por favor selecciona una Ciudad</option>
                             <?php while ($row = $resultadoCiudades->fetch_assoc()) { ?>
@@ -169,9 +169,7 @@
                                 </option>
                             <?php } ?>
                         </select>
-                        <label class="lbl-item" for="lblCorreo">Fecha de Contratación</label>
-                        <input class="input-item" type="date" name="inputFechaContratacion" id="inputFechaContratacion" placeholder="Ingresa tu Correo" required>
-                        <label class="lbl-item" for="lblCorreo">Segmento</label>
+                        <label class="lbl-item" for="lblSegmento">Segmento</label>
                         <select class="input-item" name="inputSegmento" id="inputSegmento">
                             <option value="" selected>Por favor selecciona un Segmento</option>
                             <?php while ($row = $resultadoSegmentos->fetch_assoc()) { ?>

@@ -257,5 +257,4 @@ $totalPages = ceil($totalUsers / $limit);
     <script src="../js/scriptAlertas.js"></script>
     <script src="../js/scriptMenuHamburguesa.js"></script>
 </body>
-
 </html>
