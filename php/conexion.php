@@ -4,7 +4,7 @@
         $host = "localhost";
         $user = "root";
         $password = "";
-        $db = "seriousgame";
+        $db = "u275682645_seriousgame";
         $conn = mysqli_connect($host, $user, $password, $db);
 
         // Verificar la conexión
