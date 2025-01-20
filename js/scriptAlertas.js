@@ -88,20 +88,6 @@ if(params.has('perfil-completado')){
     }
     mostrarAlertaPerfilCompletado(title, text, icon, confirmButtonText);
 };
-//Alertas para la pagina de Usuario: Alerta diligenciamiento formulario de caracterizacion por primera vez
-if(params.has('caracterizacion')){
-    let title, text, icon, confirmButtonText, cancelButtonText;
-    switch (true) {
-        case params.has('caracterizacion'):
-            title = '!Atención!';
-            text = 'Por favor completa la información de caracterización demográfica.';
-            icon ='warning';
-            confirmButtonText = 'Completar ahora';
-            cancelButtonText = 'Completar mas tarde';
-            break;
-    }
-    mostrarAlertaCaracterizacion(title, text, icon, confirmButtonText, cancelButtonText);
-};
 //Alertas para la pagina de Usuario: Seccion Actualizacion de Perfil
 if (params.has('actualizado') || params.has('contrasenaIsDifferent')) {
     let title, text, icon, confirmButtonText;
@@ -122,7 +108,24 @@ if (params.has('actualizado') || params.has('contrasenaIsDifferent')) {
     }
     mostrarAlertasUsuario(title, text, icon, confirmButtonText);
 };
+//Alertas para la pagina de Usuario: Alerta diligenciamiento formulario de caracterizacion por primera vez
+/*
+if(params.has('caracterizacion')){
+    let title, text, icon, confirmButtonText, cancelButtonText;
+    switch (true) {
+        case params.has('caracterizacion'):
+            title = '!Atención!';
+            text = 'Por favor completa la información de caracterización demográfica.';
+            icon ='warning';
+            confirmButtonText = 'Completar ahora';
+            cancelButtonText = 'Completar mas tarde';
+            break;
+    }
+    mostrarAlertaCaracterizacion(title, text, icon, confirmButtonText, cancelButtonText);
+};
+*/
 //Alertas para la pagina de Formulario Caracterización
+/*
 if (params.has('fc-actualizado') || params.has('fc-insertado')|| params.has('fc-no-actualizado') || params.has('fc-no-insertado')) {
     let title, text, icon, confirmButtonText;
     switch (true) {
@@ -153,7 +156,9 @@ if (params.has('fc-actualizado') || params.has('fc-insertado')|| params.has('fc-
     }
     mostrarAlertasFormularioCaracterizacion(title, text, icon, confirmButtonText);
 };
+*/
 //Alerta para otros errores del formulario de caracterizacion
+/*
 if (params.has('fc-error') && params.get('fc-error') === 'true' && params.has('errores')) {
     const errores = decodeURIComponent(params.get('errores')).split(',');
     const mensajeErrores = errores.join("\n");  
@@ -168,6 +173,57 @@ if (params.has('fc-error') && params.get('fc-error') === 'true' && params.has('e
         }
     });
 };
+*/
+//ALERTAS PARA LA PAGINA DE ADMINISTAR USUARIOS - ELIMINAR USUARIOS//
+if(params.has('id-user-error') || params.has('delete-user-success') || params.has ('delete-user-error') || params.has('missing-id-user')){
+    let title, text, icon, confirmButtonText;
+    switch (true) {
+        case params.has('id-user-error'):
+            title = '!Error!';
+            text = 'El ID del usuario a eliminar no es correcto';
+            icon = 'error';
+            confirmButtonText = 'Aceptar';
+            break;
+        case params.has('delete-user-success'):
+            title = '!Éxito!';
+            text = 'El usuario ha sido eliminado exitosamente';
+            icon = 'success';
+            confirmButtonText = 'Aceptar';
+            break;
+        case params.has('delete-user-error'):
+            title = '!Error!';
+            text = 'El usuario no pudo ser eliminado. Por favor, intenta de nuevo';
+            icon = 'error';
+            confirmButtonText = 'Aceptar';
+            break;
+        case params.has('missing-id-user'):
+            title = '!Error!';
+            text = 'Ocurrio un error inesperado. Por favor, intenta de nuevo';
+            icon = 'error';
+            confirmButtonText = 'Aceptar';
+            break;
+    }
+    mostrarAlertasAdmonUsuarios(title, text, icon, confirmButtonText);
+}
+//ALERTAS PARA LA PAGINA DE ADMINISTAR USUARIOS - ACTUALIZAR USUARIOS//
+if(params.has('usuario-actualizado') || params.has('usuario-no-actualizado')){
+    let title, text, icon, confirmButtonText;
+    switch (true) {
+        case params.has('usuario-actualizado'):
+            title = '!Éxito!';
+            text = 'El usuario ha sido actualizado exitosamente';
+            icon = 'success';
+            confirmButtonText = 'Aceptar';
+            break;
+        case params.has('usuario-no-actualizado'):
+            title = '!Error!';
+            text = 'El usuario no pudo ser actualizado. Por favor, intenta de nuevo';
+            icon = 'error';
+            confirmButtonText = 'Aceptar';
+            break;
+    }
+    mostrarAlertasAdmonUsuarios(title, text, icon, confirmButtonText);
+}
 //DEFINICION DE FUNCIONES PARA ALERTAS
 //Función para alertas de Registro
 function mostrarAlertasRegistro(title, text, icon, confirmButtonText){
@@ -260,3 +316,17 @@ function mostrarAlertaRecuperarContrasena(title, text, icon, confirmButtonText) 
         }
     });
 };
+
+//Funcion para alertas de administar usuarios
+function mostrarAlertasAdmonUsuarios(title, text, icon, confirmButtonText) {
+    Swal.fire({
+        title: title,
+        text: text,
+        icon: icon,
+        confirmButtonText: confirmButtonText,
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.history.replaceState(null, '', 'administrarUsuarios.php');
+        }
+    });
+}

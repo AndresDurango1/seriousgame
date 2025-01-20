@@ -20,7 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cargo = intval($_POST['inputCargo']);
     $regional = intval($_POST['inputRegional']);
     $ciudad = intval($_POST['inputCiudad']);
-    $fechaContratacion = $_POST['inputFechaContratacion'];
     $segmento = intval($_POST['inputSegmento']);
 
     $stmtValidacion = $conexion->prepare("SELECT id_usuario, identificacion FROM usuarios WHERE identificacion = ?");
@@ -32,8 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location:../pages/formularioRegistroUsuario.php?usuario-existente=true");
         exit();
     } else {
-        $stmtRegistro = $conexion->prepare("INSERT INTO usuarios (identificacion, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, rol, celular, correo, id_empresa, id_canal, id_cargo, id_regional, id_ciudad, fecha_contratacion, id_segmento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmtRegistro->bind_param("sssssissiiiiisi", $identificacion, $primerNombre, $segundoNombre, $primerApellido, $segundoApellido, $rol, $celular, $correo, $empresa, $canal, $cargo, $regional, $ciudad, $fechaContratacion, $segmento);
+        $stmtRegistro = $conexion->prepare("INSERT INTO usuarios (identificacion, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, rol, celular, correo, id_empresa, id_canal, id_cargo, id_regional, id_ciudad, id_segmento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmtRegistro->bind_param("sssssissiiiiii", $identificacion, $primerNombre, $segundoNombre, $primerApellido, $segundoApellido, $rol, $celular, $correo, $empresa, $canal, $cargo, $regional, $ciudad, $segmento);
 
         if ($stmtRegistro->execute()) {
             header("Location:../pages/formularioRegistroUsuario.php?usuario-guardado=true");

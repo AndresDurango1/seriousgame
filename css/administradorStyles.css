@@ -355,9 +355,25 @@ body .contenedorPrincipal .contenedorPrincipal-content .contenedorTabla .tablaCl
     text-align: center;
 }
 
-.contenedorPrincipal-content .contenedorTabla .paginacion a{
+.contenedorPrincipal-content .contenedorTabla .paginacion a, .paginacion span {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 8px 12px;
     text-decoration: none;
-    color: white;
+    background-color: #f0f0f0;
+    color: #000;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.contenedorPrincipal-content .contenedorTabla .paginacion a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+.contenedorPrincipal-content .contenedorTabla .paginacion .pagina-actual {
+    font-weight: bold;
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
 }
 /* DISEÑO WEB RESPONSIVE */
 @media(min-width:320px) and (max-width:544px) {

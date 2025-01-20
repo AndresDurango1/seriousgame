@@ -1,76 +1,68 @@
 <?php
-session_start();
-if (!isset($_SESSION['id_usuario']) || $_SESSION['rol'] != 1) {
-    header("Location: ../pages/index.php");
-    exit();
-}
-include_once '../php/conexion.php';
-$conexion = conectar();
-$id_usuario = $_SESSION['id_usuario'];
-//consulta a la base de datos para traer la informacion del usuario
-$stmt1 = $conexion->prepare("SELECT identificacion, CONCAT(primer_nombre,' ',segundo_nombre) AS nombre_completo, CONCAT(primer_apellido,' ',segundo_apellido) AS apellido_completo, correo, contrasena, id_imagen FROM usuarios WHERE id_usuario = ?");
-$stmt1->bind_param("i", $id_usuario);
-$stmt1->execute();
-$resultado1 = $stmt1->get_result();
-if ($resultado1->num_rows > 0) {
-    $fila = $resultado1->fetch_assoc();
-} else {
-    echo "No se encontró información del usuario.";
-    exit();
-}
-//Consulta a la base de datos para traer la imagen del usuario de la tabla imagenes
-$stmtImagen = $conexion->prepare("SELECT ruta_imagen FROM imagenes WHERE id_imagen = ?");
-$stmtImagen->bind_param("i", $fila['id_imagen']);
-$stmtImagen->execute();
-$resultadoImagen = $stmtImagen->get_result();
-if ($resultadoImagen->num_rows > 0) {
-    $imagen = $resultadoImagen->fetch_assoc();
-    $ruta_imagen = $imagen['ruta_imagen'];
-} else {
-    echo "No se encontró la imagen del usuario.";
-    exit();
-}
-// Variables para la seccion de paginación de la tabla
-$limit = 5; // Número de resultados por página
-$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-$offset = ($page - 1) * $limit;
-// Consulta para obtener todos los niveles de todos los usuario con limit y offset 
-$stmt2 = $conexion->prepare("SELECT nu.id_usuario, u.identificacion AS usuario, nu.id_nivel, n.nombre_nivel AS nivel, nu.completado, nu.inicio, nu.fin, nu.tiempo_transcurrido, 
-                            nu.puntaje FROM niveles_usuarios nu
-                            JOIN 
-                                usuarios u ON nu.id_usuario = u.id_usuario
-                            JOIN 
-                                niveles n ON nu.id_nivel = n.id_nivel
-                            ORDER BY nu.id_usuario ASC, nu.id_nivel ASC 
-                            LIMIT ? OFFSET ?");
-
-$stmt2->bind_param("ii", $limit, $offset);
-$stmt2->execute();
-$resultado2 = $stmt2->get_result();
-// Consulta para contar el total de registros
-$totalQuery = "SELECT COUNT(*) as total FROM niveles_usuarios";
-$totalStmt = $conexion->prepare($totalQuery);
-$totalStmt->execute();
-$totalResult = $totalStmt->get_result();
-$totalRow = $totalResult->fetch_assoc();
-$totalUsers = $totalRow['total'];
-$totalPages = ceil($totalUsers / $limit);
+    session_start();
+    if (!isset($_SESSION['id_usuario']) || $_SESSION['rol'] != 1) {
+        header("Location: ../pages/index.php");
+        exit();
+    }
+    include_once '../php/conexion.php';
+    $conexion = conectar();
+    $id_usuario = $_SESSION['id_usuario'];
+    //consulta a la base de datos para traer la informacion del usuario
+    $stmt1 = $conexion->prepare("SELECT identificacion, CONCAT(primer_nombre,' ',segundo_nombre) AS nombre_completo, CONCAT(primer_apellido,' ',segundo_apellido) AS apellido_completo, correo, contrasena, id_imagen FROM usuarios WHERE id_usuario = ?");
+    $stmt1->bind_param("i", $id_usuario);
+    $stmt1->execute();
+    $resultado1 = $stmt1->get_result();
+    if ($resultado1->num_rows > 0) {
+        $fila = $resultado1->fetch_assoc();
+    } else {
+        echo "No se encontró información del usuario.";
+        exit();
+    }
+    //Consulta a la base de datos para traer la imagen del usuario de la tabla imagenes
+    $stmtImagen = $conexion->prepare("SELECT ruta_imagen FROM imagenes WHERE id_imagen = ?");
+    $stmtImagen->bind_param("i", $fila['id_imagen']);
+    $stmtImagen->execute();
+    $resultadoImagen = $stmtImagen->get_result();
+    if ($resultadoImagen->num_rows > 0) {
+        $imagen = $resultadoImagen->fetch_assoc();
+        $ruta_imagen = $imagen['ruta_imagen'];
+    } else {
+        echo "No se encontró la imagen del usuario.";
+        exit();
+    }
+    // Variables para la seccion de paginación de la tabla
+    $limit = 10; // Número de resultados por página
+    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+    $offset = ($page - 1) * $limit;
+    //Consulta a la base de datos para traer todos los usuarios excepto el administrador
+    $stmt2 = $conexion->prepare("SELECT u.id_usuario, u.identificacion, CONCAT(u.primer_nombre,' ',u.segundo_nombre) AS nombre_completo, CONCAT(u.primer_apellido,' ',u.segundo_apellido) AS apellido_completo, CASE u.rol WHEN 0 THEN 'Colaborador' ELSE u.rol END AS rol, u.celular, LOWER(u.correo) AS correo 
+    FROM usuarios u 
+    WHERE rol!= 1
+    ORDER BY apellido_completo ASC
+    LIMIT ? OFFSET ?");
+    $stmt2->bind_param("ii", $limit, $offset);
+    $stmt2->execute();
+    $resultado2 = $stmt2->get_result();
+    // Consulta para contar el total de registros
+    $totalQuery = "SELECT COUNT(*) as total FROM usuarios WHERE rol!= 1";
+    $totalStmt = $conexion->prepare($totalQuery);
+    $totalStmt->execute();
+    $totalResult = $totalStmt->get_result();
+    $totalRow = $totalResult->fetch_assoc();
+    $totalUsers = $totalRow['total'];
+    $totalPages = ceil($totalUsers / $limit);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrador</title>
+    <link rel="stylesheet" href="../css/administrarUsuariosStyles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
-    <!-- <link rel="stylesheet" href="../css/usuarioStyles.css"> -->
-    <link rel="stylesheet" href="../css/styleresponsive.css">
-    <link rel="stylesheet" href="../css/administradorStyles.css">
+    <title>Administrar Usuarios</title>
 </head>
-
 <body>
     <nav class="barraNavegacion">
         <div class="contenedorBotonesRedireccion">
@@ -83,9 +75,9 @@ $totalPages = ceil($totalUsers / $limit);
                 <i class="fab fa-wpforms" id="iconoFormularioCaracterizacion" style="color:#000000"></i>
                 <i class="fa-solid fa-turn-down fa-rotate-90"></i>
             </button> -->
-            <button class="btnRedireccion" onclick="window.location.href='../pages/administrarUsuarios.php'">
+            <!-- <button class="btnRedireccion" onclick="window.location.href='../pages/administrarUsuarios.php'">
                 Administrar Usuarios
-            </button> 
+            </button>  -->
             <button class="btnRedireccion" onclick="window.location.href='../pages/estadisticas.php'">
                 Ver Estadísticas
                 <i class="fas fa-signal" id="iconoEstadisticas" style="color: #000000;"></i>
@@ -122,7 +114,7 @@ $totalPages = ceil($totalUsers / $limit);
     </nav>
     <div class="contenedorPrincipal">
         <aside class="barraLateral" id="barraLateral">
-            <p class="barraLateralTitulo">Actualizar mi perfil</p>
+            <p class="barraLateralTitulo">Mi perfil</p>
             <div class="contenedorImagenUsuario">
                 <img class="imagenUsuario" src="../recursos/img/imgPerfil/<?php echo $ruta_imagen; ?>" alt="Imagen Usuario">
             </div>
@@ -147,79 +139,39 @@ $totalPages = ceil($totalUsers / $limit);
                 </form>
             </div>
         </aside>
-        <div class="contenedorPrincipal-content" id="contenedorPrincipal-content">
-            <?php
-            // Consulta a la base de datos para obtener los tres mejores puntajes
-            $query = "SELECT i.ruta_imagen, u.identificacion, SUM(nu.puntaje) AS puntaje_total FROM usuarios u
-                      JOIN 
-                        niveles_usuarios nu ON u.id_usuario = nu.id_usuario
-                      JOIN 
-                        imagenes i ON u.id_imagen = i.id_imagen
-                      GROUP BY u.id_usuario
-                      ORDER BY puntaje_total DESC LIMIT 3";
-            $result = $conexion->query($query);
-            // Arrays para los estilos y posiciones
-            $lugares = ["primero", "segundo", "tercero"];
-            $posiciones = ["1st", "2nd", "3rd"];
-            // Iniciar el contenedor de ranking
-            echo '<div class="contenedorRanking">
-                    <div class="ranking">';
-            $i = 0;
-            while ($fila = $result->fetch_assoc()) {
-                $ruta_imagen = $fila['ruta_imagen'];
-                $identificacion = $fila['identificacion'];
-                $puntaje = $fila['puntaje_total'];
-                $lugar = $lugares[$i];
-                $posicion = $posiciones[$i];
-                echo "<div class='ranking-item $lugar'>
-                                    <div class='ranking-content'>
-                                        <div class='ranking-img'>
-                                            <img src='../recursos/img/imgPerfil/$ruta_imagen' alt='Jugador $posicion'>
-                                        </div>
-                                        <div class='ranking-text'>
-                                            <p>$identificacion</p>
-                                            <p>$posicion</p>
-                                            <p>$puntaje Puntos</p>
-                                        </div>
-
-                                    </div>
-                                </div>";
-                $i++;
-            }
-            echo '</div></div>';
-            ?>
+        <div class="contenedorPrincipalContent">
             <div class="contenedorTabla">
-                <div class="contenedorBotonReporte">
-                    <form action="../php/generarReporteGlobalExcel.php" method="get">
-                        <button type="submit" class="btnReporteExcel">
-                            Descargar Reporte Excel
-                            <i class="fas fa-file-excel" style="color: #28a745;"></i>
-                        </button>
-                    </form>
-                </div>
-                <table class="tablaClasificacion">
+                <input type="text" id="searchInput" placeholder="Buscar en la tabla..." onkeyup="filtrarTabla()">
+                <table class="tablaUsuarios" id="tablaUsuarios">
                     <thead>
                         <tr>
-                            <th>Usuario</th>
-                            <th>Nivel</th>
-                            <th>Estado Nivel</th>
-                            <th>Inicio</th>
-                            <th>Fin</th>
-                            <th>Tiempo transcurrido</th>
-                            <th>Puntaje</th>
+                            <th>Identificacion</th>
+                            <th>Apellidos</th>
+                            <th>Nombres</th>
+                            <th>Rol</th>
+                            <th>Celular</th>
+                            <th>Correo</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
+                    <?php
                         while ($fila = $resultado2->fetch_assoc()) {
                             echo "<tr>";
-                            echo "<td><a href='informacionUsuario.php?id_user=" . $fila['id_usuario'] . "'>@" . $fila['usuario'] . "</a></td>";
-                            echo "<td>" . $fila['nivel'] . "</td>";
-                            echo "<td>" . ($fila['completado'] ? 'Completado' : 'No Completado') . "</td>";
-                            echo "<td>" . $fila['inicio'] . "</td>";
-                            echo "<td>" . $fila['fin'] . "</td>";
-                            echo "<td>" . $fila['tiempo_transcurrido'] . "</td>";
-                            echo "<td>" . $fila['puntaje'] . "</td>";
+                            echo "<td><a href='informacionUsuario.php?id_user=" . $fila['id_usuario'] . "'>" . $fila['identificacion'] . "</a></td>";
+                            echo "<td>" . $fila['apellido_completo'] . "</td>";
+                            echo "<td>" . $fila['nombre_completo'] . "</td>";
+                            echo "<td>" . $fila['rol'] . "</td>";
+                            echo "<td>" . $fila['celular'] . "</td>";
+                            echo "<td>" . $fila['correo'] . "</td>";
+                            echo "<td>";
+                                echo "<a href='../pages/actualizarUsuario.php?id_user=" . $fila['id_usuario'] . "' class='btnAccion btnActualizar'>Actualizar</a>";
+                                if (!empty($fila['identificacion'])) {
+                                    echo "<button class='btnAccion btnOpenModalEliminar' data-id='" . htmlspecialchars($fila['id_usuario'], ENT_QUOTES, 'UTF-8') . "'>Eliminar</button>";
+                                } else {
+                                    echo "<button class='btnAccion btnOpenModalEliminar' disabled>No disponible</button>";
+                                }                                
+                                echo "</td>";
                             echo "</tr>";
                         }
                         ?>
@@ -251,10 +203,20 @@ $totalPages = ceil($totalUsers / $limit);
                     ?>
                 </div>
             </div>
+            <!-- MODAL ELIMINAR USUARIOS -->
+            <div class="contenedorModalEliminar" id="contenedorModalEliminar">
+                <div class="contenedorIconoCerrar">
+                    <i class="far fa-window-close" id="iconoCerrar" style="color: #ffffff;" ></i>
+                </div>
+                <h1 class="tituloModal">Eliminar Usuario</h1>
+                <p class="mensajeModal">¿Estás seguro de que deseas eliminar este usuario?</p>
+                <button class="btnCancelar" id="btnCancelar">Cancelar</button>
+                <button class="btnEliminar" id="btnEliminar">Eliminar</button>
+            </div>
         </div>
     </div>
-    <script src="../js/scriptAdmin.js"></script>
+    <script src="../js/scriptFiltrarUsuarios.js"></script>
+    <script src="../js/scriptModalesAdmonUsuarios.js"></script>
     <script src="../js/scriptAlertas.js"></script>
-    <script src="../js/scriptMenuHamburguesa.js"></script>
 </body>
 </html>
