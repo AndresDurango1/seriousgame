@@ -31,7 +31,7 @@
         exit();
     }
     // Variables para la seccion de paginación de la tabla
-    $limit = 10; // Número de resultados por página
+    $limit = 8; // Número de resultados por página
     $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
     $offset = ($page - 1) * $limit;
     //Consulta a la base de datos para traer todos los usuarios excepto el administrador
@@ -141,43 +141,45 @@
         </aside>
         <div class="contenedorPrincipalContent">
             <div class="contenedorTabla">
-                <input type="text" id="searchInput" placeholder="Buscar en la tabla..." onkeyup="filtrarTabla()">
-                <table class="tablaUsuarios" id="tablaUsuarios">
-                    <thead>
-                        <tr>
-                            <th>Identificacion</th>
-                            <th>Apellidos</th>
-                            <th>Nombres</th>
-                            <th>Rol</th>
-                            <th>Celular</th>
-                            <th>Correo</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-                        while ($fila = $resultado2->fetch_assoc()) {
-                            echo "<tr>";
-                            echo "<td><a href='informacionUsuario.php?id_user=" . $fila['id_usuario'] . "'>" . $fila['identificacion'] . "</a></td>";
-                            echo "<td>" . $fila['apellido_completo'] . "</td>";
-                            echo "<td>" . $fila['nombre_completo'] . "</td>";
-                            echo "<td>" . $fila['rol'] . "</td>";
-                            echo "<td>" . $fila['celular'] . "</td>";
-                            echo "<td>" . $fila['correo'] . "</td>";
-                            echo "<td>";
-                                echo "<a href='../pages/actualizarUsuario.php?id_user=" . $fila['id_usuario'] . "' class='btnAccion btnActualizar'>Actualizar</a>";
-                                if (!empty($fila['identificacion'])) {
-                                    echo "<button class='btnAccion btnOpenModalEliminar' data-id='" . htmlspecialchars($fila['id_usuario'], ENT_QUOTES, 'UTF-8') . "'>Eliminar</button>";
-                                } else {
-                                    echo "<button class='btnAccion btnOpenModalEliminar' disabled>No disponible</button>";
-                                }                                
-                                echo "</td>";
-                            echo "</tr>";
-                        }
-                        ?>
-                    </tbody>
-                </table>
-                <div class="paginacion">
+                <input class="inputBusqueda" type="text" id="searchInput" placeholder="Buscar en la tabla..." onkeyup="filtrarTabla()" oninput="recargarPaginaSiVacio()">
+                <div class="contenedorTablaUsuarios">
+                    <table class="tablaUsuarios" id="tablaUsuarios">
+                        <thead>
+                            <tr>
+                                <th>Identificacion</th>
+                                <th>Apellidos</th>
+                                <th>Nombres</th>
+                                <th>Rol</th>
+                                <th>Celular</th>
+                                <th>Correo</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                            while ($fila = $resultado2->fetch_assoc()) {
+                                echo "<tr>";
+                                echo "<td><a href='informacionUsuario.php?id_user=" . $fila['id_usuario'] . "'>" . $fila['identificacion'] . "</a></td>";
+                                echo "<td>" . $fila['apellido_completo'] . "</td>";
+                                echo "<td>" . $fila['nombre_completo'] . "</td>";
+                                echo "<td>" . $fila['rol'] . "</td>";
+                                echo "<td>" . $fila['celular'] . "</td>";
+                                echo "<td>" . $fila['correo'] . "</td>";
+                                echo "<td>";
+                                    echo "<a href='../pages/actualizarUsuario.php?id_user=" . $fila['id_usuario'] . "' class='btnAccion btnActualizar'>Actualizar</a>";
+                                    if (!empty($fila['identificacion'])) {
+                                        echo "<button class='btnAccion btnOpenModalEliminar' data-id='" . htmlspecialchars($fila['id_usuario'], ENT_QUOTES, 'UTF-8') . "'>Eliminar</button>";
+                                    } else {
+                                        echo "<button class='btnAccion btnOpenModalEliminar' disabled>No disponible</button>";
+                                    }                                
+                                    echo "</td>";
+                                echo "</tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="paginacion"  id="paginacion">
                     <?php
                     $visiblePages = 5;
                     $startPage = max(1, $page - floor($visiblePages / 2));
