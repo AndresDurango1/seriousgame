@@ -17,8 +17,9 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+   
     background-color: #2d2b29;
+    overflow: scroll;
 }
 /* SECCION DE LA BARRA DE NAVEGACION */
 body .barraNavegacion {
@@ -229,11 +230,13 @@ body .contenedorPrincipal .barraLateral .contenedorFormularioActualizacion .form
 /* SECCION CONTENEDOR PRINCIPAL - CONTENIDO */
 body .contenedorPrincipal .contenedorPrincipalContent {
     width: 80%;
-    height: 100%;
+    height: 15%;
+    margin-top: 30%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    
 }
 /* SECCION CONTENEDOR PRINCIPAL - TABLA */
 body .contenedorPrincipal .contenedorPrincipalContent .contenedorTabla {
@@ -325,4 +328,32 @@ body .contenedorPrincipal .contenedorPrincipalContent .contenedorTabla .tablaUsu
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media(min-width:320px) and (max-width:544px){
+  
+}
+
+@media(min-width:545px) and (max-width:640px){
+
+}
+
+@media(min-width:641px) and (max-width:780px){
+
+}
+
+@media(min-width:781px) and (max-width:1024px){
+
+}
+
+@media(min-width:1024px) and (max-width:1080px){
+
+}
+
+@media(orientation: landscape) and (max-height: 385px){
+
+}
+
+@media(orientation: landscape) and (min-height: 410px) and (max-height: 550px){
+
 }
